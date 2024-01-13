@@ -1,0 +1,220 @@
+---
+title: "getting the feet wet with polynomials"
+format: html
+editor: visual
+---
+
+# Introduction
+
+Polynomials are the simplest functions we can study and are an ideal arena to put into practice the two key views on functions:
+
+*Relation Point of View and Procedure Point of View*
+
+Surprisingly these are not well understood by many students, even those in college.
+
+## Relation definition of polynomial functions
+
+We begin this section by giving four examples of polynomial functions:
+
+$$
+\begin{align}&\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=100\}\\&\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=3x+1\}\\&\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=x^2+3\}\\&\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=2x^3-x^2+0x+1\}\end{align}
+$$ {#eq-egsofpol}
+
+How should we interpret this notation?
+
+-   These are sets because they appear between $\{$ and $\}$.
+
+-   stating that $(x,y)\in \mathbb{R}^2$, just translates into "ordered pairs of reals are entities of this set".
+
+-   the bar $|$ , reads as "such that", after which we write some rule that we which this ordered pairs to have.
+
+-   To interpret the notation as a whole now, take $\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=3x+1\}$. We read is as a "set that contains ordered reals, such that they obey the equation $y=3x+1$". As an example, the pair $(1.3,2.9)$ obeys the equation because $2.9 = 3\times 1.3 +1$ is true, therefore it belong to the set, but $(1,3)$ does not since $3=3\times 1 +1$ is false.
+
+Each rule in @eq-egsofpol allow us to compute from a given $x$ a unique value $y$. As an example, chose $x=0$ and plug in $y=3x+1$, we get, not surprisingly, just the number $y=1$, we do not get other possibility; in fact the same would be observed for any $x$ we choose. This guarantees that each possible value of $y$ does not appear twice or more within the set. In such situation we have in our hands more than a set, we have a function! In other words, the calculation $3x+1$ for a specific $x$ is a unique number which is associated with $x$, we associate both numbers by writing $(x,3x+1)$, for example when we set $x=10$ we get $y=31$, we pair these numbers as $(10,31)$; every first entry $x$ of the order pairs $(x,y)$ is always assigned (second entry) to just one number, namely the number $3x+1$.
+
+Observation of the right hand side of the rules in @eq-egsofpol show they are all some combination of a power of $x$ times some number (positive or negative), the jargon for this is to say we have a linear combination of powers of $x$. From @eq-egsofpol we conclude the general form of these rules (equations) is:
+
+$$
+y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
+$$ {#eq-truthsetofpol}
+
+where the coefficients are labeled by $a_0$ through $a_n$ are reals.
+
+The truth set of the statement @eq-truthsetofpol is the function:
+
+$$
+P_n := \{(x,y)\in X\times Y\,\,|\,\, y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\}
+$$
+
+Which reads: from the pairs in the Cartesian product of the set $X$ with the set $Y$ we choose only the elements such that the rule $y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0$ is obeyed; it is useful to think about it as if we were choosing one by one the elements of $X\times Y$ which are of the form $(x,y)$ and then verifying whether that rules applies or not (True or False), see @fig-1234 .
+
+![Step by step construction of a polynomial function.](figs/1234.png){#fig-1234}
+
+The highest power of $x$ is $n$ and is called the degree of the polynomial. We can and will use it to classify the polynomial functions, that is the reason why we decided to label the set by the symbol $P_n$.
+
+::: callout-tip
+## Recall
+
+A Cartesian product of the sets $X=\{1,2,3\}$ and $Y=\{4,5\}$ is defined as:
+
+$$
+X\times Y =\{(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)\}
+$$
+:::
+
+## Procedure definition of polynomials functions
+
+Rather then the view of @fig-1234 on how to build the function $P_n$ we adopt a slightly different strategy:
+
+![An alternative way to construct a polynomial function.](figs/1234B.png){#fig-1234B}
+
+Rather than to choose, test and verify each element of the Cartesian product we can instead choose from $X$ the elements one by one and compute the corresponding $y$ by the calculation $a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0$; then we just include the so obtained ordered pair in the set $P_n$. The perceptive in @fig-1234B is expressed in mathematical notation as:
+
+$$
+\begin{align}
+p_n:X&\longrightarrow Y\\x &\longmapsto p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
+\end{align}
+$$ {#eq-defofpoldegn}
+
+Lets unpack what does this mean:
+
+1.  On the first row we find symbols that stand for:
+
+    *The procedure labeled by the symbol* $p_n$ *maps elements of* $X$ *into elements in* $Y$
+
+    This row of information immediately tells us what sets are involved, we can picture it as
+
+![Sets involved in the construction of the function, as well as the name of procedure that maps elements of the first into the second. From the first row we still do not know how the map works, this is specified in the second row.](figs/1strow.png){#fig-1strow width="379"}
+
+2.  The second row explains many aspects of the procedure between these sets: the symbol $x$ stands for a generic element of the set $X$ while the symbol $p_n(x)$ represents the element in $Y$, which is assigned to $x$ (notice the $\mapsto$ arrow), when the procedure $p_n$ acts on it. Moreover, this row also tell us what is the element $p_n(x)$, by telling what $p_n$ does with the number $x$! The symbols:
+
+    $$
+    p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
+    $$
+
+    must now be understood: $a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0$ has two meanings:
+
+    i\) is the LONG symbol for the number assigned to $x$;
+
+    ii\) it is a symbol that explains how $p_n$ acts on $x$ and get a number in $Y$.
+
+    Meanwhile $p_n(x)$ is an abbreviation for it! It is the Short symbol for the calculation. The symbol $:=$ means "by definition is equal to".
+
+    ![](figs/abbreviates.png)
+
+The entire definition @eq-defofpoldegn is the definition of a function, out of convince we name the function after the procedure, and refer to the function just as the "$p_n$ function". Observe that the symbol $p_n$ is our choice, we can use any symbol as we wish, traditionally we use just one letter $f$, $g$, $h$, etc.
+
+::: callout-note
+## Comment
+
+The largest domain supported by the procedure $p_n$ is $X=\mathbb{R}$ irrespective of the degree $n$, because with any real $x$ we can do the calculation $p_n(x)$; as usual the $Y$ is the codomain and could either be chosen as $\mathbb{R}$ or the range of the function. The range of a function depends on the degree $n$, being $\mathbb{R}^+_0$ if $n$ is even and $\mathbb{R}$ is $n$ is odd integer.
+:::
+
+## Examples
+
+Consider the functions:
+
+$$
+\begin{align}
+&F:=\{(x,y)\in\mathbb{R}\times\mathbb{R}\,\,|\,\,y=3x+1\}\\
+&G:=\{(x,y)\in\mathbb{R}\times\mathbb{R}\,\,|\,\,y=2x^3-x^2+0x+1\}
+\end{align}
+$$
+
+can be written as
+
+$$
+\begin{align}
+f:\mathbb{R}&\longrightarrow \mathbb{R}\\
+x &\longmapsto f(x):= 3x+1
+\end{align}
+$$and
+
+$$
+\begin{align}
+g:\mathbb{R}&\longrightarrow \mathbb{R}\\
+x &\longmapsto g(x):= 2x^3-x^2+1
+\end{align}
+$$
+
+The domain of $F$ and $G$ is $X=\mathbb{R}$ and the codomain is $Y=\mathbb{R}$ as we read from the $\mathbb{R}\times\mathbb{R}$.
+
+The ranges requires us to compute $f(\mathbb{R})$ and $g(\mathbb{R})$, but since this requires tools not yet introduced in these notes, we will simply plot the functions we guess what we think the domain is:
+
+```{python}
+import matplotlib.pyplot as plt 
+import numpy as np
+
+xs = np.arange(-2.0, 2.1, 0.1)
+
+plt.figure()
+plt.subplot(211)
+plt.plot(xs, 3 * xs + 1, 'r-')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+
+plt.subplot(212)
+plt.plot(xs, 2 * xs**3 - xs + 1, 'b-')
+plt.xlabel('x')
+plt.ylabel('g(x)')
+plt.show()
+```
+
+We can see that both functions increase/decrease without bound as $|x|$ increases, thus the range is $\mathbb{R}$ in both functions.
+
+## Exercise
+
+Define @eq-defofpoldegn for the first and third function sets in @eq-egsofpol. Be careful in specifying what is the range of either function.
+
+## Answer
+
+From the set:
+
+$$
+\{(x,y)\in \mathbb{R}\times\mathbb{R}\,\,|\,\, y=100\}
+$$
+
+we identify the domain and codomain as the first and second sets in $\mathbb{R}\times\mathbb{R}$, thus the domain is $\mathbb{R}$ and the codomain is $\mathbb{R}$ aswell. Meanwhile the range is just is $l(\mathbb{R})=\{100\}$. We can write this function using the procedure notation as:
+
+$$
+\begin{align}
+l:\mathbb{R}&\longrightarrow \{1\}\subset \mathbb{R}\\
+x &\longmapsto l(x):= 100
+\end{align}
+$$
+
+The second function-set:
+
+$$
+\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=x^2+3\}
+$$
+
+Is translated into:
+
+$$
+\begin{align}
+c:\mathbb{R}&\longrightarrow [3,+\infty[\subset \mathbb{R}\\
+x &\longmapsto c(x):= x^2+3
+\end{align}
+$$
+
+The domain and range are both $\mathbb{R}$ again but the range is trickier. We want to compute the set $c(\mathbb{R})$, to do it, we note by inspecting $x^2+3$ that its minimum value occurs when $x=0$ and the larger the $x$, the larger is $x^2+3$, thus $c(\mathbb{R})=[3,+\infty[$, which is a subset of the codomain $\mathbb{R}$.
+
+```{python}
+import matplotlib.pyplot as plt 
+import numpy as np
+
+xs = np.arange(-2.0, 2.1, 0.1)
+
+plt.figure()
+plt.subplot(211)
+plt.plot(xs, np.ones([len(xs)]) * 100, 'r-')
+plt.xlabel('x')
+plt.ylabel('l(x)')
+
+plt.subplot(212)
+plt.plot(xs, xs**2 + 3, 'b-')
+plt.xlabel('x')
+plt.ylabel('g(x)')
+plt.show()
+```

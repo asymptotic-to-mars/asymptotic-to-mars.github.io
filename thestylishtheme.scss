@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+
+/*-- Define colors for later use --*/
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #f8f9fa;
+$gray-300: #f8f9fa;
+$gray-400: #f8f9fa;
+$gray-500: #f8f9fb;
+$gray-600: #f8f9fc;
+$gray-700: #495057;
+$gray-800: #f8f9fa;
+$gray-900: #f8f9fa;
+
+$black: #000;
+$primary: #BB4430;
+$secundary: #F3DFA2;
+$tertiary: #0D5C63;
+
+/*--Define Bootstrap color variables --*/
+
+//The page text color
+$body-color: $black;
+
+
+
+/*-- scss:rules --*/
+
+a {
+    color: $tertiary;
+    text-decoration: underline;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    -ms-text-decoration: underline;
+    -o-text-decoration: underline;
+}

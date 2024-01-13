@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="me">
 
-<title>asymptotic to MARS - Brief Notes</title>
+<title>asymptotic to MARS - Favourites</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -63,6 +96,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Bried Notes</span></a>
   </li>  
   <li class="nav-item">
@@ -92,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./favourites.html" rel="" target="">
+    <a class="nav-link active" href="./favourites.html" rel="" target="" aria-current="page">
  <span class="menu-text">Favourites</span></a>
   </li>  
 </ul>
@@ -112,7 +147,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#teh-notes" id="toc-teh-notes" class="nav-link active" data-scroll-target="#teh-notes">Teh Notes</a></li>
+  <li><a href="#my-list-of-things" id="toc-my-list-of-things" class="nav-link active" data-scroll-target="#my-list-of-things">My list of things:</a></li>
+  <li><a href="#fun-picture" id="toc-fun-picture" class="nav-link" data-scroll-target="#fun-picture">Fun Picture</a></li>
+  <li><a href="#best-movies-of-all-time." id="toc-best-movies-of-all-time." class="nav-link" data-scroll-target="#best-movies-of-all-time.">Best Movies of ALL TIME.</a></li>
+  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful links</a></li>
+  <li><a href="#oracle-advice-for-2024" id="toc-oracle-advice-for-2024" class="nav-link" data-scroll-target="#oracle-advice-for-2024">Oracle advice for 2024</a></li>
+  <li><a href="#the-secret-code" id="toc-the-secret-code" class="nav-link" data-scroll-target="#the-secret-code">The Secret Code</a></li>
+  <li><a href="#a-one-inch-long-equation" id="toc-a-one-inch-long-equation" class="nav-link" data-scroll-target="#a-one-inch-long-equation">A one inch-long Equation</a></li>
+  <li><a href="#testing-the-dirac-notation" id="toc-testing-the-dirac-notation" class="nav-link" data-scroll-target="#testing-the-dirac-notation">Testing the Dirac Notation</a></li>
+  <li><a href="#song-for-2024" id="toc-song-for-2024" class="nav-link" data-scroll-target="#song-for-2024">Song for 2024</a>
+  <ul class="collapse">
+  <li><a href="#references-for-this-outstanding-site" id="toc-references-for-this-outstanding-site" class="nav-link" data-scroll-target="#references-for-this-outstanding-site">References for this outstanding site:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -121,20 +167,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Brief Notes</h1>
-<p class="subtitle lead">YesYes, these are brief</p>
+<h1 class="title">Favourites</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>me </p>
-          </div>
-  </div>
     
   
     
@@ -143,14 +182,89 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="teh-notes" class="level2">
-<h2 class="anchored" data-anchor-id="teh-notes">Teh Notes</h2>
+<section id="my-list-of-things" class="level2">
+<h2 class="anchored" data-anchor-id="my-list-of-things">My list of things:</h2>
 <ul>
-<li><p><a href="./polynomials.html">Getting the feet wet with Polynomials</a></p></li>
-<li><p><a href="./angular_momentum_qm.html">Angular momentum in quantum mechanics</a></p></li>
+<li><p>beans</p></li>
+<li><p>seeds</p></li>
+<li><p>tofu</p></li>
+<li><p>legumes</p></li>
+<li><p>more</p></li>
 </ul>
+</section>
+<section id="fun-picture" class="level2">
+<h2 class="anchored" data-anchor-id="fun-picture">Fun Picture</h2>
+<div id="fig-fun" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/giphy-01.gif" class="img-fluid figure-img" alt="The Aristogatos knew it." width="300"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: If you keep using the same strategy, expecting …..</figcaption>
+</figure>
+</div>
+<p>At least the cat is having fun, some <a href="https://youtu.be/_C7UgR_sIW0?si=Nbdetovk0SrXObkB&amp;t=48"><em>music</em></a> topping.</p>
+</section>
+<section id="best-movies-of-all-time." class="level2">
+<h2 class="anchored" data-anchor-id="best-movies-of-all-time.">Best Movies of ALL TIME.</h2>
+<ol type="1">
+<li><p>Sucker Punch</p></li>
+<li><p>Return of the King</p></li>
+<li><p>Matrix: Reloaded</p></li>
+<li><p>Matrix: Revolution</p></li>
+<li><p>Matrix</p></li>
+<li><p>Anything Rambo or Steven Seagel</p></li>
+<li><p>Etc.</p></li>
+</ol>
+</section>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
+<ol type="1">
+<li><p><a href="https://www.youtube.com/watch?v=HABbAHdfdXk" title="very useful :)">Peace of Mind</a></p></li>
+<li><p><a href="https://4rtgallery.blogspot.com/2014/03/spray-paint-portraits-by-david-walker.html" title="yes it is also needed">Art</a> or whatever..</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=wYY1eIJzwSI&amp;list=LL&amp;index=3">FunFun</a> Short</p></li>
+</ol>
+</section>
+<section id="oracle-advice-for-2024" class="level2">
+<h2 class="anchored" data-anchor-id="oracle-advice-for-2024">Oracle advice for 2024</h2>
+<blockquote class="blockquote">
+<p><span class="math display">\[ 2024 = 2^3 \times 11 \times 23 \]</span></p>
+</blockquote>
+</section>
+<section id="the-secret-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-secret-code">The Secret Code</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Update(x):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">10</span> <span class="op">*</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>…that solves all Earth’s problems according to the gospel of Marx.</p>
+</section>
+<section id="a-one-inch-long-equation" class="level2">
+<h2 class="anchored" data-anchor-id="a-one-inch-long-equation">A one inch-long Equation</h2>
+<p><span class="math display">\[ F = ma \]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The equation is a differential vector equation. Aesthetically, it is a pleasing equation as written, but it is more meaningfully pleasing by switching the right and left hand sides.</p>
+</div>
+</div>
+</section>
+<section id="testing-the-dirac-notation" class="level2">
+<h2 class="anchored" data-anchor-id="testing-the-dirac-notation">Testing the Dirac Notation</h2>
+<p><span class="math display">\[ i\hbar\frac{\partial |\psi\rangle}{\partial t} = \hat{H}|\psi\rangle  \]</span></p>
+<p>It works.</p>
+</section>
+<section id="song-for-2024" class="level2">
+<h2 class="anchored" data-anchor-id="song-for-2024">Song for 2024</h2>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/2aFoG7zNIv4" width="500" height="250" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="references-for-this-outstanding-site" class="level3">
+<h3 class="anchored" data-anchor-id="references-for-this-outstanding-site">References for this outstanding site:</h3>
+<p>Master-Cohen Tannoudji, <em>Quantum Mechanics</em>, f#ing-Wiley</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

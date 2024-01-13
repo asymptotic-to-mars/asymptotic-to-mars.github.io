@@ -1,0 +1,7 @@
+---
+title: "macros"
+---
+
+```         
+::: {.hidden} $$ \newcommand{\foo}{E=mc^{2}} $$ :::
+```

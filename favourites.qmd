@@ -1,0 +1,80 @@
+---
+title: "Favourites"
+---
+
+## My list of things:
+
+-   beans
+
+-   seeds
+
+-   tofu
+
+-   legumes
+
+-   more
+
+## Fun Picture
+
+![If you keep using the same strategy, expecting .....](images/giphy-01.gif){#fig-fun fig-alt="The Aristogatos knew it." fig-align="center" width="300"}
+
+At least the cat is having fun, some [*music*](https://youtu.be/_C7UgR_sIW0?si=Nbdetovk0SrXObkB&t=48) topping.
+
+## Best Movies of ALL TIME.
+
+1.  Sucker Punch
+
+2.  Return of the King
+
+3.  Matrix: Reloaded
+
+4.  Matrix: Revolution
+
+5.  Matrix
+
+6.  Anything Rambo or Steven Seagel
+
+7.  Etc.
+
+## Useful links
+
+1.  [Peace of Mind](https://www.youtube.com/watch?v=HABbAHdfdXk "very useful :)")
+
+2.  [Art](https://4rtgallery.blogspot.com/2014/03/spray-paint-portraits-by-david-walker.html "yes it is also needed") or whatever..
+
+3.  [FunFun](https://www.youtube.com/watch?v=wYY1eIJzwSI&list=LL&index=3) Short
+
+## Oracle advice for 2024
+
+> $$ 2024 = 2^3 \times 11 \times 23 $$
+
+## The Secret Code
+
+``` python
+def Update(x):
+  return 10 * x
+```
+
+...that solves all Earth's problems according to the gospel of Marx.
+
+## A one inch-long Equation
+
+$$ F = ma $$
+
+::: callout-tip
+The equation is a differential vector equation. Aesthetically, it is a pleasing equation as written, but it is more meaningfully pleasing by switching the right and left hand sides.
+:::
+
+## Testing the Dirac Notation
+
+$$ i\hbar\frac{\partial |\psi\rangle}{\partial t} = \hat{H}|\psi\rangle  $$
+
+It works.
+
+## Song for 2024
+
+{{< video https://www.youtube.com/watch?v=2aFoG7zNIv4&list=LL&index=2 width="500" height="250" >}}
+
+### References for this outstanding site:
+
+Master-Cohen Tannoudji, *Quantum Mechanics*, f#ing-Wiley

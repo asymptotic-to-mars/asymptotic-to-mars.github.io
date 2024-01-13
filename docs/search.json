@@ -2,9 +2,72 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "asymptotic-to-mars.github.io",
+    "title": "Brief Notes",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Getting the feet wet with Polynomials\nAngular momentum in quantum mechanics"
+  },
+  {
+    "objectID": "index.html#my-list-of-things",
+    "href": "index.html#my-list-of-things",
+    "title": "Brief Notes",
+    "section": "My list of things:",
+    "text": "My list of things:\n\nbeans\nseeds\ntofu\nlegumes\nmore"
+  },
+  {
+    "objectID": "index.html#fun-picture",
+    "href": "index.html#fun-picture",
+    "title": "Brief Notes",
+    "section": "Fun Picture",
+    "text": "Fun Picture\n\n\n\nFigure 1: If you keep using the same strategy, expecting …..\n\n\nAt least the cat is having fun, some music topping."
+  },
+  {
+    "objectID": "index.html#useful-links",
+    "href": "index.html#useful-links",
+    "title": "Brief Notes",
+    "section": "Useful links",
+    "text": "Useful links\n\nPeace of Mind\nArt or whatever..\nFunFun Short"
+  },
+  {
+    "objectID": "index.html#oracle-advice-for-2024",
+    "href": "index.html#oracle-advice-for-2024",
+    "title": "Brief Notes",
+    "section": "Oracle advice for 2024",
+    "text": "Oracle advice for 2024\n\n\\[\n2024 = 2^3 \\times 11 \\times 23\n\\]"
+  },
+  {
+    "objectID": "index.html#the-secret-code",
+    "href": "index.html#the-secret-code",
+    "title": "Brief Notes",
+    "section": "The Secret Code",
+    "text": "The Secret Code\ndef Update(x):\n  return 10 * x\n…that solves all Earth’s problems according to the gospel of Marx."
+  },
+  {
+    "objectID": "index.html#a-one-inch-long-equation",
+    "href": "index.html#a-one-inch-long-equation",
+    "title": "Brief Notes",
+    "section": "A one inch-long Equation",
+    "text": "A one inch-long Equation\n\\[\nF = ma\n\\]\n\n\n\n\n\n\nTip\n\n\n\nThe equation is a differential vector equation. Aesthetically, it is a pleasing equation as written, but it is more meaningfully pleasing by switching the right and left hand sides."
+  },
+  {
+    "objectID": "index.html#testing-the-dirac-notation",
+    "href": "index.html#testing-the-dirac-notation",
+    "title": "Brief Notes",
+    "section": "Testing the Dirac Notation",
+    "text": "Testing the Dirac Notation\n\\[\ni\\hbar\\frac{\\partial |\\psi\\rangle}{\\partial t} = \\hat{H}|\\psi\\rangle\n\\]\nIt works."
+  },
+  {
+    "objectID": "index.html#song-for-2024",
+    "href": "index.html#song-for-2024",
+    "title": "Brief Notes",
+    "section": "Song for 2024",
+    "text": "Song for 2024\n\n\nReferences for this outstanding site:\nMaster-Cohen Tannoudji, Quantum Mechanics, f#ing-Wiley"
+  },
+  {
+    "objectID": "macros.html",
+    "href": "macros.html",
+    "title": "macros",
+    "section": "",
+    "text": "::: {.hidden} $$ \\newcommand{\\foo}{E=mc^{2}} $$ :::"
   },
   {
     "objectID": "about.html",
@@ -12,5 +75,194 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "favourites.html",
+    "href": "favourites.html",
+    "title": "Favourites",
+    "section": "",
+    "text": "beans\nseeds\ntofu\nlegumes\nmore"
+  },
+  {
+    "objectID": "favourites.html#movies",
+    "href": "favourites.html#movies",
+    "title": "Favourites",
+    "section": "Movies",
+    "text": "Movies\n\nSucker Punch\nReturn of the King\nMatrix: Reloaded\nMatrix: Revolution\nMatrix\nAnything Rambo or Steven Seagel\nEtc."
+  },
+  {
+    "objectID": "favourites.html#my-list-of-things",
+    "href": "favourites.html#my-list-of-things",
+    "title": "Favourites",
+    "section": "",
+    "text": "beans\nseeds\ntofu\nlegumes\nmore"
+  },
+  {
+    "objectID": "favourites.html#fun-picture",
+    "href": "favourites.html#fun-picture",
+    "title": "Favourites",
+    "section": "Fun Picture",
+    "text": "Fun Picture\n\n\n\nFigure 1: If you keep using the same strategy, expecting …..\n\n\nAt least the cat is having fun, some music topping."
+  },
+  {
+    "objectID": "favourites.html#useful-links",
+    "href": "favourites.html#useful-links",
+    "title": "Favourites",
+    "section": "Useful links",
+    "text": "Useful links\n\nPeace of Mind\nArt or whatever..\nFunFun Short"
+  },
+  {
+    "objectID": "favourites.html#oracle-advice-for-2024",
+    "href": "favourites.html#oracle-advice-for-2024",
+    "title": "Favourites",
+    "section": "Oracle advice for 2024",
+    "text": "Oracle advice for 2024\n\n\\[ 2024 = 2^3 \\times 11 \\times 23 \\]"
+  },
+  {
+    "objectID": "favourites.html#the-secret-code",
+    "href": "favourites.html#the-secret-code",
+    "title": "Favourites",
+    "section": "The Secret Code",
+    "text": "The Secret Code\ndef Update(x):\n  return 10 * x\n…that solves all Earth’s problems according to the gospel of Marx."
+  },
+  {
+    "objectID": "favourites.html#a-one-inch-long-equation",
+    "href": "favourites.html#a-one-inch-long-equation",
+    "title": "Favourites",
+    "section": "A one inch-long Equation",
+    "text": "A one inch-long Equation\n\\[ F = ma \\]\n\n\n\n\n\n\nTip\n\n\n\nThe equation is a differential vector equation. Aesthetically, it is a pleasing equation as written, but it is more meaningfully pleasing by switching the right and left hand sides."
+  },
+  {
+    "objectID": "favourites.html#testing-the-dirac-notation",
+    "href": "favourites.html#testing-the-dirac-notation",
+    "title": "Favourites",
+    "section": "Testing the Dirac Notation",
+    "text": "Testing the Dirac Notation\n\\[ i\\hbar\\frac{\\partial |\\psi\\rangle}{\\partial t} = \\hat{H}|\\psi\\rangle  \\]\nIt works."
+  },
+  {
+    "objectID": "favourites.html#song-for-2024",
+    "href": "favourites.html#song-for-2024",
+    "title": "Favourites",
+    "section": "Song for 2024",
+    "text": "Song for 2024\n\n\nReferences for this outstanding site:\nMaster-Cohen Tannoudji, Quantum Mechanics, f#ing-Wiley"
+  },
+  {
+    "objectID": "favourites.html#best-movies-of-all-time.",
+    "href": "favourites.html#best-movies-of-all-time.",
+    "title": "Favourites",
+    "section": "Best Movies of ALL TIME.",
+    "text": "Best Movies of ALL TIME.\n\nSucker Punch\nReturn of the King\nMatrix: Reloaded\nMatrix: Revolution\nMatrix\nAnything Rambo or Steven Seagel\nEtc."
+  },
+  {
+    "objectID": "index.html#teh-notes",
+    "href": "index.html#teh-notes",
+    "title": "Brief Notes",
+    "section": "",
+    "text": "Getting the feet wet with Polynomials\nAngular momentum in quantum mechanics"
+  },
+  {
+    "objectID": "polynomials.html",
+    "href": "polynomials.html",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "Polynomials are the simplest functions we can study and are an ideal arena to put into practice the two key views on functions:\nRelation Point of View and Procedure Point of View\nSurprisingly these are not well understood by many students, even those in college.\n\n\nWe begin this section by giving four examples of polynomial functions:\n\\[\n\\begin{align}&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=100\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=3x+1\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=x^2+3\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=2x^3-x^2+0x+1\\}\\end{align}\n\\tag{1}\\]\nHow should we interpret this notation?\n\nThese are sets because they appear between \\(\\{\\) and \\(\\}\\).\nstating that \\((x,y)\\in \\mathbb{R}^2\\), just translates into “ordered pairs of reals are entities of this set”.\nthe bar \\(|\\) , reads as “such that”, after which we write some rule that we which this ordered pairs to have.\nTo interpret the notation as a whole now, take \\(\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=3x+1\\}\\). We read is as a “set that contains ordered reals, such that they obey the equation \\(y=3x+1\\)”. As an example, the pair \\((1.3,2.9)\\) obeys the equation because \\(2.9 = 3\\times 1.3 +1\\) is true, therefore it belong to the set, but \\((1,3)\\) does not since \\(3=3\\times 1 +1\\) is false.\n\nEach rule in Equation 1 allow us to compute from a given \\(x\\) a unique value \\(y\\). As an example, chose \\(x=0\\) and plug in \\(y=3x+1\\), we get, not surprisingly, just the number \\(y=1\\), we do not get other possibility; in fact the same would be observed for any \\(x\\) we choose. This guarantees that each possible value of \\(y\\) does not appear twice or more within the set. In such situation we have in our hands more than a set, we have a function! In other words, the calculation \\(3x+1\\) for a specific \\(x\\) is a unique number which is associated with \\(x\\), we associate both numbers by writing \\((x,3x+1)\\), for example when we set \\(x=10\\) we get \\(y=31\\), we pair these numbers as \\((10,31)\\); every first entry \\(x\\) of the order pairs \\((x,y)\\) is always assigned (second entry) to just one number, namely the number \\(3x+1\\).\nObservation of the right hand side of the rules in Equation 1 show they are all some combination of a power of \\(x\\) times some number (positive or negative), the jargon for this is to say we have a linear combination of powers of \\(x\\). From Equation 1 we conclude the general form of these rules (equations) is:\n\\[\ny=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\tag{2}\\]\nwhere the coefficients are labeled by \\(a_0\\) through \\(a_n\\) are reals.\nThe truth set of the statement Equation 2 is the function:\n\\[\nP_n := \\{(x,y)\\in X\\times Y\\,\\,|\\,\\, y=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\}\n\\]\nWhich reads: from the pairs in the Cartesian product of the set \\(X\\) with the set \\(Y\\) we choose only the elements such that the rule \\(y=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\) is obeyed; it is useful to think about it as if we were choosing one by one the elements of \\(X\\times Y\\) which are of the form \\((x,y)\\) and then verifying whether that rules applies or not (True or False), see Figure 1 .\n\n\n\nFigure 1: Step by step construction of a polynomial function.\n\n\nThe highest power of \\(x\\) is \\(n\\) and is called the degree of the polynomial. We can and will use it to classify the polynomial functions, that is the reason why we decided to label the set by the symbol \\(P_n\\).\n\n\n\n\n\n\nRecall\n\n\n\nA Cartesian product of the sets \\(X=\\{1,2,3\\}\\) and \\(Y=\\{4,5\\}\\) is defined as:\n\\[\nX\\times Y =\\{(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)\\}\n\\]\n\n\n\n\n\nRather then the view of Figure 1 on how to build the function \\(P_n\\) we adopt a slightly different strategy:\n\n\n\nFigure 2: An alternative way to construct a polynomial function.\n\n\nRather than to choose, test and verify each element of the Cartesian product we can instead choose from \\(X\\) the elements one by one and compute the corresponding \\(y\\) by the calculation \\(a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\); then we just include the so obtained ordered pair in the set \\(P_n\\). The perceptive in Figure 2 is expressed in mathematical notation as:\n\\[\n\\begin{align}\np_n:X&\\longrightarrow Y\\\\x &\\longmapsto p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\end{align}\n\\tag{3}\\]\nLets unpack what does this mean:\n\nOn the first row we find symbols that stand for:\nThe procedure labeled by the symbol \\(p_n\\) maps elements of \\(X\\) into elements in \\(Y\\)\nThis row of information immediately tells us what sets are involved, we can picture it as\n\n\n\n\nFigure 3: Sets involved in the construction of the function, as well as the name of procedure that maps elements of the first into the second. From the first row we still do not know how the map works, this is specified in the second row.\n\n\n\nThe second row explains many aspects of the procedure between these sets: the symbol \\(x\\) stands for a generic element of the set \\(X\\) while the symbol \\(p_n(x)\\) represents the element in \\(Y\\), which is assigned to \\(x\\) (notice the \\(\\mapsto\\) arrow), when the procedure \\(p_n\\) acts on it. Moreover, this row also tell us what is the element \\(p_n(x)\\), by telling what \\(p_n\\) does with the number \\(x\\)! The symbols:\n\\[\np_n(x):= a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\]\nmust now be understood: \\(a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\) has two meanings:\ni) is the LONG symbol for the number assigned to \\(x\\);\nii) it is a symbol that explains how \\(p_n\\) acts on \\(x\\) and get a number in \\(Y\\).\nMeanwhile \\(p_n(x)\\) is an abbreviation for it! It is the Short symbol for the calculation. The symbol \\(:=\\) means “by definition is equal to”.\n\n\nThe entire definition Equation 3 is the definition of a function, out of convince we name the function after the procedure, and refer to the function just as the “\\(p_n\\) function”. Observe that the symbol \\(p_n\\) is our choice, we can use any symbol as we wish, traditionally we use just one letter \\(f\\), \\(g\\), \\(h\\), etc.\n\n\n\n\n\n\nComment\n\n\n\nThe largest domain supported by the procedure \\(p_n\\) is \\(X=\\mathbb{R}\\) irrespective of the degree \\(n\\), because with any real \\(x\\) we can do the calculation \\(p_n(x)\\); as usual the \\(Y\\) is the codomain and could either be chosen as \\(\\mathbb{R}\\) or the range of the function. The range of a function depends on the degree \\(n\\), being \\(\\mathbb{R}^+_0\\) if \\(n\\) is even and \\(\\mathbb{R}\\) is \\(n\\) is odd integer.\n\n\n\n\n\nConsider the functions:\n\\[\n\\begin{align}\n&F:=\\{(x,y)\\in\\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\,y=3x+1\\}\\\\\n&G:=\\{(x,y)\\in\\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\,y=2x^3-x^2+0x+1\\}\n\\end{align}\n\\]\ncan be written as\n\\[\n\\begin{align}\nf:\\mathbb{R}&\\longrightarrow \\mathbb{R}\\\\\nx &\\longmapsto f(x):= 3x+1\n\\end{align}\n\\]and\n\\[\n\\begin{align}\ng:\\mathbb{R}&\\longrightarrow \\mathbb{R}\\\\\nx &\\longmapsto g(x):= 2x^3-x^2+1\n\\end{align}\n\\]\nThe domain of \\(F\\) and \\(G\\) is \\(X=\\mathbb{R}\\) and the codomain is \\(Y=\\mathbb{R}\\) as we read from the \\(\\mathbb{R}\\times\\mathbb{R}\\).\nThe ranges requires us to compute \\(f(\\mathbb{R})\\) and \\(g(\\mathbb{R})\\), but since this requires tools not yet introduced in these notes, we will simply plot the functions we guess what we think the domain is:\n\nimport matplotlib.pyplot as plt \nimport numpy as np\n\nxs = np.arange(-2.0, 2.1, 0.1)\n\nplt.figure()\nplt.subplot(211)\nplt.plot(xs, 3 * xs + 1, 'r-')\nplt.xlabel('x')\nplt.ylabel('f(x)')\n\nplt.subplot(212)\nplt.plot(xs, 2 * xs**3 - xs + 1, 'b-')\nplt.xlabel('x')\nplt.ylabel('g(x)')\nplt.show()\n\n\n\n\nWe can see that both functions increase/decrease without bound as \\(|x|\\) increases, thus the range is \\(\\mathbb{R}\\) in both functions.\n\n\n\nDefine Equation 3 for the first and third function sets in Equation 1. Be careful in specifying what is the range of either function.\n\n\n\nFrom the set:\n\\[\n\\{(x,y)\\in \\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\, y=100\\}\n\\]\nwe identify the domain and codomain as the first and second sets in \\(\\mathbb{R}\\times\\mathbb{R}\\), thus the domain is \\(\\mathbb{R}\\) and the codomain is \\(\\mathbb{R}\\) aswell. Meanwhile the range is just is \\(l(\\mathbb{R})=\\{100\\}\\). We can write this function using the procedure notation as:\n\\[\n\\begin{align}\nl:\\mathbb{R}&\\longrightarrow \\{1\\}\\subset \\mathbb{R}\\\\\nx &\\longmapsto l(x):= 100\n\\end{align}\n\\]\nThe second function-set:\n\\[\n\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=x^2+3\\}\n\\]\nIs translated into:\n\\[\n\\begin{align}\nc:\\mathbb{R}&\\longrightarrow [3,+\\infty[\\subset \\mathbb{R}\\\\\nx &\\longmapsto c(x):= x^2+3\n\\end{align}\n\\]\nThe domain and range are both \\(\\mathbb{R}\\) again but the range is trickier. We want to compute the set \\(c(\\mathbb{R})\\), to do it, we note by inspecting \\(x^2+3\\) that its minimum value occurs when \\(x=0\\) and the larger the \\(x\\), the larger is \\(x^2+3\\), thus \\(c(\\mathbb{R})=[3,+\\infty[\\), which is a subset of the codomain \\(\\mathbb{R}\\).\n\nimport matplotlib.pyplot as plt \nimport numpy as np\n\nxs = np.arange(-2.0, 2.1, 0.1)\n\nplt.figure()\nplt.subplot(211)\nplt.plot(xs, np.ones([len(xs)]) * 100, 'r-')\nplt.xlabel('x')\nplt.ylabel('l(x)')\n\nplt.subplot(212)\nplt.plot(xs, xs**2 + 3, 'b-')\nplt.xlabel('x')\nplt.ylabel('g(x)')\nplt.show()"
+  },
+  {
+    "objectID": "polynomials.html#relation-definition-of-polynomial-functions",
+    "href": "polynomials.html#relation-definition-of-polynomial-functions",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "We begin this section by giving four examples of polynomial functions:\n\\[\n\\begin{align}&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=100\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=3x+1\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=x^2+3\\}\\\\&\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=2x^3-x^2+0x+1\\}\\end{align}\n\\tag{1}\\]\nHow should we interpret this notation?\n\nThese are sets because they appear between \\(\\{\\) and \\(\\}\\).\nstating that \\((x,y)\\in \\mathbb{R}^2\\), just translates into “ordered pairs of reals are entities of this set”.\nthe bar \\(|\\) , reads as “such that”, after which we write some rule that we which this ordered pairs to have.\nTo interpret the notation as a whole now, take \\(\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=3x+1\\}\\). We read is as a “set that contains ordered reals, such that they obey the equation \\(y=3x+1\\)”. As an example, the pair \\((1.3,2.9)\\) obeys the equation because \\(2.9 = 3\\times 1.3 +1\\) is true, therefore it belong to the set, but \\((1,3)\\) does not since \\(3=3\\times 1 +1\\) is false.\n\nEach rule in Equation 1 allow us to compute from a given \\(x\\) a unique value \\(y\\). As an example, chose \\(x=0\\) and plug in \\(y=3x+1\\), we get, not surprisingly, just the number \\(y=1\\), we do not get other possibility; in fact the same would be observed for any \\(x\\) we choose. This guarantees that each possible value of \\(y\\) does not appear twice or more within the set. In such situation we have in our hands more than a set, we have a function! In other words, the calculation \\(3x+1\\) for a specific \\(x\\) is a unique number which is associated with \\(x\\), we associate both numbers by writing \\((x,3x+1)\\), for example when we set \\(x=10\\) we get \\(y=31\\), we pair these numbers as \\((10,31)\\); every first entry \\(x\\) of the order pairs \\((x,y)\\) is always assigned (second entry) to just one number, namely the number \\(3x+1\\).\nObservation of the right hand side of the rules in Equation 1 show they are all some combination of a power of \\(x\\) times some number (positive or negative), the jargon for this is to say we have a linear combination of powers of \\(x\\). From Equation 1 we conclude the general form of these rules (equations) is:\n\\[\ny=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\tag{2}\\]\nwhere the coefficients are labeled by \\(a_0\\) through \\(a_n\\) are reals.\nThe truth set of the statement Equation 2 is the function:\n\\[\nP_n := \\{(x,y)\\in X\\times Y\\,\\,|\\,\\, y=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\}\n\\]\nWhich reads: from the pairs in the Cartesian product of the set \\(X\\) with the set \\(Y\\) we choose only the elements such that the rule \\(y=a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\) is obeyed; it is useful to think about it as if we were choosing one by one the elements of \\(X\\times Y\\) which are of the form \\((x,y)\\) and then verifying whether that rules applies or not (True or False), see Figure 1 .\n\n\n\nFigure 1: Step by step construction of a polynomial function.\n\n\nThe highest power of \\(x\\) is \\(n\\) and is called the degree of the polynomial. We can and will use it to classify the polynomial functions, that is the reason why we decided to label the set by the symbol \\(P_n\\).\n\n\n\n\n\n\nRecall\n\n\n\nA Cartesian product of the sets \\(X=\\{1,2,3\\}\\) and \\(Y=\\{4,5\\}\\) is defined as:\n\\[\nX\\times Y =\\{(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)\\}\n\\]"
+  },
+  {
+    "objectID": "polynomials.html#procedure-definition-of-polynomials-functions",
+    "href": "polynomials.html#procedure-definition-of-polynomials-functions",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "Rather then the view of Figure 1 on how to build the function \\(P_n\\) we adopt a slightly different strategy:\n\n\n\nFigure 2: An alternative way to construct a polynomial function.\n\n\nRather than to choose, test and verify each element of the Cartesian product we can instead choose from \\(X\\) the elements one by one and compute the corresponding \\(y\\) by the calculation \\(a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\); then we just include the so obtained ordered pair in the set \\(P_n\\). The perceptive in Figure 2 is expressed in mathematical notation as:\n\\[\n\\begin{align}\np_n:X&\\longrightarrow Y\\\\x &\\longmapsto p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\end{align}\n\\tag{3}\\]\nLets unpack what does this mean:\n\nOn the first row we find symbols that stand for:\nThe procedure labeled by the symbol \\(p_n\\) maps elements of \\(X\\) into elements in \\(Y\\)\nThis row of information immediately tells us what sets are involved, we can picture it as\n\n\n\n\nFigure 3: Sets involved in the construction of the function, as well as the name of procedure that maps elements of the first into the second. From the first row we still do not know how the map works, this is specified in the second row.\n\n\n\nThe second row explains many aspects of the procedure between these sets: the symbol \\(x\\) stands for a generic element of the set \\(X\\) while the symbol \\(p_n(x)\\) represents the element in \\(Y\\), which is assigned to \\(x\\) (notice the \\(\\mapsto\\) arrow), when the procedure \\(p_n\\) acts on it. Moreover, this row also tell us what is the element \\(p_n(x)\\), by telling what \\(p_n\\) does with the number \\(x\\)! The symbols:\n\\[\np_n(x):= a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\n\\]\nmust now be understood: \\(a_nx^n+a_{n-1}x^{n-1}+\\dots+a_1 x+a_0\\) has two meanings:\ni) is the LONG symbol for the number assigned to \\(x\\);\nii) it is a symbol that explains how \\(p_n\\) acts on \\(x\\) and get a number in \\(Y\\).\nMeanwhile \\(p_n(x)\\) is an abbreviation for it! It is the Short symbol for the calculation. The symbol \\(:=\\) means “by definition is equal to”.\n\n\nThe entire definition Equation 3 is the definition of a function, out of convince we name the function after the procedure, and refer to the function just as the “\\(p_n\\) function”. Observe that the symbol \\(p_n\\) is our choice, we can use any symbol as we wish, traditionally we use just one letter \\(f\\), \\(g\\), \\(h\\), etc.\n\n\n\n\n\n\nComment\n\n\n\nThe largest domain supported by the procedure \\(p_n\\) is \\(X=\\mathbb{R}\\) irrespective of the degree \\(n\\), because with any real \\(x\\) we can do the calculation \\(p_n(x)\\); as usual the \\(Y\\) is the codomain and could either be chosen as \\(\\mathbb{R}\\) or the range of the function. The range of a function depends on the degree \\(n\\), being \\(\\mathbb{R}^+_0\\) if \\(n\\) is even and \\(\\mathbb{R}\\) is \\(n\\) is odd integer."
+  },
+  {
+    "objectID": "polynomials.html#examples",
+    "href": "polynomials.html#examples",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "Consider the functions:\n\\[\n\\begin{align}\n&F:=\\{(x,y)\\in\\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\,y=3x+1\\}\\\\\n&G:=\\{(x,y)\\in\\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\,y=2x^3-x^2+0x+1\\}\n\\end{align}\n\\]\ncan be written as\n\\[\n\\begin{align}\nf:\\mathbb{R}&\\longrightarrow \\mathbb{R}\\\\\nx &\\longmapsto f(x):= 3x+1\n\\end{align}\n\\]and\n\\[\n\\begin{align}\ng:\\mathbb{R}&\\longrightarrow \\mathbb{R}\\\\\nx &\\longmapsto g(x):= 2x^3-x^2+1\n\\end{align}\n\\]\nThe domain of \\(F\\) and \\(G\\) is \\(X=\\mathbb{R}\\) and the codomain is \\(Y=\\mathbb{R}\\) as we read from the \\(\\mathbb{R}\\times\\mathbb{R}\\).\nThe ranges requires us to compute \\(f(\\mathbb{R})\\) and \\(g(\\mathbb{R})\\), but since this requires tools not yet introduced in these notes, we will simply plot the functions we guess what we think the domain is:\n\nimport matplotlib.pyplot as plt \nimport numpy as np\n\nxs = np.arange(-2.0, 2.1, 0.1)\n\nplt.figure()\nplt.subplot(211)\nplt.plot(xs, 3 * xs + 1, 'r-')\nplt.xlabel('x')\nplt.ylabel('f(x)')\n\nplt.subplot(212)\nplt.plot(xs, 2 * xs**3 - xs + 1, 'b-')\nplt.xlabel('x')\nplt.ylabel('g(x)')\nplt.show()\n\n\n\n\nWe can see that both functions increase/decrease without bound as \\(|x|\\) increases, thus the range is \\(\\mathbb{R}\\) in both functions."
+  },
+  {
+    "objectID": "polynomials.html#exercise",
+    "href": "polynomials.html#exercise",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "Define Equation 3 for the first and third function sets in Equation 1. Be careful in specifying what is the range of either function."
+  },
+  {
+    "objectID": "polynomials.html#answer",
+    "href": "polynomials.html#answer",
+    "title": "getting the feet wet with polynomials",
+    "section": "",
+    "text": "From the set:\n\\[\n\\{(x,y)\\in \\mathbb{R}\\times\\mathbb{R}\\,\\,|\\,\\, y=100\\}\n\\]\nwe identify the domain and codomain as the first and second sets in \\(\\mathbb{R}\\times\\mathbb{R}\\), thus the domain is \\(\\mathbb{R}\\) and the codomain is \\(\\mathbb{R}\\) aswell. Meanwhile the range is just is \\(l(\\mathbb{R})=\\{100\\}\\). We can write this function using the procedure notation as:\n\\[\n\\begin{align}\nl:\\mathbb{R}&\\longrightarrow \\{1\\}\\subset \\mathbb{R}\\\\\nx &\\longmapsto l(x):= 100\n\\end{align}\n\\]\nThe second function-set:\n\\[\n\\{(x,y)\\in \\mathbb{R}^2\\,\\,|\\,\\, y=x^2+3\\}\n\\]\nIs translated into:\n\\[\n\\begin{align}\nc:\\mathbb{R}&\\longrightarrow [3,+\\infty[\\subset \\mathbb{R}\\\\\nx &\\longmapsto c(x):= x^2+3\n\\end{align}\n\\]\nThe domain and range are both \\(\\mathbb{R}\\) again but the range is trickier. We want to compute the set \\(c(\\mathbb{R})\\), to do it, we note by inspecting \\(x^2+3\\) that its minimum value occurs when \\(x=0\\) and the larger the \\(x\\), the larger is \\(x^2+3\\), thus \\(c(\\mathbb{R})=[3,+\\infty[\\), which is a subset of the codomain \\(\\mathbb{R}\\).\n\nimport matplotlib.pyplot as plt \nimport numpy as np\n\nxs = np.arange(-2.0, 2.1, 0.1)\n\nplt.figure()\nplt.subplot(211)\nplt.plot(xs, np.ones([len(xs)]) * 100, 'r-')\nplt.xlabel('x')\nplt.ylabel('l(x)')\n\nplt.subplot(212)\nplt.plot(xs, xs**2 + 3, 'b-')\nplt.xlabel('x')\nplt.ylabel('g(x)')\nplt.show()"
+  },
+  {
+    "objectID": "angular_momentum_qm.html",
+    "href": "angular_momentum_qm.html",
+    "title": "Angular Momentum in QM",
+    "section": "",
+    "text": "Classical Angular momentum is defined as \\[\n\\mathbf{L}=\\mathbf{r}\\times \\mathbf{p}\n\\] In components we have for example: \\[\nL_z=xp_y-p_yx\n\\] To obtain the QM angular momentum we replace the positions coordinates \\(x,y,z\\) and momentum \\(p_x,p_y,p_z\\) by the operators \\(X,Y,Z\\) and \\(P_x,P_y,P_z\\). This gives us:\n\\[\n\\mathbf{L}=\\mathbf{R}\\times \\mathbf{P}\n\\] where \\(\\mathbf{R}=(X,Y,Z)\\) and \\(\\mathbf{P}=(P_x,P_y,P_z)\\) are vectors whose entries are operators. From the three components of \\(\\mathbf{L}\\) we get the following commutations relations:\n\\[\n[L_x,L_y]=i\\hbar L_z\\qquad [L_y,L_z]=i\\hbar L_x\\qquad [L_z,L_x]=i\\hbar L_y\\qquad [L_i,L_j]=0\\quad \\text{for}\\ i\\not= j\n\\]\nas a consequence of \\([X,P_x]=i\\hbar\\), etc. From a different perspective we can say that the angular momentum operators satisfy these three commutation “equations”. In QM one wants to talk about more general angular momentum, for example spin angular momentum, it has no classical analog and hence is not defined explicitly as \\(\\mathbf{L}=\\mathbf{r}\\times \\mathbf{p}\\). However one can still say that whatever spin angular momentum operator is, it must satisfy the previous three commutations relation. Hence we introduce a general angular momentum \\(J\\) which obeys the rules\n\\[\n[J_x,J_y]=i\\hbar J_z\\qquad [J_y,J_z]=i\\hbar J_x\\qquad [J_z,J_x]=i\\hbar J_y\\qquad [J_i,J_j]=0\\quad \\text{for}\\ i\\not= j\n\\tag{1}\\]\n\\(\\mathbf{J}\\) can be either the orbital angular momentum of a particle or the spin angular momentum etc, since all quantum angular momenta has commutation relations of that form. Given \\(\\mathbf{J}\\) we can introduce now \\(J^2\\), defined as:\n\\[\nJ^2=J_x^2+J_y^2+J_z^2\n\\]\nMoreover, we can easily show that this operator commute with the three components of \\(J\\):\n\\[\n[J^2,J_x]=0\\qquad[J^2,J_y]=0\\qquad[J^2,J_z]=0\n\\tag{2}\\]\nfor example, using Equation 1 we find:\n\\[\n\\begin{align}\n[J^2,J_z]&=[J_x^2+J_y^2+J_z^2,J_z]\\\\\n&=[J_x^2,J_z]+[J_y^2,J_z]+[J_z^2,J_z]\\\\\n&=0+0+0\\\\\n&=0\n\\end{align}\n\\]\nThat fact that \\(J^2\\) commutes with \\(J_z\\) will be of great importance, because it guarantees one can find (and thus define) a set of basis kets in the Hilbert space that are simultaneously eigenstates of both. Moreover, since the commuting operators are Hermitian (we say in QM they are observables) the eigenstates of the operators can be made orthogonal and the eigenvalues are real. What this entails for our commuting observables, is that not only we can find a set of common eigenvectors, those can be made orthogonal and the two eigenvalues (one for \\(J^2\\), the other for \\(J_z\\)) are real."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#what-is-angular-momentum-in-qm",
+    "href": "angular_momentum_qm.html#what-is-angular-momentum-in-qm",
+    "title": "Angular Momentum in QM",
+    "section": "",
+    "text": "Classical Angular momentum is defined as \\[\n\\mathbf{L}=\\mathbf{r}\\times \\mathbf{p}\n\\] In components we have for example: \\[\nL_z=xp_y-p_yx\n\\] To obtain the QM angular momentum we replace the positions coordinates \\(x,y,z\\) and momentum \\(p_x,p_y,p_z\\) by the operators \\(X,Y,Z\\) and \\(P_x,P_y,P_z\\). This gives us:\n\\[\n\\mathbf{L}=\\mathbf{R}\\times \\mathbf{P}\n\\] where \\(\\mathbf{R}=(X,Y,Z)\\) and \\(\\mathbf{P}=(P_x,P_y,P_z)\\) are vectors whose entries are operators. From the three components of \\(\\mathbf{L}\\) we get the following commutations relations:\n\\[\n[L_x,L_y]=i\\hbar L_z\\qquad [L_y,L_z]=i\\hbar L_x\\qquad [L_z,L_x]=i\\hbar L_y\\qquad [L_i,L_j]=0\\quad \\text{for}\\ i\\not= j\n\\]\nas a consequence of \\([X,P_x]=i\\hbar\\), etc. From a different perspective we can say that the angular momentum operators satisfy these three commutation “equations”. In QM one wants to talk about more general angular momentum, for example spin angular momentum, it has no classical analog and hence is not defined explicitly as \\(\\mathbf{L}=\\mathbf{r}\\times \\mathbf{p}\\). However one can still say that whatever spin angular momentum operator is, it must satisfy the previous three commutations relation. Hence we introduce a general angular momentum \\(J\\) which obeys the rules\n\\[\n[J_x,J_y]=i\\hbar J_z\\qquad [J_y,J_z]=i\\hbar J_x\\qquad [J_z,J_x]=i\\hbar J_y\\qquad [J_i,J_j]=0\\quad \\text{for}\\ i\\not= j\n\\tag{1}\\]\n\\(\\mathbf{J}\\) can be either the orbital angular momentum of a particle or the spin angular momentum etc, since all quantum angular momenta has commutation relations of that form. Given \\(\\mathbf{J}\\) we can introduce now \\(J^2\\), defined as:\n\\[\nJ^2=J_x^2+J_y^2+J_z^2\n\\]\nMoreover, we can easily show that this operator commute with the three components of \\(J\\):\n\\[\n[J^2,J_x]=0\\qquad[J^2,J_y]=0\\qquad[J^2,J_z]=0\n\\tag{2}\\]\nfor example, using Equation 1 we find:\n\\[\n\\begin{align}\n[J^2,J_z]&=[J_x^2+J_y^2+J_z^2,J_z]\\\\\n&=[J_x^2,J_z]+[J_y^2,J_z]+[J_z^2,J_z]\\\\\n&=0+0+0\\\\\n&=0\n\\end{align}\n\\]\nThat fact that \\(J^2\\) commutes with \\(J_z\\) will be of great importance, because it guarantees one can find (and thus define) a set of basis kets in the Hilbert space that are simultaneously eigenstates of both. Moreover, since the commuting operators are Hermitian (we say in QM they are observables) the eigenstates of the operators can be made orthogonal and the eigenvalues are real. What this entails for our commuting observables, is that not only we can find a set of common eigenvectors, those can be made orthogonal and the two eigenvalues (one for \\(J^2\\), the other for \\(J_z\\)) are real."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#goal",
+    "href": "angular_momentum_qm.html#goal",
+    "title": "Angular Momentum in QM",
+    "section": "Goal",
+    "text": "Goal\nDefine a basis of eigenstates common to \\(J^2\\) and \\(J_z\\) for our Hilbert Space."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#why",
+    "href": "angular_momentum_qm.html#why",
+    "title": "Angular Momentum in QM",
+    "section": "Why?",
+    "text": "Why?\nOne of the most important goals in QM is to find the eigenstates of the Hamiltonian of the system, paraphrased differently, we say, we want to find the basis of eigenstates of \\(H\\). Imagine we have an Hamiltonian which commutes with \\(J^2\\) and \\(J_z\\), then we know we can find a basis of eigenstates common to the three operators. Knowing already what is the eigenbasis common to \\(\\{J^2,J_z\\}\\) greatly facilitates finding the eigenstates of \\(H\\). The three operators (observables) constitute a complete set of commuting observables (CSCO) \\[\n\\{H,J^2,J_z\\}\n\\] and we want to find its eigenbasis."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#raising-and-lowering-operators",
+    "href": "angular_momentum_qm.html#raising-and-lowering-operators",
+    "title": "Angular Momentum in QM",
+    "section": "Raising and lowering operators",
+    "text": "Raising and lowering operators\nBy definition we have: \\[\nJ_+=J_x+iJ_y\\qquad J_-=J_x-iJ_y\\qquad\n\\] There are now plenty commutations relations we can derive from these two operators in conjunction with the \\(J^2\\) and \\(J\\), but the ultimate consequences of these relations is that they tell us how to organize the eigenbasis of \\(\\{J^2,J_z\\}\\), see next section and Figure 1 .\nThese definitions allow us to write:\n\\[\nJ_x = \\frac{1}{2}(J_++J_-) \\qquad J_y = \\frac{1}{2i}(J_+-J_-)\n\\tag{3}\\]\nwhich will be useful later."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#eigenvalues-and-eigenvectors",
+    "href": "angular_momentum_qm.html#eigenvalues-and-eigenvectors",
+    "title": "Angular Momentum in QM",
+    "section": "Eigenvalues and eigenvectors",
+    "text": "Eigenvalues and eigenvectors\nThe eigenvalues of \\(J^2\\) are of the form \\(j(j+1)\\hbar^2\\) and those of \\(J_z\\) are \\(m\\hbar\\) where \\(j\\) is a positive integer or semi-integer and \\(-j\\leq m\\leq j\\) in steps of \\(1\\). We use the \\(j\\) and \\(m\\) to label the eigenbasis:\n\\[\n\\begin{align}&J^2\\ket{n,j,m}=j(j+1)\\hbar^2\\ket{n,j,m}\\\\&J_z\\ket{n,j,m}=m\\hbar\\ket{n,j,m}\\end{align}\n\\tag{4}\\]\nThe only values that \\(j\\) can take are \\(0\\), \\(1/2\\), \\(3/2\\), \\(2\\), etc; while \\(n\\) can either be an integer or a continuous number that we use to label and thus distinguish the kets in the basis.\n\n\n\nFigure 1: Eigenspaces for various values of j and a specific value of n.\n\n\nEach blue dot in the picture corresponds to basis vector \\(\\ket{n,j,m}\\), the horizontal boxes show subspaces \\(\\mathcal{E}(n,j)\\) of the Hilbert space. From a different perspective we have:\n\n\n\nEigenspace for j=1 and the slice for n=1. (n=0,1,2,…)\n\n\nWithin each one of these, the operators \\(J_\\pm\\) links each vector of the basis, specifically we have:\n\\[\nJ_\\pm \\ket{n,j,m}=\\hbar \\sqrt{j(j+1)-m(m\\pm 1)}\\ket{n,j,m\\pm 1}\n\\tag{5}\\]\na formula which is derived from commutation relations (through a rather complicated path). The names raising and lowering operators comes form the fact that \\(m\\) is either raised by \\(+1\\) or lowered by \\(-1\\) each time \\(J_\\pm\\) acts.\n\n\n\n\n\n\nObserve\n\n\n\nFrom the first equation in Equation 4 we notice that for a given value of \\(n\\) and \\(j\\), for example \\(n=1\\) and \\(j=1\\), then \\(\\{|1,1,1\\rangle,|1,1,0\\rangle,|1,1,-1\\rangle\\}\\) are eigenvectors of \\(J^2\\) with the same eigenvalue \\(1(1+1)\\hbar^2\\) , we therefore say the eigenvalue is 3-degenate, or that the space \\(\\mathcal{E}(n=1,j=1)\\) spanned by this basis is 3-degenerate. We distinguish the 3 eigenvectors by the \\(J_z\\) eigenvalue \\(m\\hbar\\)."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#matrix-representation",
+    "href": "angular_momentum_qm.html#matrix-representation",
+    "title": "Angular Momentum in QM",
+    "section": "Matrix Representation",
+    "text": "Matrix Representation\nTo compute the matrix representation of an operator we have to compute how the operator acts on the space basis. For example, let us choose the subspace of eigenvectors of \\(J^2\\) with eigenvalue \\(1(1+1)\\hbar^2\\) and a given \\(n\\):\n\\[\n\\mathcal{E}(n,l=1)=\\text{span}\\{|n,1,1\\rangle,|n,1,0\\rangle,|n,1,-1\\rangle\\}\n\\]\nsee Figure 1 .\n\n\n\n\n\n\nChange of notation\n\n\n\nWe drop the \\(n\\) index for easier read of the formulas. Later we will recover it.\n\n\nWhen we act with \\(J_x\\) on this basis, what is the output? Answer:\n\\[\n\\begin{align}\nJ_x|1,1\\rangle &= \\frac{1}{2}(J_+ +J_-)|1,1\\rangle\\\\\n&=\\frac{1}{2}J_+|1,1\\rangle+\\frac{1}{2}J_-|1,1\\rangle\\\\\n&=\\frac{\\hbar}{2}\\sqrt{1(1+1)-1(1+1)}|1,2\\rangle+\\frac{\\hbar}{2}\\sqrt{1(1+1)-1(1-1)}|1,0\\rangle\\\\\n&=\\frac{\\hbar}{\\sqrt{2}}|1,0\\rangle\n\\end{align}\n\\tag{6}\\]\nWe conclude that when \\(J_x\\) acts on the basis element \\(|1,1\\rangle\\) it outputs \\(|1,0\\rangle\\) times a constant, notice the ket $|1,0\\rangle $ lives in \\(\\mathcal{E}(j=1)\\). Let us see now what happens when \\(J_x\\) acts on \\(|1,0\\rangle\\):\n\\[\n\\begin{align}\nJ_x|1,0\\rangle &= \\frac{1}{2}(J_++J_-)|1,0\\rangle\\\\\n&=\\frac{\\hbar}{2}\\sqrt{1(1+1)-0(0+1)}|1,1\\rangle+\\frac{\\hbar}{2}\\sqrt{1(1+1)-0(0-1)}|1,1\\rangle|1,-1\\rangle\\\\\n&=\\frac{\\hbar}{\\sqrt{2}}(|1,1\\rangle+|1,-1\\rangle)\n\\end{align}\n\\tag{7}\\]\nAs \\(J_x\\) acts on \\(|1,0\\rangle\\) it gives a linear combination \\(|1,1\\rangle+|1,-1\\rangle\\) of basis vectors, which in turn also lives in \\(\\mathcal{E}(j=1)\\).\nAnd finally,a similar calculation would show:\n\\[\nJ_x|1,-1\\rangle =\\frac{\\hbar}{\\sqrt{2}}|1,0\\rangle\n\\tag{8}\\]\nAgain, the input \\(|1,-1\\rangle\\) is in \\(\\mathcal {E}(j=1)\\) and so is the output \\(|1,0\\rangle\\).\n\n\n\n\n\n\nObservation\n\n\n\nThe calculation above show clearly that the action of \\(J_x\\) is stuck in \\(\\mathcal{E}(j=1)\\), confirming the prediction already made from the fact that \\([J^2,J_x]=0\\).\n\n\nThe results in Equation 6, Equation 7 and Equation 8 allow us to write:\n\\[\nJ_x = \\sum_{m,m'=1,0,-1}|1,m\\rangle\\langle1,m|J_x|1,m'\\rangle\\langle1,m'|\n\\]\nexplicitly as\n\\[\n\\begin{align}\nJ_x &= \\frac{\\hbar}{\\sqrt{2}}\\left(|1,0\\rangle\\langle 1,1|+|1,1\\rangle\\langle 1,0|+|1,-1\\rangle\\langle 1,0|+|1,0\\rangle\\langle 1,-1|\\right)\n\\end{align}\n\\]\nwhich in turn can be rewritten using using matrix notation as:\n\nRepeating these calculation for \\(J_y\\) and \\(J_z\\) yields the results:\n\nThe matrix for \\(J_z\\) is diagonal since the basis elements we choose are eigenvectors, the diagonal elements are the the three \\(m\\hbar\\) eigenvalues; and since they are also eigenvectors of \\(J^2\\) we find a diagonal with the \\(1(1+1)\\hbar^2=2\\hbar^2\\) eigenvalues repeated three times:\n\nAll of above assume a given index \\(n\\) was chosen."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#observation",
+    "href": "angular_momentum_qm.html#observation",
+    "title": "angular_momentum_qm",
+    "section": "Observation",
+    "text": "Observation\nThe calculation above show clearly that the action of \\(J_x\\) is stuck in \\(\\mathcal{E}(j=1)\\), confirming the prediction already made from the fact that \\([J^2,J_x]=0\\).\nThe results in ?@eq-Jx11, ?@eq-Jx10 and ?@eq-Jx1minus1 allow us to write:\n\\[ J_x = \\sum_{m,m'=1,0,-1}|1,m\\rangle\\langle1,m|J_x|1,m'\\rangle\\langle1,m'| \\]\nexplicitly as\n\\[ \\begin{align} J_x &= \\frac{\\hbar}{\\sqrt{2}}\\left(|1,0\\rangle\\langle 1,1|+|1,1\\rangle\\langle 1,0|+|1,-1\\rangle\\langle 1,0|+|1,0\\rangle\\langle 1,-1|\\right) \\end{align} \\]\nwhich in turn can be rewritten using using matrix notation as:\n\nRepeating these calculation for \\(J_y\\) and \\(J_z\\) yields the results:\n\nThe matrix for \\(J_z\\) is diagonal since the basis elements we choose are eigenvectors, the diagonal elements are the the three \\(m\\hbar\\) eigenvalues; and since they are also eigenvectors of \\(J^2\\) we find a diagonal with the \\(1(1+1)\\hbar^2=2\\hbar^2\\) eigenvalues repeated three times:\n\nAll of above assume a given index \\(n\\) was chosen."
+  },
+  {
+    "objectID": "angular_momentum_qm.html#the-orbital-angular-momentum",
+    "href": "angular_momentum_qm.html#the-orbital-angular-momentum",
+    "title": "Angular Momentum in QM",
+    "section": "The Orbital Angular Momentum",
+    "text": "The Orbital Angular Momentum\nSo far we described the framework of a generic angular momentum, which followed solely from its commutation relations; we want now to see a particular example of the \\(J^2\\) and \\(J_z\\) operators, namely, when they are the magnitude-squared of the orbital angular momentum of a particle and its z-component, to be explicit, let:\n\\[\n\\begin{align}\n&J_x := YP_z-ZP_y\\\\\n&J_y:=ZP_x-XP_z\\\\\n&J_z:= XP_y-YP_x \\\\\n&J^2:=J_x^2+J_y^2+J_z^2\n\\end{align}\n\\tag{9}\\]\nThe commutation relations Equation 1 and Equation 2 that we assumed in previous sections for the symbols on the lhs of Equation 9 also hold for the symbols on the rhs\nIn other words, the explicit form of \\(J_x\\), \\(J_y\\) and \\(J_z\\) that we defined in Equation 9, by itself satisfies Equation 1 and Equation 2 provided:\n\\[\n[X,P_x] = [Y,P_y] = [Z,P_z]=i\\hbar\n\\]\nAs an example:\n\\[\n\\begin{align}\n[J_x,J_y]&=[YP_z-ZP_y,ZP_x-XP_z]\\\\\n&=[YP_z,ZP_x]-[YP_z,XP_z]-[ZP_y,ZP_x]+[ZP_y,XP_z]\\\\\n&=Y[P_z,Z]P_x -0-0+X[Z,P_z]P_y\\\\\n&=-i\\hbar YP_x+i\\hbar XP_y\\\\\n&=i\\hbar (XP_y-YP_x)\\\\\n&=i\\hbar J_z\n\\end{align}\n\\tag{10}\\]\njust as we assumed in Equation 1 . Analogous calculation show our definitions satisfies the remaining commutation relations\n\n\n\n\n\n\nChange of Notation\n\n\n\nIt is traditional to use the symbols \\(L_x\\), \\(L_y\\) ,\\(L_z\\) and \\(L^2\\) in place of \\(J_x\\), \\(J_y\\) ,\\(J_z\\) and \\(J^2\\) when speaking about the orbital angular momentum. Recall the former notation is used for a generic angular momentum, not necessarily the orbital one.\n\n\nThe rhs of Equation 9 together with the choice of the position basis \\(\\{|x,y,z\\rangle\\}\\) allow us to give the position representation of the eigenvalue-eigenvector equations we saw in Equation 4:\n\\[\n\\begin{align}\n&\\langle x,y,z|L^2\\ket{l,m}=l(l+1)\\hbar^2\\langle x,y,z|\\ket{l,m}\\\\\n&\\langle x,y,z|L_z\\ket{l,m}=m\\hbar\\langle x,y,z|\\ket{l,m}\n\\end{align}\n\\tag{11}\\]\nSubstituting Equation 9 we find:\n\\[\n\\begin{align}&\\langle x,y,z|(L_x^2+L_y^2+L_z^2)\\ket{l,m}=l(l+1)\\hbar^2\\langle x,y,z|\\ket{l,m}\\\\\n&\\langle x,y,z|(XP_y-YP_x)\\ket{l,m}=m\\hbar\\langle x,y,z|\\ket{l,m}\\end{align}\n\\tag{12}\\]\n\n\n\n\n\n\nRecall\n\n\n\nThe \\(X\\) and \\(P_x\\) operators have the following representation in the \\(\\{|x\\rangle\\}\\) basis:\n\\[\n\\langle x|X|\\psi\\rangle = x\\langle x|\\psi\\rangle \\qquad \\langle x|P_x|\\psi\\rangle = \\frac{\\hbar}{i}\\frac{\\partial}{\\partial x}\\langle x|\\psi\\rangle\n\\]\n\n\nThe second equation in Equation 12 we find:\n\\[\n\\begin{align}\n\\langle x,y,z|L_z|\\psi\\rangle &= \\langle x,y,z|(XP_y-YP_x)|\\psi\\rangle\\\\\n&= \\langle x,y,z|(xP_y-yP_x)|\\psi\\rangle\\\\\n&= \\langle x,y,z|(x\\frac{\\hbar}{i}\\frac{\\partial}{\\partial y}-y\\frac{\\hbar}{i}\\frac{\\partial}{\\partial x})|\\psi\\rangle\\\\\n&= \\frac{\\hbar}{i}\\left(x\\frac{\\partial}{\\partial y}-y\\frac{\\partial}{\\partial x}\\right)\\langle x,y,z|\\psi\\rangle\\\\\n&= \\frac{\\hbar}{i}\\left(x\\frac{\\partial}{\\partial y}-y\\frac{\\partial}{\\partial x}\\right)\\psi(x,y,z)\n\\end{align}\n\\] Therefore, in the position basis, the \\(L_z\\) operator acts on functions \\(\\psi(x,y,z)\\) as the operation:\n\\[\nL_z \\rightsquigarrow \\frac{\\hbar}{i}\\left(x\\frac{\\partial}{\\partial y}-y\\frac{\\partial}{\\partial x}\\right)\n\\tag{13}\\]\nSimilarly we find:\n\\[\nL_x \\rightsquigarrow \\frac{\\hbar}{i}\\left(y\\frac{\\partial}{\\partial z}-z\\frac{\\partial}{\\partial y}\\right) \\qquad L_y \\rightsquigarrow \\frac{\\hbar}{i}\\left(z\\frac{\\partial}{\\partial x}-x\\frac{\\partial}{\\partial z}\\right)\n\\tag{14}\\]\nWe could substitute the rhs of Equation 13 and Equation 14 into the commutation relations and run an analogous calculation to Equation 10, the would conclude that they indeed satisfy those equations as well.\nIt will be useful to change from cartesian coordinates \\(x,y,z\\) into polar coordinates \\(r,\\theta,\\phi\\). The map between these coordinates is established by the equations:\n\\[\n\\begin{align}\n& x = r \\sin \\theta \\cos \\phi\\\\\n& y = r \\sin \\theta \\sin \\phi\\\\\n& z = r \\cos \\theta\n\\end{align}\n\\]\nprovided \\(r\\geq 0\\), \\(0\\leq\\theta\\leq\\pi\\) and \\(0\\leq\\phi&lt; 2\\pi\\)\nTo convert Equation 13 and Equation 14 into polar coordinates we proceed as follows:\n\nDraw a diagram:\n\n\n\nRelate the derivatives in cartesian and polar coordinates encoded in the diagram:\n\n\\[\n\\begin{pmatrix}\n\\partial_r\\psi\\\\\n\\partial_\\theta\\psi\\\\\n\\partial_\\phi\\psi\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n\\partial_r x & \\partial_r y & \\partial_r z\\\\\n\\partial_\\theta x & \\partial_\\theta y & \\partial_\\theta z\\\\\n\\partial_\\phi x & \\partial_\\phi y & \\partial_\\phi z\n\\end{pmatrix}\n\\begin{pmatrix}\n\\partial_x\\psi\\\\\n\\partial_y \\psi\\\\\n\\partial_z \\psi\n\\end{pmatrix}\n\\tag{15}\\]\n\nCompute the matrix (Easy)\n\n\\[\n\\begin{pmatrix}\n\\sin\\theta \\cos\\phi & \\sin\\theta \\sin \\phi & \\cos\\theta\\\\\nr \\cos\\theta \\cos\\phi & r \\cos\\theta \\sin \\phi & -r \\sin \\theta\\\\\n-r\\sin\\theta \\sin \\phi & r \\sin\\theta \\cos\\phi & 0\n\\end{pmatrix}\n\\]\n\nInvert the system Equation 15 (Hard, use Mathematica)\n\n\\[\n\\begin{pmatrix}\n\\partial_x\\psi\\\\\n\\partial_y\\psi\\\\\n\\partial_z\\psi\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n\\sin\\theta \\cos \\phi   & r^{-1}\\cos\\theta \\cos\\phi & -(r\\sin\\theta)^{-1} \\sin\\phi\\\\\n\\sin\\theta \\sin \\phi   & r^{-1}\\cos\\theta \\sin\\phi & (r\\sin\\theta)^{-1} \\cos\\phi\\\\\n\\cos\\theta & -r^{-1}\\sin\\theta & 0\n\\end{pmatrix}\n\\begin{pmatrix}\n\\partial_r\\psi\\\\\n\\partial_\\theta \\psi\\\\\n\\partial_\\phi \\psi\n\\end{pmatrix}\n\\]\n\nSubstitute the results into Equation 13 and Equation 14 and simplify gives:\n\\[\n\\begin{align}\n&L_x \\rightsquigarrow i\\hbar\\left(\\sin\\phi \\frac{\\partial}{\\partial \\theta}+\\frac{\\cos\\phi}{\\tan\\theta} \\frac{\\partial}{\\partial \\phi}\\right)\\\\\n&L_y \\rightsquigarrow i\\hbar\\left(-\\cos\\phi \\frac{\\partial}{\\partial \\theta}+\\frac{\\sin\\phi}{\\tan\\theta} \\frac{\\partial}{\\partial \\phi}\\right)\\\\\n&Lz \\rightsquigarrow \\frac{\\hbar}{i} \\frac{\\partial}{\\partial \\phi}\n\\end{align}\n\\]\nFrom these results we can now derive the action of \\(L^2\\) in polar coordinates:\n\\[\n\\begin{align}\nL^2\\psi &= L_x^2\\psi + L_y^2\\psi+L_z^2\\psi\\\\\n&=(i\\hbar)^2\\left(\\sin\\phi \\frac{\\partial}{\\partial \\theta}+\\frac{\\cos\\phi}{\\tan\\theta} \\frac{\\partial}{\\partial \\phi}\\right)^2\\psi\n+(i\\hbar)^2\\left(-\\cos\\phi \\frac{\\partial}{\\partial \\theta}+\\frac{\\sin\\phi}{\\tan\\theta} \\frac{\\partial}{\\partial \\phi}\\right)^2\\psi+\n\\left(\\frac{\\hbar}{i}\\right)^2 \\frac{\\partial^2}{\\partial \\phi^2}\\psi\n\\end{align}\n\\tag{16}\\] Now we need to expand each square, the first becomes:\n\n\\[\n(i\\hbar)^2\\left(\\sin^2\\phi \\frac{\\partial^2\\psi}{\\partial \\theta^2}+ \\frac{\\cos^2\\phi}{\\tan^2\\theta}\\frac{\\partial^2\\psi}{\\partial \\phi^2}-\\frac{\\sin\\phi\\cos\\phi}{\\sin^2\\theta}\\frac{\\partial \\psi}{\\partial \\phi}+\\frac{\\sin\\phi\\cos\\phi}{\\tan\\theta}\\frac{\\partial^2 \\psi}{\\partial\\theta\\partial \\phi}\\right)\n\\]\nthe second term becomes:\n\\[\n(i\\hbar)^2\\left(\\cos^2\\phi \\frac{\\partial^2\\psi}{\\partial \\theta^2}+ \\frac{\\sin^2\\phi}{\\tan^2\\theta}\\frac{\\partial^2\\psi}{\\partial \\phi^2}+\\frac{\\cos\\phi\\sin\\phi}{\\sin^2\\theta}\\frac{\\partial \\psi}{\\partial \\phi}-\\frac{\\cos\\phi\\sin\\phi}{\\tan\\theta}\\frac{\\partial^2 \\psi}{\\partial\\theta\\partial \\phi}\\right)\n\\]\nSubstituting into Equation 16 and canceling terms yields the final result:\n\\[\nL^2 \\rightsquigarrow -\\hbar^2\\left(\\frac{\\partial^2}{\\partial \\theta^2} + \\frac{1}{\\sin^2\\theta} \\frac{\\partial^2}{\\partial \\phi^2} + \\frac{1}{\\tan\\theta}\\frac{\\partial}{\\partial \\theta}\\right)\n\\tag{17}\\]\nAs a consequence, the system of equations in Equation 12 becomes a system of partial differential equations:\n\\[\n\\begin{align}\n&-\\hbar^2 \\left(\\frac{\\partial}{\\partial \\theta^2}+\\frac{1}{\\tan \\theta} \\frac{\\partial}{\\partial \\theta}+\\frac{1}{\\sin^2\\theta}\\frac{\\partial}{\\partial^2 \\phi^2}\\right)\\psi_{l,m}(r, \\theta, \\phi)=l(l+1)\\hbar^2\\psi_{l,m}(r, \\theta, \\phi)\\\\\n& \\frac{\\hbar}{i} \\frac{\\partial}{\\partial \\phi}\\psi_{l,m}(r, \\theta, \\phi)=m\\hbar \\psi_{l,m}(r, \\theta, \\phi)\n\\end{align}\n\\tag{18}\\]\nThe solutions \\(\\psi_{l,m}(r,\\theta,\\phi)\\) are the eigenfunctions common to the \\(L^2\\) and \\(L_z\\) operators associated with the eigenvalues \\(l(l+1)\\hbar^2\\) and \\(m\\hbar\\). These solution exist because these two operators commute. Our ultimate goal is to solve them, but in these notes we’ll content ourselves by just identifying some of its properties."
   }
 ]

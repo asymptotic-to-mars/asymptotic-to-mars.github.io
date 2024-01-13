@@ -1,11 +1,20 @@
 ---
-title: "asymptotic-to-mars.github.io"
+title: "Brief Notes"
+subtitle: YesYes, these are brief
+author: me
+#date: today
+bibliography: references.bib
+format:
+  html:
+    toc: True #table of contents shows up
+knitr: #the thing that renders the file
+  opts_chunk: #ops for code
+    warning: False
+    Message: False #setting these to false, elimintate error messages in the redered file (https://youtu.be/Auo1hjyeCl4?list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&t=181)
 ---
 
-This is a Quarto website.
+## Teh Notes
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+-   [Getting the feet wet with Polynomials](polynomials.qmd)
 
-```{r}
-1 + 1
-```
+-   [Angular momentum in quantum mechanics](angular_momentum_qm.qmd)
