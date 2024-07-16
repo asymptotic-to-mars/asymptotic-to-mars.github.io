@@ -17,4 +17,6 @@ knitr: #the thing that renders the file
 
 -   [Getting the feet wet with Polynomials](polynomials.qmd)
 
--   [Angular momentum in quantum mechanics](angular_momentum_qm.qmd)
+-   [Angular momentum in quantum mechanics](angular_momentum_qm_short_summary.qmd)
+
+-   [Einstein Model of Solid](eistein_model_of_solid.qmd)
