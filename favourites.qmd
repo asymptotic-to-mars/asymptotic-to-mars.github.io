@@ -1,5 +1,5 @@
 ---
-title: "Favourites"
+title: "Randomm"
 ---
 
 ## My list of things:
@@ -14,11 +14,17 @@ title: "Favourites"
 
 -   more
 
-## Fun Picture
+## Fun Picture 1
 
-![If you keep using the same strategy, expecting .....](images/giphy-01.gif){#fig-fun fig-alt="The Aristogatos knew it." fig-align="center" width="300"}
+![When you keep using the same strategy, expecting .....](images/giphy-01.gif){#fig-fun fig-alt="The Aristogatos knew it." fig-align="center" width="300"}
 
-At least the cat is having fun, some [*music*](https://youtu.be/_C7UgR_sIW0?si=Nbdetovk0SrXObkB&t=48) topping.
+... unless you are having fun; some [*music*](https://youtu.be/_C7UgR_sIW0?si=Nbdetovk0SrXObkB&t=48) .
+
+## Fun Picture 2
+
+![When you keep using the same strategy, expecting .....](figs/when.png){#fig-2 alt="When you keep using the same strategy, expecting ....." width="301"}
+
+True, both pictures have the same caption
 
 ## Best Movies of ALL TIME.
 
@@ -36,9 +42,11 @@ At least the cat is having fun, some [*music*](https://youtu.be/_C7UgR_sIW0?si=N
 
 7.  Etc.
 
+    (*no more questions*)
+
 ## Useful links
 
-1.  [Peace of Mind](https://www.youtube.com/watch?v=HABbAHdfdXk "very useful :)")
+1.  [Peace of Mind](https://www.youtube.com/watch?v=HABbAHdfdXk "very useful :)") good!
 
 2.  [Art](https://4rtgallery.blogspot.com/2014/03/spray-paint-portraits-by-david-walker.html "yes it is also needed") or whatever..
 
@@ -47,6 +55,8 @@ At least the cat is having fun, some [*music*](https://youtu.be/_C7UgR_sIW0?si=N
 ## Oracle advice for 2024
 
 > $$ 2024 = 2^3 \times 11 \times 23 $$
+
+I actually payed for this advice.
 
 ## The Secret Code
 
@@ -71,9 +81,9 @@ $$ i\hbar\frac{\partial |\psi\rangle}{\partial t} = \hat{H}|\psi\rangle  $$
 
 It works.
 
-## Song for 2024
+## THE Song for 2024 
 
-{{< video https://www.youtube.com/watch?v=2aFoG7zNIv4&list=LL&index=2 width="500" height="250" >}}
+{{< video https://www.youtube.com/watch?v=v7Wu88_QzZ4&list=LL&index=65 width="500" height="250" >}}
 
 ### References for this outstanding site:
 
