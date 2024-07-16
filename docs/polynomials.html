@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>asymptotic to MARS - getting the feet wet with polynomials</title>
+<title>asymptotic to MARS - Getting the feet wet with polynomials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,19 +35,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -99,15 +70,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">asymptotic to MARS</span>
     </a>
@@ -119,22 +117,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Bried Notes</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Bried Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./favourites.html" rel="" target="">
- <span class="menu-text">Favourites</span></a>
+    <a class="nav-link" href="./favourites.html"> 
+<span class="menu-text">Favourites</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -163,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">getting the feet wet with polynomials</h1>
+<h1 class="title">Getting the feet wet with polynomials</h1>
 </div>
 
 
@@ -176,44 +173,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Polynomials are the simplest functions we can study and are an ideal arena to put into practice the two key views on functions:</p>
-<p><em>Relation Point of View and Procedure Point of View</em></p>
-<p>Surprisingly these are not well understood by many students, even those in college.</p>
+<ul>
+<li><p>Relation Point of View</p></li>
+<li><p>Procedure Point of View</p></li>
+</ul>
 <section id="relation-definition-of-polynomial-functions" class="level2">
 <h2 class="anchored" data-anchor-id="relation-definition-of-polynomial-functions">Relation definition of polynomial functions</h2>
-<p>We begin this section by giving four examples of polynomial functions:</p>
+<p>Under the relation perspective, we specify a function by listing all ordered pairs that make up its graph. Here are four examples of polynomial functions:</p>
 <p><span id="eq-egsofpol"><span class="math display">\[
 \begin{align}&amp;\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=100\}\\&amp;\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=3x+1\}\\&amp;\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=x^2+3\}\\&amp;\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=2x^3-x^2+0x+1\}\end{align}
 \tag{1}\]</span></span></p>
 <p>How should we interpret this notation?</p>
 <ul>
 <li><p>These are sets because they appear between <span class="math inline">\(\{\)</span> and <span class="math inline">\(\}\)</span>.</p></li>
-<li><p>stating that <span class="math inline">\((x,y)\in \mathbb{R}^2\)</span>, just translates into “ordered pairs of reals are entities of this set”.</p></li>
-<li><p>the bar <span class="math inline">\(|\)</span> , reads as “such that”, after which we write some rule that we which this ordered pairs to have.</p></li>
-<li><p>To interpret the notation as a whole now, take <span class="math inline">\(\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=3x+1\}\)</span>. We read is as a “set that contains ordered reals, such that they obey the equation <span class="math inline">\(y=3x+1\)</span>”. As an example, the pair <span class="math inline">\((1.3,2.9)\)</span> obeys the equation because <span class="math inline">\(2.9 = 3\times 1.3 +1\)</span> is true, therefore it belong to the set, but <span class="math inline">\((1,3)\)</span> does not since <span class="math inline">\(3=3\times 1 +1\)</span> is false.</p></li>
+<li><p>Stating that <span class="math inline">\((x,y)\in \mathbb{R}^2\)</span>, just says two things at once:</p>
+<ol type="1">
+<li>the elements of the set are ordered pairs <span class="math inline">\((x,y)\)</span></li>
+<li>that <span class="math inline">\(x\in\mathbb{R}\)</span> and <span class="math inline">\(y\in \mathbb{R}\)</span>, in other words, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are reals.</li>
+</ol></li>
+<li><p>the bar <span class="math inline">\(|\)</span> we see in <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a>, reads as “such that”, after which we write some rule/property/equation that we wish these ordered pairs of reals to have. For example the equation <span class="math inline">\(y=100\)</span> is the rule we want for the first polynomial in <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a>, therefore this function is composed by all ordered pairs <span class="math inline">\((x,y)\)</span> with <span class="math inline">\(y\)</span> equal to <span class="math inline">\(100\)</span>, while <span class="math inline">\(x\)</span> ranges on all reals.</p></li>
+<li><p>To interpret the notation as a whole, take <span class="math inline">\(\{(x,y)\in \mathbb{R}^2\,\,|\,\, y=3x+1\}\)</span>. We read is as a “set that contains ordered reals, such that they obey the equation <span class="math inline">\(y=3x+1\)</span>”. As an example, the pair <span class="math inline">\((1.3,2.9)\)</span> obeys the equation because <span class="math inline">\(2.9 = 3\times 1.3 +1\)</span> is true, therefore it belong to the set, but <span class="math inline">\((1,3)\)</span> does not since <span class="math inline">\(3=3\times 1 +1\)</span> is false.</p></li>
 </ul>
-<p>Each rule in <a href="#eq-egsofpol">Equation&nbsp;1</a> allow us to compute from a given <span class="math inline">\(x\)</span> a unique value <span class="math inline">\(y\)</span>. As an example, chose <span class="math inline">\(x=0\)</span> and plug in <span class="math inline">\(y=3x+1\)</span>, we get, not surprisingly, just the number <span class="math inline">\(y=1\)</span>, we do not get other possibility; in fact the same would be observed for any <span class="math inline">\(x\)</span> we choose. This guarantees that each possible value of <span class="math inline">\(y\)</span> does not appear twice or more within the set. In such situation we have in our hands more than a set, we have a function! In other words, the calculation <span class="math inline">\(3x+1\)</span> for a specific <span class="math inline">\(x\)</span> is a unique number which is associated with <span class="math inline">\(x\)</span>, we associate both numbers by writing <span class="math inline">\((x,3x+1)\)</span>, for example when we set <span class="math inline">\(x=10\)</span> we get <span class="math inline">\(y=31\)</span>, we pair these numbers as <span class="math inline">\((10,31)\)</span>; every first entry <span class="math inline">\(x\)</span> of the order pairs <span class="math inline">\((x,y)\)</span> is always assigned (second entry) to just one number, namely the number <span class="math inline">\(3x+1\)</span>.</p>
-<p>Observation of the right hand side of the rules in <a href="#eq-egsofpol">Equation&nbsp;1</a> show they are all some combination of a power of <span class="math inline">\(x\)</span> times some number (positive or negative), the jargon for this is to say we have a linear combination of powers of <span class="math inline">\(x\)</span>. From <a href="#eq-egsofpol">Equation&nbsp;1</a> we conclude the general form of these rules (equations) is:</p>
+<p>The equations we wrote after <span class="math inline">\(|\)</span> allow us to compute from a given <span class="math inline">\(x\)</span> a unique value <span class="math inline">\(y\)</span>. As an example of this fact, choose the equation of the second polynomial, <span class="math inline">\(y=3x+1\)</span>, plug in <span class="math inline">\(x=0\)</span>, what do we get? We get <span class="math inline">\(y=3\cdot 0 +1\)</span>, that is, just the number <span class="math inline">\(y=1\)</span>. Notice we do not get other possible value for <span class="math inline">\(y\)</span>, we just get the <span class="math inline">\(y=1\)</span>, no other possibility; in fact the same happens for any other <span class="math inline">\(x\)</span> we choose. This is such an obvious fact we actually skip by it. But it is important, because the fact that the equations in <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a> have that property ensures us that each possible value of <span class="math inline">\(x\)</span> does not appear two or more times within these set. In such situation we have in our hands more than a set, we have a function!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The set <span class="math inline">\(\{(1,2),(1,3),(2,4)\}\)</span> have <span class="math inline">\(1\)</span> connected to <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, thus it is not a function. The set<span class="math inline">\(\{(x,y)\in \mathbb{R}^2\,\,|\,\, x\in \mathbb{R} \land y\in[2,3]\}\)</span> have each real <span class="math inline">\(x\)</span> connected to every real between <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, its also not a function. The set <span class="math inline">\(\{(x,y)\in \mathbb{R}^2\,\,|\,\, y^2=x^2\}\)</span> is not a function, if I specify <span class="math inline">\(x=1\)</span> then we get <span class="math inline">\(y^2=1\)</span> whose solution is either <span class="math inline">\(y=\pm 1\)</span>. Therefore we have two y-numbers <span class="math inline">\(\pm1\)</span> attached to <span class="math inline">\(x=1\)</span>.</p>
+<p>These sets are not functions, but still, they make connections between the values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> . Because they relate the values <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, we call these sets <em>relations</em>. Note that functions are also relations.</p>
+</div>
+</div>
+<p>Observation of the right hand side of the rules in <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a> show they are all some combination of a power of <span class="math inline">\(x\)</span> times some number (positive or negative), the jargon for this is to say we have a linear combination of powers of <span class="math inline">\(x\)</span>. From <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a> we conclude the general form of these rules (equations) is:</p>
 <p><span id="eq-truthsetofpol"><span class="math display">\[
 y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
 \tag{2}\]</span></span></p>
 <p>where the coefficients are labeled by <span class="math inline">\(a_0\)</span> through <span class="math inline">\(a_n\)</span> are reals.</p>
-<p>The truth set of the statement <a href="#eq-truthsetofpol">Equation&nbsp;2</a> is the function:</p>
-<p><span class="math display">\[
-P_n := \{(x,y)\in X\times Y\,\,|\,\, y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\}
-\]</span></p>
-<p>Which reads: from the pairs in the Cartesian product of the set <span class="math inline">\(X\)</span> with the set <span class="math inline">\(Y\)</span> we choose only the elements such that the rule <span class="math inline">\(y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span> is obeyed; it is useful to think about it as if we were choosing one by one the elements of <span class="math inline">\(X\times Y\)</span> which are of the form <span class="math inline">\((x,y)\)</span> and then verifying whether that rules applies or not (True or False), see <a href="#fig-1234">Figure&nbsp;1</a> .</p>
-<div id="fig-1234" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/1234.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Step by step construction of a polynomial function.</figcaption>
-</figure>
-</div>
-<p>The highest power of <span class="math inline">\(x\)</span> is <span class="math inline">\(n\)</span> and is called the degree of the polynomial. We can and will use it to classify the polynomial functions, that is the reason why we decided to label the set by the symbol <span class="math inline">\(P_n\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -230,17 +237,37 @@ X\times Y =\{(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)\}
 \]</span></p>
 </div>
 </div>
+<p>The truth set of the statement <a href="#eq-truthsetofpol" class="quarto-xref">Equation&nbsp;2</a> is the function:</p>
+<p><span class="math display">\[
+P_n := \{(x,y)\in X\times Y\,\,|\,\, y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\}
+\]</span></p>
+<p>Which reads: from the pairs in the Cartesian product of the set <span class="math inline">\(X\)</span> with the set <span class="math inline">\(Y\)</span> we choose only the elements such that the rule <span class="math inline">\(y=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span> is obeyed; it is useful to think about it as if we were choosing one by one the elements of <span class="math inline">\(X\times Y\)</span> which are of the form <span class="math inline">\((x,y)\)</span> and then verifying whether that rules applies or not (True or False), see <a href="#fig-1234" class="quarto-xref">Figure&nbsp;1</a> .</p>
+<div id="fig-1234" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1234-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/1234.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1234-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Step by step construction of a polynomial function.
+</figcaption>
+</figure>
+</div>
+<p>The highest power of <span class="math inline">\(x\)</span> is <span class="math inline">\(n\)</span> and is called the degree of the polynomial. We can and will use it to classify the polynomial functions, that is the reason why we decided to label the set by the symbol <span class="math inline">\(P_n\)</span>.</p>
 </section>
 <section id="procedure-definition-of-polynomials-functions" class="level2">
 <h2 class="anchored" data-anchor-id="procedure-definition-of-polynomials-functions">Procedure definition of polynomials functions</h2>
-<p>Rather then the view of <a href="#fig-1234">Figure&nbsp;1</a> on how to build the function <span class="math inline">\(P_n\)</span> we adopt a slightly different strategy:</p>
-<div id="fig-1234B" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/1234B.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: An alternative way to construct a polynomial function.</figcaption>
+<p>Rather then the view of <a href="#fig-1234" class="quarto-xref">Figure&nbsp;1</a> on how to build the function <span class="math inline">\(P_n\)</span> we adopt a slightly different strategy:</p>
+<div id="fig-1234B" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1234B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/1234B.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1234B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: An alternative way to construct a polynomial function.
+</figcaption>
 </figure>
 </div>
-<p>Rather than to choose, test and verify each element of the Cartesian product we can instead choose from <span class="math inline">\(X\)</span> the elements one by one and compute the corresponding <span class="math inline">\(y\)</span> by the calculation <span class="math inline">\(a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span>; then we just include the so obtained ordered pair in the set <span class="math inline">\(P_n\)</span>. The perceptive in <a href="#fig-1234B">Figure&nbsp;2</a> is expressed in mathematical notation as:</p>
+<p>Rather than to choose, test and verify each element of the Cartesian product we can instead choose from <span class="math inline">\(X\)</span> the elements one by one and compute the corresponding <span class="math inline">\(y\)</span> by the calculation <span class="math inline">\(a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span>; then we just include the so obtained ordered pair in the set <span class="math inline">\(P_n\)</span>. The perceptive in <a href="#fig-1234B" class="quarto-xref">Figure&nbsp;2</a> is expressed in mathematical notation as:</p>
 <p><span id="eq-defofpoldegn"><span class="math display">\[
 \begin{align}
 p_n:X&amp;\longrightarrow Y\\x &amp;\longmapsto p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
@@ -252,24 +279,28 @@ p_n:X&amp;\longrightarrow Y\\x &amp;\longmapsto p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\
 <p><em>The procedure labeled by the symbol</em> <span class="math inline">\(p_n\)</span> <em>maps elements of</em> <span class="math inline">\(X\)</span> <em>into elements in</em> <span class="math inline">\(Y\)</span></p>
 <p>This row of information immediately tells us what sets are involved, we can picture it as</p></li>
 </ol>
-<div id="fig-1strow" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/1strow.png" class="img-fluid figure-img" width="379"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Sets involved in the construction of the function, as well as the name of procedure that maps elements of the first into the second. From the first row we still do not know how the map works, this is specified in the second row.</figcaption>
+<div id="fig-1strow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1strow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/1strow.png" class="img-fluid figure-img" width="379">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1strow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Sets involved in the construction of the function, as well as the name of procedure that maps elements of the first into the second. From the first row we still do not know how the map works, this is specified in the second row.
+</figcaption>
 </figure>
 </div>
+<p><span class="math inline">\(X\)</span> is called the domain of the function, while <span class="math inline">\(Y\)</span> is the codomain.</p>
 <ol start="2" type="1">
-<li><p>The second row explains many aspects of the procedure between these sets: the symbol <span class="math inline">\(x\)</span> stands for a generic element of the set <span class="math inline">\(X\)</span> while the symbol <span class="math inline">\(p_n(x)\)</span> represents the element in <span class="math inline">\(Y\)</span>, which is assigned to <span class="math inline">\(x\)</span> (notice the <span class="math inline">\(\mapsto\)</span> arrow), when the procedure <span class="math inline">\(p_n\)</span> acts on it. Moreover, this row also tell us what is the element <span class="math inline">\(p_n(x)\)</span>, by telling what <span class="math inline">\(p_n\)</span> does with the number <span class="math inline">\(x\)</span>! The symbols:</p>
+<li><p>The second row explains many aspects of the procedure between these sets: the symbol <span class="math inline">\(x\)</span> stands for a generic element of the set <span class="math inline">\(X\)</span> while the symbol <span class="math inline">\(p_n(x)\)</span> represents the element in <span class="math inline">\(Y\)</span>, which is assigned to <span class="math inline">\(x\)</span> (notice the <span class="math inline">\(\mapsto\)</span> arrow), when the procedure <span class="math inline">\(p_n\)</span> acts on it. This row also tell us what is the element <span class="math inline">\(p_n(x)\)</span>, by telling what <span class="math inline">\(p_n\)</span> does with the number <span class="math inline">\(x\)</span>! The string of symbols:</p>
 <p><span class="math display">\[
 p_n(x):= a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0
 \]</span></p>
-<p>must now be understood: <span class="math inline">\(a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span> has two meanings:</p>
-<p>i) is the LONG symbol for the number assigned to <span class="math inline">\(x\)</span>;</p>
-<p>ii) it is a symbol that explains how <span class="math inline">\(p_n\)</span> acts on <span class="math inline">\(x\)</span> and get a number in <span class="math inline">\(Y\)</span>.</p>
-<p>Meanwhile <span class="math inline">\(p_n(x)\)</span> is an abbreviation for it! It is the Short symbol for the calculation. The symbol <span class="math inline">\(:=\)</span> means “by definition is equal to”.</p>
+<p>must now be well understood:</p>
+<p>i) <span class="math inline">\(a_nx^n+a_{n-1}x^{n-1}+\dots+a_1 x+a_0\)</span> is the LONG symbol for the element of <span class="math inline">\(Y\)</span> which is assigned (connected) to <span class="math inline">\(x\)</span>;</p>
+<p>ii) it is LONG because it explains how the number comes about. We usually abbreviate the LONG symbol by a short symbol such as <span class="math inline">\(p_n(x)\)</span>. The symbol <span class="math inline">\(:=\)</span> means “by definition is equal to”.</p>
 <p><img src="figs/abbreviates.png" class="img-fluid"></p></li>
 </ol>
-<p>The entire definition <a href="#eq-defofpoldegn">Equation&nbsp;3</a> is the definition of a function, out of convince we name the function after the procedure, and refer to the function just as the “<span class="math inline">\(p_n\)</span> function”. Observe that the symbol <span class="math inline">\(p_n\)</span> is our choice, we can use any symbol as we wish, traditionally we use just one letter <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(h\)</span>, etc.</p>
+<p>The entire definition <a href="#eq-defofpoldegn" class="quarto-xref">Equation&nbsp;3</a> is the definition of a function, out of convince we name the function after the procedure, and refer to the function just as the “<span class="math inline">\(p_n\)</span> function”. Observe that the symbol <span class="math inline">\(p_n\)</span> is our choice, we can use any symbol as we wish, traditionally we use just one letter <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(h\)</span>, etc.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -290,50 +321,41 @@ Comment
 <p><span class="math display">\[
 \begin{align}
 &amp;F:=\{(x,y)\in\mathbb{R}\times\mathbb{R}\,\,|\,\,y=3x+1\}\\
-&amp;G:=\{(x,y)\in\mathbb{R}\times\mathbb{R}\,\,|\,\,y=2x^3-x^2+0x+1\}
+&amp;G:=\{(x,y)\in\mathbb{R}^+\times\mathbb{R}\,\,|\,\,y=2x^3-x^2+0x+1\}
 \end{align}
 \]</span></p>
-<p>can be written as</p>
-<p><span class="math display">\[
-\begin{align}
-f:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\
-x &amp;\longmapsto f(x):= 3x+1
-\end{align}
-\]</span>and</p>
-<p><span class="math display">\[
-\begin{align}
-g:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\
-x &amp;\longmapsto g(x):= 2x^3-x^2+1
-\end{align}
-\]</span></p>
-<p>The domain of <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> is <span class="math inline">\(X=\mathbb{R}\)</span> and the codomain is <span class="math inline">\(Y=\mathbb{R}\)</span> as we read from the <span class="math inline">\(\mathbb{R}\times\mathbb{R}\)</span>.</p>
-<p>The ranges requires us to compute <span class="math inline">\(f(\mathbb{R})\)</span> and <span class="math inline">\(g(\mathbb{R})\)</span>, but since this requires tools not yet introduced in these notes, we will simply plot the functions we guess what we think the domain is:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">2.0</span>, <span class="fl">2.1</span>, <span class="fl">0.1</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">211</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, <span class="dv">3</span> <span class="op">*</span> xs <span class="op">+</span> <span class="dv">1</span>, <span class="st">'r-'</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'f(x)'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">212</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, <span class="dv">2</span> <span class="op">*</span> xs<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> xs <span class="op">+</span> <span class="dv">1</span>, <span class="st">'b-'</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'g(x)'</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The domain of <span class="math inline">\(F\)</span> is <span class="math inline">\(X=\mathbb{R}\)</span> while that of <span class="math inline">\(G\)</span> is <span class="math inline">\(X=\mathbb{R}^+\)</span>, the codomains are both <span class="math inline">\(Y=\mathbb{R}\)</span>.</p>
+<p>We can rewrite the functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> using the procedure notation as</p>
+<p><span id="eq-fx"><span class="math display">\[ \begin{align} f:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\ x &amp;\longmapsto f(x):= 3x+1 \end{align}  \tag{4}\]</span></span></p>
+<p><span class="math display">\[ \begin{align} g:\mathbb{R}^+&amp;\longrightarrow \mathbb{R}\\ x &amp;\longmapsto g(x):= 2x^3-x^2+1 \end{align} \]</span></p>
+<p>The range is the set of all outputs of a function, conveniently named by the symbols <span class="math inline">\(f(\mathbb{R})\)</span> and <span class="math inline">\(g(\mathbb{R})\)</span>. What are these sets? Unfortunately, this requires tools not yet introduced in these notes, to circumvent that, we will simply plot the functions and guess what we think the range is:</p>
+<div id="e3d96b57" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<p><img src="polynomials_files/figure-html/cell-2-output-1.png" width="600" height="433"></p>
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-2-output-1.png" width="600" height="433" class="figure-img"></p>
+</figure>
 </div>
 </div>
-<p>We can see that both functions increase/decrease without bound as <span class="math inline">\(|x|\)</span> increases, thus the range is <span class="math inline">\(\mathbb{R}\)</span> in both functions.</p>
+</div>
+<p>We can see that the outputs of the <span class="math inline">\(F\)</span> function increase/decrease without bound as <span class="math inline">\(x\)</span> increases, thus the range is <span class="math inline">\(\mathbb{R}\)</span> in both functions. For the function <span class="math inline">\(G\)</span>, as <span class="math inline">\(x\)</span> increase, the outputs do as well; observe <span class="math inline">\(x\)</span> is never zero! Thus the range is <span class="math inline">\(\mathbb{R}^+\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When one wishes to refer to functions defined as <a href="#eq-defofpoldegn" class="quarto-xref">Equation&nbsp;3</a> we simply say “the function <span class="math inline">\(p_n(x)\)</span>”. For example if I want to say <a href="#eq-fx" class="quarto-xref">Equation&nbsp;4</a> has property <span class="math inline">\(A\)</span>, then we should say “the function <span class="math inline">\(f(x)\)</span> has property <span class="math inline">\(A\)</span>” or more simply “the function <span class="math inline">\(f\)</span> has property <span class="math inline">\(A\)</span>” or “the function <span class="math inline">\(3x+1\)</span> has property <span class="math inline">\(A\)</span>” or even “the function <span class="math inline">\(y=3x+1\)</span> has property <span class="math inline">\(A\)</span>”. Even though the later are not accurate ( <span class="math inline">\(f(x)\)</span> is a variable symbol, <span class="math inline">\(f\)</span> labels the procedure and <span class="math inline">\(y=3x+1\)</span> is an equation) we will still use it. We sacrifice a bit of accuracy for the sake of brevity.</p>
+</div>
+</div>
 </section>
 <section id="exercise" class="level2">
 <h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<p>Define <a href="#eq-defofpoldegn">Equation&nbsp;3</a> for the first and third function sets in <a href="#eq-egsofpol">Equation&nbsp;1</a>. Be careful in specifying what is the range of either function.</p>
+<p>Define <a href="#eq-defofpoldegn" class="quarto-xref">Equation&nbsp;3</a> for the first and third function sets in <a href="#eq-egsofpol" class="quarto-xref">Equation&nbsp;1</a>. Be careful in specifying what is the range of either function.</p>
 </section>
 <section id="answer" class="level2">
 <h2 class="anchored" data-anchor-id="answer">Answer</h2>
@@ -360,25 +382,13 @@ x &amp;\longmapsto c(x):= x^2+3
 \end{align}
 \]</span></p>
 <p>The domain and range are both <span class="math inline">\(\mathbb{R}\)</span> again but the range is trickier. We want to compute the set <span class="math inline">\(c(\mathbb{R})\)</span>, to do it, we note by inspecting <span class="math inline">\(x^2+3\)</span> that its minimum value occurs when <span class="math inline">\(x=0\)</span> and the larger the <span class="math inline">\(x\)</span>, the larger is <span class="math inline">\(x^2+3\)</span>, thus <span class="math inline">\(c(\mathbb{R})=[3,+\infty[\)</span>, which is a subset of the codomain <span class="math inline">\(\mathbb{R}\)</span>.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">2.0</span>, <span class="fl">2.1</span>, <span class="fl">0.1</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">211</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, np.ones([<span class="bu">len</span>(xs)]) <span class="op">*</span> <span class="dv">100</span>, <span class="st">'r-'</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'l(x)'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">212</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.plot(xs, xs<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>, <span class="st">'b-'</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'g(x)'</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="89984c52" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<p><img src="polynomials_files/figure-html/cell-3-output-1.png" width="593" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="polynomials_files/figure-html/cell-3-output-1.png" width="593" height="429" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -407,121 +417,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -581,10 +476,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -594,8 +506,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -607,7 +528,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -651,6 +695,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -676,6 +721,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -736,6 +807,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
