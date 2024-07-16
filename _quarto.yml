@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Bried Notes
+        text: Brief Notes
       - about.qmd
       - favourites.qmd
 
