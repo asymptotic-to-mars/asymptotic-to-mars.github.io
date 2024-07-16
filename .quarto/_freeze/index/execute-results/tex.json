@@ -1,0 +1,16 @@
+{
+  "hash": "a91bfa75d6f95f6b2156bf4a8592ea23",
+  "result": {
+    "markdown": "---\ntitle: \"Brief Notes\"\nsubtitle: YesYes, these are brief\nauthor: me\ndate: today\nbibliography: references.bib\nformat:\n  html:\n    toc: True #table of contents shows up\n  pdf: \n    include-in-header: \n      text: \n        \\newcommand{\\foo}{E=mc^2}\nknitr: #the thing that renders the file\n  opts_chunk: #ops for code\n    warning: False\n    Message: False #setting these to false, elimintate error messages in the redered file (https://youtu.be/Auo1hjyeCl4?list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&t=181)\n---\n\n\n\n## My list of things:\n\n-   beans\n\n-   seeds\n\n-   tofu\n\n-   legumes\n\n## My Fav Picture\n\n![Circle of Life](images/giphy-01.gif){#fig-fun fig-alt=\"The Aristogatos knew it.\" fig-align=\"center\" width=\"300\"}\n\nIn @fig-fun we see the cat and the disco, just need some [*music*](https://www.youtube.com/watch?v=WXrdYwG17PE).\n\n## Useful links for 2024\n\n1.  [Peace of Mind](https://www.youtube.com/watch?v=HABbAHdfdXk \"very useful :)\")\n\n2.  [Art](https://4rtgallery.blogspot.com/2014/03/spray-paint-portraits-by-david-walker.html \"yes it is also needed\")\n\n## Oracle advice for 2024\n\n> $$\n> 2024 = 2^3 \\times 11 \\times 23\n> $$\n\n## Code to use in 2024\n\n``` python\ndef Update(x):\n  return 10 * x\n```\n\n## The Equation\n\n$$\nF = ma\n$$\n\n::: callout-tip\nThe equation is a differential vector equation. Aesthetically, it is a pleasing equation as written, but it is more meaningfully pleasing by switching the right and left hand sides.\n:::\n\n## Testing Dirac Notation\n\n$$\ni\\hbar\\frac{\\partial |\\psi\\rangle}{\\partial t} = \\hat{H}|\\psi\\rangle \\foo\n$$\n\n## Song for 2024\n\n\n\n{{< video https://www.youtube.com/watch?v=2aFoG7zNIv4&list=LL&index=2 width=\"500\" height=\"250\" >}}\n\n\n\n\n\n### References for this outstanding site:\n\nMaster-Cohen Tannoudji, *Quantum Mechanics*, f#ing-Wiley\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

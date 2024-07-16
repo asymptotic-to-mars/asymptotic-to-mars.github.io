@@ -1,0 +1,81 @@
+{
+  "index.qmd": {
+    "index.html": "1a2ff522",
+    "index.tex": "21e9795d"
+  },
+  "about.qmd": {
+    "about.html": "6f0af978"
+  },
+  "favourites.qmd": {
+    "favourites.html": "dd4b7a18"
+  },
+  "macros.qmd": {
+    "macros.html": "97b98f69"
+  },
+  "polynomials.qmd": {
+    "polynomials.html": "19f21aec"
+  },
+  "angular_momentum_qm.qmd": {
+    "angular_momentum_qm.html": "58bc5ff4"
+  },
+  "einstein_model_of_solid.qmd": {
+    "einstein_model_of_solid.html": "e777727b"
+  },
+  "pratical_guide_cm.qmd": {
+    "pratical_guide_cm.html": "99dc96a3"
+  },
+  "examples_of_pol.qmd": {
+    "examples_of_pol.html": "51134128"
+  },
+  "angular_momentum_qm_short_summary.qmd": {
+    "angular_momentum_qm_short_summary.html": "c20de505"
+  },
+  "I.2.qmd": {
+    "I.2.html": "f0f4492f"
+  },
+  "example 2.qmd": {
+    "example 2.html": "37828a75"
+  },
+  "I.1.qmd": {
+    "I.1.html": "e1dc0553"
+  },
+  "I.3.qmd": {
+    "I.3.html": "1377c29c"
+  },
+  "I.4.qmd": {
+    "I.4.html": "f0c038c3"
+  },
+  "I.5.qmd": {
+    "I.5.html": "333cbe76"
+  },
+  "I.6.qmd": {
+    "I.6.html": "9ca6172b"
+  },
+  "I.7.qmd": {
+    "I.7.html": "0f32bb7a"
+  },
+  "pol_division.qmd": {
+    "pol_division.html": "06f962d1"
+  },
+  "pol_division_PT.qmd": {
+    "pol_division_PT.html": "09fe732f"
+  },
+  "collision theory intro.qmd": {
+    "collision theory intro.html": "76f0059e"
+  },
+  "special relativity.qmd": {
+    "special relativity.html": "b942e679"
+  },
+  "rutherfords atom.qmd": {
+    "rutherfords atom.html": "1d959f15"
+  },
+  "Example_of_pol_division_4.qmd": {
+    "Example_of_pol_division_4.html": "04b0d450"
+  },
+  "Example_of_pol_division_5.qmd": {
+    "Example_of_pol_division_5.html": "bc866a4f"
+  },
+  "docs/example_of_pol_division_5.qmd": {
+    "example_of_pol_division_5.html": "6a9b6c16"
+  }
+}

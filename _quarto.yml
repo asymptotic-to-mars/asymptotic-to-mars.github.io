@@ -15,9 +15,12 @@ format:
   html:
     theme:
       light: minty
-      dark: darkly
+      #dark: darkly
     #theme: thestylishtheme.scss
     toc: true
 
 editor: visual
+
+comments: 
+  hypothesis: true
 

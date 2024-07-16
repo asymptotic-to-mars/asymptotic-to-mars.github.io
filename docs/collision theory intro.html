@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>asymptotic to MARS - collision theory intro</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">asymptotic to MARS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Bried Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./favourites.html" rel="" target="">
+ <span class="menu-text">Favourites</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#collision-theory" id="toc-collision-theory" class="nav-link active" data-scroll-target="#collision-theory">Collision Theory</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-collision" id="toc-what-is-a-collision" class="nav-link" data-scroll-target="#what-is-a-collision">What is a collision?</a></li>
+  </ul></li>
+  <li><a href="#basic-perquisites-to-study-collisions" id="toc-basic-perquisites-to-study-collisions" class="nav-link" data-scroll-target="#basic-perquisites-to-study-collisions">Basic Perquisites to Study Collisions</a>
+  <ul class="collapse">
+  <li><a href="#center-of-mass-position-and-relative-position" id="toc-center-of-mass-position-and-relative-position" class="nav-link" data-scroll-target="#center-of-mass-position-and-relative-position">Center of Mass Position and Relative Position</a></li>
+  <li><a href="#total-momentum" id="toc-total-momentum" class="nav-link" data-scroll-target="#total-momentum">Total Momentum</a></li>
+  <li><a href="#kinetic-energy" id="toc-kinetic-energy" class="nav-link" data-scroll-target="#kinetic-energy">Kinetic Energy</a></li>
+  <li><a href="#elastic-collisions" id="toc-elastic-collisions" class="nav-link" data-scroll-target="#elastic-collisions">Elastic Collisions</a></li>
+  <li><a href="#inelastic-collisions" id="toc-inelastic-collisions" class="nav-link" data-scroll-target="#inelastic-collisions">Inelastic Collisions</a></li>
+  <li><a href="#using-binomial-to-describe-a-collision" id="toc-using-binomial-to-describe-a-collision" class="nav-link" data-scroll-target="#using-binomial-to-describe-a-collision">Using Binomial to describe a collision</a></li>
+  <li><a href="#different-processes-and-targets" id="toc-different-processes-and-targets" class="nav-link" data-scroll-target="#different-processes-and-targets">Different processes and Targets</a></li>
+  <li><a href="#using-poisson-distribution-to-describe-collisions" id="toc-using-poisson-distribution-to-describe-collisions" class="nav-link" data-scroll-target="#using-poisson-distribution-to-describe-collisions">Using Poisson distribution to describe collisions</a></li>
+  </ul></li>
+  <li><a href="#differential-cross-section" id="toc-differential-cross-section" class="nav-link" data-scroll-target="#differential-cross-section">Differential Cross Section</a>
+  <ul class="collapse">
+  <li><a href="#example-of-a-theoretical-calculation-of-the-differential-scattering-cross-section" id="toc-example-of-a-theoretical-calculation-of-the-differential-scattering-cross-section" class="nav-link" data-scroll-target="#example-of-a-theoretical-calculation-of-the-differential-scattering-cross-section">Example of a theoretical calculation of the differential scattering cross-section</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">collision theory intro</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="collision-theory" class="level1">
+<h1>Collision Theory</h1>
+<section id="what-is-a-collision" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-collision">What is a collision?</h2>
+<p>Two particles which the only relevant interaction is local when compared with interaction at long range, long range interaction is weak enough that the particles move with constant velocity. When these particles get close enough their straight line trajectories are changed, to this process we call a collision process. (See Sec. 10.6 Greg) In general collisions can give rise to chemical reactions and thus new particles described in general by: <span class="math display">\[A_1+A_2\longrightarrow B_1 +B_2+B_3\]</span>We will not deal with these types of reactions but of reactions where the identity of each particle is preserved, we call these scattering reactions. Schematically we have: <span class="math display">\[A_1+A_2\longrightarrow A_1+A_2\]</span>An interactions is elastic if none of internal degrees of freedom of the participants is changed during the process. (Cohen Chap VIII A-1) The analysis of the collision process between two particles can be done exactly, by computing the trajectory of both particles from the initial conditions and using Newtons Laws. This can be done in any reference frame in particular either the Lab frame or the CM frame. We’ll discuss both. We can also describe the collision process with statistics, where we attach a probability law to the final velocity vectors given initial ones. We want to focus in these notes on the connection between the rigorous approach and the statistics one.</p>
+<p><span class="math display">\[\text{CM}\longrightarrow \text{Col. Cross section}\longrightarrow \text{Prob Law}\longrightarrow \text{averages}\]</span> The collision cross section is an intermediary quantity that occurs in the probability law (function composition)</p>
+</section>
+</section>
+<section id="basic-perquisites-to-study-collisions" class="level1">
+<h1>Basic Perquisites to Study Collisions</h1>
+<p>Consider a system composed of two particles with masses <span class="math inline">\(m_1\)</span> and <span class="math inline">\(m_2\)</span> located at time <span class="math inline">\(t\)</span> at <span class="math inline">\(\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{r}_2\)</span> measured wrt to some reference frame <span class="math inline">\(\mathcal{O}\)</span> of our choice.</p>
+<section id="center-of-mass-position-and-relative-position" class="level2">
+<h2 class="anchored" data-anchor-id="center-of-mass-position-and-relative-position">Center of Mass Position and Relative Position</h2>
+<p>The center of mass is given by the following formula:</p>
+<p><span id="eq-cm"><span class="math display">\[
+\mathbf{R} = \frac{m_1 }{M}\mathbf{r}_1 +\frac{m_2 }{M}\mathbf{r}_2\qquad M=m_1+m_2
+\tag{1}\]</span></span></p>
+<p>a linear combination of the current positions weighted by the relative mass.</p>
+<p>While the relative position, as the name suggests is just:</p>
+<p><span class="math display">\[
+\mathbf{r} = \mathbf{r}_1-\mathbf{r}_2
+\]</span></p>
+<p>Both measured with respect to <span class="math inline">\(\mathcal{O}\)</span>.</p>
+<p>These two formulas allow us to compute the new generalized coordinates <span class="math inline">\(\mathbf{R}\)</span> and <span class="math inline">\(\mathbf{r}\)</span> from <span class="math inline">\(\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{r}_2\)</span>. Inverting them we get:</p>
+<p><span id="eq-r1r2"><span class="math display">\[
+\begin{cases}
+\mathbf{r}_1 = \mathbf{R} +\frac{m_2}{M}\mathbf{r}\\
+\mathbf{r}_2 = \mathbf{R} -\frac{m_1}{M}\mathbf{r}
+\end{cases}
+\tag{2}\]</span></span> we choose the reference frame attach located at <span class="math inline">\(\mathbf{R}\)</span>, i.e., we choose <span class="math inline">\(\mathcal{O} = \mathcal{O}_{cm}\)</span>, then <a href="#eq-r1r2">Equation&nbsp;2</a> becomes:</p>
+<p><span id="eq-r1r2cm"><span class="math display">\[
+\begin{cases}
+\mathbf{r}_{1,cm} = \frac{m_2}{M}\mathbf{r}\\
+\mathbf{r}_{2,cm} =  -\frac{m_1}{M}\mathbf{r}
+\end{cases}
+\tag{3}\]</span></span></p>
+<p>where we introduce the subscript <span class="math inline">\(cm\)</span> to reminds us that the components of these vectors are with respect to the new frame; absence of subscript, like in <span class="math inline">\(\mathbf{r}\)</span> mean the components are with respect to the old reference frame.</p>
+</section>
+<section id="total-momentum" class="level2">
+<h2 class="anchored" data-anchor-id="total-momentum">Total Momentum</h2>
+<p>The total linear momentum of the particles is the sum of the momentum of particle <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. This quantity is related with <span class="math inline">\(\mathbf{R}\)</span> as we see:</p>
+<p><span id="eq-2ndlaw"><span class="math display">\[
+\mathbf{P} = \mathbf{p}_1+\mathbf{p}_2=m_1\dot{\mathbf{r}}_1+m_2\dot{\mathbf{r}}_2=M\dot{\mathbf{R}}
+\tag{4}\]</span></span></p>
+<p>Differentiating we find:</p>
+<p><span class="math display">\[
+\dot{\mathbf{P}} = \mathbf{F}_{1,tot}+\mathbf{F}_{2,tot}=M\ddot{\mathbf{R}}
+\]</span></p>
+<p>The total force on <span class="math inline">\(1\)</span> can be split into a sum of the external forces acting on <span class="math inline">\(1\)</span> plus the force <span class="math inline">\(2\)</span> does on <span class="math inline">\(1\)</span>, similar split is done for the particle <span class="math inline">\(2\)</span>. Since internal forces cancel, we know <span class="math inline">\(\mathbf{F}_{1,tot}+\mathbf{F}_{2,tot}=\mathbf{F}_{ext,tot}\)</span>. We conclude:</p>
+<p><span class="math display">\[
+\mathbf{F}_{ext,tot}=M\ddot{\mathbf{R}}
+\]</span> This formula has a very important consequence:</p>
+<ol type="1">
+<li>If the external forces are zero then the acceleration of the center of mass is zero.</li>
+<li>If the acceleration of the center of mass is zero, then its velocity is zero or constant.</li>
+<li>If the center of mass velocity is zero or constant, then a reference frame attach to it <span class="math inline">\(\mathcal{O}_{cm}\)</span> is an inertial reference frame.</li>
+</ol>
+<p>The frame <span class="math inline">\(\mathcal{O}_{cm}\)</span> will be a useful definition when studying collisions. Because in this frame the components of velocity of the center of mass are zero <span class="math inline">\(\dot{\mathbf{R}}_{cm}=\mathbf{0}\)</span> and as a result by <a href="#eq-2ndlaw">Equation&nbsp;4</a> we have:</p>
+<p><span id="eq-stat_on_p"><span class="math display">\[
+\begin{align}
+&amp;\mathbf{p}_1+\mathbf{p}_2=\mathbf{0}\\
+\implies &amp; \mathbf{p}_1=-\mathbf{p}_2
+\end{align}
+\tag{5}\]</span></span></p>
+<p>Moreover, in this new frame the measurements of <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> become using <a href="#eq-r1r2cm">Equation&nbsp;3</a> :</p>
+<p><span class="math display">\[ \begin{cases} \dot{\mathbf{r}}_{1,cm} = \frac{m_2}{M}\dot{\mathbf{r}}\\ \dot{\mathbf{r}}_{2,cm} =  -\frac{m_1}{M}\dot{\mathbf{r}} \end{cases} \]</span></p>
+<p>which leads us to explicit formulas for the linear momentum:</p>
+<p><span id="eq-p1cmp2cm"><span class="math display">\[
+\begin{cases}
+\mathbf{p}_{1,cm} = m_1 \dot{\mathbf{r}}_{1,cm} = \mu\dot{\mathbf{r}}\\
+\mathbf{p}_{2,cm} = m_2 \dot{\mathbf{r}}_{2,cm} = -\mu\dot{\mathbf{r}}
+\end{cases}
+\tag{6}\]</span></span></p>
+<p>As expected they satisfy the equation <a href="#eq-stat_on_p">Equation&nbsp;5</a> .</p>
+</section>
+<section id="kinetic-energy" class="level2">
+<h2 class="anchored" data-anchor-id="kinetic-energy">Kinetic Energy</h2>
+<p>The total kinetic energy of the particles is the sum of the kinetic energies, using the usual formulas we have wrt to any <span class="math inline">\(\mathcal{O}\)</span>:</p>
+<p><span class="math display">\[
+T = \frac{1}{2} m_1 \dot{\mathbf{r}}_1+\frac{1}{2} m_2 \dot{\mathbf{r}}_2
+\]</span></p>
+<p>As we have seen in <a href="#eq-r1r2">Equation&nbsp;2</a>, from <span class="math inline">\(\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{r}_2\)</span> we can compute the generalized coordinates <span class="math inline">\(\mathbf{R}\)</span> and <span class="math inline">\(\mathbf{r}\)</span>. Differentiating, relates the velocities:</p>
+<p><span class="math display">\[
+\begin{cases}
+\dot{\mathbf{r}}_1 = \dot{\mathbf{R}} +\frac{m_2}{M}\dot{\mathbf{r}}\\
+\dot{\mathbf{r}}_2 = \dot{\mathbf{R}} -\frac{m_1}{M}\dot{\mathbf{r}}
+\end{cases}
+\]</span></p>
+<p>These equations are valid for velocities measured wrt to any <span class="math inline">\(\mathcal{O}\)</span> of our choice, they are general.</p>
+<p>Substituting in <span class="math inline">\(T\)</span> we find:</p>
+<p><span id="eq-equivalent_K"><span class="math display">\[
+T = \frac{1}{2} M\dot{\mathbf{R}}^2+\frac{1}{2} \mu\dot{\mathbf{r}}^2\qquad \mu = \frac{m_1m_2}{M}
+\tag{7}\]</span></span></p>
+<p>The total kinetic energy of <span class="math inline">\(1\)</span> plus <span class="math inline">\(2\)</span> at time <span class="math inline">\(t\)</span> measured wrt to <span class="math inline">\(\mathcal{O}\)</span> is equal to the sum of the kinetic energy of a massive particle <span class="math inline">\(M\)</span> moving with velocity <span class="math inline">\(\dot{\mathbf{R}}\)</span> plus a smaller particle <span class="math inline">\(\mu\)</span> moving with velocity <span class="math inline">\(\dot{\mathbf{r}}\)</span>, both again, measured wrt to <span class="math inline">\(\mathcal{O}\)</span>.</p>
+<p>The energy in <a href="#eq-equivalent_K">Equation&nbsp;7</a> is NOT the kinetic energy wrt to <span class="math inline">\(\mathcal{O}_{cm}\)</span>, it is just another way of computing the kinetic energy wrt to <span class="math inline">\(\mathcal{O}\)</span>. Note that both <span class="math inline">\(\dot{\mathbf{R}}\)</span> and <span class="math inline">\(\dot{\mathbf{r}}\)</span> have components with respect with the frame of reference.</p>
+<p>If we choose the <span class="math inline">\(\mathcal{O}_{cm}\)</span> frame of reference then <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> in <a href="#eq-r1r2cm">Equation&nbsp;3</a> become:</p>
+<p><span class="math display">\[
+\begin{cases}
+\dot{\mathbf{r}}_{1,cm} = \frac{m_2}{M}\dot{\mathbf{r}}\\
+\dot{\mathbf{r}}_{2,cm} =  -\frac{m_1}{M}\dot{\mathbf{r}}
+\end{cases}
+\]</span></p>
+<p>These formulas are specific for velocities measured wrt center of mass reference frame.</p>
+<p>The total kinetic energy as measured in <span class="math inline">\(\mathcal{O}_{cm}\)</span> becomes after simplifying:</p>
+<p><span class="math display">\[
+T_{cm} = \frac{1}{2} m_1 \dot{\mathbf{r}}_{1,cm}+\frac{1}{2} m_2 \dot{\mathbf{r}}_{2,cm} =  \frac{1}{2}\mu \dot{\mathbf{r}}^2
+\]</span></p>
+</section>
+<section id="elastic-collisions" class="level2">
+<h2 class="anchored" data-anchor-id="elastic-collisions">Elastic Collisions</h2>
+<p>Our goal is to describe the momenta and kinetic energy in a two particle elastic collision. If we assume there is no external forces acting on the particles the center of mass position moves at constant velocity and therefore constitute a inertial reference frame <span class="math inline">\(\mathcal{O}_{cm}\)</span>. This is the first point of view we’ll adopt. The second point of view is a special case of a lab reference frame - the conventional lab frame for collisions - it is set in such a way that particle <span class="math inline">\(2\)</span>, the target is initially at rest. I would like to emphasize the key word initially at rest, that means that in the reference frame, after the collision, the particle <span class="math inline">\(2\)</span> is no longer at rest.</p>
+<p>See Fig. 14.14 Taylor</p>
+<ul>
+<li><p>In <span class="math inline">\(\mathcal{O}_{cm}\)</span> the initial and final momenta of both particles is given by <a href="#eq-p1cmp2cm">Equation&nbsp;6</a></p>
+<p><span id="eq-p1cmp2cmB"><span class="math display">\[
+\begin{align}
+\mathbf{p}_{1,cm} = -\mathbf{p}_{2,cm} \equiv \mathbf{p}_{cm}= \mu \dot{\mathbf{r}}\\
+\mathbf{p}_{1,cm}' = -\mathbf{p}_{2,cm}' \equiv \mathbf{p}_{cm}'=\mu \dot{\mathbf{r}}'
+\end{align}
+\tag{8}\]</span></span></p></li>
+<li><p>In <span class="math inline">\(\mathcal{O}_{lab}\)</span> we find</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\mathbf{p}_{1,lab} =\lambda \mathbf{p}+\mathbf{p}\\
+&amp;\mathbf{p}_{1,lab}' = \lambda \mathbf{p}+\mathbf{p}'\qquad \lambda =\frac{m_1}{m_2}\\
+&amp;\mathbf{p}_{2,lab}=\mathbf{p}'_{2,lab}=\mathbf{0}
+\end{align}
+\]</span></p>
+<p>proof: In this reference frame, <span class="math inline">\(\mathbf{p}_{1,lab} =m_1 \dot{\mathbf{r}}_1\)</span> which when written in generalized coordinates of center of mass plus relative distance become:</p>
+<p><span id="eq-p1labp2lab"><span class="math display">\[
+\begin{align}
+\mathbf{p}_{1,lab} &amp;=m_1 \dot{\mathbf{r}}_1\\
+&amp;=m_1(\dot{\mathbf{R}}+\frac{m_2}{M}\dot{\mathbf{r}})\\
+&amp;=m_1\dot{\mathbf{R}}+\mu\dot{\mathbf{r}}
+\end{align}
+\tag{9}\]</span></span></p></li>
+</ul>
+<p>Now, for particle <span class="math inline">\(2\)</span> we also write <span class="math inline">\(\mathbf{p}_{2,lab} =m_2 \dot{\mathbf{r}}_2\)</span>, but since this particle is at rest in the lab frame we have <span class="math inline">\(\mathbf{p}_{2,lab}=\mathbf{0}\)</span>. Additionally, from the definition of center of mass <a href="#eq-cm">Equation&nbsp;1</a> we simplify <a href="#eq-p1labp2lab">Equation&nbsp;9</a> using the observation that:</p>
+<p><span id="eq-R_before"><span class="math display">\[
+\begin{cases}
+\dot{\mathbf{R}} = \frac{m_1}{M}\dot{\mathbf{r}}_1=\frac{m_1}{M}\dot{\mathbf{r}} =\frac{\mu}{m_2}\dot{\mathbf{r}}=\frac{\mathbf{p}}{m_2}\\
+\mathbf{r}=\mathbf{r}_1-\mathbf{r}_2 = \mathbf{r}_1
+\end{cases}
+\tag{10}\]</span></span></p>
+<p>where at the last step we used <a href="#eq-p1cmp2cmB">Equation&nbsp;8</a>; the momentum <span class="math inline">\(\mathbf{p}\)</span> is of a fictitious particle with mass <span class="math inline">\(\mu\)</span>. Substituting this result in <a href="#eq-p1labp2lab">Equation&nbsp;9</a> we find:</p>
+<p><span class="math display">\[
+\mathbf{p}_{1,lab} = m_1\dot{\mathbf{R}}+\mu\dot{\mathbf{r}}=\lambda \mathbf{p}+\mathbf{p}\qquad \lambda =\frac{m_1}{m_2}
+\]</span></p>
+<p>The momentum of <span class="math inline">\(1\)</span> after collision has the same form as <a href="#eq-p1labp2lab">Equation&nbsp;9</a> :</p>
+<p><span id="eq-p1_after"><span class="math display">\[
+\mathbf{p}'_{1,lab}=m_1\dot{\mathbf{R}}'+\mu\dot{\mathbf{r}}'
+\tag{11}\]</span></span></p>
+<p>Observe that <span class="math inline">\(\mu \dot{\mathbf{r}}'=\mathbf{p}'\)</span>; since <span class="math inline">\(\mathbf{F}_{1,ext}=\mathbf{0}\)</span> then <span class="math inline">\(M\dot{\mathbf{R}} = M\dot{\mathbf{R}}'\)</span>, which means the velocity of the center of mass is the same before and after the collision and as a result we can compute it using <a href="#eq-R_before">Equation&nbsp;10</a>:</p>
+<p><span class="math display">\[
+\dot{\mathbf{R}}' = \dot{\mathbf{R}}=\frac{\mathbf{p}}{m_2}
+\]</span></p>
+<p>Substituting in <a href="#eq-p1_after">Equation&nbsp;11</a> yields:</p>
+<p><span class="math display">\[
+\mathbf{p}_{1,lab}' = \lambda \mathbf{p}+\mathbf{p}'\qquad \lambda =\frac{m_1}{m_2}
+\]</span></p>
+<p>The momentum of particle <span class="math inline">\(2\)</span> after the collision is computed as:</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbf{p}_{2,lab}' &amp;= \mathbf{p}_{1,lab}+\mathbf{p}_{2,lab}-\mathbf{p}_{1,lab}'\\
+&amp;=\lambda \mathbf{p}+\mathbf{p}+\mathbf{0}-\lambda \mathbf{p}-\mathbf{p}'\\
+&amp;=\mathbf{p}-\mathbf{p}'
+\end{align}
+\]</span></p>
+<p>We further find that for this particular lab frame where <span class="math inline">\(2\)</span> is at rest:</p>
+<p><span class="math display">\[
+T_{lab}=\frac{M}{m_2}T_{cm}
+\]</span></p>
+<p>proof: The kinetic energy after the collision is the sum of kinetic energies of both particles, particle <span class="math inline">\(2\)</span> this time has nonzero kinetic energy, we can prove that this sum yields the result above, although an easier way is to notice that kinetic energy is conserved since the collision is elastic and computing the kinetic energy before the collision (when particle <span class="math inline">\(2\)</span> is still at rest) is simple:</p>
+<p><span class="math display">\[
+\begin{align}
+T_{lab}&amp;=\frac{\mathbf{p}_{1,lab}^2}{2 m_1}+\frac{\mathbf{p}_{2,lab}^2}{2 m_2}\\
+&amp;=\frac{(\lambda \mathbf{p}+\mathbf{p})^2}{2m_1}+\mathbf{0}\\
+&amp;=\frac{(\lambda +1)^2}{2m_1}\mathbf{p}^2+\mathbf{0}\\
+&amp;=\frac{((m_1+m_2)/m_2)^2}{2m_1}\mathbf{p}^2\\
+&amp;=\frac{m_1}{2\mu^2}\mathbf{p}^2\\
+&amp;=\frac{M}{m_2}T_{cm}
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+T&amp;=\frac{\mathbf{p}_{1,lab}'^2}{2 m_1}+\frac{\mathbf{p}_{2,lab}'^2}{2 m_2}\\
+&amp;=\frac{(\lambda \mathbf{p}+\mathbf{p}')^2}{2m_1}+\frac{(\mathbf{p}-\mathbf{p}')^2}{2m_2}\\
+&amp;=
+\end{align}
+\]</span></p>
+</section>
+<section id="inelastic-collisions" class="level2">
+<h2 class="anchored" data-anchor-id="inelastic-collisions">Inelastic Collisions</h2>
+<p>In special relativity we know that the relativistic energy of a moving particle is given by:</p>
+<p><span class="math display">\[
+E = p_4c=\gamma m c^2\sim m c^2 +\frac{1}{2}m v^2\qquad v\ll c
+\]</span></p>
+<p>The limit being called the non-relativistic regime.</p>
+<p>Consider a collision between two particles <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. If the system is isolated then there is conservation of four-momentum which implies conservation of relativistic energy, because this is the fourth component of four-momentum. In the non-relativistic regime the conservation of energy is:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;m_1^ic^2+\frac{1}{2}m_1^i(v_1^i)^2+m_2^ic^2+\frac{1}{2}m_2^i(v_2^i)^2 \\
+&amp;=m_1^fc^2+\frac{1}{2}m_1^f(v_1^f)^2+m_2^fc^2+\frac{1}{2}m_2^f(v_2^f)^2
+\end{align}
+\]</span></p>
+<p>which is equivalent to:</p>
+<p><span id="eq-rel_E_conserv_law"><span class="math display">\[
+\begin{align}
+&amp;\overbrace{(m_1^i+m_2^i)}^{M^i}c^2+\overbrace{\frac{1}{2}m_1^i(v_1^i)^2+\frac{1}{2}m_2^i(v_2^i)^2}^{T^i} \\
+&amp;=\underbrace{(m_1^f+m_2^f)}_{M^f}c^2+\underbrace{\frac{1}{2}m_1^f(v_1^f)^2+\frac{1}{2}m_2^f(v_2^f)^2}_{T^f}
+\end{align}
+\tag{12}\]</span></span></p>
+<p>If we assume, as we do in classical mechanics, that the mass of particles does not change then mass-energy terms cancel and the equality above reduces to:</p>
+<p><span class="math display">\[
+T^i=T^f
+\]</span></p>
+<p>The kinetic energy is conserved and we call it an elastic collision.</p>
+<p>In an inelastic collision such as a collision between two atoms their internal energy (mass-energy terms) can be disturbed and as a result their kinetic energies before and after cannot be the same <span class="math inline">\(T^i\not = T^f\)</span>, as a result from <a href="#eq-rel_E_conserv_law">Equation&nbsp;12</a>, the masses before and after cannot be the same <span class="math inline">\(M^i \not = M^f\)</span>.</p>
+<p>If relativistic energy is conserved, then the mass cannot be conserved. When an atom gains internal energy, it gains mass.</p>
+<p>The following formula <a href="#eq-rel_E_conserv_law">Equation&nbsp;12</a> is equivalent to:</p>
+<p><span class="math display">\[
+Q\equiv \Delta M c^2 =-\Delta T
+\]</span></p>
+<p>Here are some cases:</p>
+<ul>
+<li><p>In an exothermic reaction <span class="math inline">\(\Delta T &gt;0\)</span>, thus <span class="math inline">\(\Delta M&lt;0\)</span>, the total rest mass of products of the reaction is smaller than the total mass of the reactants.</p></li>
+<li><p>In an endothermic reaction the scenario signs are reversed.</p></li>
+<li><p>In an elastic collision then <span class="math inline">\(\Delta T =0\)</span> and as we have discussed the rest mass is unchanged <span class="math inline">\(\Delta M =0\)</span>.</p></li>
+<li><p>Excitation reaction:</p>
+<p><span class="math display">\[
+e + Hg\longrightarrow e+Hg^*
+\]</span></p>
+<p>The electron does not change its mass due the collision because it has no internal structure, the mercury atom increases its quantum energy by <span class="math inline">\(4.9eV\)</span>, it becomes an excited atom. The kinetic energy of the emerging particles is smaller by <span class="math inline">\(4.9eV\)</span>, we write <span class="math inline">\(\Delta T = -4.9 eV\)</span>, thus:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;[(m^f_e+m^f_{Hg})-(m^i_e+m^i_{Hg})]c^2 = -\Delta T = 4.9 eV\\
+\implies &amp;[m^f_{Hg}-m^i_{Hg}]=\frac{4.9 eV}{c^2}=8.7\times 10^{-36}kg
+\end{align}
+\]</span></p></li>
+</ul>
+</section>
+<section id="using-binomial-to-describe-a-collision" class="level2">
+<h2 class="anchored" data-anchor-id="using-binomial-to-describe-a-collision">Using Binomial to describe a collision</h2>
+<p>When a particle <span class="math inline">\(A_1\)</span> moves toward <span class="math inline">\(A_2\)</span> either it collides or not depending on the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(\sigma\)</span>. Since I do not know <span class="math inline">\(b\)</span>, neither I know the nature of the interaction process, let us fill the vacuum with assumptions on what is going on. We can either make assumptions on the nature of the one interaction between two particles and then derive the resulting trajectory. Or I could make assumption on what I think would happen if the scattering process is repeated many times or instead I could make assumption on the process on scattering of one <span class="math inline">\(A_1\)</span> and many <span class="math inline">\(A_2\)</span>. For the latter assume <span class="math inline">\(A_2\)</span> particles are uniformly distributed in space. If <span class="math inline">\(N_1\)</span> particles where send one by one (or at once) toward <span class="math inline">\(N_2\)</span> particles, the <span class="math inline">\(A_1\)</span> particle would see a density <span class="math inline">\(n_2\)</span>.</p>
+<p><img src="figs/Pasted image 20221022222836.png" class="img-fluid" width="412"></p>
+<p>and for each <span class="math inline">\(A_1\)</span> incoming we would have a Bernoulli trial with probability: <span class="math display">\[p(\text{hit one $A_2$})=\frac{N_2 \sigma}{A}=n_2\sigma\]</span>Note that the cross section <span class="math inline">\(\sigma\)</span> describes only whether a particle <span class="math inline">\(A_2\)</span> is hit or not, and does not care about the direction of the scattered <span class="math inline">\(A_1\)</span>. Later we’ll define a new quantity the scattering cross section which also takes into account this direction.</p>
+<p>As a result we have the Binomial probability law on the random variable <span class="math inline">\(X=[x \,\,\text{particles hit}]\)</span>: <span class="math display">\[P(X=x)=\binom{N_1}{x}p^x(1-p)^{N_1-x} \]</span> The expected value of this r.v. is: <span class="math display">\[E[X]=N_1 p = N_1 n_2 \sigma\]</span> which we rename as <span class="math inline">\(N_{sc}\)</span> just as Taylor does in formula (14.2) of Chap. 14, also we rename <span class="math inline">\(N_{inc}:=N_1\)</span>, <span class="math inline">\(n_{tar} :=n_2\)</span>:</p>
+<p><span id="eq-sc"><span class="math display">\[
+N_{sc}= N_{inc}n_{tar} \sigma
+\tag{13}\]</span></span></p>
+<p>A schematic situation is shown in the following picture</p>
+<p><img src="figs/Pasted image 20221023105348.png" class="img-fluid" width="248"></p>
+<p>This diagram is a sequence of <span class="math inline">\(N\)</span> Bernoulli trials which are in turn characterized by the parameter <span class="math inline">\(p\)</span>, to the attached the Binomial probability law. Mathematically the diagram shows a sequence of trials which can succeed or not. Physically each trial can be interpreted as we want, the probability law is the same formula. For example, each branch can be seen as a trial for hit or miss of <span class="math inline">\(N=3\)</span> incoming particles toward a uniformly distributed set of target particles which yield a probability of hit given by <span class="math inline">\(n_2\sigma\)</span>. Another example is consider just one incoming particle toward the targets and each trial describes an encounter which can result in a hit or miss. Either way the Bernoulli formula remains exactly the same.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The two examples focus on a vertical and horizontal slices of an ensemble. In the horizontal slice view, we have one incoming particle and <span class="math inline">\(N_1\)</span> trials (for <span class="math inline">\(t\)</span> seconds) with probability of hit given by <span class="math inline">\(p\)</span>. In this case <span class="math inline">\(P(X=x)\)</span> should be interpreted as the probability of the same molecule collide <span class="math inline">\(x\)</span> times in <span class="math inline">\(N\)</span> trials. In particular <span class="math inline">\(P(X=1)\)</span> is the probability that one particle collides just once in <span class="math inline">\(N_1\)</span> trials. <span class="math inline">\(P(X=1)\)</span> does NOT mean the probability that one particle survives <span class="math inline">\(N_1-1\)</span> times and then collides at the <span class="math inline">\(N_1\)</span> trial, this probability would be given by <span class="math inline">\(p(1-p)^{N_1-1}\)</span> just as written in p.&nbsp;466 of Reif.</p>
+</div>
+</div>
+</section>
+<section id="different-processes-and-targets" class="level2">
+<h2 class="anchored" data-anchor-id="different-processes-and-targets">Different processes and Targets</h2>
+<p>When <span class="math inline">\(A_1\)</span> collides with <span class="math inline">\(A_2\)</span> other processes can occur:</p>
+<ul>
+<li><p>It is scattered into a new direction, the effective area of <span class="math inline">\(A_2\)</span> that causes this effect is called <span class="math inline">\(\sigma_{sc}\)</span> (it is the <span class="math inline">\(\sigma\)</span> seen above. This process can occur elastically, in this case, the kinetic energy of <span class="math inline">\(A_1\)</span>is unchanged and so it the internal energy (mass-energy); or can occur inelatically, in this case the kinetic energy changes. We can introduce this distinction as:</p>
+<p><span class="math display">\[
+\sigma_{sc}=\sigma_{el}+\sigma_{inel}
+\]</span></p></li>
+<li><p>It is absorbed, if we imagine <span class="math inline">\(A_1\)</span> hitting the region of <span class="math inline">\(A_2\)</span> that is like putty, then <span class="math inline">\(A_1\)</span> becomes part of <span class="math inline">\(A_1\)</span>, it is absorbed. In this case we define the effective region responsible for this effect as <span class="math inline">\(\sigma_{cap}\)</span> and the relation between the incoming particles and those absorbed is</p>
+<p><span class="math display">\[
+N_{cap} = N_{inc} n_{tar} \sigma_{cap}
+\]</span></p></li>
+<li><p>It ionizes, in this case we define <span class="math inline">\(\sigma_{ion}\)</span>.</p></li>
+</ul>
+<p><strong>Example:</strong> When an electron hits a chlorine atom, it can either be scattered into a new direction, be absorbed (chlorine can absorb an extra electron) or be ionized (one electron from chlorine is removed). The overall relation is:</p>
+<p><span class="math display">\[
+N_{tot}= N_{inc}n_{tar}\sigma_{tot} \qquad \sigma_{tot} = \overbrace{\sigma_{el}+\sigma_{inel}}^{\sigma_{sc}}+\sigma_{cap}+\sigma_{ion}
+\]</span></p>
+<p>Each one of these effective cross section depends on the kinetic energy of the inc electron, for example:</p>
+<p><span class="math display">\[
+\sigma_{ion}=
+\begin{cases}
+\text{positive }\qquad &amp;T_{inc}\geq E_{ionization}\\
+0\qquad &amp;T_{inc}&lt;E_{ionization}
+\end{cases}
+\]</span></p>
+<p>The energy of ionization is the energy (eigenvalue) is the energy of the outermost electron (wave function with largest radius)</p>
+</section>
+<section id="using-poisson-distribution-to-describe-collisions" class="level2">
+<h2 class="anchored" data-anchor-id="using-poisson-distribution-to-describe-collisions">Using Poisson distribution to describe collisions</h2>
+<p>If we assume we send each one of <span class="math inline">\(N_1\)</span> particles each <span class="math inline">\(dt\)</span> seconds (i.e.&nbsp;this is just a way to guarantee each incoming particle does not interact with each other) and make <span class="math inline">\(N_1\)</span> larger and larger while <span class="math inline">\(p\)</span> is fixed, the Bernoulli distribution formula is the same as above, but the expected value gets also larger and larger; this is one way to compute the limit distribution, lets see another, more useful one. Take the limit of <span class="math inline">\(N_1\)</span> while keeping the average value constant instead. Pictorially we have:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/Pasted image 20221023111809.png" class="img-fluid figure-img" width="460"></p>
+<figcaption class="figure-caption">A particle is sent each dt seconds, either it hits or misses the array of targets. In t seconds it is sent N=infinity particles.</figcaption>
+</figure>
+</div>
+<p>Define now the r.v. <span class="math inline">\(X=x \,\,\text{particles hit in $t$ seconds}\)</span>, then using the Binomial prob law we find: <span class="math display">\[P(X=x)=\binom{N_1}{x}p^x\left(1-p\right)^{N_1-x}\]</span> The expected value is <span class="math inline">\(E[X]= p N_1\)</span>. We would like to take now <span class="math inline">\(N_1\rightarrow \infty\)</span>, but this entails the expected value to go to infinity if we assume <span class="math inline">\(p\)</span> constant. For the present scenario a better model is to assume the expected value is constant, i.e., we expect in any <span class="math inline">\(t\)</span> seconds to find on average the same number of hits. To fix the expected value lets rename it as the product <span class="math inline">\(w t\)</span>. Hence let us introduce the quantity <span class="math inline">\(w\)</span> such that: <span class="math display">\[w t\coloneqq N_1 p =N_1 dt\, w\]</span> As a consequence of fixing the average value though the fix of <span class="math inline">\(w\)</span> we find as a side effect: <span class="math display">\[p(\text{hit between $t$ and $t+dt$})\coloneqq w dt =\frac{n_2\sigma}{t}dt\]</span> We see now that <span class="math inline">\(w\)</span> is the probability of hit per unit time. And <span class="math inline">\(dt=t/N_1\)</span>. As a result the probability law is given by <span class="math display">\[P(X=x)=\binom{N_1}{x}\left(\frac{w t}{N_1}\right)^x\left(1-\frac{w t}{N_1}\right)^{N_1-x}\]</span> The expected value is fix at <span class="math inline">\(E[X]= p N_1=w t\)</span> in this limit.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>_We need not define the expected value as <span class="math inline">\(wt\)</span>, we could have just defined instead <span class="math inline">\(E[X]\coloneqq \lambda\)</span> and fix <span class="math inline">\(\lambda\)</span>, this is done in Sec. 3.8 of Wackerly. Setting it to <span class="math inline">\(wt\)</span> was just a psychologically convenient way to make the parameter <span class="math inline">\(t\)</span> appear in the equation. Note the Poisson distribution depends on <span class="math inline">\(wt\)</span> and not on <span class="math inline">\(t\)</span> or <span class="math inline">\(w\)</span> alone.</p>
+</div>
+</div>
+<p>Having established all parameters and their dependencies and what is constant, we only have one independent variable in the probability law. Taking the limit as <span class="math inline">\(N_1\)</span> goes to infinity we arrive at: <span class="math display">\[P(X=x)=\frac{(w t)^x}{x!}e^{-w t}\]</span> Which is the Poisson distribution. But what does it mean? Going back to the diagram above, we have an infinite number of trials between <span class="math inline">\(0\)</span> and <span class="math inline">\(t\)</span> seconds with a small probability <span class="math inline">\(p\)</span>, we can interpret them by imagining a set of infinite particles incoming to an uniformly distributed set of target particles each branch the correspond to the trial of a given particle; note how this interpretation is not good, because we would guess that the probability for each hit or miss is finite and not the small number <span class="math inline">\(n_2\sigma dt/t\)</span>. Let us consider a second interpretation, one particle incoming toward the targets and at each trial (which occurs in <span class="math inline">\(dt\)</span> seconds) decides whether it hit or miss, with probability that must ensure the macroscopic observed value of <span class="math inline">\(wt\)</span> hits in <span class="math inline">\(t\)</span> seconds. Under this last interpretation, <span class="math inline">\(P(X=0)\)</span> is <span class="math inline">\(e^{-w t}\)</span> is the probability of that particle suffering no collisions in <span class="math inline">\(t\)</span> seconds at the collision rate <span class="math inline">\(w\)</span>. <span class="math inline">\(P(X=1)=wt e^{-w t}\)</span> is the probability that the one incoming particle to collide once in <span class="math inline">\(t\)</span> seconds, but it takes into account, see <span class="math inline">\(wt\)</span> (represented by the binomial coefficient in Bernoulli) the fact that the collision can occur at any time during those <span class="math inline">\(t\)</span> seconds.</p>
+<p>Notice that <span class="math inline">\(P(X=1)\)</span> does NOT mean it survives every trial between <span class="math inline">\(0\)</span> and <span class="math inline">\(t\)</span> and then collides. That quantity is computed in p.&nbsp;466 and 467 of Reif. and here is the gist of it, fixing the particular branch described by <span class="math display">\[\overbrace{tt\dots tth}^N\]</span>where t=miss and h= hit. We know that it has probability <span class="math inline">\((1-p)^{N-1}p\)</span> of occurring (it is the [[Bernoulli process#^b9ae87|Geometric distribution]]), we are not interested in any other sequence of hits and misses other than <span class="math inline">\(tt \dots h\)</span>, hence we did not take into account the <span class="math inline">\(\binom{N}{1}\)</span> factor, substituting <span class="math inline">\(p=w\,dt\)</span>: <span class="math display">\[P(\text{survives for $N-1$ trials and then hit})=\left(1-w\,dt\right)^{N-1}w\, dt=\left(1-\frac{wt}{N}\right)^{N-1}w \frac{t}{N}\]</span> this probability law (for this fixed branch) only depends on <span class="math inline">\(t\)</span> and <span class="math inline">\(N\)</span>, but taking the limit of <span class="math inline">\(N\longrightarrow \infty\)</span> while <span class="math inline">\(w\)</span> is constant we get <span class="math display">\[P(\text{survives for $t$ seconds and then hit})=e^{-wt}w\,dt\]</span> which depends only on <span class="math inline">\(t\)</span>; this is the [[Bernoulli Process vs Poisson Process|Exponential Distribution]] its the one derived by Reif. in Sec. 12.1. The expected value of r.v. <span class="math inline">\(t\)</span> is: <span class="math display">\[E[t]=\int_0^\infty dt\,e^{wt}w t=\frac{1}{w}\]</span> which is also the characteristic decay of the probability law.</p>
+</section>
+</section>
+<section id="differential-cross-section" class="level1">
+<h1>Differential Cross Section</h1>
+<p>The area <span class="math inline">\(\sigma_{sc}\)</span> of <span class="math inline">\(A_2\)</span>is large and depending on where <span class="math inline">\(A_1\)</span> hits, it can be scattered in various direction, the mathematical quantity that better suits the specification of this direction is the solid angle <span class="math inline">\(d\Omega\)</span> whose direction is <span class="math inline">\((\theta,\phi)\)</span>.</p>
+<p>What subarea <span class="math inline">\(d\sigma_{sc}\)</span> of <span class="math inline">\(\sigma_{sc}\)</span> led to scattering of the incoming <span class="math inline">\(A_1\)</span> into the direction <span class="math inline">\(d\Omega\)</span>. The simplest relation between this two quantities is the proportionality relation:</p>
+<p><span class="math display">\[
+d\sigma_{sc} = \frac{d\sigma_{sc}}{d\Omega}d\Omega
+\]</span></p>
+<p>The proportionality constant is called the scattering cross section, its meaning is derived from this formula, the ratio of the area that scatters into <span class="math inline">\((\theta,\phi)\)</span> by the solid angle.</p>
+<p>The number of scattered particles into the solid angle <span class="math inline">\(d\Omega\)</span> is computed as usual:</p>
+<p><span class="math display">\[
+dN_{sc} = N_{inc} n_{tar} d\sigma_{sc} = N_{inc} n_{tar}\frac{d\sigma_{sc}}{d\Omega}d\Omega
+\]</span></p>
+<p>This formula allow us to compute experimentally the scattering cross section and also gives meaning to it. We should note that it can also be derived theoretically.</p>
+<p>Integrating all directions we recover the equation <a href="#eq-sc">Equation&nbsp;13</a> :</p>
+<p><span class="math display">\[
+N_{sc} = \int N_{inc} n_{tar}\frac{d\sigma_{sc}}{d\Omega}d\Omega = N_{inc} n_{tar}\overbrace{\int\frac{d\sigma_{sc}}{d\Omega}d\Omega}^{\sigma_{sc}}
+\]</span></p>
+<section id="example-of-a-theoretical-calculation-of-the-differential-scattering-cross-section" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-a-theoretical-calculation-of-the-differential-scattering-cross-section">Example of a theoretical calculation of the differential scattering cross-section</h2>
+<p>Collision between two billiard balls. Assumptions:</p>
+<ol type="1">
+<li>Both are spherical, therefore the scattering cross-section is independent of <span class="math inline">\(\phi\)</span></li>
+<li>Using 1. We already used the Hamiltonian (EC+EP) to compute <span class="math inline">\(b(\theta)\)</span> (depending on the potential energy of interaction between the particle we have different functions <span class="math inline">\(b\)</span>.</li>
+</ol>
+<p>The function <span class="math inline">\(b(\theta)\)</span> tell us what position <span class="math inline">\(A_1\)</span> must have so that it land in the solid angle:</p>
+<p><span class="math display">\[
+d\Omega'=\int_0^{2\pi}(\sin \theta \,d\theta) \,\,d\phi = 2\pi \sin\theta\, d\theta
+\]</span></p>
+<p>Fixing <span class="math inline">\(\theta\)</span>, i.e., fixing the ring, tell us the <span class="math inline">\(b\)</span> and thus the area of <span class="math inline">\(A_2\)</span> that <span class="math inline">\(A_1\)</span> must hit into land in this ring. The area is:</p>
+<p><span class="math display">\[
+d\sigma_{sc} = 2\pi b\,\,db
+\]</span></p>
+<p>The ratio of this area and the solid angle yields the scattering cross section:</p>
+<p><span class="math display">\[
+\frac{d\sigma_{sc}}{d\Omega'}=\frac{b}{\sin \theta}\left|\frac{db}{d\theta}\right|
+\]</span></p>
+<p>ENDO VS EXOTERMICO e Energia relativista</p>
+<p>Tubos, ver tb reif</p>
+<p>É preciso saber calcular diferential cross section a partir dos potenciais?<br>
+Momento angular e energia do movimento circular; onde é que ele quer chegar com estas formulas? Ver slides 4 e 5.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

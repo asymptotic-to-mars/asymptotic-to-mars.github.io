@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,19 +35,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,14 +60,48 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -71,9 +109,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">asymptotic to MARS</span>
     </a>
@@ -85,22 +123,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Bried Notes</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Bried Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./favourites.html" rel="" target="">
- <span class="menu-text">Favourites</span></a>
+    <a class="nav-link" href="./favourites.html"> 
+<span class="menu-text">Favourites</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -113,12 +150,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-angular-momentum-in-qm" id="toc-what-is-angular-momentum-in-qm" class="nav-link active" data-scroll-target="#what-is-angular-momentum-in-qm">What is angular momentum in QM?</a></li>
+  <li><a href="#the-importance-of-angular-momentum-in-cm" id="toc-the-importance-of-angular-momentum-in-cm" class="nav-link active" data-scroll-target="#the-importance-of-angular-momentum-in-cm">The importance of angular momentum in CM</a></li>
+  <li><a href="#what-is-angular-momentum-in-qm" id="toc-what-is-angular-momentum-in-qm" class="nav-link" data-scroll-target="#what-is-angular-momentum-in-qm">What is angular momentum in QM?</a></li>
+  <li><a href="#angular-momentum-in-qm" id="toc-angular-momentum-in-qm" class="nav-link" data-scroll-target="#angular-momentum-in-qm">Angular momentum in QM</a></li>
   <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
   <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
   <li><a href="#raising-and-lowering-operators" id="toc-raising-and-lowering-operators" class="nav-link" data-scroll-target="#raising-and-lowering-operators">Raising and lowering operators</a></li>
   <li><a href="#eigenvalues-and-eigenvectors" id="toc-eigenvalues-and-eigenvectors" class="nav-link" data-scroll-target="#eigenvalues-and-eigenvectors">Eigenvalues and eigenvectors</a></li>
+  <li><a href="#the-action-of-j2-and-j_x-in-mathcalenj1" id="toc-the-action-of-j2-and-j_x-in-mathcalenj1" class="nav-link" data-scroll-target="#the-action-of-j2-and-j_x-in-mathcalenj1">The action of <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_x\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1)\)</span></a></li>
+  <li><a href="#the-action-of-j_y-and-j_z-in-mathcalenj1" id="toc-the-action-of-j_y-and-j_z-in-mathcalenj1" class="nav-link" data-scroll-target="#the-action-of-j_y-and-j_z-in-mathcalenj1">The action of <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1)\)</span></a></li>
+  <li><a href="#the-action-of-j2-and-j_x-j_y-and-j_z-in-mathcalenj12-spin-angular-momentum" id="toc-the-action-of-j2-and-j_x-j_y-and-j_z-in-mathcalenj12-spin-angular-momentum" class="nav-link" data-scroll-target="#the-action-of-j2-and-j_x-j_y-and-j_z-in-mathcalenj12-spin-angular-momentum">The action of <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_x\)</span>, <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1/2)\)</span> (Spin angular momentum)</a>
+  <ul class="collapse">
   <li><a href="#matrix-representation" id="toc-matrix-representation" class="nav-link" data-scroll-target="#matrix-representation">Matrix Representation</a></li>
+  </ul></li>
+  <li><a href="#spin-quantum-states-of-a-system-with-two-electrons" id="toc-spin-quantum-states-of-a-system-with-two-electrons" class="nav-link" data-scroll-target="#spin-quantum-states-of-a-system-with-two-electrons">Spin quantum states of a system with two electrons</a></li>
+  <li><a href="#a-new-basis-for-the-tensor-state-space" id="toc-a-new-basis-for-the-tensor-state-space" class="nav-link" data-scroll-target="#a-new-basis-for-the-tensor-state-space">A new basis for the tensor state space</a></li>
+  <li><a href="#why-1" id="toc-why-1" class="nav-link" data-scroll-target="#why-1">Why?</a></li>
+  <li><a href="#the-new-basis" id="toc-the-new-basis" class="nav-link" data-scroll-target="#the-new-basis">The new basis</a></li>
+  <li><a href="#what-are-the-values-of-s-and-m" id="toc-what-are-the-values-of-s-and-m" class="nav-link" data-scroll-target="#what-are-the-values-of-s-and-m">What are the values of <span class="math inline">\(S\)</span> and <span class="math inline">\(M\)</span>?</a></li>
+  <li><a href="#relating-the-two-basis" id="toc-relating-the-two-basis" class="nav-link" data-scroll-target="#relating-the-two-basis">Relating the two basis</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#the-orbital-angular-momentum" id="toc-the-orbital-angular-momentum" class="nav-link" data-scroll-target="#the-orbital-angular-momentum">The Orbital Angular Momentum</a></li>
   </ul>
 </nav>
@@ -141,34 +192,59 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
+
+<section id="the-importance-of-angular-momentum-in-cm" class="level2">
+<h2 class="anchored" data-anchor-id="the-importance-of-angular-momentum-in-cm">The importance of angular momentum in CM</h2>
+<p>Falar da estrutura math: Hamiltoniano-&gt;(x,p)-&gt;L-&gt;Leis conservação</p>
+<p>Two examples:</p>
+<ul>
+<li><p>Angular momentum of a planet orbiting the sun</p></li>
+<li><p>Angular momentum of a planet orbiting on its axis</p></li>
+</ul>
+</section>
 <section id="what-is-angular-momentum-in-qm" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-angular-momentum-in-qm">What is angular momentum in QM?</h2>
-<p>Classical Angular momentum is defined as <span class="math display">\[
+<p>Falar/referenciar a estrutura math: Hamiltoniano-&gt;Algebra-&gt;pdf-&gt;momentos (Intro cohen + algebra)</p>
+<p>Two examples:</p>
+<ul>
+<li><p>Angular momentum of electron around a nucleus</p></li>
+<li><p>Spin angular momentum of an electron</p></li>
+</ul>
+</section>
+<section id="angular-momentum-in-qm" class="level2">
+<h2 class="anchored" data-anchor-id="angular-momentum-in-qm">Angular momentum in QM</h2>
+<p>Classical angular momentum is defined as <span class="math display">\[
 \mathbf{L}=\mathbf{r}\times \mathbf{p}
-\]</span> In components we have for example: <span class="math display">\[
-L_z=xp_y-p_yx
-\]</span> To obtain the QM angular momentum we replace the positions coordinates <span class="math inline">\(x,y,z\)</span> and momentum <span class="math inline">\(p_x,p_y,p_z\)</span> by the operators <span class="math inline">\(X,Y,Z\)</span> and <span class="math inline">\(P_x,P_y,P_z\)</span>. This gives us:</p>
+\]</span></p>
+<p>where for example, the last component of <span class="math inline">\(\mathbf{L}\)</span> is <span class="math display">\[
+L_z=xp_y-p_yx.
+\]</span>To obtain the QM angular momentum we replace the positions coordinates <span class="math inline">\(x,y,z\)</span> and momentum <span class="math inline">\(p_x,p_y,p_z\)</span> by the operators <span class="math inline">\(X,Y,Z\)</span> and <span class="math inline">\(P_x,P_y,P_z\)</span>. This gives us:</p>
 <p><span class="math display">\[
 \mathbf{L}=\mathbf{R}\times \mathbf{P}
-\]</span> where <span class="math inline">\(\mathbf{R}=(X,Y,Z)\)</span> and <span class="math inline">\(\mathbf{P}=(P_x,P_y,P_z)\)</span> are vectors whose entries are operators. From the three components of <span class="math inline">\(\mathbf{L}\)</span> we get the following commutations relations:</p>
+\]</span>where <span class="math inline">\(\mathbf{R}=(X,Y,Z)\)</span> and <span class="math inline">\(\mathbf{P}=(P_x,P_y,P_z)\)</span> are vectors whose entries are operators. From the three components of <span class="math inline">\(\mathbf{L}\)</span> we can derive the following commutations relations:</p>
 <p><span class="math display">\[
 [L_x,L_y]=i\hbar L_z\qquad [L_y,L_z]=i\hbar L_x\qquad [L_z,L_x]=i\hbar L_y\qquad [L_i,L_j]=0\quad \text{for}\ i\not= j
 \]</span></p>
-<p>as a consequence of <span class="math inline">\([X,P_x]=i\hbar\)</span>, etc. From a different perspective we can say that the angular momentum operators satisfy these three commutation “equations”. In QM one wants to talk about more general angular momentum, for example spin angular momentum, it has no classical analog and hence is not defined explicitly as <span class="math inline">\(\mathbf{L}=\mathbf{r}\times \mathbf{p}\)</span>. However one can still say that whatever spin angular momentum operator is, it must satisfy the previous three commutations relation. Hence we introduce a general angular momentum <span class="math inline">\(J\)</span> which obeys the rules</p>
+<p>from the canonical ones:</p>
+<p><span class="math display">\[
+[X,P_x]=i\hbar \qquad [Y,P_y]=i\hbar \qquad [Z,P_z]=i\hbar
+\]</span></p>
+<p>From a different perspective we can say that the angular momentum operators satisfy these three commutation “equations”. In QM one wants to talk about more general angular momentum, for example spin angular momentum, it has no classical analog and hence is not defined explicitly as <span class="math inline">\(\mathbf{r}\times \mathbf{p}\)</span>. However one can still define it implicitly, by saying that whatever spin angular momentum operator is, it must satisfy the previous three commutations relation. Hence we introduce a general angular momentum <span class="math inline">\(J\)</span> which obeys the rules</p>
 <p><span id="eq-commut1"><span class="math display">\[
 [J_x,J_y]=i\hbar J_z\qquad [J_y,J_z]=i\hbar J_x\qquad [J_z,J_x]=i\hbar J_y\qquad [J_i,J_j]=0\quad \text{for}\ i\not= j
 \tag{1}\]</span></span></p>
-<p><span class="math inline">\(\mathbf{J}\)</span> can be either the orbital angular momentum of a particle or the spin angular momentum etc, since all quantum angular momenta has commutation relations of that form. Given <span class="math inline">\(\mathbf{J}\)</span> we can introduce now <span class="math inline">\(J^2\)</span>, defined as:</p>
+<p><span class="math inline">\(\mathbf{J}\)</span> can be either the orbital angular momentum of a particle or the spin angular momentum or a combination of these, since all quantum angular momenta has commutation relations of that form. Given <span class="math inline">\(\mathbf{J}\)</span> we can introduce now its norm squared <span class="math inline">\(J^2\)</span>, defined as:</p>
 <p><span class="math display">\[
 J^2=J_x^2+J_y^2+J_z^2
 \]</span></p>
-<p>Moreover, we can easily show that this operator commute with the three components of <span class="math inline">\(J\)</span>:</p>
+<p>Moreover, we can easily show from <a href="#eq-commut1" class="quarto-xref">Equation&nbsp;1</a> that this operator commute with the three components of <span class="math inline">\(\mathbf{J}\)</span>:</p>
 <p><span id="eq-commut2"><span class="math display">\[
 [J^2,J_x]=0\qquad[J^2,J_y]=0\qquad[J^2,J_z]=0
 \tag{2}\]</span></span></p>
-<p>for example, using <a href="#eq-commut1">Equation&nbsp;1</a> we find:</p>
+<p>for example, using <a href="#eq-commut1" class="quarto-xref">Equation&nbsp;1</a> we find:</p>
 <p><span class="math display">\[
 \begin{align}
 [J^2,J_z]&amp;=[J_x^2+J_y^2+J_z^2,J_z]\\
@@ -177,7 +253,7 @@ J^2=J_x^2+J_y^2+J_z^2
 &amp;=0
 \end{align}
 \]</span></p>
-<p>That fact that <span class="math inline">\(J^2\)</span> commutes with <span class="math inline">\(J_z\)</span> will be of great importance, because it guarantees one can find (and thus define) a set of basis kets in the Hilbert space that are simultaneously eigenstates of both. Moreover, since the commuting operators are Hermitian (we say in QM they are observables) the eigenstates of the operators can be made orthogonal and the eigenvalues are real. What this entails for our commuting observables, is that not only we can find a set of common eigenvectors, those can be made orthogonal and the two eigenvalues (one for <span class="math inline">\(J^2\)</span>, the other for <span class="math inline">\(J_z\)</span>) are real.</p>
+<p>That fact that <span class="math inline">\(J^2\)</span> commutes with <span class="math inline">\(J_z\)</span> will be of great importance, because it guarantees one can find (and thus define) a set of basis kets in the Hilbert space that are simultaneously eigenstates of both. Moreover, since the commuting operators are hermitian (we say in QM they are observables) the eigenstates of the operators can be made orthogonal and the eigenvalues are real.</p>
 </section>
 <section id="goal" class="level2">
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
@@ -192,39 +268,52 @@ J^2=J_x^2+J_y^2+J_z^2
 <section id="raising-and-lowering-operators" class="level2">
 <h2 class="anchored" data-anchor-id="raising-and-lowering-operators">Raising and lowering operators</h2>
 <p>By definition we have: <span class="math display">\[
-J_+=J_x+iJ_y\qquad J_-=J_x-iJ_y\qquad
-\]</span> There are now plenty commutations relations we can derive from these two operators in conjunction with the <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J\)</span>, but the ultimate consequences of these relations is that they tell us how to organize the eigenbasis of <span class="math inline">\(\{J^2,J_z\}\)</span>, see next section and <a href="#fig-Ejs">Figure&nbsp;1</a> .</p>
+J_+=J_x+iJ_y\qquad J_-=J_x-iJ_y\qquad.
+\]</span> There are now plenty commutations relations we can derive from these two operators in conjunction with the <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J\)</span>, but the ultimate consequences of these relations is that they tell us how to organize the eigenbasis of <span class="math inline">\(\{J^2,J_z\}\)</span>, see next section and <a href="#fig-Ejs" class="quarto-xref">Figure&nbsp;1</a> .</p>
 <p>These definitions allow us to write:</p>
 <p><span id="eq-JxJyintermsoflowerandraise"><span class="math display">\[
-J_x = \frac{1}{2}(J_++J_-) \qquad J_y = \frac{1}{2i}(J_+-J_-)
+J_x = \frac{1}{2}(J_++J_-) \qquad J_y = \frac{1}{2i}(J_+-J_-),
 \tag{3}\]</span></span></p>
 <p>which will be useful later.</p>
 </section>
 <section id="eigenvalues-and-eigenvectors" class="level2">
 <h2 class="anchored" data-anchor-id="eigenvalues-and-eigenvectors">Eigenvalues and eigenvectors</h2>
-<p>The eigenvalues of <span class="math inline">\(J^2\)</span> are of the form <span class="math inline">\(j(j+1)\hbar^2\)</span> and those of <span class="math inline">\(J_z\)</span> are <span class="math inline">\(m\hbar\)</span> where <span class="math inline">\(j\)</span> is a positive integer or semi-integer and <span class="math inline">\(-j\leq m\leq j\)</span> in steps of <span class="math inline">\(1\)</span>. We use the <span class="math inline">\(j\)</span> and <span class="math inline">\(m\)</span> to label the eigenbasis:</p>
-<p><span id="eq-J2andJzevalevecteqn"><span class="math display">\[
-\begin{align}&amp;J^2\ket{n,j,m}=j(j+1)\hbar^2\ket{n,j,m}\\&amp;J_z\ket{n,j,m}=m\hbar\ket{n,j,m}\end{align}
+<p>For any operator we can define its eigenvalues <span class="math inline">\(\lambda\)</span> and eigenvectors <span class="math inline">\(|\psi\rangle\)</span> in a generic manner as we did in basic linear algebra courses:</p>
+<p><span id="eq-general_eval_evect"><span class="math display">\[
+J^2|\lambda\rangle = \lambda |\lambda\rangle\\
+J_z|\lambda_z\rangle = \lambda_z |\lambda_z\rangle
 \tag{4}\]</span></span></p>
+<p>In summary, skipping the proofs, what the commutation relations introduced above and the definition of raising and lowering operators allow us to do leads us to conclude that:</p>
+<ul>
+<li>The eigenvalues of <span class="math inline">\(J^2\)</span> are of the form <span class="math inline">\(j(j+1)\hbar^2\)</span> and those of <span class="math inline">\(J_z\)</span> are <span class="math inline">\(m\hbar\)</span> where <span class="math inline">\(j\)</span> is a positive integer or semi-integer and <span class="math inline">\(-j\leq m\leq j\)</span> in steps of <span class="math inline">\(1\)</span>.</li>
+<li>The corresponding eigenvectors can be labelled by the numbers <span class="math inline">\(j\)</span> , <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>. Instead of <span class="citation" data-cites="eq_general_eval_evect">@eq_general_eval_evect</span> we write:</li>
+</ul>
+<p><span id="eq-J2andJzevalevecteqn"><span class="math display">\[
+\begin{align}&amp;J^2\ket{n,j,m}=j(j+1)\hbar^2\ket{n,j,m},\\&amp;J_z\ket{n,j,m}=m\hbar\ket{n,j,m}.\end{align}
+\tag{5}\]</span></span></p>
 <p>The only values that <span class="math inline">\(j\)</span> can take are <span class="math inline">\(0\)</span>, <span class="math inline">\(1/2\)</span>, <span class="math inline">\(3/2\)</span>, <span class="math inline">\(2\)</span>, etc; while <span class="math inline">\(n\)</span> can either be an integer or a continuous number that we use to label and thus distinguish the kets in the basis.</p>
-<div id="fig-Ejs" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figs/eigenspaces of J2 and Jz.png" class="img-fluid figure-img" width="421"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Eigenspaces for various values of j and a specific value of n.</figcaption>
+<ul>
+<li>For each <span class="math inline">\(n\)</span>, within <span class="math inline">\(\mathcal{E}(n,j)\)</span> the operators <span class="math inline">\(J_\pm\)</span> links each vector of the basis, specifically we have:</li>
+</ul>
+<p><span id="eq-raising_and_lowering"><span class="math display">\[ J_\pm \ket{n,j,m}=\hbar \sqrt{j(j+1)-m(m\pm 1)}\ket{n,j,m\pm 1},  \tag{6}\]</span></span></p>
+<p>a formula which is derived from commutation relations (through a rather complicated path). The names raising and lowering operators comes form the fact that <span class="math inline">\(m\)</span> is either raised by <span class="math inline">\(+1\)</span> or lowered by <span class="math inline">\(-1\)</span> each time <span class="math inline">\(J_\pm\)</span> acts.</p>
+<div id="fig-Ejs" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Ejs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/eigenspaces of J2 and Jz.png" class="img-fluid figure-img" width="421">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Ejs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Eigenspaces for various values of j and a specific value of n.
+</figcaption>
 </figure>
 </div>
 <p>Each blue dot in the picture corresponds to basis vector <span class="math inline">\(\ket{n,j,m}\)</span>, the horizontal boxes show subspaces <span class="math inline">\(\mathcal{E}(n,j)\)</span> of the Hilbert space. From a different perspective we have:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/3D eigenspaces of J2 and Jz.png" class="img-fluid figure-img" width="605"></p>
-<figcaption class="figure-caption">Eigenspace for j=1 and the slice for n=1. (n=0,1,2,…)</figcaption>
+<figcaption>Eigenspace for j=1 and the slice for n=1. (n=0,1,2,…)</figcaption>
 </figure>
 </div>
-<p>Within each one of these, the operators <span class="math inline">\(J_\pm\)</span> links each vector of the basis, specifically we have:</p>
-<p><span id="eq-Jplusminus"><span class="math display">\[
-J_\pm \ket{n,j,m}=\hbar \sqrt{j(j+1)-m(m\pm 1)}\ket{n,j,m\pm 1}
-\tag{5}\]</span></span></p>
-<p>a formula which is derived from commutation relations (through a rather complicated path). The names raising and lowering operators comes form the fact that <span class="math inline">\(m\)</span> is either raised by <span class="math inline">\(+1\)</span> or lowered by <span class="math inline">\(-1\)</span> each time <span class="math inline">\(J_\pm\)</span> acts.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -235,17 +324,20 @@ Observe
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>From the first equation in <a href="#eq-J2andJzevalevecteqn">Equation&nbsp;4</a> we notice that for a given value of <span class="math inline">\(n\)</span> and <span class="math inline">\(j\)</span>, for example <span class="math inline">\(n=1\)</span> and <span class="math inline">\(j=1\)</span>, then <span class="math inline">\(\{|1,1,1\rangle,|1,1,0\rangle,|1,1,-1\rangle\}\)</span> are eigenvectors of <span class="math inline">\(J^2\)</span> with the same eigenvalue <span class="math inline">\(1(1+1)\hbar^2\)</span> , we therefore say the eigenvalue is 3-degenate, or that the space <span class="math inline">\(\mathcal{E}(n=1,j=1)\)</span> spanned by this basis is 3-degenerate. We distinguish the 3 eigenvectors by the <span class="math inline">\(J_z\)</span> eigenvalue <span class="math inline">\(m\hbar\)</span>.</p>
+<ul>
+<li><p>From the first equation in <a href="#eq-J2andJzevalevecteqn" class="quarto-xref">Equation&nbsp;5</a> we notice that for a given value of <span class="math inline">\(n\)</span> and <span class="math inline">\(j\)</span>, for example <span class="math inline">\(n=1\)</span> and <span class="math inline">\(j=1\)</span>, then <span class="math inline">\(\{|1,1,1\rangle,|1,1,0\rangle,|1,1,-1\rangle\}\)</span> are eigenvectors of <span class="math inline">\(J^2\)</span> with the same eigenvalue <span class="math inline">\(1(1+1)\hbar^2\)</span> , we therefore say the eigenvalue is 3-degenate, or that the space <span class="math inline">\(\mathcal{E}(n=1,j=1)\)</span> spanned by this basis is 3-degenerate. We distinguish the 3 eigenvectors by the <span class="math inline">\(J_z\)</span> eigenvalue <span class="math inline">\(m\hbar\)</span>, or more simply by just the integer <span class="math inline">\(m\)</span>.</p></li>
+<li><p>Subspaces of the Hilbert space can now be specified by fixing <span class="math inline">\(j\)</span> and <span class="math inline">\(n\)</span> for example, or by fixing <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> for various values. We know how its basis is then labelled and also how it is connected by the raising and lowering operators. With this information, we can compute how operators act in these subspaces, as an example see the next section.</p></li>
+</ul>
 </div>
 </div>
 </section>
-<section id="matrix-representation" class="level2">
-<h2 class="anchored" data-anchor-id="matrix-representation">Matrix Representation</h2>
-<p>To compute the matrix representation of an operator we have to compute how the operator acts on the space basis. For example, let us choose the subspace of eigenvectors of <span class="math inline">\(J^2\)</span> with eigenvalue <span class="math inline">\(1(1+1)\hbar^2\)</span> and a given <span class="math inline">\(n\)</span>:</p>
+<section id="the-action-of-j2-and-j_x-in-mathcalenj1" class="level2">
+<h2 class="anchored" data-anchor-id="the-action-of-j2-and-j_x-in-mathcalenj1">The action of <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_x\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1)\)</span></h2>
+<p>To compute the action we need first to specify a space (or subspace) and for that we have to specify its basis. For example, let us choose the subspace of eigenvectors of <span class="math inline">\(\{J^2,J_z\}\)</span> with eigenvalue for a given <span class="math inline">\(n\)</span> and <span class="math inline">\(l=1\)</span>:</p>
 <p><span class="math display">\[
-\mathcal{E}(n,l=1)=\text{span}\{|n,1,1\rangle,|n,1,0\rangle,|n,1,-1\rangle\}
+\mathcal{E}(n,j=1)=\text{span}\{|n,1,1\rangle,|n,1,0\rangle,|n,1,-1\rangle\}
 \]</span></p>
-<p>see <a href="#fig-Ejs">Figure&nbsp;1</a> .</p>
+<p>see <a href="#fig-Ejs" class="quarto-xref">Figure&nbsp;1</a> .</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -259,7 +351,7 @@ Change of notation
 <p>We drop the <span class="math inline">\(n\)</span> index for easier read of the formulas. Later we will recover it.</p>
 </div>
 </div>
-<p>When we act with <span class="math inline">\(J_x\)</span> on this basis, what is the output? Answer:</p>
+<p>We act with <span class="math inline">\(J_x\)</span> on the basis of the chosen subspace. What is the output? Answer:</p>
 <p><span id="eq-Jx11"><span class="math display">\[
 \begin{align}
 J_x|1,1\rangle &amp;= \frac{1}{2}(J_+ +J_-)|1,1\rangle\\
@@ -267,20 +359,20 @@ J_x|1,1\rangle &amp;= \frac{1}{2}(J_+ +J_-)|1,1\rangle\\
 &amp;=\frac{\hbar}{2}\sqrt{1(1+1)-1(1+1)}|1,2\rangle+\frac{\hbar}{2}\sqrt{1(1+1)-1(1-1)}|1,0\rangle\\
 &amp;=\frac{\hbar}{\sqrt{2}}|1,0\rangle
 \end{align}
-\tag{6}\]</span></span></p>
-<p>We conclude that when <span class="math inline">\(J_x\)</span> acts on the basis element <span class="math inline">\(|1,1\rangle\)</span> it outputs <span class="math inline">\(|1,0\rangle\)</span> times a constant, notice the ket $|1,0\rangle $ lives in <span class="math inline">\(\mathcal{E}(j=1)\)</span>. Let us see now what happens when <span class="math inline">\(J_x\)</span> acts on <span class="math inline">\(|1,0\rangle\)</span>:</p>
+\tag{7}\]</span></span></p>
+<p>We conclude that when <span class="math inline">\(J_x\)</span> acts on the basis element <span class="math inline">\(|1,1\rangle\)</span> it outputs <span class="math inline">\(|1,0\rangle\)</span> times a constant, notice the input and output both live in <span class="math inline">\(\mathcal{E}(j=1)\)</span>. Let us see now what happens when <span class="math inline">\(J_x\)</span> acts on the second basis ket <span class="math inline">\(|1,0\rangle\)</span>:</p>
 <p><span id="eq-Jx10"><span class="math display">\[
 \begin{align}
 J_x|1,0\rangle &amp;= \frac{1}{2}(J_++J_-)|1,0\rangle\\
 &amp;=\frac{\hbar}{2}\sqrt{1(1+1)-0(0+1)}|1,1\rangle+\frac{\hbar}{2}\sqrt{1(1+1)-0(0-1)}|1,1\rangle|1,-1\rangle\\
 &amp;=\frac{\hbar}{\sqrt{2}}(|1,1\rangle+|1,-1\rangle)
 \end{align}
-\tag{7}\]</span></span></p>
+\tag{8}\]</span></span></p>
 <p>As <span class="math inline">\(J_x\)</span> acts on <span class="math inline">\(|1,0\rangle\)</span> it gives a linear combination <span class="math inline">\(|1,1\rangle+|1,-1\rangle\)</span> of basis vectors, which in turn also lives in <span class="math inline">\(\mathcal{E}(j=1)\)</span>.</p>
-<p>And finally,a similar calculation would show:</p>
+<p>And finally,a similar calculation would shows the action on the third ket is:</p>
 <p><span id="eq-Jx1minus1"><span class="math display">\[
 J_x|1,-1\rangle =\frac{\hbar}{\sqrt{2}}|1,0\rangle
-\tag{8}\]</span></span></p>
+\tag{9}\]</span></span></p>
 <p>Again, the input <span class="math inline">\(|1,-1\rangle\)</span> is in <span class="math inline">\(\mathcal {E}(j=1)\)</span> and so is the output <span class="math inline">\(|1,0\rangle\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -292,30 +384,290 @@ Observation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The calculation above show clearly that the action of <span class="math inline">\(J_x\)</span> is stuck in <span class="math inline">\(\mathcal{E}(j=1)\)</span>, confirming the prediction already made from the fact that <span class="math inline">\([J^2,J_x]=0\)</span>.</p>
+<p>The calculation above show clearly that the the operator <span class="math inline">\(J_x\)</span> maps the basis of <span class="math inline">\(\mathcal{E}(j=1)\)</span> into vectors in that subspace. Therefore, in general it will map any ket of <span class="math inline">\(\mathcal{E}(j=1)\)</span> into another in <span class="math inline">\(\mathcal{E}(j=1)\)</span>; the jargon for this observation is to say that “<span class="math inline">\(\mathcal{E}(j=1)\)</span> is globally invariant under the action of <span class="math inline">\(J_x\)</span>”; more colloquially we just say “the action of <span class="math inline">\(J_x\)</span> is stuck in the subspace”. These calculation confirm the prediction already made from the fact that <span class="math inline">\([J^2,J_x]=0\)</span>.</p>
 </div>
 </div>
-<p>The results in <a href="#eq-Jx11">Equation&nbsp;6</a>, <a href="#eq-Jx10">Equation&nbsp;7</a> and <a href="#eq-Jx1minus1">Equation&nbsp;8</a> allow us to write:</p>
+<p>The results in <a href="#eq-Jx11" class="quarto-xref">Equation&nbsp;7</a>, <a href="#eq-Jx10" class="quarto-xref">Equation&nbsp;8</a> and <a href="#eq-Jx1minus1" class="quarto-xref">Equation&nbsp;9</a> allow us to write:</p>
 <p><span class="math display">\[
 J_x = \sum_{m,m'=1,0,-1}|1,m\rangle\langle1,m|J_x|1,m'\rangle\langle1,m'|
 \]</span></p>
-<p>explicitly as</p>
+<p>explicitly as (LINK PARA REPRE GEN Ops)</p>
 <p><span class="math display">\[
 \begin{align}
 J_x &amp;= \frac{\hbar}{\sqrt{2}}\left(|1,0\rangle\langle 1,1|+|1,1\rangle\langle 1,0|+|1,-1\rangle\langle 1,0|+|1,0\rangle\langle 1,-1|\right)
 \end{align}
 \]</span></p>
-<p>which in turn can be rewritten using using matrix notation as:</p>
+<p>which in turn can be rewritten using using matrix notation. If we agree to order for the basis kets as <span class="math inline">\(\{|1,1\rangle, |10\rangle,|1,-1\rangle\}\)</span> we find:</p>
 <p><img src="figs/Jx representation.png" class="img-fluid" width="295"></p>
+</section>
+<section id="the-action-of-j_y-and-j_z-in-mathcalenj1" class="level2">
+<h2 class="anchored" data-anchor-id="the-action-of-j_y-and-j_z-in-mathcalenj1">The action of <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1)\)</span></h2>
 <p>Repeating these calculation for <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> yields the results:</p>
 <p><img src="figs/Jy Jz representation.png" class="img-fluid"></p>
-<p>The matrix for <span class="math inline">\(J_z\)</span> is diagonal since the basis elements we choose are eigenvectors, the diagonal elements are the the three <span class="math inline">\(m\hbar\)</span> eigenvalues; and since they are also eigenvectors of <span class="math inline">\(J^2\)</span> we find a diagonal with the <span class="math inline">\(1(1+1)\hbar^2=2\hbar^2\)</span> eigenvalues repeated three times:</p>
+<p>The matrix for <span class="math inline">\(J_z\)</span> is diagonal since the basis elements we choose fo <span class="math inline">\(\mathcal{E}(j=1)\)</span> are its eigenvectors, the diagonal elements are the the three <span class="math inline">\(m\hbar\)</span> eigenvalues for <span class="math inline">\(m=1,0,-1\)</span>; and since they are also eigenvectors of <span class="math inline">\(J^2\)</span> we find a diagonal with the <span class="math inline">\(1(1+1)\hbar^2=2\hbar^2\)</span> eigenvalues repeated three times:</p>
 <p><img src="figs/J2 representation.png" class="img-fluid" width="298"></p>
 <p>All of above assume a given index <span class="math inline">\(n\)</span> was chosen.</p>
 </section>
+<section id="the-action-of-j2-and-j_x-j_y-and-j_z-in-mathcalenj12-spin-angular-momentum" class="level2">
+<h2 class="anchored" data-anchor-id="the-action-of-j2-and-j_x-j_y-and-j_z-in-mathcalenj12-spin-angular-momentum">The action of <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_x\)</span>, <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> in <span class="math inline">\(\mathcal{E}(n,j=1/2)\)</span> (Spin angular momentum)</h2>
+<p>The intrinsic spin angular momentum of an electron is described by states living in the <span class="math inline">\(\mathcal{E}(j=1/2)\)</span> subspace (see <a href="#fig-Ejs" class="quarto-xref">Figure&nbsp;1</a>), the basis for this subspace is (as usual) furnished by the simultaneous eigenvectors of the <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_z\)</span>:</p>
+<p><span id="eq-spin_generic_notation"><span class="math display">\[
+\begin{align}&amp;J^2\ket{1/2,m}=\frac{3}{4}\hbar^2\ket{1/2,m}\\&amp;J_z\ket{1/2,m}=m\hbar\ket{1/2,m}\end{align}
+\tag{10}\]</span></span></p>
+<p>where <span class="math inline">\(m=\pm 1/2\)</span>. Therefore we say</p>
+<p><span class="math display">\[
+\mathcal{E}(j=1/2)=\text{span}
+\{|1/2,1/2\rangle,|1/2,-1/2\rangle\}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Besides dropping the index <span class="math inline">\(n\)</span> introduced in <a href="#eq-J2andJzevalevecteqn" class="quarto-xref">Equation&nbsp;5</a>,</p>
+<p>given <span class="math inline">\(j=1/2\)</span> is fixed it is usual to drop it as well and simply write <span class="math inline">\(|m\rangle\)</span> where <span class="math inline">\(m=\pm1/2\)</span>.</p></li>
+<li><p>we can rename <span class="math inline">\(m\)</span> as <span class="math inline">\(m_s\)</span> and reexpress is as <span class="math inline">\(m_s=\sigma/2\)</span> with <span class="math inline">\(\sigma =\pm\)</span> or <span class="math inline">\(\sigma=\uparrow,\downarrow\)</span>, but for the present notes we’ll keep the <span class="math inline">\(m_s\)</span> notation.</p></li>
+<li><p>Because the <span class="math inline">\(j=1/2\)</span> angular momentum states are very important (they are the states that describe electrons for example) we rename them into spin angular momentum and to emphasize that we use the notation <span class="math inline">\(\{S^2,S_z\}\)</span> for the <span class="math inline">\(\{J^2,J_z\}\)</span> that act strikli in <span class="math inline">\(\mathcal{E}(j=1/2)\)</span>. Instead of <a href="#eq-spin_generic_notation" class="quarto-xref">Equation&nbsp;10</a> we should write:</p>
+<p><span class="math display">\[
+\begin{align}&amp;S^2\ket{m_s}=\frac{3}{4}\hbar^2\ket{m_s}\\&amp;S_z\ket{m_s}=m_s\hbar\ket{m_s}\end{align}
+\]</span></p></li>
+</ul>
+</div>
+</div>
+<p>The basis states <span class="math inline">\(|m_s\rangle\)</span> are connect by the raising <span class="math inline">\(S_+\)</span> and lowereing operator <span class="math inline">\(S_-\)</span> we seen in <a href="#eq-raising_and_lowering" class="quarto-xref">Equation&nbsp;6</a>, adapting to the present electron basis states we have:</p>
+<p><span id="eq-Spm"><span class="math display">\[
+S_+\ket{-1/2}=\hbar\sqrt{1/2(1/2+1)-1/2(1/2+1)}\ket{1/2}=\hbar\sqrt{2}/2\ket{1/2}
+\tag{11}\]</span></span></p>
+<p>We can see that the basis states in <span class="math inline">\(\mathcal{E}(1/2)\)</span> can be mapped into each other by acting with <span class="math inline">\(S_\pm\)</span>.</p>
+<p>The raising and lowering operators are important for another reason, they tell us how <span class="math inline">\(S_x\)</span> and <span class="math inline">\(S_y\)</span> act on the eigenbasis of <span class="math inline">\(\{S^2,S_z\}\)</span>, from their definition we have:</p>
+<p><span id="eq-reexpressing_Sx_Sy"><span class="math display">\[
+S_x=\frac{1}{2}(J_++J_-) \qquad S_y=\frac{1}{2i}(J_+-J_-)
+\tag{12}\]</span></span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to know how <span class="math inline">\(S_x\)</span> and <span class="math inline">\(S_y\)</span> act on this basis requires first to reexpress these operators in terms of operator we know how they act in this basis, the formulas <a href="#eq-reexpressing_Sx_Sy" class="quarto-xref">Equation&nbsp;12</a> together with <a href="#eq-Spm" class="quarto-xref">Equation&nbsp;11</a> do precisely that.</p>
+</div>
+</div>
+<p>A similar calculation to <a href="#eq-Jx11" class="quarto-xref">Equation&nbsp;7</a> can now be performed which would show that their action is stuck in the <span class="math inline">\(\mathcal{E}(j=1/2)\)</span>, after all they both commute with <span class="math inline">\(S^2\)</span> operator and thus <span class="math inline">\(j=1/2\)</span> must be preserved.</p>
+<section id="matrix-representation" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-representation">Matrix Representation</h3>
+<p>By knowing how an operator acts on a basis we know how obtain its matrix representation, for example, lets take a look at <span class="math inline">\(S_z\)</span> and then <span class="math inline">\(S_x\)</span> and <span class="math inline">\(S_y\)</span>. We can write the action of <span class="math inline">\(S_z\)</span> on the basis <span class="math inline">\(\{\ket{1/2},\ket{-1/2}\}\)</span> as:</p>
+<p><span class="math display">\[
+\begin{align}&amp;S_z\ket{1/2}=\frac{\hbar}{2}\ket{1/2}+0\ket{-1/2}\\&amp;S_z\ket{-1/2}=0\ket{1/2}+\frac{\hbar}{2}\ket{-1/2}\end{align}
+\]</span></p>
+<p>From this result we can get the numbers <span class="math inline">\(\braket{m|S_z|m'}\)</span>. We can exhibit all these numbers as a matrix:</p>
+<p><span class="math display">\[
+[S_z]=\frac{\hbar}{2}\begin{pmatrix}1 &amp; 0\\0 &amp; -1\end{pmatrix}
+\]</span></p>
+<p>Getting the matrices for <span class="math inline">\(S_x\)</span> and <span class="math inline">\(S_y\)</span> in the eigenbasis <span class="math inline">\(\{\ket{-1/2},\ket{1/2}\}\)</span>, we write them in terms of the raising and lowering operators. After calculations analogous to <a href="#eq-Jx11" class="quarto-xref">Equation&nbsp;7</a>, the numbers <span class="math inline">\(\braket{m|S_x|m'}\)</span> and <span class="math inline">\(\braket{m|S_y|m'}\)</span> can be arranged into the matrices:</p>
+<p><span class="math display">\[
+[S_x]=\frac{\hbar}{2}\begin{pmatrix}0 &amp; 1\\1 &amp; 0\end{pmatrix}\qquad[S_y]=\frac{\hbar}{2}\begin{pmatrix}0 &amp; -i\\i &amp; 0\end{pmatrix}
+\]</span></p>
+</section>
+</section>
+<section id="spin-quantum-states-of-a-system-with-two-electrons" class="level2">
+<h2 class="anchored" data-anchor-id="spin-quantum-states-of-a-system-with-two-electrons">Spin quantum states of a system with two electrons</h2>
+<p>Consider two electrons each in its own isolated system and their spin properties described by the eigenstates of <span class="math inline">\(\{S_1^2,S_{1z}\}\)</span> and <span class="math inline">\(\{S_2^2,S_{2z}\}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}&amp;S_1^2\ket{m_1}=\frac{3}{4}\hbar^2\ket{m_1}\\&amp;S_{1z}\ket{m_1}=m_1\hbar\ket{m_1}\\&amp;S_2^2\ket{m_2}=\frac{3}{4}\hbar^2\ket{m_2}\\&amp;S_{2z}\ket{m_2}=m_2\hbar\ket{m_2}\end{align}
+\]</span></p>
+<p>The spins magnitude of the two electrons is described by the quantum numbers</p>
+<p><span class="math display">\[
+s_1=\frac{1}{2}\qquad s_2=\frac{1}{2}
+\]</span></p>
+<p>The quantum states of the two isolated systems are the states living in a state space whose basis is formed from the tensor product <span class="math inline">\(\ket{m_1}\otimes \ket{m_2}\)</span> of the individual eigenstates:</p>
+<p><span class="math display">\[
+\text{span}\{\ket{m_1}\otimes \ket{m_2}\,\,|\,\,m,m_2=\pm1/2\}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two isolated systems each with one electron is equivalent to a single system with two non-interacting electrons.</p>
+</div>
+</div>
+<p>It is important to understand that:</p>
+<ul>
+<li>The observables <span class="math inline">\(S^2_1\)</span> ,<span class="math inline">\(S_{1z}\)</span> act on the space spanned by <span class="math inline">\(\{\ket{-1/2_1},\ket{1/2_1}\}\)</span> while the observables <span class="math inline">\(S^2_2\)</span>, <span class="math inline">\(S_{2z}\)</span> act on <span class="math inline">\(\{\ket{-1/2_2},\ket{1/2_2}\}\)</span> and do not act on tensor product states.</li>
+<li>We define however the extensions of <span class="math inline">\(S^2_1\)</span>, <span class="math inline">\(S_{1z}\)</span>, which act on the tensor product space as</li>
+</ul>
+<p><span class="math display">\[
+\tilde{S}_1^2=S_1^2\otimes 1_2\qquad \tilde{S}_{1z}=S_{1z}\otimes 1_2
+\]</span></p>
+<p>The extensions of <span class="math inline">\(S^2_2\)</span> ,<span class="math inline">\(S_{2z}\)</span> are defined analogously:</p>
+<p><span class="math display">\[
+\tilde{S}_2^2=1_1 \otimes S_2^2\qquad \tilde{S}_{2z}=1_1\otimes S_{2z}
+\]</span></p>
+<p>Therefore we have:</p>
+<p><span id="eq-s2til1"><span class="math display">\[
+\begin{align}\tilde{S}_1^2(\ket{m_1}\otimes \ket{m_2}) &amp;= (S_1^2\ket{m_1})\otimes \ket{m_2}\\&amp;=(\frac{3\hbar}{4}\ket{m_1})\otimes \ket{m_2}\\&amp;=\frac{3\hbar}{4}\ket{m_1}\otimes \ket{m_2}\end{align}
+\tag{13}\]</span></span></p>
+<p>Similarly for the remainder operators.</p>
+<p>(ESTA COMPARAÇÃO TEM DE SER APROFUNDADA)</p>
+<p>Also, the set of operators <span class="math inline">\(\{\tilde{S}_1^2,\tilde{S}_{1z},\tilde{S}_2^2,\tilde{S}_{2z}\}\)</span> commute and as a result we know it exists a basis of common eigenstates which we label by the eigenvalues, we define them as <span class="math inline">\(\ket{m_1,m_2}\)</span>. In mathematical terms we have:</p>
+<p><span id="eq-s2til2andtheothers"><span class="math display">\[
+\begin{align}&amp;\tilde{S}_1^2\ket{m_1,m_2}=\tilde{S}_2^2\ket{m_1,m_2}=\frac{3}{4}\hbar\ket{m_1,m_2}\\&amp;\tilde{S}_{1z}\ket{m_1,m_2}=m_1 \hbar\ket{m_1,m_2}\\&amp;\tilde{S}_{2z}\ket{m_1,m_2}=m_2 \hbar\ket{m_1,m_2}\\\end{align}
+\tag{14}\]</span></span></p>
+<p>Comparing <a href="#eq-s2til1" class="quarto-xref">Equation&nbsp;13</a> and the first equation in <a href="#eq-s2til2andtheothers" class="quarto-xref">Equation&nbsp;14</a> we are forced to conclude that <span class="math inline">\(\ket{m_1,m_2}\)</span> are the tensor product of the eigenstates of the individual electron spins:</p>
+<p><span class="math display">\[
+\ket{m_1,m_2}:=\ket{m_1}\otimes\ket{m_2}
+\]</span></p>
+<p>If we were unaware of the kets <span class="math inline">\(|m_1\rangle \otimes |m_2\rangle\)</span> and <strong>?@eq-setill</strong>, we would only know the eigenbasis is labelled by the eigenvalues and, just as stated in <a href="#eq-s2til2andtheothers" class="quarto-xref">Equation&nbsp;14</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note how we suppressed the <span class="math inline">\(j_1=j_2=1/2\)</span> that label the <span class="math inline">\(\tilde{S}_{1,2}^2\)</span> eigenvalues for simplicity. As a further simplification of notation we’ll from now on omit the ~ in<span class="math inline">\(\tilde{S}_{1,2}^2\)</span> and <span class="math inline">\(\tilde{S}_{z1,2}\)</span>, it is left to the reader that these operators are extensions into tensor product spaces.</p>
+</div>
+</div>
+<p><strong>In conclusion</strong>, the spin properties of a system with two particles (electrons) whose spin state is described by kets in <span class="math inline">\(\mathcal{E}_1(j_1=1/2)\)</span> and <span class="math inline">\(\mathcal{E}_2(j_2=1/2)\)</span> is described by a state of the form</p>
+<p><span class="math display">\[
+\ket{m_1,m_2}:=\ket{m_1}\otimes\ket{m_2}\qquad m_{1,2}=\pm1/2
+\]</span></p>
+<p>which constitute a basis for the tensor product state space</p>
+<p><span class="math display">\[
+\mathcal{E}_{12}=\mathcal{E}_1\otimes\mathcal{E}_2
+\]</span></p>
+<p>A pictorial organization of our basis states if given as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/m1_m2_plot.png" class="img-fluid figure-img" width="366"></p>
+<figcaption>The blue dots represent a basis ket, the pink boxes we’ll be explained in next section.</figcaption>
+</figure>
+</div>
+</section>
+<section id="a-new-basis-for-the-tensor-state-space" class="level2">
+<h2 class="anchored" data-anchor-id="a-new-basis-for-the-tensor-state-space">A new basis for the tensor state space</h2>
+<p>We want for the space <span class="math inline">\(\mathcal{E}_{12}(j_1=1/2,j_2=1/2)\)</span> a basis of kets which are simultaneous eigenvalues of the following set of observables: <span class="math display">\[
+\{S_1^2,S_2^2,S^2,S_z\}
+\]</span> where <span class="math inline">\(\mathbf{S}=\mathbf{S}_1+\mathbf{S}_2=(S_{1x}+S_{2x},S_{1y}+S_{2y},S_{1z}+S_{2z})\)</span>, the magnitude squared operator is <span class="math inline">\(S^2=S_x^2+S_y^2+S_z^2\)</span> and z-component <span class="math inline">\(S_z=S_{1z}+S_{2z}\)</span>.</p>
+</section>
+<section id="why-1" class="level2">
+<h2 class="anchored" data-anchor-id="why-1">Why?</h2>
+<p>The Hamiltonian we got in our hands might commute with these observables rather than the old ones. Our goal is still to diagonalize <span class="math inline">\(H\)</span>. (terminar estar notas realmente diagonalizando Hamiltnonianos)</p>
+</section>
+<section id="the-new-basis" class="level2">
+<h2 class="anchored" data-anchor-id="the-new-basis">The new basis</h2>
+<p>Since <span class="math inline">\(\{S_1^2,S_2^2,S^2,S_z\}\)</span> is a CSCO, we can define a basis of kets which are eigenvector of all these observables; the basis is labelled by the eigenvalues WHY???!!! (or better yet, by the indices that label the eigenvalues): <span class="math display">\[
+\begin{align}
+&amp;S_1^2\ket{j_1,j_2;S,M}=S^2_2\ket{j_1,j_2;S,M}=\frac{3}{4} \hbar^2\ket{S,M}\\
+&amp;S^2\ket{j_1,j_2;S,M}=S(S+1)\hbar^2\ket{j_1,j_2;S,M}\\
+&amp;S_z\ket{j_1,j_2;S,M}=M\hbar\ket{j_1,j_2;S,M}
+\end{align}
+\]</span>where <span class="math inline">\(j_1=j_2=1/2\)</span>. Notice that <span class="math inline">\(S^2\)</span> and <span class="math inline">\(S_z\)</span> are angular momentum operators because they result of adding angular momentum, thus they are just another particular case of <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_z\)</span> we defined previously, as a result their eigenvalues are of the form <span class="math inline">\(j(j+1)\hbar^2\)</span> and <span class="math inline">\(m\hbar\)</span> with <span class="math inline">\(-j\leq m\leq j\)</span>, which for the present case we write under new symbols as <span class="math inline">\(S(S+1)\hbar^2\)</span> and <span class="math inline">\(M\hbar\)</span> with <span class="math inline">\(-S\leq M\leq S\)</span>.</p>
+</section>
+<section id="what-are-the-values-of-s-and-m" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-values-of-s-and-m">What are the values of <span class="math inline">\(S\)</span> and <span class="math inline">\(M\)</span>?</h2>
+<p>We still do not know what values <span class="math inline">\(S\)</span> and <span class="math inline">\(M\)</span> take. But two thing we know:</p>
+<ul>
+<li><p>From the theory of general angular momentum introduced above, we find <span class="math inline">\(-S\leq M\leq S\)</span>.</p></li>
+<li><p>Knowing that <span class="math inline">\(S_z=S_{1z} + S_{2z}\)</span> tell us how to act with <span class="math inline">\(S_z\)</span> on the old basis <span class="math inline">\(\{\ket{1/2,1/2},\ket{-1/2,1/2},\ket{1/2,-1/2},\ket{-1/2,-1/2}\}\)</span>, that suffices to show what values <span class="math inline">\(M\)</span> take. Let us act with <span class="math inline">\(S_z\)</span> on each ket of this basis. <span class="math display">\[
+S_z\ket{m_1,m_2}=(S_{1z}+S_{2z})\ket{m_1,m_2}=(m_1+m_2)\hbar \ket{m_1,m_2}
+\]</span></p></li>
+</ul>
+<p>From this we conclude that <span class="math display">\[
+M=m_1+m_2
+\]</span> The values <span class="math inline">\(M\)</span> can take are: <span class="math display">\[
+M\in\{-1,0,+1\}
+\]</span> Now, what values <span class="math inline">\(S\)</span> need to take that guarantee that <span class="math inline">\(M\)</span> takes these values? Notice the question: If I know <span class="math inline">\(S\)</span>, I can easily get the range of <span class="math inline">\(M\)</span> because I know that <span class="math inline">\(-S\leq M\leq M\)</span>. The present question goes the other way, if I know the <span class="math inline">\(M\)</span>’s, what <span class="math inline">\(S\)</span>’s are possible. We can answer this question by constructing a diagram similar to the one done before:</p>
+<p><img src="figs/S_M_plot.png" class="img-fluid" width="438"></p>
+<p>We can clearly see that <span class="math inline">\(S=0,1\)</span>. A closer inspection reveals that the following condition holds in general: <span class="math display">\[
+|j_1-j_2|\leq S\leq j_1+j_2
+\]</span> This diagram not only showed us what is <span class="math inline">\(S\)</span>, it also organizes pictorially the basis <span class="math inline">\(\{\ket{1/2,1/2;S,M}\}\)</span> generated by the CSCO. In it is also shown two subspaces where the raising and lowering operators <span class="math inline">\(S_\pm\)</span> act. We will drop the <span class="math inline">\(j_1=j_2=1/2\)</span> from the ket notation since it is clear from context and write just <span class="math inline">\(\ket{S,M}\)</span>.</p>
+</section>
+<section id="relating-the-two-basis" class="level2">
+<h2 class="anchored" data-anchor-id="relating-the-two-basis">Relating the two basis</h2>
+<p>We want to express the kets <span class="math inline">\(\ket{S,M}\)</span> of the new basis in terms of <span class="math inline">\(\ket{m_1,m_2}\)</span> that constitute the old basis, to do that we argue pictorially:</p>
+<p><img src="figs/m1_m2_S_M_plot.png" class="img-fluid" width="620"></p>
+<p>On the left side of the picture we see a graphical organization of the old basis and on the right side the new basis. We identify in each basis, the elements that span the subspaces <span class="math inline">\(\mathcal{E}(M)\)</span> for each <span class="math inline">\(M\)</span>; this is easily done on the right picture because the horizontal axis already tells us the <span class="math inline">\(M\)</span>’s, on the left picture we need to recall that each basis ket is an eigenvector of <span class="math inline">\(S_z\)</span> with eigenvalue <span class="math inline">\(M\hbar=(m_1+m_2)\hbar\)</span>. Careful inspection of these subspaces shows us that: <span class="math display">\[
+\begin{align}
+&amp;\ket{S=1,M=1}\in \mathcal{E}(M=1)\\
+&amp;\ket{m_1=1/2,m_2=1/2}\in \mathcal{E}(M=1)
+\end{align}
+\]</span> and since the subspace is one-dimensional, these two basis kets must coincide. We write: <span class="math display">\[
+\ket{1,1}=\ket{1/2,1/2}
+\]</span> We just succeeded in establishing the first connection of both basis, more, the remaining connections follow from this one, as falling dominos. Using the lower operator defined as <span class="math inline">\(S_-:=S_{1-}+S_{2-}\)</span> we find <span class="math inline">\(\ket{1,0}\)</span>:</p>
+<p><img src="figs/m1_m2_S_M_plot_2.png" class="img-fluid" width="579"></p>
+<p><span class="math display">\[
+S_-\ket{1,1}=(S_{1-}+S_{2-})\ket{1/2,1/2}
+\]</span></p>
+<p>The left hand side gives us: <span class="math display">\[
+\hbar\sqrt{1(1+1)-0(0-1)}\ket{1,0}
+\]</span> The right hand side is: <span class="math display">\[
+\hbar\sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)-\frac{1}{2}\left(\frac{1}{2}-1\right)}\left(\ket{-\frac{1}{2},\frac{1}{2}}+\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\]</span> Thus: <span class="math display">\[
+\hbar\sqrt{2}\ket{1,0}=\hbar\left(\ket{-\frac{1}{2},\frac{1}{2}}+\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\]</span> Which yields: <span class="math display">\[
+\ket{1,0}=\frac{1}{\sqrt{2}}\left(\ket{-\frac{1}{2},\frac{1}{2}}+\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\]</span> In <span class="math inline">\(\mathcal{E}(M=1)\)</span> there is still <span class="math inline">\(\ket{0,0}\)</span>, we use its properties to derive the connection:</p>
+<ul>
+<li><p>We know it is a linear combination of <span class="math inline">\(\ket{-1/2,1/2}\)</span> and <span class="math inline">\(\ket{1/2,-1/2}\)</span> thus we write: <span class="math display">\[
+\ket{0,0}=c_1\ket{-1/2,1/2}+c_2\ket{1/2,-1/2}
+\]</span> for some complex numbers <span class="math inline">\(c_{1,2}\)</span>.</p></li>
+<li><p>We know it is orthogonal to <span class="math inline">\(\ket{1,0}\)</span>, thus we write: <span class="math display">\[
+0=\braket{1,0|0,0}=\frac{1}{\sqrt{2}}(c_1+c_2)
+\]</span></p></li>
+<li><p>We also know it is normalized, i.e., <span class="math display">\[
+1=\braket{0,0|0,0}=|c_1|^2+|c_2|^2
+\]</span></p></li>
+</ul>
+<p>Solving these equations we conclude one possible solution is: <span class="math display">\[
+c_1=-c_2=\frac{1}{\sqrt{2}}
+\]</span> Hence, the second basis vector in <span class="math inline">\(\mathcal{E}(M=0)\)</span> is: <span class="math display">\[
+\ket{0,0}=\frac{1}{\sqrt{2}}\left(\ket{-\frac{1}{2},\frac{1}{2}}-\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\]</span> Finally, to get the last connection between the new and old basis, we act with either <span class="math inline">\(S_-\)</span> on <span class="math inline">\(\ket{1,0}\)</span>:</p>
+<p><img src="figs/m1_m2_S_M_plot_3.png" class="img-fluid" width="553"></p>
+<p>Or we simply notice that <span class="math inline">\(\mathcal{E}(M=-1)\)</span> is also one dimensional and therefore: <span class="math display">\[
+\ket{1,-1}=\ket{-1/2,-1/2}
+\]</span></p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The connection between the basis <span class="math inline">\(\{\ket{S,M}\}\)</span> of eigenstates of the CSCO <span class="math inline">\(\{S_1^2,S_2^2;S^2,S_z\}\)</span> and the basis <span class="math inline">\(\{\ket{m_1,m_2}\}\)</span> of eigenstates of the CSCO <span class="math inline">\(\{S_1^2,S_{1z},S^2_2,S_{2z}\}\)</span> given <span class="math inline">\(S_1=S_2=1/2\)</span> is: <span class="math display">\[
+\ket{0,0}=\frac{1}{\sqrt{2}}\left(\ket{-\frac{1}{2},\frac{1}{2}}-\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\]</span> which spans the one dimension subspace <span class="math inline">\(\mathcal{E}(S=0)\)</span> and is thus called a <em>singlet</em> state; the three states of <span class="math inline">\(\mathcal{E}(S=1)\)</span> are called a <em>triplet</em> <span class="math display">\[
+\begin{align}
+&amp;\ket{1,1}=\ket{1/2,1/2}\\
+&amp;\ket{1,0}=\frac{1}{\sqrt{2}}\left(\ket{-\frac{1}{2},\frac{1}{2}}+\ket{\frac{1}{2},-\frac{1}{2}}\right)\\
+&amp;\ket{1,-1}=\ket{-1/2,-1/2}
+\end{align}
+\]</span></p>
+<p><img src="figs/singlet_triplet.png" class="img-fluid" width="428"></p>
+</section>
 <section id="the-orbital-angular-momentum" class="level2">
 <h2 class="anchored" data-anchor-id="the-orbital-angular-momentum">The Orbital Angular Momentum</h2>
+<p>(DESCRIBES THE INTEGER <span class="math inline">\(j\)</span>’s)</p>
 <p>So far we described the framework of a generic angular momentum, which followed solely from its commutation relations; we want now to see a particular example of the <span class="math inline">\(J^2\)</span> and <span class="math inline">\(J_z\)</span> operators, namely, when they are the magnitude-squared of the orbital angular momentum of a particle and its z-component, to be explicit, let:</p>
+<p><span class="math display">\[
+S_-\ket{1/2}=\hbar\sqrt{1/2(1/2+1)-1/2(1/2-1)}\ket{-1/2}=\hbar\ket{-1/2}
+\]</span></p>
+<p>which can then be normalized by dividing it <span class="math inline">\(\hbar\)</span>. On the other hand we have:</p>
 <p><span id="eq-L2andLz"><span class="math display">\[
 \begin{align}
 &amp;J_x := YP_z-ZP_y\\
@@ -323,9 +675,9 @@ J_x &amp;= \frac{\hbar}{\sqrt{2}}\left(|1,0\rangle\langle 1,1|+|1,1\rangle\langl
 &amp;J_z:= XP_y-YP_x \\
 &amp;J^2:=J_x^2+J_y^2+J_z^2
 \end{align}
-\tag{9}\]</span></span></p>
-<p>The commutation relations <a href="#eq-commut1">Equation&nbsp;1</a> and <a href="#eq-commut2">Equation&nbsp;2</a> that we assumed in previous sections for the symbols on the lhs of <a href="#eq-L2andLz">Equation&nbsp;9</a> also hold for the symbols on the rhs</p>
-<p>In other words, the explicit form of <span class="math inline">\(J_x\)</span>, <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> that we defined in <a href="#eq-L2andLz">Equation&nbsp;9</a>, by itself satisfies <a href="#eq-commut1">Equation&nbsp;1</a> and <a href="#eq-commut2">Equation&nbsp;2</a> provided:</p>
+\tag{15}\]</span></span></p>
+<p>The commutation relations <a href="#eq-commut1" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-commut2" class="quarto-xref">Equation&nbsp;2</a> that we assumed in previous sections for the symbols on the lhs of <a href="#eq-L2andLz" class="quarto-xref">Equation&nbsp;15</a> also hold for the symbols on the rhs</p>
+<p>In other words, the explicit form of <span class="math inline">\(J_x\)</span>, <span class="math inline">\(J_y\)</span> and <span class="math inline">\(J_z\)</span> that we defined in <a href="#eq-L2andLz" class="quarto-xref">Equation&nbsp;15</a>, by itself satisfies <a href="#eq-commut1" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-commut2" class="quarto-xref">Equation&nbsp;2</a> provided:</p>
 <p><span class="math display">\[
 [X,P_x] = [Y,P_y] = [Z,P_z]=i\hbar
 \]</span></p>
@@ -339,8 +691,8 @@ J_x &amp;= \frac{\hbar}{\sqrt{2}}\left(|1,0\rangle\langle 1,1|+|1,1\rangle\langl
 &amp;=i\hbar (XP_y-YP_x)\\
 &amp;=i\hbar J_z
 \end{align}
-\tag{10}\]</span></span></p>
-<p>just as we assumed in <a href="#eq-commut1">Equation&nbsp;1</a> . Analogous calculation show our definitions satisfies the remaining commutation relations</p>
+\tag{16}\]</span></span></p>
+<p>just as we assumed in <a href="#eq-commut1" class="quarto-xref">Equation&nbsp;1</a> . Analogous calculation show our definitions satisfies the remaining commutation relations</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -354,18 +706,18 @@ Change of Notation
 <p>It is traditional to use the symbols <span class="math inline">\(L_x\)</span>, <span class="math inline">\(L_y\)</span> ,<span class="math inline">\(L_z\)</span> and <span class="math inline">\(L^2\)</span> in place of <span class="math inline">\(J_x\)</span>, <span class="math inline">\(J_y\)</span> ,<span class="math inline">\(J_z\)</span> and <span class="math inline">\(J^2\)</span> when speaking about the orbital angular momentum. Recall the former notation is used for a generic angular momentum, not necessarily the orbital one.</p>
 </div>
 </div>
-<p>The rhs of <a href="#eq-L2andLz">Equation&nbsp;9</a> together with the choice of the position basis <span class="math inline">\(\{|x,y,z\rangle\}\)</span> allow us to give the position representation of the eigenvalue-eigenvector equations we saw in <a href="#eq-J2andJzevalevecteqn">Equation&nbsp;4</a>:</p>
+<p>The rhs of <a href="#eq-L2andLz" class="quarto-xref">Equation&nbsp;15</a> together with the choice of the position basis <span class="math inline">\(\{|x,y,z\rangle\}\)</span> allow us to give the position representation of the eigenvalue-eigenvector equations we saw in <a href="#eq-J2andJzevalevecteqn" class="quarto-xref">Equation&nbsp;5</a>:</p>
 <p><span id="eq-L2andLzevalsandevectinrrepresentation"><span class="math display">\[
 \begin{align}
 &amp;\langle x,y,z|L^2\ket{l,m}=l(l+1)\hbar^2\langle x,y,z|\ket{l,m}\\
 &amp;\langle x,y,z|L_z\ket{l,m}=m\hbar\langle x,y,z|\ket{l,m}
 \end{align}
-\tag{11}\]</span></span></p>
-<p>Substituting <a href="#eq-L2andLz">Equation&nbsp;9</a> we find:</p>
+\tag{17}\]</span></span></p>
+<p>Substituting <a href="#eq-L2andLz" class="quarto-xref">Equation&nbsp;15</a> we find:</p>
 <p><span id="eq-L2andLzevalsandevectinrrepresentation3"><span class="math display">\[
 \begin{align}&amp;\langle x,y,z|(L_x^2+L_y^2+L_z^2)\ket{l,m}=l(l+1)\hbar^2\langle x,y,z|\ket{l,m}\\
 &amp;\langle x,y,z|(XP_y-YP_x)\ket{l,m}=m\hbar\langle x,y,z|\ket{l,m}\end{align}
-\tag{12}\]</span></span></p>
+\tag{18}\]</span></span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -382,7 +734,7 @@ Recall
 \]</span></p>
 </div>
 </div>
-<p>The second equation in <a href="#eq-L2andLzevalsandevectinrrepresentation3">Equation&nbsp;12</a> we find:</p>
+<p>The second equation in <a href="#eq-L2andLzevalsandevectinrrepresentation3" class="quarto-xref">Equation&nbsp;18</a> we find:</p>
 <p><span class="math display">\[
 \begin{align}
 \langle x,y,z|L_z|\psi\rangle &amp;= \langle x,y,z|(XP_y-YP_x)|\psi\rangle\\
@@ -394,12 +746,12 @@ Recall
 \]</span> Therefore, in the position basis, the <span class="math inline">\(L_z\)</span> operator acts on functions <span class="math inline">\(\psi(x,y,z)\)</span> as the operation:</p>
 <p><span id="eq-LzinCartesian"><span class="math display">\[
 L_z \rightsquigarrow \frac{\hbar}{i}\left(x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}\right)
-\tag{13}\]</span></span></p>
+\tag{19}\]</span></span></p>
 <p>Similarly we find:</p>
 <p><span id="eq-LxLyinCartesian"><span class="math display">\[
 L_x \rightsquigarrow \frac{\hbar}{i}\left(y\frac{\partial}{\partial z}-z\frac{\partial}{\partial y}\right) \qquad L_y \rightsquigarrow \frac{\hbar}{i}\left(z\frac{\partial}{\partial x}-x\frac{\partial}{\partial z}\right)
-\tag{14}\]</span></span></p>
-<p>We could substitute the rhs of <a href="#eq-LzinCartesian">Equation&nbsp;13</a> and <a href="#eq-LxLyinCartesian">Equation&nbsp;14</a> into the commutation relations and run an analogous calculation to <a href="#eq-checkingitcommuts">Equation&nbsp;10</a>, the would conclude that they indeed satisfy those equations as well.</p>
+\tag{20}\]</span></span></p>
+<p>We could substitute the rhs of <a href="#eq-LzinCartesian" class="quarto-xref">Equation&nbsp;19</a> and <a href="#eq-LxLyinCartesian" class="quarto-xref">Equation&nbsp;20</a> into the commutation relations and run an analogous calculation to <a href="#eq-checkingitcommuts" class="quarto-xref">Equation&nbsp;16</a>, the would conclude that they indeed satisfy those equations as well.</p>
 <p>It will be useful to change from cartesian coordinates <span class="math inline">\(x,y,z\)</span> into polar coordinates <span class="math inline">\(r,\theta,\phi\)</span>. The map between these coordinates is established by the equations:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -409,7 +761,7 @@ L_x \rightsquigarrow \frac{\hbar}{i}\left(y\frac{\partial}{\partial z}-z\frac{\p
 \end{align}
 \]</span></p>
 <p>provided <span class="math inline">\(r\geq 0\)</span>, <span class="math inline">\(0\leq\theta\leq\pi\)</span> and <span class="math inline">\(0\leq\phi&lt; 2\pi\)</span></p>
-<p>To convert <a href="#eq-LzinCartesian">Equation&nbsp;13</a> and <a href="#eq-LxLyinCartesian">Equation&nbsp;14</a> into polar coordinates we proceed as follows:</p>
+<p>To convert <a href="#eq-LzinCartesian" class="quarto-xref">Equation&nbsp;19</a> and <a href="#eq-LxLyinCartesian" class="quarto-xref">Equation&nbsp;20</a> into polar coordinates we proceed as follows:</p>
 <ol type="1">
 <li>Draw a diagram:</li>
 </ol>
@@ -434,7 +786,7 @@ L_x \rightsquigarrow \frac{\hbar}{i}\left(y\frac{\partial}{\partial z}-z\frac{\p
 \partial_y \psi\\
 \partial_z \psi
 \end{pmatrix}
-\tag{15}\]</span></span></p>
+\tag{21}\]</span></span></p>
 <ol start="3" type="1">
 <li>Compute the matrix (Easy)</li>
 </ol>
@@ -446,7 +798,7 @@ r \cos\theta \cos\phi &amp; r \cos\theta \sin \phi &amp; -r \sin \theta\\
 \end{pmatrix}
 \]</span></p>
 <ol start="4" type="1">
-<li>Invert the system <a href="#eq-systemofeqnstoinvert">Equation&nbsp;15</a> (Hard, use Mathematica)</li>
+<li>Invert the system <a href="#eq-systemofeqnstoinvert" class="quarto-xref">Equation&nbsp;21</a> (Hard, use Mathematica)</li>
 </ol>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -467,7 +819,7 @@ r \cos\theta \cos\phi &amp; r \cos\theta \sin \phi &amp; -r \sin \theta\\
 \end{pmatrix}
 \]</span></p>
 <ol start="5" type="1">
-<li><p>Substitute the results into <a href="#eq-LzinCartesian">Equation&nbsp;13</a> and <a href="#eq-LxLyinCartesian">Equation&nbsp;14</a> and simplify gives:</p>
+<li><p>Substitute the results into <a href="#eq-LzinCartesian" class="quarto-xref">Equation&nbsp;19</a> and <a href="#eq-LxLyinCartesian" class="quarto-xref">Equation&nbsp;20</a> and simplify gives:</p>
 <p><span class="math display">\[
 \begin{align}
 &amp;L_x \rightsquigarrow i\hbar\left(\sin\phi \frac{\partial}{\partial \theta}+\frac{\cos\phi}{\tan\theta} \frac{\partial}{\partial \phi}\right)\\
@@ -483,7 +835,7 @@ L^2\psi &amp;= L_x^2\psi + L_y^2\psi+L_z^2\psi\\
 +(i\hbar)^2\left(-\cos\phi \frac{\partial}{\partial \theta}+\frac{\sin\phi}{\tan\theta} \frac{\partial}{\partial \phi}\right)^2\psi+
 \left(\frac{\hbar}{i}\right)^2 \frac{\partial^2}{\partial \phi^2}\psi
 \end{align}
-\tag{16}\]</span></span> Now we need to expand each square, the first becomes:</p></li>
+\tag{22}\]</span></span> Now we need to expand each square, the first becomes:</p></li>
 </ol>
 <p><span class="math display">\[
 (i\hbar)^2\left(\sin^2\phi \frac{\partial^2\psi}{\partial \theta^2}+ \frac{\cos^2\phi}{\tan^2\theta}\frac{\partial^2\psi}{\partial \phi^2}-\frac{\sin\phi\cos\phi}{\sin^2\theta}\frac{\partial \psi}{\partial \phi}+\frac{\sin\phi\cos\phi}{\tan\theta}\frac{\partial^2 \psi}{\partial\theta\partial \phi}\right)
@@ -492,17 +844,17 @@ L^2\psi &amp;= L_x^2\psi + L_y^2\psi+L_z^2\psi\\
 <p><span class="math display">\[
 (i\hbar)^2\left(\cos^2\phi \frac{\partial^2\psi}{\partial \theta^2}+ \frac{\sin^2\phi}{\tan^2\theta}\frac{\partial^2\psi}{\partial \phi^2}+\frac{\cos\phi\sin\phi}{\sin^2\theta}\frac{\partial \psi}{\partial \phi}-\frac{\cos\phi\sin\phi}{\tan\theta}\frac{\partial^2 \psi}{\partial\theta\partial \phi}\right)
 \]</span></p>
-<p>Substituting into <a href="#eq-L2inpolar">Equation&nbsp;16</a> and canceling terms yields the final result:</p>
+<p>Substituting into <a href="#eq-L2inpolar" class="quarto-xref">Equation&nbsp;22</a> and canceling terms yields the final result:</p>
 <p><span id="eq-L2inPolarFinal"><span class="math display">\[
 L^2 \rightsquigarrow -\hbar^2\left(\frac{\partial^2}{\partial \theta^2} + \frac{1}{\sin^2\theta} \frac{\partial^2}{\partial \phi^2} + \frac{1}{\tan\theta}\frac{\partial}{\partial \theta}\right)
-\tag{17}\]</span></span></p>
-<p>As a consequence, the system of equations in <a href="#eq-L2andLzevalsandevectinrrepresentation3">Equation&nbsp;12</a> becomes a system of partial differential equations:</p>
+\tag{23}\]</span></span></p>
+<p>As a consequence, the system of equations in <a href="#eq-L2andLzevalsandevectinrrepresentation3" class="quarto-xref">Equation&nbsp;18</a> becomes a system of partial differential equations:</p>
 <p><span id="eq-L2andLzevalsandevectinrrepresentation2"><span class="math display">\[
 \begin{align}
 &amp;-\hbar^2 \left(\frac{\partial}{\partial \theta^2}+\frac{1}{\tan \theta} \frac{\partial}{\partial \theta}+\frac{1}{\sin^2\theta}\frac{\partial}{\partial^2 \phi^2}\right)\psi_{l,m}(r, \theta, \phi)=l(l+1)\hbar^2\psi_{l,m}(r, \theta, \phi)\\
 &amp; \frac{\hbar}{i} \frac{\partial}{\partial \phi}\psi_{l,m}(r, \theta, \phi)=m\hbar \psi_{l,m}(r, \theta, \phi)
 \end{align}
-\tag{18}\]</span></span></p>
+\tag{24}\]</span></span></p>
 <p>The solutions <span class="math inline">\(\psi_{l,m}(r,\theta,\phi)\)</span> are the eigenfunctions common to the <span class="math inline">\(L^2\)</span> and <span class="math inline">\(L_z\)</span> operators associated with the eigenvalues <span class="math inline">\(l(l+1)\hbar^2\)</span> and <span class="math inline">\(m\hbar\)</span>. These solution exist because these two operators commute. Our ultimate goal is to solve them, but in these notes we’ll content ourselves by just identifying some of its properties.</p>
 
 
@@ -529,121 +881,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -703,10 +940,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -716,8 +970,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -729,7 +992,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -773,6 +1159,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -798,6 +1185,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -858,6 +1271,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

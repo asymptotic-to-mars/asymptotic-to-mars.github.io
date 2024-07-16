@@ -1,0 +1,15 @@
+{
+  "hash": "d26fe9bf4bbb7a6abbc084914ff61c76",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Brief Notes\"\nsubtitle: YesYes, these are brief\nauthor: me\n#date: today\nbibliography: references.bib\nformat:\n  html:\n    toc: True #table of contents shows up\nknitr: #the thing that renders the file\n  opts_chunk: #ops for code\n    warning: False\n    Message: False #setting these to false, elimintate error messages in the redered file (https://youtu.be/Auo1hjyeCl4?list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&t=181)\n---\n\n\n## Teh Notes\n\n-   [Getting the feet wet with Polynomials](polynomials.qmd)\n\n-   [Angular momentum in quantum mechanics](angular_momentum_qm_short_summary.qmd)\n\n-   [Einstein Model of Solid](eistein_model_of_solid.qmd)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
