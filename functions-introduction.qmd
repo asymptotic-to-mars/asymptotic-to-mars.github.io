@@ -1,0 +1,20 @@
+---
+execute:
+  echo: false
+---
+
+# Introduction
+
+It is remarkable how the world we see around us can be understood with two simple concepts: the concept of set and the concept of function. These are two fundamental and natural ways of organizing the information we gather from the world.
+
+Sets are essentially lists, with them we can conveniently gather things that share some common property: for example the set of your friends, the set of videos you liked in the last month, the set of fruits in your local supermarket, the set of letters we use to write this phrase. With our ability to group things together allow us to start thinking about the sets themselves rather than their elements, liberating us of mental "ram" memory to focus on other tasks.
+
+Grouping things is not enough to organize information. Because things in the world interact, we must have some way to describe that interaction and the dependencies that emerge. The concept of relation is essential in that description; by relation we mean a way to connect elements of distinct sets: The sets of fruits and the set of positive real numbers are related, either by the label they carry or their price; the set of fruits and the set of friends are related, because each one prefer some fruits over other fruits; the set of letter in the alphabet and the set of fruit is also related, just let each fruit be assigned a letter, say the first in their name.
+
+In particular we will focus on a special kind of relations, namely functions, in Sec. \ref{sec:asarelation} we introduce why are functions a particular case of relations. In Sec. \ref{sec:4ways} we will show how a function can be manifested as a list of pairs, a diagram, a table or a graph; all equivalent points of view, with theirs advantages and disadvantages. Alternatively we can view functions as a procedure that transforms (map) elements of one set into the elements of the other, we introduce this notion in Sec. \ref{sec:asaprocedure}, which is also the most difficult. The relation and procedure points of view on functions are equivalent, we will stress that in Sec. \ref{sec:equiv}.
+
+The great diversity in ways we can connect elements of two sets shows in diversity of functions we will encounter in this chapter and others, it will turn out to be important to classify theirs global behavior as \textit{onto}, \textit{injective} or \textit{bijective}, because some functions are better for describing certain aspects of the world than others. These notions are introduced in Sec. \ref{sec:sib}.
+
+Finally, if we can assign an element of a given set to another element of a different set, then we can assign many, this "super assignment" called the image of a set is introduced in Sec. \ref{sec:defs} with some special examples which will be useful in later chapters; additionally we introduce in this section the reverse of this super assignment, the so called pre-image of a set.
+
+{{< video https://youtu.be/MBiAc_bEwjA width="500" height="250" >}}

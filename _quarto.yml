@@ -8,14 +8,109 @@ website:
     left:
       - href: index.qmd
         text: Brief Notes
-      - about.qmd
-      - favourites.qmd
+  sidebar:
+    collapse-level: 1
+    style: "docked"
+    search: true
+    contents:
+      - section: "Basic Maths"
+        contents:
+          - section: "Functions"
+            contents: 
+              - href: functions-introduction.qmd
+                text: "Introduction"
+              - href: functions_as_relations.qmd
+                text: "Functions as relations"
+              
+          - section: "Intro to Polynomials"
+            contents:
+              - href: examples_of_pol_part_1.qmd
+                text: "Atomic Polynomials"
+              - href: examples_of_pol_part_2.qmd
+                text: "Molecular Polynomials"
+              - href: examples_of_pol_part_2.5.qmd
+                text: "Polynomials of degree one"
+              - href: examples_of_pol_part_3.qmd
+                text: "Line's equation from two points"
+              - href: examples_of_pol_part_4.qmd
+                text: "Second order polynomials"
+              - href: examples_of_pol_part_5.qmd
+                text: "Focus-diretrix formulation"
+              - href: pol_division.qmd
+                text: "Polynomial division"
+      - section: "Calculus"
+        contents: 
+            - href: limits_of_sequences.qmd
+              text: "Limits of sequences"
+            - href: implicit_derivative.qmd
+              text: "Implicit derivative"
+            - href: change_of_variables.qmd
+              text: "Change of variables"
+          
+      - section: "Quantum Theory"
+        contents:
+          - href: angular_momentum_qm_short_summary.qmd
+            text: "Angular Momentum"
+            
+            
+      - section: "Linear Algebra"
+        contents:
+        - href: linear_combinations.qmd
+          text: "Linear Combinations"
+          
+        - href: vector_spaces_and_subspaces.qmd
+          text: "Vector spaces and subspaces"
+          
+        - href: linear_dependence_and_independence.qmd
+          text: "Linear dependence and independence"
+          
+        - href: systems_of_equations.qmd
+          text: "Solving systems using elimination"
+          
+        - href: basis_of_vector_spaces.qmd
+          text: "Basis of vector spaces"
+              
+        - href: two_special_subspaces.qmd
+          text: "Column space and nullspace"
+              
+        - href: systems_from_a_new_view.qmd
+          text: "System from a new point of view"
+          
+        - href: inner_product.qmd
+          text: "Inner product and Orthogonal spaces"
+          
+        - href: matrices.qmd
+          text: "Matrices"
+        
+        - href: determinants.qmd
+          text: "Determinants"
+          
+        - href: inverse_matrix.qmd
+          text: "Inverse Matrix"
+          
+        - href: linear_functions.qmd
+          text: "Linear functions"
+              
+        - href: analysis_of_system.qmd
+          text: "Analysis of a system"
+              
+        - section: "Things you can do with matrices"
+          contents:
+            - href: matrix_multiplication.qmd
+              text: "Matrix multiplication"
+            - href: inverse_matrix.qmd
+              text: "Inverse matrix"
+
+            - href: how_many_solutions.qmd
+              text: "How many solutions a system has?"
+
+  page-navigation: true
 
 format:
   html:
     theme:
       light: minty
-      #dark: darkly
+      dark: darkly
     #theme: thestylishtheme.scss
     toc: true
 

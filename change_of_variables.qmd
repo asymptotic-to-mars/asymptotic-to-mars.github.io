@@ -1,0 +1,33 @@
+---
+title: "Change of variables in integrals"
+execute:
+  echo: false
+---
+
+It is important when dealing with change of variables to always remember what an integration of a function means:
+
+$$
+\int_{x_0}^{x_1} f(x)\,\,dx
+$$
+
+Recall we are summing rectangles of base $dx$ and height $f(x)$ with $x$ ranging between $x_0$ and $x_1$.
+
+In other words, the integral means, for each $x$ in this range compute the area $f(x)dx$ and add the final result.
+
+Note that for each $x$ there is a corresponding $f(x)dx$; changing the variable $x$ to some new variable $y$ must not change this assignment.
+
+Assume $x$ is related to $y$ by some function $g$, then $x=g(y)$. The new variable $y$ must now have a new range and this range must be in such a way that the corresponding $g(y)$ ranges between $x_0$ and $x_1$ without repeating values. That is to say the function $g$, must be bijective!
+
+If this is the case, then, the variable $y$ now ranges between $[g^{-1}(x_0) , g^{-1}(x_1)]$ and each $dx$ (we have one $dx$ for each $y$) is obtained from the linear approximation
+
+$$
+dx=g'(y)dy
+$$
+
+In conclusion:
+
+$$
+\int_{x_0}^{x_1} f(x)\,\,dx = \int_{g^{-1}(x_0)}^{g^{-1}(x_1)} f(g(y))g'(y)\,\,dy
+$$
+
+Hopefully you choice of $g(y)$ make the integral on the rhs easier to evaluate.

@@ -1,0 +1,133 @@
+---
+title: "Limits of sequences"
+execute:
+  echo: false
+---
+
+# Basic idea
+
+Sequences are also functions, and as a result many of the concepts we introduced for functions apply to sequences as well. For instance, we may:
+
+-   make a table out of them
+
+-   plot them in some relevant window
+
+-   describe in detail some slices of it; in particular the region when $n$ is large.
+
+In these notes we will focus on the later.
+
+Consider the sequence:
+
+$$
+u_n=2+\frac{1}{n}
+$$whose graph for $n=1,.. ,20$ is:
+
+![](figs/myplot3.svg){fig-align="center" width="559"}
+
+A few things strikes us in the region when $n$ is large:
+
+1.  As $n$ gets larger and larger, then $2+1/n$ gets closer and closer to $2$.
+2.  The values $u_n$ never actually reaches the value of $2$ because $1/n$ is never zero, no matter how large $n$ is.
+
+**In other word:** the sequence $u_n$ *eventually* lies within **any** *interval centered at* $2$.
+
+Lets make this wording rigorous:
+
+-   To say that an *interval centered at* $2$ contains a sequence means: $|2-u_n|<\varepsilon$. The radius of the interval is $\varepsilon$ and is positive, because we are speaking about an interval, not a point like thing!
+
+-   The *eventually* words means that after some value $N$, any $n$, guarantees $|2-u_n|<\varepsilon$
+
+-   The **any** word means, that the above is true for any positive $\varepsilon$
+
+Putting it all together:
+
+-   \(1\) For any $\varepsilon>0$, the following is true:
+
+    -   \(2\) That there exists some $N$ that guarantees that:
+
+        -   \(3\) for any $n\geq N$ the following statement is true
+
+            -   \(4\) the statement that $|2-u_n|<\varepsilon$
+
+We write this description using complicated mathematical notation as:
+
+$$ \overbrace{\forall \varepsilon >0 }^{(1)}:\overbrace{\exists N}^{(2)}:\overbrace{\forall  n\geq N}^{(3)}: (\overbrace{ |2-u_n|<\varepsilon)}^{(4)} $$ {#eq-limit_of_seq}
+
+Since it is just complicated to write @eq-limit_of_seq, the following abbreviation is introduced:
+
+$$
+\lim_{n\longrightarrow \infty}u_n = 2
+$$
+
+The lhs should be view as a single symbol that says: "the limit value of $2+1/n$ when $n$ gets larger and larger (infinity is not a number)". The rhs tell us that $2$ is the limit value; or better said, the point around which the sequence eventually *always* lurks.
+
+::: callout-note
+## Commentary
+
+Sequences of the form $x_0\pm1/n$ are important since they describe a step by step approach to the number $x_0$ from values above $+$ or below $-$; without never actually getting there. They will be relevant when computing.
+:::
+
+# Proving a sequence converges
+
+## An example
+
+We will prove that:
+
+$$
+\lim \frac{4n+1}{2n}=2
+$$
+
+Meaning we want to prove that:
+
+$$
+\forall \varepsilon >0:\exists N:\forall n\geq N : |2-(4n+1)/2n|<\varepsilon
+$$
+
+We proceed by unpacking the meaning with indented assumptions:
+
+-   Assume we have some value $\varepsilon$, though it is arbitrary:
+
+    -   We seek to find an $N$ that makes $\forall n\geq N : |2-(4n+1)/2n|<\varepsilon$ true, i.e., we seek a lower bound on $n$ that makes this true:
+
+        -   To do that, we assume that we have some value $n^*$ which is larger than the $N$ and which makes the statement $|2-(4n^*+1)/2n^*|<\varepsilon$ true. This much we know about $n^*$. No special conclusion was taken, yet.
+
+            Now simplify this statement and see if we find something new about $n^*$:
+
+            $$
+            \begin{align}
+            & |2-\frac{4n^*+1}{2n^*}|<\varepsilon\\
+            &\implies |\frac{4n^*-4n^*+1}{2n^*}|<\varepsilon\\
+            &\implies |\frac{1}{2n^*}|<\varepsilon\\
+            &\implies n^*>\frac{1}{2\varepsilon}
+            \end{align}
+            $$
+
+Now, this is significant! Lets recollect what we found in the three indentations: Given a radius $\varepsilon$, a $n^*$bounded below by $N$ and which obeys our statement is a $n^*$ larger than $1/2\varepsilon$. The consequences of this are inescapable. If you choose smaller and smaller $\varepsilon$ the larger and larger $n^*$ must be. $\varepsilon$ can be make as small as we wish and we can always find, through the inequality $n^*>1/2\varepsilon$, a $n^*$ that makes $|2-(4n^*+1)/2n^*|<\varepsilon$ true. And since $N$ is smaller than $n^*$ we can, in conclusion, always say it exist a lower bound $N$ for this $n^*$.
+
+To say $\lim \frac{4n+1}{2n}=2$ is just an abbreviation for the whole reasoning made above!
+
+## Basic sequences limits
+
+Using arguments such as the one shown above we can establish a myriad of limits for basic sequences, we are going ino the details of the proofs and just list the results:
+
+-   $\lim \frac{a}{b}=\frac{a}{b}$ provided $b\not = 0$
+
+-   $\lim \frac{an+b}{cn+d}=\frac{a}{c}$ provided $c\not = 0$
+
+-   $\lim \frac{1}{n^p} =0$, if $p>0$
+
+-   so on ...
+
+We can also prove basic rules for limits, an important one is:
+
+-   If $a_n$ and $b_n$ are convergent to limits $a$ and $b$, then:
+
+    -   the sequence $a_n+b_n$ converges to $a+b$.
+
+    -   the sequence $a_nb_n$ converges to $ab$
+
+    -   the sequence $a_n/b_n$ converges to $a/b$ if $b\not=0$
+
+    -   so on...
+
+**The idea behind these pre-made limits and the rules is similar to the one from derivatives:** If you want to compute a limit of complicated sequence, then your goal is to rearrange that sequence and the limit in such a way that the basic pre-made limits can be used. Giving us the limit value of the complicated sequence.

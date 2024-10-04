@@ -1,0 +1,64 @@
+---
+title: "Line's equation from two given points"
+execute:
+  echo: false
+---
+
+As we have seen a polynomial of degree one can either be specified by providing the parameters $a_0$ and $a_1$ or alternatively (as the author prefers by the way) by providing a point $(x_0,y_0)$ on the line and a slope value $m$. This is what we know so far. In this section we see a third way of specifying one of these polynomials, namely, to provide the coordinates of any two distinct point on the line $(x_0,y_0)$ and $(x_1, y_1)$. We can already sense it, somehow the two point must determine $a_0$ and $a_1$ or $(x_0,y_0)$ and $m$.
+
+Here is how to do it:
+
+1.  Have the two point $(-2,3)$ and $(3,-7)$. These are a given. No action needed.
+
+2.  Assume they both belong to the same line, i.e.,
+
+    $$
+    \begin{align}
+    (-2,3)\in \{(x,y)\in \mathbb{R}^2\,\,|\,\, y = a_1x+a_0 \}\\
+    (3,-7)\in \{(x,y)\in \mathbb{R}^2\,\,|\,\, y = a_1x+a_0 \}
+    \end{align}
+    $$ {#eq-stat_over_a0_a1}
+
+    for some $a_1$ and $a_0$ still unknown but we wish to determine. These two statements characterize the parameters $a_1$ and $a_0$.
+
+3.  We want to compute the values of $a_0$ and $a_1$ that make true the statements @eq-stat_over_a0_a1. The statements @eq-stat_over_a0_a1 are equivalent to the following system of equations:
+
+    $$
+    \begin{cases}
+    3=a_1\times(-2)+a_0\\
+    -7=a_1\times 3 +a_0
+    \end{cases}
+    $$
+
+    Just plug in the point coordinates into the element-hood test of the sets $y=a_1x+a_0$.
+
+4.  Solve the system of equations using substitution, the solution is:
+
+    $$
+    a_0=-1 \qquad a_1=-2
+    $$
+
+5.  The polynomial's formula that passes through both points is:
+
+    $$
+    y=-2 x-1
+    $$ {#eq-1}
+
+An alternative method is to find $m$ from the coordinates of the two point using the formula @eq-slope_formula and then set $(x_0,y_0)$ in $y=m(x-x_0)+y_0$ as either one of the two point.
+
+Here are the steps:
+
+1.  Compute $m = (-7-3)/(3-(-2)) = -2$. **Warning!** When using @eq-slope_formula, make sure you order the two point by the $x$-coordinate. In this example I assigned $(x_0,y_0)=(-2,3)$ and $(x_1,y_1)=(3,-7)$ because $-2<3$. This guarantees the denominator of @eq-slope_formula is positive.
+2.  Choose the $x_0$ and $y_0$ in $y=m(x-x_0)+y_0$ as either $(-2,3)$ or $(3,-7)$. I choose
+
+$$
+(x_0,y_0) = (3,-7)
+$$
+
+3.  Write the final result:
+
+    $$
+    y=-2(x-3)-7
+    $$
+
+    which is equivalent to @eq-1.

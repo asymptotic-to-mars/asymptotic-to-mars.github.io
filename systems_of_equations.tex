@@ -1,0 +1,1027 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{Proof}}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\newtheorem{refremark}{Remark}[section]
+\newtheorem{refsolution}{Solution}[section]
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Systems of equations},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Systems of equations}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+Lets review the method you use in high-school to solve systems of
+equations - the elimination method - and then rewrite it under a new
+notation - the matrix and vector notation.
+
+A few examples will be given.
+
+Key concepts: \emph{systems of equations in matrix-vector notation,
+elimination, pivot, rank, conditions for 1,0 or infinite solutions.}
+
+\subsection{Matrix-vector notation for a
+system}\label{matrix-vector-notation-for-a-system}
+
+Consider the system with two equations, called \(l_1\) and \(l_2\):
+
+\begin{equation}\phantomsection\label{eq-sist}{
+\begin{cases}
+x-4y =2\\
+2x-6y = 5
+\end{cases}
+}\end{equation}
+
+In Equation~\ref{eq-sist} we find two equations and two unknowns \(x\)
+and \(y\). We want their values such that both equations are satisfied.
+(this system represents the interception of two lines)
+
+Using the matrix-vector notation we can write Equation~\ref{eq-sist} as:
+
+\begin{equation}\phantomsection\label{eq-matrix_sist}{
+\begin{pmatrix} 1 & -4\\ 2 & -6 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\5\end{pmatrix}
+}\end{equation}
+
+Lets read Equation~\ref{eq-matrix_sist} in words: the \(2\) by \(2\)
+matrix of coefficients is multiplied by the column vector
+\(\begin{pmatrix}x\\y\end{pmatrix}\) , the result is
+\(\begin{pmatrix}2\\5\end{pmatrix}\). This is \emph{one} equation with
+\emph{one} unknown, the column vector
+\(\begin{pmatrix}x\\y\end{pmatrix}\). Traditionally we write
+Equation~\ref{eq-matrix_sist} as \(A \mathbf{x} =\mathbf{b}\).
+
+How do we multiply a vector by a matrix?
+
+\emph{Answer:}
+
+\[
+\overbrace{\begin{pmatrix} 1 & -4\\ 2 & -6 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}}^\text{matrix-vector mult.} =\overbrace{\begin{pmatrix}1\cdot x-4\cdot y \\ 2\cdot x-6\cdot y\end{pmatrix}}^\text{scalar mult.}
+\]
+
+Matrix times a vector on the lhs is just a super-compact way of writing
+the vector on the rhs. Moreover, notice the shapes of the matrix and
+vectors, this is very, very important. A \(2\) by \(2\) matrix times a
+\(2\) by \(1\) column vector yields a \(2\) by \(1\) column vector! If
+you understand this it should not be a problem to see what shapes are or
+not compatible, check this:
+
+\begin{itemize}
+\item
+  {[}\(2\times2\){]}{[} \(3\times 1\){]} \(=\) Nonsense
+\item
+  {[}\(3\times2\){]}{[} \(2\times 1\){]} \(=\) {[}\(3\times 1\){]}
+\item
+  {[}\(2\times3\){]}{[} \(3\times 1\){]} \(=\) {[}\(2\times 1\){]}
+\item
+  {[}\(3\times2\){]}{[} \(3\times 1\){]} \(=\) Nonsense
+\item
+  {[}\(1\times3\){]}{[} \(3\times 1\){]} \(=\) {[}\(1\times 1\){]}
+\end{itemize}
+
+\subsection{Solving the system using the Elimination
+method}\label{solving-the-system-using-the-elimination-method}
+
+Lets solve the system Equation~\ref{eq-sist} using the traditional rules
+we already know from high-school, recall:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  you can replace an equation by itself times some constant.
+\item
+  you can replace any one equation by the sum both equations.
+\item
+  you can isolate \(x\) or \(y\) in one equation and substitute in the
+  other equation.
+\end{enumerate}
+
+In other words, 1. and 2., just say this: you can replace \(l_1\) or
+\(l_2\) by some convenient combination \(al_1+bl_2\). Rule 3. is known
+as back-substitution.
+
+Applying any one of these operations yields another and equivalent
+system of equations.
+
+The central idea of the Elimination method is use linear combination of
+equations (1. and 2.) to eliminate variables and thus giving us an
+\emph{equivalent} and \emph{easier to solve} system. To eliminate
+variables we make clever use of rules \(1\) and \(2\). Once the system
+is simple enough we can use rule \(3\). How do you know what is or not a
+good combination? We'll see that with examples. But the guiding
+principle is to use the pivots.
+
+This recaps what you know, now lets use these rules to solve the
+Equation~\ref{eq-sist} and in parallel see the corresponding
+matrix-vector version.
+
+\begin{itemize}
+\item
+  \textbf{step 1:} Replace equation \(l_2\) by, \(l_2\) minus twice the
+  equation \(l_1\), i.e., make the new second equation \(l_2'\) into
+  \(l_2-2l_1\). This gives us:
+
+  \[
+  \begin{cases}x-4y =2\\2x-6y = 5\end{cases} \overset{l_2'=l_2-2l_1}{\longrightarrow}\begin{cases} x-4y =2\\ 2y = 1\end{cases}
+  \]
+
+  Correspondingly we subtract from row \(l_2\) twice the row \(l_1\) in
+  Equation~\ref{eq-matrix_sist}, giving us
+
+  \[
+  \begin{pmatrix} 1 & -4\\ 2 & -6 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\5\end{pmatrix}\overset{l_2'=l_2-2l_1}{\longrightarrow} \begin{pmatrix} 1 & -4\\ 0 & 2 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\1\end{pmatrix}
+  \]
+
+  A good way to look at this is to focus on using the \(1\), to
+  eliminate the \(2\). This entry of the matrix we focus on is called a
+  pivot entry!
+\item
+  \textbf{step 2:} Multiply equation \(l_2\) by \(1/2\):
+
+  \[
+  \begin{cases} x-4y =2\\ 2y = 1\end{cases}\overset{l_2'=1/2l_2}{\longrightarrow} \begin{cases} x-4y =2\\ y = 1/2\end{cases}
+  \]
+
+  In matrix-vector notation we find:
+
+  \[
+  \begin{pmatrix} 1 & -4\\ 0 & 2 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\1\end{pmatrix}\overset{l_2'=1/2l_2}{\longrightarrow} \begin{pmatrix} 1 & -4\\ 0 & 1 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\1/2\end{pmatrix}
+  \]
+\item
+  \textbf{step 3:} Focusing on the second pivot entry, we eliminate the
+  entry, \(-4\), by replacing \(l_1\) by \(l_1\) plus four times
+  \(l_2\):
+
+  \[
+  \begin{cases} x -4y =2\\ y = 1/2\end{cases}\overset{l_1'=l_1+4l_2}{\longrightarrow}\begin{cases} x =4\\ y = 1/2\end{cases}
+  \]
+
+  In matrix-vector notation we find:
+
+  \[
+  \begin{pmatrix} 1 & -4\\ 0 & 1 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\1/2\end{pmatrix}\overset{l_1'=l_1+4l_2}{\longrightarrow} \begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}4\\1/2\end{pmatrix}
+  \]
+
+  From which we can read the final result \(x=4\) and \(y=1/2\).
+\end{itemize}
+
+\textbf{Better notation:} Going through the three steps again we notice
+we can improve our matrix-vector notation by suppressing from it the
+column \(\begin{pmatrix}x\\y\end{pmatrix}\) and writing instead the
+steps as:
+
+\[
+\left(\begin{matrix} 1 & -4 \\ 2 & -6 \end{matrix}\;\middle|\; \begin{matrix} 2\\5\end{matrix}\right)
+\overset{l_2'=l_2-2l_1}{\longrightarrow} 
+\left(\begin{matrix} 1 & -4 \\ 0 & 2 \end{matrix}\;\middle|\; \begin{matrix} 2\\1\end{matrix}\right)
+\overset{l_2'=1/2l_2}{\longrightarrow}
+\left(\begin{matrix} 1 & -4 \\ 0 & 1 \end{matrix}\;\middle|\; \begin{matrix} 2\\1/2\end{matrix}\right)
+\overset{l_1'=l_1+4l_2}{\longrightarrow}
+\left(\begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix}\;\middle|\; \begin{matrix} 4\\1/2\end{matrix}\right)
+\]
+
+From now on we'll adopt this way of writing systems of equations, its
+called the extended matrix notation, because we appended a new column to
+right side of the \(2\times2\) matrix. From the extended matrix we read
+the solution as follows
+
+\[
+\left(\begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix}\;\middle|\; \begin{matrix} 4\\1/2\end{matrix}\right)\longrightarrow \begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}4\\1/2\end{pmatrix}\longrightarrow \begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}4\\1/2\end{pmatrix}
+\]
+
+where in the last step we multiplied the vector by the matrix.
+
+The vector
+
+\[
+\begin{pmatrix}4\\1/2\end{pmatrix}
+\]
+
+is the solution of
+
+\[
+\begin{pmatrix} 1 & -4\\ 2 & -6 \end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}= \begin{pmatrix}2\\5\end{pmatrix}
+\]
+
+Meaning, the solution of
+
+\[
+\begin{cases}x-4y =2\\2x-6y = 5\end{cases}
+\]
+
+is:
+
+\[
+\begin{cases}x =4\\y=1/2\end{cases}
+\]
+
+\subsection{More examples of the elimination
+method}\label{more-examples-of-the-elimination-method}
+
+The following examples will be given:
+
+\begin{itemize}
+\item
+  A system with one solution
+\item
+  A system with no solution
+\item
+  A system with many solutions
+\item
+  Another system with many solutions
+\end{itemize}
+
+\subsubsection{Example 1: A system with one
+solution}\label{example-1-a-system-with-one-solution}
+
+Consider the system, which we write in three different notations.
+
+\begin{equation}\phantomsection\label{eq-possible_1}{
+\begin{cases}
+x+y-z=1\\
+2x-y+2z = 9\\
+2y=-x+z
+\end{cases}
+\leftrightsquigarrow
+\begin{pmatrix}
+1 & 1 & -1\\
+2 & -1 & 2\\
+1 & 2 &-1
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\
+9\\
+0
+\end{pmatrix}
+\leftrightsquigarrow
+\left(
+\begin{matrix}
+1 & 1 & -1\\
+2 & -1 & 2\\
+1 & 2 & -1
+\end{matrix}
+\;\middle|\;
+\begin{matrix}
+1\\
+9\\
+0
+\end{matrix}
+\right)
+}\end{equation}
+
+(This system represents the interception of three planes at one point,
+each row of the matrix is a vector perpendicular to a plane)
+
+Again we'll use the extended notation during the elimination algorithm,
+because we don't want to carry around the \(x\), \(y\) and \(z\) at each
+step.
+
+\[
+\begin{align}
+&\left(\begin{matrix}1 & 1 & -1\\2 & -1 & 2 \\1 & 2 & -1 \end{matrix}\;\middle|\;\begin{matrix}1\\9\\0 \end{matrix}\right)
+ \overset{l_2'=l_2-2l_1\\l_3'=l_3-l_1}{\longrightarrow}
+\left(\begin{matrix}1 & 1 & -1 \\0 & -3 & 4 \\0 & 1 & 0 \end{matrix}\;\middle|\;\begin{matrix}1\\7\\-1\end{matrix}\right) 
+\overset{l_2 \leftrightarrow l_3}{\longrightarrow}
+\left(\begin{matrix}1 & 1 & -1 \\0 & 1 & 0\\0 & -3 & 4\end{matrix}\;\middle|\;\begin{matrix}1\\-1\\7\end{matrix}\right)\\
+\overset{l_3'=l_3+3l_2}{\longrightarrow}
+&\left(\begin{matrix}1 & 1 & -1 \\0 & 1 & 0 \\0 & 0 & 4 \end{matrix}\;\middle|\;\begin{matrix}1\\-1\\4\end{matrix}\right) 
+\overset{l_3'=1/4l_3}{\longrightarrow}\left(\begin{matrix}1 & 1 & -1 \\0 & 1 & 0 \\0 & 0 & 1 \end{matrix}\;\middle|\;\begin{matrix}1\\-1\\1\end{matrix}\right) 
+\overset{l_1'=l_1+l_3}{\longrightarrow}\left(\begin{matrix}1 & 1 & 0 \\0 & 1 & 0 \\0 & 0 & 1 \end{matrix}\;\middle|\;\begin{matrix}2\\-1\\1\end{matrix}\right) \\
+\overset{l_1'=l_1-l_2}{\longrightarrow}
+&\left(\begin{matrix}1 & 0 & 0 \\0 & 1 & 0 \\0 & 0 & 1 \end{matrix} \;\middle|\;\begin{matrix}3\\-1\\1\end{matrix}\right)
+\end{align}
+\]
+
+Each step has its own commentary:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  On the first step we use the pivot \(A_{11}=1\) to eliminate the
+  entries \(2\) and \(1\) bellow.
+\item
+  The second step we switched equations, so as to bring a pivot \(1\) at
+  position \(A_{22}\).
+\item
+  The third step consists in using this pivot to eliminate the entry
+  \(-3\) below.
+\item
+  In step four we divided \(l_3\) by \(4\) so that that the pivot
+  \(A_{33}\) is \(1\) instead of \(4\).
+\item
+  At step five we use \(A_{33}\) to eliminate the entry \(-1\) above it.
+\item
+  Step six we just used the pivot \(A_{22}\), to eliminate the entry
+  \(1\) at \(A_{12}\).
+\end{enumerate}
+
+After simplification, it is time to go back to the original notation -
+we find:
+
+\[
+\begin{cases}
+x = 3\\y=-1\\z=1
+\end{cases}
+\]
+
+which is the solution of the system of equations! Correspondingly, the
+solution for the matrix-vector notation is the following vector
+
+\[
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}
+\]
+
+\emph{Important observations (that we'll come very useful later):} the
+form of the matrix after all these l.c. of rows, it has the form:
+
+\[
+\begin{pmatrix}I\end{pmatrix}
+\]
+
+and its rank is \(3\), meaning, the number of pivots if \(3\). Note as
+well that if we consider each column of the matrix as a vector, then we
+find \(3\) independent vectors. We write \(r=3\).
+
+\begin{definition}[]\protect\hypertarget{def-rank}{}\label{def-rank}
+
+{[}rank \(r\) of a matrix \(A\){]} = \(r\) = {[}\# of pivots{]} ={[}\#
+of indep columns of \(A\){]} = {[}\# of indep rows of \(A\){]}
+
+\end{definition}
+
+Moreover, notice that the rank of the extended matrix \(r^*\) is also
+\(3\). And that the number of columns \(n=3\) as well.
+
+From this example we see something that happens in general:
+
+\emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have one
+solution provided} \(r=r^*=n\).
+
+\subsubsection{Example 2: A system with no
+solution}\label{example-2-a-system-with-no-solution}
+
+The system this time is:
+
+\begin{equation}\phantomsection\label{eq-impossible_1}{
+\begin{cases}
+2x-y=8\\
+y+2x = 4\\
+x=-y-1
+\end{cases}
+\leftrightsquigarrow
+\begin{pmatrix}
+2 & -1\\
+2 & 1\\
+1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+=
+\begin{pmatrix}
+8\\
+4\\
+-1
+\end{pmatrix}
+\leftrightsquigarrow
+\left(
+\begin{matrix}
+2 & -1 \\
+2 & 1  \\
+1 & 1 
+\end{matrix}
+\;\middle|\;
+\begin{matrix}
+8\\
+4\\
+-1
+\end{matrix}
+\right)
+}\end{equation}
+
+To find how many solutions \(\begin{pmatrix}x\\y\end{pmatrix}\) are
+there, we try to compute them using the Elimination algorithm:
+
+\[
+\begin{align}
+&\left(\begin{matrix}2 & -1 \\2 & 1 \\1 & 1  \end{matrix}\;\middle|\;\begin{matrix}8\\4\\-1\end{matrix}\right)
+\overset{l_1\leftrightarrow l_3}{\longrightarrow}
+\left(\begin{matrix}1 & 1\\ 2 & 1 \\2 & -1 \end{matrix} \;\middle|\;\begin{matrix}-1\\4\\8\end{matrix}\right)
+\overset{l_2'=l_2-2l_1\\l_3'=l_3-2l_1}{\longrightarrow}
+\left(\begin{matrix}1 & 1 \\0 & -1 \\0 & -3 \end{matrix}\;\middle|\;\begin{matrix}-1\\6\\10\end{matrix}\right)\\
+\overset{l_2'=-l_2\\l_3'=l_3-3l_2}{\longrightarrow}
+&\left(\begin{matrix}1 & 1 \\0 & 1 \\0 & 0 \end{matrix} \;\middle|\; \begin{matrix}-1\\-6\\-8\end{matrix}\right)
+\overset{l_1'=l_1-l_2}{\longrightarrow}
+\left(\begin{matrix}1 & 0 \\0 & 1 \\0 & 0 \end{matrix} \;\middle|\;\begin{matrix}5\\-6\\-8\end{matrix}\right)
+\end{align}
+\]
+
+This means:
+
+\[
+\left(\begin{matrix}1 & 0 \\0 & 1 \\0 & 0 \end{matrix} \;\middle|\;\begin{matrix}5\\-6\\-8\end{matrix}\right)
+\leftrightsquigarrow
+\begin{pmatrix}1 & 0 \\0 & 1 \\0 & 0 \end{pmatrix} \begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}5\\-6\\-8\end{pmatrix}
+\]
+
+Now that most simplification is done, lets convert back to the system's
+notation:
+
+\begin{equation}\phantomsection\label{eq-impossible_2}{
+\begin{cases}
+x=5\\
+y=-6\\
+0=-8
+\end{cases}
+}\end{equation}
+
+It is clearly impossible. No choice of \(x\) or \(y\) makes this three
+statements true simultaneously! Since Equation~\ref{eq-impossible_1} is
+equivalent to Equation~\ref{eq-impossible_2}, therefore our original
+system Equation~\ref{eq-impossible_1} has no solution as well.
+
+Observations: Notice the form of the matrix is
+
+\[
+\begin{pmatrix}I\\\mathbf{0}\end{pmatrix}
+\]
+
+the fact that \(r=2\), \(r^*=3\) and \(n=2\). We see in this example
+something which happens in general and which we'll justify later:
+
+\emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have no
+solution provided} \(r<r^*\).
+
+\subsubsection{Example 3: A system with many
+solutions}\label{example-3-a-system-with-many-solutions}
+
+The system is:
+
+\begin{equation}\phantomsection\label{eq-many_1}{
+\begin{cases}
+x+y-z=0\\
+2x-y+2z = 0\\
+\end{cases}
+\leftrightsquigarrow
+\begin{pmatrix}
+1 & 1 & -1\\
+2 & -1 & 2\\
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+0
+\end{pmatrix}
+\leftrightsquigarrow
+\left(
+\begin{matrix}
+1 & 1 & -1\\
+2 & -1 & 2 \\
+\end{matrix}
+\;\middle|\;
+\begin{matrix}
+0\\0
+\end{matrix}
+\right)
+}\end{equation}
+
+Solving:
+
+\[
+\begin{align}
+&\begin{pmatrix}1 & 1 & -1 &\bigm| & 0\\2 & -1 & 2 &\bigm| & 0\\\end{pmatrix}
+\overset{l_2'=l_2-2l_1}{\longrightarrow}
+\begin{pmatrix}1 & 1 & -1 &\bigm| & 0\\0 & -3 & 4 &\bigm| & 0\end{pmatrix} 
+\overset{l_2'=-1/3l_2}{\longrightarrow}
+\begin{pmatrix}1 & 1 & -1 &\bigm| & 0\\0 & 1 & -4/3 &\bigm| & 0\end{pmatrix}\\
+\overset{l_1'=l_1-l_2}{\longrightarrow}
+&\begin{pmatrix}1 & 0 & 1/3 &\bigm| & 0\\0 & 1 & -4/3 &\bigm| & 0\end{pmatrix} 
+\end{align}
+\]
+
+Once again, this notation means:
+
+\begin{equation}\phantomsection\label{eq-ex4}{
+\begin{pmatrix}1 & 0 & 1/3 &\bigm| & 0\\0 & 1 & -4/3 &\bigm| & 0\end{pmatrix} 
+\leftrightsquigarrow 
+\begin{pmatrix}1 & 0 & 1/3\\0 & 1 & -4/3 \end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix}0\\0\end{pmatrix}
+}\end{equation}
+
+Converting back to the system notation have:
+
+\begin{equation}\phantomsection\label{eq-many_2}{
+\begin{cases}
+x+1/3z =0\\
+y-4/3z=0
+\end{cases} 
+\iff
+\begin{cases}
+x=-1/3z\\
+y=4/3z
+\end{cases}
+}\end{equation}
+
+Asking what \((x,y,z)\in \mathbb{R}^3\) that satisfy the equation
+Equation~\ref{eq-many_1} is equivalent to ask, what is
+\(x,y,z\in \mathbb{R}\) that satisfy Equation~\ref{eq-many_2} . Each
+real \(z\) we choose gives us the corresponding \(x\) and \(y\); as a
+consequence we have many solution. In other words, the solution is
+
+\begin{equation}\phantomsection\label{eq-parameter_dep_sol}{
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1/3z\\
+4/3z\\
+z
+\end{pmatrix}
+}\end{equation}
+
+Observations: The aspect of the final matrix is:
+
+\[
+\begin{pmatrix}I \,\,F\end{pmatrix}
+\]
+
+where the \(F\) block is the third column \((1/3, -4/3)^\intercal\),
+while \(I\) is the \(2\) by \(2\) identity.
+
+Additionally, \(r=2\), \(r^*=2\) and \(n=3\). A general rule (to be
+explained later) is:
+
+\emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have
+infinite solutions provided} \(r=r^*<n\).
+
+\subsubsection{Example 4: Another system with many
+solutions}\label{example-4-another-system-with-many-solutions}
+
+What is the solution \((x,y, z, w)\) for the following system:
+
+\[
+\begin{cases}
+&x&+ &2 y&+&2 z &+&2w &= 1\\
+&2x&+&4y&+&6z&+&8w &= 2\\
+&3x&+&6y&+&8z&+&10w &=3
+\end{cases}
+\]
+
+Using elimination algorithm we make linear combinations of the equation
+with the goal of eliminating variables, here is one way to go\\
+\begin{equation}\phantomsection\label{eq-example_4_system}{
+\begin{align}
+&\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm|1\\
+2 & 4 & 6 & 8 &\bigm|2\\
+3 & 6 & 8 & 10 &\bigm| 3
+\end{pmatrix}
+\overset{l_2' = l_2-2l_1}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| 1\\
+0 & 0 & 2 & 4 &\bigm| 0\\
+3 & 6 & 8 & 10 &\bigm| 3
+\end{pmatrix}
+\overset{l_3' = l_3-3l_1}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| 1\\
+0 & 0 & 2 & 4 &\bigm| 0\\
+0 & 0 & 2 & 4 &\bigm| 0
+\end{pmatrix}\\
+&\overset{l_3'=l_3-l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| 1\\
+0 & 0 & 2 & 4 &\bigm| 0\\
+0 & 0 & 0 & 0 &\bigm| 0
+\end{pmatrix}
+\overset{l_2'=1/2l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| 1\\
+0 & 0 & 1 & 2 &\bigm| 0\\
+0 & 0 & 0 & 0 &\bigm| 0
+\end{pmatrix}
+\overset{l_1'=l_1-2l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 0 & -2 &\bigm| 1\\
+0 & 0 & 1 & 2 &\bigm| 0\\
+0 & 0 & 0 & 0 &\bigm| 0
+\end{pmatrix}
+\end{align}
+}\end{equation}
+
+We simplified it as much as we can, going back to the system's notation
+we have:
+
+\[
+\begin{cases}
+x + 2 y & &- &2w &=1\\
+&z &+ &2w &=0
+\end{cases}
+\]
+
+Now, promote \(y\) and \(w\) into parameters and express \(x\) and \(z\)
+in term of them (if why we take this step is not natural, it will be
+soon)
+
+\begin{equation}\phantomsection\label{eq-sol_1}{
+\begin{cases}
+x + 2 y & &- &2w &=1\\
+&z &+ &2w &=0
+\end{cases}
+\longrightarrow
+\begin{cases}
+x &=1-2y&-&2w\\
+z &=&-&2w
+\end{cases}
+}\end{equation}
+
+For each values we assign to \(y\) and \(w\) we get one solution!
+There's an infinite number of them.
+
+This example is given so that you can see, that the final aesthetic of
+the simplified \(A\) may have the \(I\) and \(F\) blocks mixed!
+
+This is also a matrix with form:
+
+\[
+\begin{pmatrix}I \,\,F\end{pmatrix}
+\]
+
+The rank is \(r=2\), the rank of the extended matrix is \(r^*=2\),
+meanwhile \(n=4\). Since \(r=r^*<n\) we have an infinite number of
+solutions.
+
+\subsubsection{Example 5: A system that may have one, none or many
+solutions}\label{example-5-a-system-that-may-have-one-none-or-many-solutions}
+
+What is the solution of:
+
+\[
+\begin{cases}
+&x&+ &k y&+&2 z &= 1\\
+&x&+&y&+&(k+1)z &= k\\
+&-x&-&y&-&z &=k+1
+\end{cases}
+\]
+
+Using the extended matrix formulation we use the pivots to eliminate
+entries:
+
+\[ \begin{align} &\begin{pmatrix} 1 & k & 2  &\bigm|1\\ 1 & 1 & k+1 &\bigm|k\\ -1 & -1 & -1 &\bigm| k+1 \end{pmatrix} \overset{l_2' = l_2-l_1\\l_3'=l_3+l_1}{\longrightarrow} \begin{pmatrix} 1 & k & 2 &\bigm| 1\\ 0 & 1-k & k-1 &\bigm| k-1\\ 0 & k-1 & 1 &\bigm| k+2 \end{pmatrix} \overset{l_3' = l_3+l_2}{\longrightarrow} \begin{pmatrix} 1 & k & 2  &\bigm| 1\\ 0 & 1-k & k-1 &\bigm| k-1\\ 0 & 0 & k &\bigm| 2k+1 \end{pmatrix} \end{align} \]
+
+Now, depending upon on the value \(k\):
+
+For \(k=1\) then
+
+\begin{equation}\phantomsection\label{eq-k1}{
+\begin{pmatrix} 1 & 1 & 2  &\bigm|1\\ 0 & 0 & 0 &\bigm|0\\ 0 & 0 & 1 &\bigm| 3 \end{pmatrix} \overset{l_2 \leftrightarrow l_3}{\longrightarrow} \begin{pmatrix} 1 & 1 & 2  &\bigm|1\\ 0 & 0 & 1 &\bigm|3\\ 0 & 0 & 0 &\bigm| 0 \end{pmatrix}\overset{l_1'=l_1-2l_2 }{\longrightarrow}\begin{pmatrix} 1 & 1 & 0  &\bigm|-5\\ 0 & 0 & 1 &\bigm|3\\ 0 & 0 & 0 &\bigm| 0 \end{pmatrix}
+}\end{equation}
+
+which has the form:
+
+\[
+\begin{pmatrix}I\,\,F \end{pmatrix}
+\]
+
+also: \(r=2\), \(r^*=2\) and \(n=3\).
+
+Since \(r=r^*<n\) we conclude we have an infinite number of solutions as
+we readily check by actually computing them. From Equation~\ref{eq-k1}
+we know:
+
+\[
+\begin{cases}
+x + y = -5\\
+z=3
+\end{cases}
+\]
+
+Since we have two equations and three unknowns, we promote one of them,
+let it be \(x\), to the status of a parameter \(x_0\), hence:
+
+\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}x_0\\-5-x_0\\3\end{pmatrix}=\begin{pmatrix}0\\-5\\3\end{pmatrix}+x_0\begin{pmatrix}1\\-1\\0\end{pmatrix}
+\]
+
+For each \(x_0\) of our choice we have a distinct solution. There is
+infinite of them.
+
+For \(k=0\)
+
+\[
+\begin{pmatrix} 1 & 0 & 2  &\bigm|1\\ 0 & 1 & -1 &\bigm|-1\\ 0 & 0 & 0 &\bigm| 1 \end{pmatrix} 
+\]
+
+The system has the form:
+
+\[
+\begin{pmatrix}
+I & F\\
+\mathbf{0} &\mathbf{0}
+\end{pmatrix}
+\]
+
+And note: \(r=2\), \(r^*=3\) and \(n=3\), thus \(r<r^*=n\) which tells
+us there is no solution. In fact we can see why by rolling back to:
+
+\[
+\begin{cases}
+x+2z=1\\
+y-z =-1\\
+0=1
+\end{cases}
+\]
+
+There are no \(x\), \(y\) and \(z\) that satisfies these three equations
+simultaneously.
+
+If \(k\) is not \(0,1\) then we always have \(r=r^*=n\), thus, there is
+always a unique solution.
+
+\textbf{In summary:}
+
+\begin{itemize}
+\item
+  \emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have
+  infinite solutions provided} \(r=r^*<n\).
+\item
+  \emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have one
+  solution provided} \(r=r^*=n\).
+\item
+  \emph{A system of equations} \(A\mathbf{x}=\mathbf{b}\) \emph{have no
+  solutions provided} \(r<r^*\).
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, breakable, toptitle=1mm, left=2mm, bottomtitle=1mm, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Commentaries}, arc=.35mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, titlerule=0mm, coltitle=black, bottomrule=.15mm]
+
+\begin{itemize}
+\item
+  For the moment assume this summary as a fact of life, later we'll
+  justify in detail the meaning of this triple equality, for know just
+  focus on learning elimination and testing the triple equality
+\item
+  How do we know how many pivots are there? Using l.c. of rows, simplify
+  the matrix by eliminating as many entries as possible using the
+  pivots.
+\item
+  A matrix where all entries below the pivots were killed is in
+  triangular form. Back substitution can already be used at this stage.
+  (we did not do this in the examples, but we could) If we proceed and
+  also kill all entries above the pivots, we get the best matrix (this
+  is what we did in the examples). A matrix is then said to be in
+  reduced row echelon form. Back substitution can also used at this
+  final stage.
+\item
+  With these three statements we can decide whether a system has one,
+  none or infinite solution. But thinking about how did we get \(r\) and
+  \(r^*\)? We did use elimination, which is a labor intensive process,
+  to bring \(A\mathbf{x}=\mathbf{b}\) into a simplified form. So much
+  work was done, one might as well solve the entire thing we from the
+  solution itself evaluate whether there is one, none or infinite
+  solutions. Here comes a very important point, these three statements
+  are worthless as a practical point of view to decide in which case are
+  we. These three are like a tip of an iceberg, and what's underneath is
+  beautiful way to understand why some systems have one, none or
+  infinite solution. For the moment, we use them as facts of life, later
+  we uncover what is going on. These statements are only useful in
+  situations where the matrix depend on some parameter \(k\) and we
+  which, after putting the matrix in triangular form, we want to check
+  for which values there is one, none or infinite solutions.
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Exercises}\label{exercises}
+
+solve 1.3 \textgreater{} 1
+
+solve 1.3 \textgreater{} 2 \textgreater{} b (In this exercise, the
+matrices are already in triangular form, just use back subst)
+
+solve 1.3 \textgreater{} 3 (In this exercise we have to use elimination
+to get the triangle form and them use back subst)
+
+solve 1.3 \textgreater{} 4 and 6 (skip! This exercise could be done
+using the concepts of section linear (in)dependence, but it is much
+easier to relate that section with solving Ax=0, because then, I can use
+elimination to simplify the cols and then see the dependencies. If I
+just use the concepts from the linear (in)dependence section will be
+harder, because, elimination was not introduced yet and neither was the
+connection of the (in)dependence concept made with the problem of
+solving Ax=0)
+
+solve 1.3 \textgreater{} 5
+
+solve 1.3 \textgreater{} 7 \textgreater{} a
+
+solve 1.3 \textgreater{} 8 \textgreater{} d
+
+\[
+\left(  \begin{matrix}    1 & 2 & 3 \\    1 & 2 & 3 \\    1 & 2 & 3 \\    1 & 2 & 3 \\  \end{matrix}  \;\middle|\;       \begin{matrix}      4  \\      4  \\      4  \\      4  \\    \end{matrix}  \right)
+\]
+
+
+
+
+\end{document}

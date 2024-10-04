@@ -1,0 +1,35 @@
+---
+title: "Analysis of a system of equations"
+execute:
+  echo: false
+---
+
+How many solutions are there?
+
+As a result of the using the elimination algorithm one of three scenarios will unfold:
+
+-   There is just one solution
+
+-   There is no solution
+
+-   There is more than one solution. In which case, how many?
+
+Imagine we have a system of equations before us - equivalently a matrix $A$ and a $\mathbf{b}$ vector or equivalently an extended matrix. Whether we have one, none or many solution has to do with the coefficients of the system - equivalently it has to do with the choice of $A$ and $\mathbf{b}$ or equivalently, it has to do with the entries of the extended matrix.
+
+One way to answer the question is to solve the system and count how many solutions we find, elimination is a tool to do that.
+
+The matrix-vector and then the extended matrix notation as just a new aesthetic for an actual system of equations. An aesthetic that made easier the use of the elimination algorithm, because it just focus on the coefficients; when the system is simple enough we went back to the system notation, to easily solve it.
+
+What we are going to do now is to give a deeper meaning to this notation, which in turn will make you see why some $A$'s together with $b$'s give one, none or many solutions. The matrix-vector notation or equivalently the extended matrix notation are like looking at an object, in this case a system of equation, from a different angle.
+
+Before elaborating on what this deeper view is, we need some preparation, specifically we need to introduce the concepts:
+
+-   Matrix Multiplication and linear combination of rows
+
+-   Inverse Matrix
+
+-   Pivots and rank of a matrix
+
+-   Two special Subspaces: Column space and Nullspace
+
+We'll focus on Example 4.

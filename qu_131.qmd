@@ -1,0 +1,16 @@
+---
+execute:
+  echo: false
+---
+
+::: {#exr-qu_131}
+<div>
+
+With $X\coloneqq \{\alpha,\beta,\gamma,\delta\}$ and $Y\coloneqq \{1,2,3,4\}$ create relations, two that are not functions and two that are. Make sure you create function, which use all $X$ and others that do not.
+
+</div>
+:::
+
+::: {#sol-qu_131}
+The main point of this exercise is to show that $X$ and $Y$ are the starting assumptions from which many relations stem, some are functions while others are not.
+:::

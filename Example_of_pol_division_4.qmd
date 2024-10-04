@@ -1,0 +1,125 @@
+---
+title: "Example_of_pol_division_4"
+---
+
+## Example 4: $1001/12$ using basic principles\* {#example4}
+
+The elementary school algorithm we seen above is just one of many ways in which we can compute the division os $1001$ by $12$. Lets follow, this time, a slightly different path.
+
+Recall the main question: What is the solution $q$ and $r$ of the equation:
+
+$$ 1001 = q \times 12 + r \qquad 0\leq r<12 $$
+
+There are many paths and depending on the quality of our guesses for $q$ the number of steps is different.
+
+The shortest path is to immediately guess the answer, just one step, though a difficult one. We would have to guess just glancing @eq-question that $q=83$ and $r=5$. That is hard or you are luck.
+
+Lets decompose $1001$ into powers of $10$ to aid our guesses (other decomposition are possible, we seen another in the elementary school's approach; the powers of $10$ is the basic one because it is exactly what the symbol $1001$ means)
+
+$$ 1001 = 1\cdot 10^3+0\cdot 10^2 +0\cdot 10^1+1\cdot 10^0 = 1\cdot 10^3 +1\cdot 10^0 $$
+
+Noting $12=10+2$, lets guess the solution for:
+
+$$ 1\cdot 10^3 +1 = q\cdot(10+2)+r $$
+
+Guess: $q=8\cdot 10$ guarantees that $q\cdot 10$ is close to $1\cdot 10^3$ (notice $8$ is almost $10$)
+
+Substitution gives:
+
+$$ \begin{align} &1\cdot 10^3 +1 = 8\cdot 10^2 +16 \cdot 10 + r\\ \implies&1\cdot 10^3 +1 = 9\cdot10^2+6\cdot10+r\\ \implies & r=1\cdot 10^2-6\cdot 10+1 \\ \implies&r=4\cdot10+1 \end{align} $$
+
+The remainder is positive and larger than the divisor $12$ so we keep going.
+
+## Commentary
+
+Note that a guesses $q=9\cdot 10$ or $q=10^2$ would lead to a negative remainders. These two guesses would be fine since we only need the final remainder to be positive, not the intermediate ones. Our choice of $q=8$ is motivated by convenience.
+
+We have to solve:
+
+$$ 4\cdot 10+1 = q'\cdot(10+2)+r' $$
+
+for $q'$ and $r'$, because $41$ is larger than $12$ and thus still divisible by $12$, or said in another way, $41$ is not the smallest remainder (which must be between $0$ and $12$) we can get.
+
+Guess': $q'=3$
+
+Substitute:
+
+$$ \begin{align} &4\cdot 10+1 = 3\cdot 10 + 6 + r'\\ \implies &r'=1\cdot 10-6+1 = 4+1=5 \end{align} $$
+
+From @eq-step1II and @eq-step2II we conclude that:
+
+$$ 1001=(8\cdot 10+3)\cdot 12+5 $$
+
+which simplifies into:
+
+$$ 1001=83\cdot 12+5 $$
+
+EXERCISE: Making your initial guess $q=10^3$ and arrive at this result.
+
+SOLUTION:
+
+In this solution we present the steps to solve the problem in two parallel ways: using guesswork to solve the equations and the table-like approach (see the pictures).
+
+The basic problem at hand can be presented in the following fashion:
+
+![](figs/step%200.png){width="419"}
+
+Guess: $q=10^2$ so that $q\cdot (10+2)$ has a $10^3$ term to cancel the $1\cdot 10^3$ from $1001$.
+
+This basic step can be presented as:
+
+![](figs/step%201.png){width="496"}
+
+Substituting we find:
+
+$$ \begin{align} &1\cdot 10^3 + 1 = 10^2(10+2)+r\\ \implies & r=-2\cdot 10^2+1 \end{align} $$
+
+Which is represented by:
+
+![](figs/step%203.png){width="581"}
+
+The current remainder is negative but is still divisible by $12$ (given it is larger than $12$):
+
+$$ -2\cdot 10^2+1 = q'\cdot (10+2) +r' $$
+
+Guess': $q' = -2\cdot 10$ so that the $-2\cdot 10^2$ is canceled on the lhs.
+
+This guess step can be represented as:
+
+![](figs/step%204.png){width="686"}
+
+Substitute:
+
+$$ \begin{align} &-2\cdot 10^2 +1 = -2\cdot 10^2 -4\cdot 10 +r'\\ \implies & r' = 4\cdot 10 +1 \end{align} $$
+
+Presented as:
+
+![](figs/step%205.png){width="540"}
+
+Since the remainder $4\cdot 10+1$ is divisible by $12$ we write:
+
+$$ 4\cdot 10 +1 = q''\cdot (10+2)+r'' $$
+
+which leads to our next guess.
+
+Guess'': $q''=4$ to cancel the lhs $4\cdot 10$
+
+Substitution:
+
+$$ \begin{align} &4\cdot 10 +1 =4\cdot 10+8 + r''\\ \implies& r'' = -7 \end{align} $$
+
+Show in:
+
+![](figs/step%206.png){width="779"}
+
+Collecting terms:
+
+$$ 1001=(10^2-2\cdot 10+4)\cdot 12 -7 $$
+
+Our remainder in negative, hence add $0=12-12$ to the rhs:
+
+$$ 1001=(10^2-2\cdot 10+4-1)\cdot 12+(12-7) $$
+
+In conclusion:
+
+$$ 1001=83\cdot 12 +5 $$

@@ -1,0 +1,47 @@
+---
+title: "example_of_pol_division_5"
+---
+
+## Example 5: $1001/12$ using basic principles (B)
+
+Another useful decomposition is:
+
+$$ 1001=600+401 $$
+
+How would we argue in this case?
+
+Guess 1:
+
+Observing that $1001=600+401$ and $5\times 12 =60$ we guess that actual solution $q$ is close to $10\times 5$:
+
+$$ 600+401 = \overbrace{10 \times 5}^{q} \times 12 +r $$
+
+with the remainder $r=401$. Since it is not between $0$ and $12$ we can do better. Lets break $401$ by guessing what is $q'$ and $r'$ such that:
+
+$$ 401 = q'\times 12 + r' \qquad 0\leq r'<12 $$
+
+We think $q'=3\times10$ is a good solution since $q'\times 12 = 360$, as a result the remainder is $r'=401-360=41$
+
+Not ideal, we want it at most $12$. Therefore we again break into pieces:
+
+$$ 41 = q''\times 12 + r'' \qquad 0\leq r''<12 $$
+
+With the guess $q''=3$ and the current remainder is just $r''=41-36=5$.
+
+Note, finally!! We have a remainder smaller than $12$.
+
+Collecting out calculations we have:
+
+$$ 1001 = \overbrace{(10 \times 5 + 3\times 10 + 3)}^{q=83}\times 12 + 5 $$
+
+## Commentary
+
+Breaking $p$ into powers of then has proven to be useful to give us clues about what values of $q$ to guess. Another strategy is to break $q$ (in the example above $p=1001$) into a large and a smaller part.
+
+$$ p=[\text{large part}]+[\text{small part}]  $$
+
+And then guess the best you can the $q$ that cancels the large part.
+
+For example $1001=100\cdot 10+1$ where the large part is $100\cdot10$, additionally $100$ is divisible by $12$ since its larger.
+
+There are many ways to break $p$, experience will tell you what is ideal or not.

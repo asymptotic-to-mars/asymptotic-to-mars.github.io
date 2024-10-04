@@ -1,0 +1,19 @@
+---
+title: "solution"
+execute:
+  echo: false
+---
+
+1.  $A(x)\coloneqq [\text{$x$ is a vowel}]$ makes it true; $A(x)\coloneqq [\text{$x$ is a consonant}]$ makes it false.
+
+2.  $A(x)\coloneqq [\text{$x$ is a consonat}]$ is a solution of $\exists x : A(x)$. but $A(x)\coloneqq [\text{$x$ is $v$}]$ is not.
+
+3.  $[\text{$x$ is below $i$}]$ for true and $[\text{$x$ is above $a$}]$ for false.
+
+    For the second part of the exercise we find:
+
+    $$
+    \begin{equation}\begin{split}&\forall x \in \{a,b,c\}:\exists ! y\in \{x,y\}\in F\\&\iff\\&\left(((a,1)\in F)\dot{\lor}((a,2)\in F)\right) \land \left(((b,1)\in F)\dot{\lor}((a,2)\in F)\right)\land\left(((c,1)\in F)\dot{\lor}((c,2)\in F)\right)\end{split}\end{equation}
+    $$
+
+    The true values are: (1) True, (2) True, (3) False, (4) True

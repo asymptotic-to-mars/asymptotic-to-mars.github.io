@@ -1,0 +1,84 @@
+---
+title: "Second order polynomials are parabolas"
+execute:
+  echo: false
+---
+
+The relation definitions of these types of polynomials is:
+
+$$
+\{(x,y)\in\mathbb{R}^2\,\,|\,\, y = a_2 x^2+a_1 x+a_0\}
+$$ {#eq-poldeg2}
+
+for some real parameters $a_0$, $a_1$ and $a_2$, having $a_2 \not = 0$ guarantees this is a second order polynomial.
+
+Here are some choices of parameters and the corresponding graphs:
+
+```{python}
+import matplotlib.pyplot as plt 
+import numpy as np
+
+xs = np.arange(-1.5, 3.1, 0.1)
+
+plt.figure()
+plt.plot(xs, 3 * xs ** 2 - xs -1, 'c-', label=r'$3x^2-x-1$')
+plt.plot(xs, -1 * xs ** 2 +2 * xs +1, 'y-', label=r'$-x^2+2x+1$')
+plt.plot(xs, 3 * xs ** 2 - xs + 1, 'b-', label=r'$3x^2-x+1$')
+plt.xlabel(r'$x$')
+plt.ylabel(r'$p_2(x)$')
+plt.xticks(np.arange(min(xs), max(xs)+.1, .5))
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+The graph above exhibits the windows on the set @eq-poldeg2 where interesting behavior of these functions occur, by interesting, I mean, we see see the x-axis and y-axis intersections as well as minima and maxima; outside of the picture, these function either increase or decrease monotonically toward infinity, that's uninteresting since nothing else happens there.
+
+To know these function even better it is useful to compute by hand (analytically) some important characteristics:
+
+-   **y-axis intercept:** we want to know the coordinates on @eq-poldeg2 of the form $(0,y_0)$.
+
+    $$
+    (0,y_0)\in \{(x,y)\in\mathbb{R}^2\,\,|\,\, y = a_2 x^2+a_1 x+a_0\} \iff y = a_2 \times 0 +a_1\times 0+ a_0 \iff y=a_0
+    $$
+
+    Thus the point $(0,a_0)$ is the interception of the polynomial with the vertical axis.
+
+-   **x-axis intercept:** seeking point of the form $(x_0,0)$ requires us to solve the equation
+
+    $$
+    (x_0,0)\in \{(x,y)\in\mathbb{R}^2\,\,|\,\, y = a_2 x^2+a_1 x+a_0\}\iff 0 = a_2 x_0^2+a_1 x_0+a_0
+    $$
+
+    To solve the second order equation we may use the Resolvent Formula if a solution exists. More on this later.
+
+-   **when** $x$ **is large (far from** $1$**):** the process of progressively increasing $x$ and seeing what happens to the corresponding $y$'s.
+
+    The idea is to "solve" the dynamical problem:
+
+    $$
+    \begin{cases}y = a_2 x^2+a_1 x+a_0\\
+    x\longrightarrow \pm\infty \end{cases}
+    $$ {#eq-poldeg2atinfty}
+
+    by computing how $y$ behaves when $x$ increases without bound.
+
+    We solve this problem using our knowledge of how the atomic polynomials behave individually, see the last ordering relation in @eq-relations_of_atoms. We know that when $x$ is far from $1$ we must have:
+
+    $$
+    a_0 \ll a_1 x \ll a_2x^2
+    $$
+
+    Since $a_2x^2$ term is much larger than $a_1 x$ and $a_0$, we can drop them from the equation $y=a_2x^2+a_1 x+a_0$ , doing so giving us an approximate equation, $y \sim a_2 x^2$, which is simple and thus easy to graph. The graph of both functions is very similar.
+
+    | Exact equation for all $x$ | Approximate equation when $x$ is large |
+    |----------------------------|----------------------------------------|
+    | $y = a_2 x^2+a_1 x+a_0$    | $y \sim a_2 x^2$                       |
+
+    That means, if you know how to solve
+
+    $$
+    \begin{cases}y \sim a_2 x^2\\x\longrightarrow \pm\infty \end{cases}
+    $$ {#eq-approx2nd}
+
+    you know how to solve @eq-poldeg2atinfty . But @eq-approx2nd is easy, since it is just an atomic polynomial: if $x$ gets larger and larger then $y$ gets larger and larger, the solution is $y\longrightarrow +\infty$, and we conclude the same thing must happen in @eq-poldeg2atinfty. Problem solved, but solving a similar but simpler problem!

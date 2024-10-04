@@ -1,0 +1,45 @@
+---
+title: "Exercise"
+execute:
+  echo: false
+---
+
+In this exercise we'll make sure you understand the statement $\forall x : \exists ! y :(x,y)\in F$. There are two key perquisites
+
+1.  First, consider $x\in\{a,i,o\}$ and $A(x)$ an $x$-dependent proposition. Then the generic statement $\forall x : A(x)$ is a compact version of $A(a)\land A(b)\land A(c)$, we write:
+
+    $$ \begin{equation}\forall x : A(x) \iff A(a)\land A(i)\land A(o)\end{equation} $$
+
+    For some propositions $A$ this statement is true for other it will be false, for example: $A(x)\coloneqq [\text{$x$ is not $z$}]$ makes $\forall x : A(x)$ true, while $A(x)\coloneqq [\text{$x$ is below $p$}]$ makes it false. Give one example of an $A(x)$ that makes (\ref{eq:thestat2}) true and other that makes it false.
+
+2.  Second, we have the following equivalence:
+
+    $$ \begin{equation}\exists x : A(x) \iff A(a) \lor A(i) \lor A(o)\end{equation} $$
+
+    Consider $x\in \{a,b,c\}$. When $A(x)\coloneqq [\text{$x$ is $d$}]$ the statement is false, but when $A(x)\coloneqq [\text{$x$ is a vowel}]$ it is true; moreover since there are two vowels we have:
+
+    $$ \begin{equation}A(a)\lor A(i)\lor A(o) \longrightarrow T \lor T \lor F\end{equation} $$
+
+    There are two true proposition in that string of $or$'s. Give examples of $A(x)$ that make it true and other false.
+
+3.  Third, $\exists ! x : A(x)$ can only be true when either $A(a)$ or $A(i)$ or $A(o)$ is true, exclusively:
+
+    $$ \begin{equation}\exists ! x : A(x) \iff A(a)\dot{\lor} A(i)\dot{\lor} A(o)\end{equation} $$
+
+    That means that $A(x)\coloneqq [\text{$x$ is a vowel}]$ no longer makes the statement true, but $[\text{$x$ is a consonat}]$ will make it true. Again, give examples that make the statement true and false.
+
+With these prerequisites at hand all we have to do is to see the statement $\forall x : \exists ! y :(x,y)\in F$ as $\forall x : B(x)$ where $B(x)\coloneqq [\exists ! y :(x,y)\in F]$. Let $x\in \{a,b,c\}$ and $y\in\{1,2\}$. Unpack the meaning of $B(x)$ for each $x$ using $(c)$ and the then the meaning of $\forall x : B(x)$ using prerequisite $(a)$, you should get a statement with only one unknown, which is $F$.
+
+Now, consider these possible $F$'s:
+
+-   $\{(a,1),(b,2)\}$
+
+-   $\{(a,1),(b,1),(c,1)\}$
+
+-   $\{(a,1),(b,1),(c,1),(a,2)\}$
+
+-   $\{(c,2)\}$
+
+For which ones the statement $\forall x : \exists ! y :(x,y)\in F$ is true and for which ones it is false, if any.
+
+[**Solution to** exer:withperequisites](sol_to_exer_withperequisites.qmd)

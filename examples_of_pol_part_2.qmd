@@ -1,0 +1,20 @@
+---
+execute:
+  echo: false
+---
+
+# Molecular Polynomials
+
+Combining atomic polynomials through linear combinations we obtain molecular polynomials.
+
+::: callout-tip
+## Recall
+
+A linear combination is an expression where things are multiplied by constants and then added. Here is an example
+
+$$
+4x^3+5x+2
+$$
+
+The constants $4$, $5$ and $2$ multiply $x^3$, $x^1$ and $x^0$; which are then summed. Notice how $x^0$ is hidden, to find it, remember that $2 =2\times 1$ and $1=x^0$.
+:::

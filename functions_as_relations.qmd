@@ -1,0 +1,58 @@
+---
+execute:
+  echo: false
+---
+
+## Functions as relations
+
+A relation is a general connection between elements of two sets, consider the sets
+
+```{=tex}
+\begin{equation}\begin{split}&Friends\coloneqq \{\text{Abby, Eve, John, Hugo}\}\\&Heights\coloneqq \{\dots,1.60,1.70,1.80,1.90,\dots\}\end{split} \end{equation}
+```
+A connection between elements of both sets can be established by making a list of ordered pairs of the form $(friend,height)$, this can be done in many ways, here are two examples:
+
+$$ \begin{align}
+&G\coloneqq \{(\text{Abby,1.70}),(\text{Eve,1.80}),(\text{Eve,1.70}),(\text{John,1.80}),(\text{Hugo,1.60})\}\\
+&F\coloneqq \{(\text{Abby,1.70}),(\text{Eve,1.70}),(\text{John,1.80}),(\text{Hugo,1.60})\}
+\end{align} $$ {#eq-F}
+
+The process of choosing elements of $Friends$ and $Heigts$ and pairing them to build $G$ or $F$ can be viewed another way, we start by constructing all possible pair and save them into large list we call the Cartesian product between Friends and Heights, denoted by
+
+$$ \begin{equation}Friends \times Heights \coloneqq \{(\text{friend,height})\,\,|\,\,\text{friend} \in \text{Friends}\,\, \textit{and}\,\, \text{height} \in \text{Heights}\}\end{equation} $$ {#eq-crossproduct}
+
+Then we choose from $Friends \times Heights$ then pairs we want for $G$ or $F$.
+
+From this point of view, every subset of $Friends \times Heights$ is a relation and in particular we have:
+
+$$
+\begin{equation}\begin{split} G \subset Friends \times Heights\\ F \subset Friends \times Heights\\ \end{split} \end{equation}
+$$
+
+$G$ and $F$ are relations but only the latter achieves the status of a function since $F$ has a special property not share with $G$. Close inspection of $F$ reveals that if one chooses a friend, say Eve, the function $F$ tells us immediately and unquestionably that her height is $1.70$. On the other hand, $G$ wont since we find two pairs, which assign Eve with $1.80$ or $1.70$. Observation of the remainder pairs in $F$ shows that the pairing in is in such a way that for any $friend$ we choose, we have an associated $height$ that is unique, as a result each first entry of the pairs only occurs once in the list @eq-F, thus avoiding the ambiguity found in $G$ of having two heights assigned to the same friend. This is the special property that a list of ordered pairs (i.e. relation) must have to be classified as a function; irrelevant to this is whether when we pick an height we have none, or one or more friends. For example the next subsets of @eq-crossproduct assign the same height to two or all friends:
+
+$$ \begin{equation}\begin{split}I\coloneqq \{(\text{Abby,1.80}),(\text{Eve,1.60}),(\text{John,1.80}),(\text{Hugo,1.60})\}\\J\coloneqq \{(\text{Abby,1.80}),(\text{Eve,1.80}),(\text{John,1.80}),(\text{Hugo,1.80})\}\end{split}\end{equation} $$
+
+The lists $I$ and $J$ are relation and also functions, as each friend only has one height, thus appearing only one time in the list.
+
+From this discussion we can distill the essence of what a function is in the following definition:
+
+::: {#def-funcrel}
+::: {style="color: gray"}
+*Let* $X$ *and* $Y$ *be two sets. A function* $F$ *is a list of pairs* $(x,y)$ *with* $x$ *belonging to* $X$ *and* $y$ *in* $Y$ *with the special property that each* $x$ *is associated uniquely with one* $y$ *(the reverse may or may not be true). In other words,* $F$ *is a special subset of* $X\times Y$ *that makes the following statement true*
+
+$$
+\forall x : \exists ! y : (x,y) \in F
+$$ {#eq-deffunc}
+
+*The domain of* $F$ *is the set of all* $x$*'s appearing in the pairs of* $F$*, while the range is the the set of* $y$*'s; these sets are named* $D_F$ *and* $R_F$ *respectively. The set* $Y$ *is called the codomain of* $F$ *and may contain or be equal to* $R_F$*;* $X$ *doesn't have an official name, lets call it the starting set, and may contain or be equal to* $D_F$*, many times* $X=D_F$*.*
+:::
+:::
+
+[**Exercise**](exer_withperequisites.qmd)
+
+::: {.callout-note appearance="simple"}
+## Commentary
+
+The statement in @eq-deffunc is neither true nor false until we specify what $F$ is. It works like an "equation" where the unknown in $F$. We read it as follows: For all $x$ there is only one $y$ that make true $(x,y)\in F$. This can only occur provided we chose an $F$ where all pairs have $x$'s assigned to unique $y$'s. The expression $\forall x : \exists ! y : (x,y) \in$ acts on $F$, by checking its content.
+:::

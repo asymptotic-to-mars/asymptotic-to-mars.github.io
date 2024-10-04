@@ -1,0 +1,263 @@
+---
+title: "Lines, planes and hyperplanes"
+execute:
+  echo: false
+---
+
+We now to return to the observations:
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have one solution provided* $r=r^*=n$.
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have infinite solutions provided* $r=r^*<n$.
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have no solutions provided* $r<r^*$.
+
+**Goal:** To understand the reason behind these inequalities. In doing so we will simultaneously understand how $r=r^*<n$ is related with lines, planes and hyperplanes.
+
+**How?** we'll look carefully at the structure of the computations involved in the equation $A\mathbf{x}=\mathbf{b}$ (or $A'\mathbf{x}=\mathbf{b}'$, $A'=\text{rref}\, A$)
+
+## Looking at $A\mathbf{x}=\mathbf{b}$ from a new point of view
+
+Return to the equations:
+
+$$
+A\mathbf{x}=\mathbf{b}
+\leftrightsquigarrow
+\begin{pmatrix}1 & 2 & 2 & 2 \\2 & 4 & 6 & 8 \\3 & 6 & 8 & 10 \end{pmatrix}\begin{pmatrix}x\\y\\z\\w\end{pmatrix}=\begin{pmatrix}1\\2\\3\end{pmatrix}
+\leftrightsquigarrow
+\begin{pmatrix}1 & 2 & 2 & 2 &\bigm|1\\2 & 4 & 6 & 8 &\bigm|2\\3 & 6 & 8 & 10 &\bigm| 3\end{pmatrix}
+$$ {#eq-Axb_two_ways}
+
+Looking at @eq-Axb_two_ways we would ask: what is the column vector $\mathbf{x}$ which when multiplied by the matrix $A$ yields the column vector $\mathbf{b}$?
+
+Now rewrite the system of equation in a different point of view:
+
+$$
+\begin{pmatrix}1\\2\\3\end{pmatrix}x+\begin{pmatrix}2\\4\\6\end{pmatrix}y+\begin{pmatrix}2\\6\\8\end{pmatrix}z+\begin{pmatrix}2\\8\\10\end{pmatrix}w = \begin{pmatrix}1\\2\\3\end{pmatrix}
+$$ {#eq-Axb_lc}
+
+Looking at @eq-Axb_lc we would ask: what is the linear combination of the columns that leads to the vector $\mathbf{b}$ on the rhs? \[Not every columns is independent!\]
+
+This second perspective on a system of equations allow us to make the following:
+
+-   **Key observation:** this linear combination is only possible, provided the $\mathbf{b}$ vector is in the column space of $A$! Meaning $\mathbf{b}\in C(A)$.
+
+-   **Key observation paraphrased differently:** going back to @eq-Axb_two_ways, focus on the extended matrix version of the system of the equations and note, that, when we extend the matrix, i.e., when we append the $\mathbf{b}$ vector on the rhs, the column space must not change, for otherwise the $\mathbf{b}$ was not in the column space. This is to say:
+
+$$
+r =r^* 
+$$
+
+This same key observation can be obtained from $A'\mathbf{x}=\mathbf{b}'$:\
+\
+$$
+\begin{align}
+\begin{pmatrix}
+1 & 2 & 0 & -2 &\bigm| 1\\
+0 & 0 & 1 & 2 &\bigm| 0\\
+0 & 0 & 0 & 0 &\bigm| 0
+\end{pmatrix}
+\end{align}
+$$ {#eq-equiv_of_systems}
+
+If $\mathbf{b}'\in C(A')$, that is to say when $r=r^*$, then there is a solution. Thus if $\mathbf{b}\in C(A)$ then $\mathbf{b}'\in C(A')$. Note how much easier is to check the later.
+
+How would we find $x,y,z,w$ that satisfy the equations above?
+
+**Way 1:** Use back substitution. And promoting the necessary variables to parameters.
+
+**Way 2:** Follow these three step procedure:
+
+1.  First, find one particular solution $\mathbf{x}_P$ for the system.
+2.  Second, find the $N(A)$ by solving $A\mathbf{x}_N=\mathbf{0}$.
+3.  Third, The complete solution is of the form $\mathbf{x}_P+\mathbf{x}_N$.
+
+# Following Way 2 we have:
+
+## First, how to compute $\mathbf{x}_P$?
+
+1.  Simplify the system as much as you can using Elimination and the pivots, we already did this and obtained @eq-equiv_of_systems.
+
+2.  Identify the dependent and independent columns of $A'$. We do this by visual inspection of the simplified system: The independent column are where the pivots lie. The dependent columns (also known as free columns) are the remaining ones.
+
+    The unknowns multiplying the dependent columns in @eq-equiv_of_systems are $y$ and $w$; these are known as free unknowns.
+
+3.  To find a particular solution $\mathbf{x}_P$ of the system, set the free unknowns to zero:
+
+    $$
+    y=0\qquad w=0
+    $$
+
+    $$
+    \begin{pmatrix}1\\0\\0\end{pmatrix}x_P
+    +\begin{pmatrix}2\\0\\0\end{pmatrix}0
+    +\begin{pmatrix}0\\1\\0\end{pmatrix}z_P
+    +\begin{pmatrix}-2\\2\\0\end{pmatrix}0 = \begin{pmatrix}1\\0\\0\end{pmatrix}
+    $$ {#eq-lcequalb}
+
+4.  Now solve @eq-lcequalb for $x_P$ and $z_P$; by inspection:
+
+    $$
+    x_P=1 \qquad z_P=0
+    $$
+
+5.  The particular solution is
+
+    $$ \mathbf{x}_P=\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix} $$
+
+## Second, how to compute $\mathbf{x}_N$?
+
+Compute the nullspace of $A$ by solving $A\mathbf{x}_N=\mathbf{0}$, after simplification (through elimination) we arrive at $A'\mathbf{x}_N=\mathbf{0}$, i.e.
+
+$$
+\begin{pmatrix}1 & 2 & 0 & -2 &\bigm| 0\\0 & 0 & 1 & 2 &\bigm| 0\\0 & 0 & 0 & 0 &\bigm| 0\end{pmatrix}
+$$ {#eq-nullspace_eq}
+
+Solving (done previously) we obtain the nullspace of the matrix $A$ which is composed by all linear combinations:
+
+$$
+a\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix} +b\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}
+$$
+
+*Geometrically:* this is plane containing the origin living in four-dimension space. This is a vector space.
+
+## Third, the complete solution of $A\mathbf{x}=\mathbf{b}$
+
+So far we know a particular solution $A\mathbf{x}_P=\mathbf{b}$ and we know the nullspace $A\mathbf{x}_N=\mathbf{0}$.
+
+Thus the solution of $A\mathbf{x}=\mathbf{b}$ are of the form:
+
+$$
+\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix} +a\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix} +b\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}
+$$ {#eq-sol_2}
+
+and the solution set is:
+
+$$
+\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix} +span\{\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix} ,\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}\}
+$$
+
+*Geometrically:* this is a plane in four-dimension space that does not contain the origin, thus it is not a vector space.
+
+*Why is this the solution?*
+
+If $\mathbf{x}_P$ is a particular solution of $A\mathbf{x}=\mathbf{b}$ then adding to it any $\mathbf{x}_N$ will not make a difference.
+
+*Justification:* $A(\mathbf{x}_P+\mathbf{x}_N)=A\mathbf{x}_P+A\mathbf{x}_N=\mathbf{b}+\mathbf{0}=\mathbf{b}$
+
+Thus, the system $A\mathbf{x} =\mathbf{b}$ has an infinite number of solutions, all of the form $\mathbf{x}=\mathbf{x}_P+\mathbf{x}_N$.
+
+# Following way 1 we have:
+
+Convert @eq-equiv_of_systems to old notation
+
+$$
+\begin{cases}
+x + 2 y & &- &2w &=1\\
+&z &+ &2w &=0
+\end{cases}
+$$ {#eq-old_sol}
+
+Since we have two equations with four unknowns, two of them must be made into parameters, let $y=a$ and $w=b$ where $a,b$ are some values of our choice, in this case the system becomes
+
+$$
+\begin{cases}&x + 2 y  - 2w =1\\&z + 2w =0\\&y=a\\&w=b\end{cases}
+$$
+
+::: callout-note
+## Commentary
+
+Promoting variables to parameters is the same as adding extra equations of our choice ( eg. $y=a$ and $w=b$) so that the system has a solution.
+:::
+
+Rearranging @eq-old_sol we have:
+
+$$
+\begin{cases}&x=1-2a+2b\\&z =-2b\\&y=a\\&w=b\end{cases}
+$$
+
+But, this is exactly what @eq-sol_2 means!
+
+# Why is there one, none or infinite solutions?
+
+Lets revisit the systems we found previously under the new perspective. We already seen above the case with infinite solutions.
+
+## A system with one solution
+
+Using elimination we showed:
+
+$$
+\begin{pmatrix}1 & 1 & -1 &\bigm| & 1\\2 & -1 & 2 &\bigm| & 9\\1 & 2 & -1 &\bigm| & 0\end{pmatrix} \iff \begin{pmatrix}1 & 0 & 0 &\bigm| & 2\\0 & 1 & 0 &\bigm| & -1\\0 & 0 & 1 &\bigm| & 1\end{pmatrix} 
+$$
+
+Clearly there are no free column and thus no free coefficients to set to zero. The matrix has the form:
+
+$$
+\begin{pmatrix}I\end{pmatrix}
+$$Solving for the remaining we get:
+
+$$
+\mathbf{x}_P=\begin{pmatrix}2\\-1\\1\end{pmatrix}
+$$
+
+The nullspace only contains the $\mathbf{0}$ vector. There is no $F$ block, since $n-r=0$.
+
+The solution of the system is just the particular solution.
+
+$$
+\mathbf{x}=\mathbf{x}_P+\mathbf{x}_N=\begin{pmatrix}2\\-1\\1\end{pmatrix}+\begin{pmatrix}0\\0\\0\end{pmatrix}=\begin{pmatrix}2\\-1\\1\end{pmatrix}
+$$
+
+## A system with no solution
+
+Previously we computed:
+
+$$
+\begin{pmatrix}2 & -1 &\bigm| & 8\\2 & 1  &\bigm| & 4\\1 & 1  &\bigm| & -1\end{pmatrix}\iff \begin{pmatrix}1 & 0 &\bigm| & 5\\0 & 1 &\bigm| & -6\\0 & 0 &\bigm| & -8\end{pmatrix} 
+$$
+
+There is no particular solution because $\mathbf{b}'\not\in C(A)$, meaning $r<r^*$. The null space is $\{\mathbf{0}\}$. The system as has no solution
+
+# Conclusion
+
+We can see the meaning of:
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have infinite solutions provided* $r=r^*<n$.
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have one solution provided* $r=r^*=n$.
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have no solutions provided* $r<r^*$.
+
+The intuition behind comparing $r$ and $r^*$ is to verify whether $\mathbf{b}$ belongs or not to the $C(A)$. If it belong there is a particular solution. The intuition behind comparing $r$ and $n$ is because $n-r$ is the number of free columns, the number of free columns in the dimension of the nullspace and that number determines whether the solution (if it exists, see $r=r^*$) does it represent a point, line, plane or hyperplane.
+
+We stress the following distinction:
+
+-   Lines, planes and hyperplanes cross the origin and are subspaces which are solution of $A\mathbf{x}_N=\mathbf{0}$.
+
+    The form of the solution is:
+
+    $$
+    a_1 \mathbf{x}_{N,1}+\dots+a_{\dim N(A)}\mathbf{x}_{N,\dim N(A)}
+    $$
+
+    Depending on $\dim N(A)$ we either have a point, a line, a plane or hyperplane.
+
+-   Lines, planes and hyperplanes that DO NOT cross the origin are NOT subspaces but are solution of $A\mathbf{x}=\mathbf{b}$.
+
+    The form of the solution is:
+
+    $$
+    \mathbf{x}_P+a_1 \mathbf{x}_{N,1}+\dots+a_{\dim N(A)}\mathbf{x}_{N,\dim N(A)}
+    $$
+
+    Which depending on $\dim N(A)$ is a point, line, plane or hyperplane away from the origin by $\mathbf{x}_P$.
+
+*Geometrically:* We can create a hyperplane that does not contain the origin by adding a vector to a hyperplane that contains it. We thus see why solving $A\mathbf{x}=\mathbf{b}$ requires first to solve $A\mathbf{x}=\mathbf{0}$ and then add to it some particular solution.
+
+::: callout-note
+## Commentary
+
+An exercise we did previously was, given two vectors $\mathbf{v}_1$ and $\mathbf{v}_2$, what is the vector space they span? We saw that this vector space is the set of all l.c. of this two vectors. This is a subspace and as such it contains the $\mathbf{0}$ vector. What we now see with the introduction the concept of nullspace, is that, this spanned vector space is in fact the $N(\text{some matrix})$. How to get this matrix, we shall see later when we introduce the concept of inner product.
+:::
+
+**Exercises:** 1.5.10

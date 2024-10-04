@@ -1,0 +1,27 @@
+---
+title: "rutherfords atom"
+---
+
+-   Átomo era indivisível (Maxwell 1872)
+
+-   1899 - Thomson nos seus estudos da condução de electricidade observa que átomo é divisível, a corrente eléctrica evolve movimento livre de partes (electrões) de um átomo
+
+-   Experiências com radioactividade realizadas por Marie Curie (1867- 1934), Ernest Rutherford (1871-1937) e Frederick Soddy apontam também para divisibilidade do átomo. Descobriu-se que a transformação radioactiva dos átomos envolve a emissão de partículas pelos átomos (partículas subatómicas)
+
+-   Em 1910 as experiências de Lenard mostraram que electrões conseguem atravessar folhas de metal finas, mostrando assim que átomos são porosos.
+
+-   Descoberta que cada elemento tem-lhe associado uma serie espectral, i.e., um conjunto de comprimentos de onda de radiação emitida. Tal sugere que deve haver movimento de cargas no interior dos átomos.
+
+Todas estas descobertas levaram ao desenvolvimento de modelos do átomo:
+
+1.  Modelo de Thomson (1898) - Átomos são esferas de cargas positivas e negativas distribuídas uniformemente (passas no pudim). Este modelo evita o colapso do átomo, mas não explica as series espectrais dos elementos.
+
+2.  Modelo de Rutherford, Hans Geiger (1882-1945), Enerst Marsden (1899-1970) através de experiências realizadas entre 1909 e 1914 conduzem à descoberta que átomos têm estrutura interna, um núcleo onde a maior parte da massa está concentrada e onde está também localizada toda a carga positiva do átomo. A sua experiência consiste em:
+
+    ![](figs/rutherford%20setup.png){width="258"}
+
+    O seu modelo de átomo:
+
+    ![](figs/rutherford%20picture%20of%20an%20atom.png){width="258"}
+
+The theoretical framework that fits his experimental observations lead to the famous Rutherford formula.

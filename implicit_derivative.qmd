@@ -1,0 +1,70 @@
+---
+title: "Implicit derivatives"
+execute:
+  echo: false
+---
+
+A more suitable title for this section is "what can we say about the derivative of an a function defined implicitly?"
+
+With that, the first step is to understand what is an implicit function, only then we bother with its derivative.
+
+## Implicit functions
+
+An implicit function is a function defined by an equation. An example shows well the idea:
+
+Consider the equation $x^2 + y^2=1$. The truthset of this statement is the circle of radius one:
+
+$$
+\{(x,y)\in\mathbb{R}^2\,\,|\,\,x^2+y^2=1\}
+$$
+
+We can use it to define functions, after all functions are also sets of ordered pair albeit with the property that each $x$ can only appear one time in the set (please note this is not the case for the circle, each $x$ occurs twice.)
+
+What we are going to do is to slice, restrict, the set in such a way as a function comes out. There are many ways of doing so, but here is the more useful ones: Make the upper half of the circle one function and the bottom half another.
+
+In mathematical notation, the upper half is defined as:
+
+$$
+\begin{align}
+f: &[-1,1] \longrightarrow \mathbb{R}\\
+&x\longmapsto f(x):=[\text{positive $y$ solution of $x^2+y^2=1$}]
+\end{align}
+$$
+
+the bottom half is:
+
+$$
+\begin{align}
+g: &[-1,1] \longrightarrow \mathbb{R}\\
+&x\longmapsto g(x):=[\text{negative $y$ solution of $x^2+y^2=1$}]
+\end{align}
+$$
+
+The functions $f$ and $g$ are defined implicitly, because the procedure that one must follow to assign $y$ to the chosen $x$ is implict in solving an equation, in this case $x^2 + y^2=1$; by implicit I mean, the sequence of steps you must follow to solve it, is not given to you explicitly.
+
+A more practical way to look at the upper half (similarly for the bottom half) is to say that $y$ is the positive function of $x$ such that it satisfies the equation $x^2 +y^2=1$, and to make that evident we can write:
+
+$$
+x^2 +y(x)^2=1
+$$This notation tell us: $y$ is a function of $x$, though how we get the value of $y(x)$ from $x$ requires to solve the equation with whatever means are necessary. It is precise this "with whatever means..." that promotes the $y(x)$ function (equivalently the $f$ function) to the class of implicit functions.
+
+## Derivative of an implicit function
+
+We can almost antecipate, since the function is not given explicitly, chances are, its derivative is also not given explicitly.
+
+Please note that when a function is given explicitly, we used the derivatives rules to obtain an explicit derivative function.
+
+When dealing with implicit function, i.e., functions on which we only know the statement - in the case above $x^2+y^2=1$ - that it obeys, the same thing occurs with its derivative, we'll only know a statement it obeys.
+
+The way to obtain that statement is to use the chain rule.
+
+Take the derivative of the lhs and rhs of $x^2 +y^2=1$, the result is:
+
+$$
+(x^2+y^2)'=1'
+\implies 2x+2y(x)y'(x) = 0
+$$
+
+On the rhs we find the statement: whatever the function $y'(x)$ is, it obeys that equation, hence to find what is the value of $y'(x)$ corresponding to the chosen $x$, we have to solve the equation $2x+2y(x)y'(x) = 0$. To do that, chose an $x$, compute $y(x)$ using whatever means necessary (the function $y(x)$ is implicit!), plug in that result in the equation above and in turn solve it for $y'(x)$.
+
+As you can see the sequence of steps that one must follow to arrive at one evaluation is implicit!

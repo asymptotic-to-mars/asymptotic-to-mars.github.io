@@ -1,0 +1,51 @@
+---
+title: "Linear approximation"
+execute:
+  echo: false
+---
+
+The basic idea is this: start with the graph of a function $f$, then draw a line tangent to a chosen point $(x_0,y_0)$ on the function. This line is special, because the points $(x,y)$ on the line around the point $(x_0,y_0)$ and the points $(x,f(x))$ also around $(x_0,y_0)$ are very close and as a result we can use them interchangeably, at the price of a small error. Lets express this mathematically, for $x$ close to $x_0$ we have:
+
+$$
+f(x) \sim m(x-x_0)+y_0
+$$ {#eq-linear_approx}
+
+The equation of the line is $y=m(x-x_0)+y_0$, we want to find it! Because the line is tangent to the function $f$, somehow, the parameters $m$ and $y_0$ are related to that function ($x_0$ is chosen by us). From the picture we know that:
+
+$$
+m = f'(x_0)\qquad y_0 = f(x_0)
+$$
+
+In conclusion, the images of $x$'s around $x_0$ through the function $f$ are mapped into the corresponding $f(x)$'s, and in turn this values are approximately of the form $f'(x_0)(x-x_0)+f(x_0)$.
+
+You may wonder, why this approximation is useful (for a physicist it is extremely useful!), only though example we'll see that, but just from the formula @eq-linear_approx you can see that for a complicated function $f(x)$, the rhs, is just a simple and each to handle polynomial of degree one. I would rather use that than the exact value $f(x)$, if the error committed is negligible for the problem at hand.
+
+# Diferentials
+
+The idea of differentials is closely connected to the idea of linear approximations.
+
+Above we seen that the values of $f(x)$ are very close to the values $f'(x_0)(x-x_0)+f(x_0)$ as long as $x$ is close to $x_0$, the farther $x$ is, the worst is the difference between both.
+
+As the name differentials suggests, we want to compute differences, differences between points on the function, for example, we want to compute $f(x)-f(x_0)$.
+
+The idea behind linear approximations gives us a way to evaluate this diference easily, with better and better accuracy the closer and closer is $x$ to the given $x_0$; just evaluate $f(x)$ approximately using $f'(x_0)(x-x_0)+f(x_0)$. Thus:
+
+$$
+f(x)-f(x_0) \sim f'(x_0)(x-x_0)+f(x_0) -f(x_0) = f'(x_0)(x-x_0)
+$$ {#eq-difference}
+
+On the lhs we have the difference between the images of $x$ and $x_0$ thought the function, meanwhile on the rhs we find the corresponding difference by though the tangent line. If $x$ is very close to $x_0$, then $x-x_0$ is close to zero and $f(x)-f(x_0)$ is close to zero as well, as it should; see the picture.
+
+In fact we have special notation for formula @eq-difference:
+
+-   $f(x)-f(x_0) =: df$ is called the differential of the function $f$ around $x_0$.
+
+-   $x-x_0=:dx$ is called the differential of the independent variable $x$, around, again, the given value of $x_0$. The differential $dx$ is any real number!
+
+Thus,
+
+$$
+df \sim f'(x_0) dx
+$$
+
+The close $x$ is to $x_0$, the closer $dx$ is to zero and the better is the approximation. If $dx$ is extremely small we would rather use the equal sign rather than the approximate sign: $df = f'(x_0) dx$ if $dx\longrightarrow 0$.

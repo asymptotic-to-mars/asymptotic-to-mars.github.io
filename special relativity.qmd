@@ -1,0 +1,230 @@
+---
+title: "Special Relativity"
+---
+
+Key Ideas of Taylor Chap. 15
+
+# 15.1 Relativity
+
+-   Relativity of measurements: most measurements in physic are made wrt a reference frame. Examples: position, time, velocity and kinetic energy depend on the reference frame and its velocity (if it is moving)
+
+-   Einstein's special theory of relativity focus on non-accelerated reference frames and excludes gravity, it is useful to describe nuclear and particle physics since particles move close to the speed of light but gravity is irrelevant.
+
+# 15.2 Galilean Relativity
+
+Consider the set of reference frames which move with constant velocity among each other. A measurement of a physical quantity depends on which frame we choose. The connection (transformation) between measurement is called the Galilean transformation. An import fact is that Newton's law mathematical form is unchanged between reference frames, in other words, it is invariant under Galilean transformations.
+
+## Galilean Transformation
+
+Consider a set of reference frames that move at relative constant velocity. Let us deduce a particular and simple case of Galilean transformations between two frames, this simple case is a consequence of the following assumption on the two chosen frames:
+
+1.  The frames S and S' are oriented in such a way that the x,y,z-axes are parallel and they move with velocity $V$ along the x axis, see Fig. 15.1
+2.  S and S' are equipped with a clock, to measure time and both clocks measure $t=t'=0$ when initially both frames's origin coincide.
+
+As a result we have the following relation between measurements $(x,y,z,t)$ and $(x',y',z',t')$:
+
+$$
+\begin{cases}
+x' =x-Vt\\
+y'=y\\
+z'=z\\
+t'=t
+\end{cases}
+$$
+
+A generalization of these formulas for two frames where $V$ has any direction $\mathbf{V}$ is
+
+$$
+\mathbf{r}'=\mathbf{r}-\mathbf{V}t \qquad t'=t
+$$ {#eq-galilean_transf}
+
+Further generalizations are possible if we allow the two frame's axes to be non-parallel but rotated, but the formula above suffices.
+
+Differentiating the relation we find:
+
+$$
+\mathbf{v}'=\mathbf{v}-\mathbf{V}
+$$ {#eq-galilean_velocity_addition}
+
+# 15.3 The Postulates of Special Relativity
+
+We will follow now a similar path: first we define a set of reference frames, define its properties, then deduce the correct transformation law (Lorentz transformation in this case) and finally deduce the velocity relation. After this we'll introduce a vector notation for the relation and explore different point of view that this new language allows.
+
+But first let us redefine the concept of Inertial Frame:
+
+*Definition of an Inertial Frame:* It is any frame in which the laws of physics hold in their usual form.
+
+For example, suppose we desire the first and second Newton's law to hold, then an inertial frame must be a non-accelerated frame, because if it was not so, the first law would not hold as we know it ($F=0$ implies $a=0$) and the second law would contain new terms like the centrifugal and Coriolis forces terms, hence not the usual form.
+
+Let us now suppose we have a set of frames in which the following postulates are true:
+
+1.  If S is inertial and if S' moves with constant velocity relative to S, then S' is also inertial.
+2.  The speed of light (in vacuum) is the same value $c$ in every direction in all inertial reference frames.
+
+The first postulate implies the following:
+
+-   If a law of physics (eg. Newton's law) holds in S, then it hold in any S' that move with constant velocity wrt to S, we say the law is universal (within this set of frames)
+
+-   If you (in your inertial frame) see a plane moving with constant velocity, then the plane sees you moving with constant velocity in the opposite direction. Since the laws of physics are the same in both frames we cannot distinguish who is really moving and who is at rest.
+
+Just like we deduced the Galilean transformation from the postulates over two frames, we'll now use the two previous postulates to deduce the Lorentz transformation, but first let us introduce an intermediary stage where we'll assume a simple example of such a transformation.
+
+# 15.4 The Relativity of Time; Time Dilation
+
+## Measurement of Time in a Single Frame
+
+Attached to any frame S is a square grid, at each vertex there is someone ready measure $(x,y,z,t)$ of a nearby event.
+
+## Time Dilation
+
+Consider the train situation with the two frames S and S'.
+
+S is inertial and thus S' is inertial, therefore the law distance = velocity $\times$ time holds in both. In particular for S'
+
+$$
+\Delta t' =\frac{2h}{c}
+$$
+
+Using again the rule distance = velocity $\times$ time in S we find the lengths of the sides of the triangle, which in turn are related by
+
+$$
+(\frac{c\Delta t}{2})^2=h^2+(\frac{V\Delta t}{2})^2
+$$
+
+which is equivalent to:
+
+$$
+\Delta t = \frac{2h}{c}\frac{1}{\sqrt{1-\beta^2}} \qquad \beta = \frac{V}{c}
+$$
+
+We conclude:
+
+$$
+\Delta t = \frac{\Delta t'}{\sqrt{1-\beta^2}}
+$$
+
+Two events occurring at the same place in S' separated by $\Delta t'$ seconds are seen in S as being separated by $\Delta t$ seconds.
+
+We want to reformulate this expression, define
+
+$$
+\gamma = \frac{1}{\sqrt{1-\beta^2}}
+$$
+
+and $\Delta t_0:= \Delta t'$ the time elapsed in the reference frame (in this case S') where the event occurred at the same place.
+
+Thus:
+
+$$
+\Delta t = \gamma \Delta t_0\geq \Delta t_0
+$$
+
+since $\gamma \geq 1$.
+
+We should think about this formula as:
+
+$$
+[\text{time elaspsed measured in two places}] = \gamma\times [\text{time elapsed measured at same place}]
+$$ {#eq-interpret_time_dilation}
+
+# 15.5 Length Contraction
+
+Consider again the train situation. The length $l$ of the train as measured in S in done at the same place, since our goal in S is to clock the front and back of the train as it passes us. We then compute the length as:
+
+$$
+l=V\Delta t
+$$
+
+where $\Delta t$ is the time measure at the same site in S. Notice the formula is again distance = velocity $\times$ time, a law in the usual form.
+
+Measuring the length of th train in S' can be done directly though tape measure but we opt by a different approach. We put two observers, one at the front and the other at the back each with its own clock; they measure the time as each passes by me, stationary, at S. The time difference $\Delta t'$ is then computed from the two measurements of time (done at different locations in S', front and back) and the distance of the cart is computed using the law distance = velocity $\times$ time:
+
+$$
+l'=V\Delta t'
+$$
+
+The $V$ is used because we see, sitting in S', the stationary of observer of S to move to the left with velocity $V$, since the cart is moving to the right, as seen from S, with the velocity $V$ as well; we are assuming these two velocities, measured in S and S', are the same magnitude but opposite in direction.
+
+From the description above we identify:
+
+$$
+\Delta t_0 := \Delta t
+$$
+
+since the observation of time is done in S at the same position!
+
+Now use the relation @eq-interpret_time_dilation to get $\Delta t' =\gamma \Delta t$, as a result:
+
+$$l=\frac{l'}{\gamma}\leq l'$$
+
+or defining the proper length associated in this case with S' as:
+
+$$l_0:= [\text{length measured in frame where event is at rest}]$$
+
+Thus:
+
+$$
+l = \frac{l_0}{\gamma}\leq l_0
+$$
+
+# 15.6 The Lorentz Transformation
+
+From Fig. 15.4 the inevitable and following an argument analogous to the Galilean Transformation we arrive the Lorentz Transformation:
+
+$$
+\begin{cases}
+x' = \gamma (x-Vt)\\
+y'=y\\
+z'=z\\
+t'=\gamma(t-Vx/c^2)
+\end{cases}
+$$
+
+# 15.7 The Relativistic Velocity-Addition Formula
+
+In the Galilean case we simply diffeentiated the @eq-galilean_transf to obtain @eq-galilean_velocity_addition. This operation could also been done differently, the idea is to compute the differential of @eq-galilean_transf wrt time and then compute $dx'/dt'$ and so on. We will use this technique of computing derivatives to obtain them for the Lorentz transformation case.
+
+Consider two point in S' on the trajectory $\mathbf{r}'(t')$ separated by $dt=t_2-t_1$ (not $dt'$!!) thus at $t_1$
+
+$$
+\begin{cases}
+x'_1 = \gamma (x_1-Vt_1)\\
+y'_1=y_1\\
+z'_1=z_1\\
+t'_1=\gamma(t_1-Vx_1/c^2)
+\end{cases}
+$$
+
+at $t_2=t_1+dt$:
+
+$$
+\begin{cases}
+x'_2 = \gamma (x_1-V(t_1+dt))\\
+y'_2=y_2\\
+z'_2=z_2\\
+t'_2=\gamma((t_1+dt)-Vx_2/c^2)
+\end{cases}
+$$
+
+Computing the difference we have:
+
+$$
+\begin{cases}
+dx' = \gamma (dx-Vt)\\
+dy'=dy\\
+dz'=dz\\
+dt'=\gamma(dt-Vdx/c^2)
+\end{cases}
+$$
+
+Now, let us compute the derivative:
+
+$$
+v'_x =\frac{dx'}{dt'}=\frac{\gamma(dx-Vdt)}{\gamma(dt-Vdx/c^2)}=\frac{v_x-V}{1-v_xV/c^2}
+$$
+
+the remaining derivatives yield:
+
+$$
+v_y' = \frac{v_y}{\gamma(1-v_xV/c^2)}\qquad v_z'=\frac{v_z}{\gamma(1-v_xV/c^2)}
+$$

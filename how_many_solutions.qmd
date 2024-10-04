@@ -1,0 +1,157 @@
+---
+title: "One, none or many solutions?"
+execute:
+  echo: false
+---
+
+With the above discussion understood we have the following cases:
+
+### Case: One solution
+
+When the matrix is square and when its *rref* is the identity, then there is only one solution!
+
+Example:
+
+![](figs/one_solution.png){width="292"}
+
+The solution of this example is $\mathbf{x} =(3,-1,1)^T$. The nullspace of the matrix is just the zero vector.
+
+### Case: One or none solution
+
+When the matrix is rectangular $r=n<m$ and its *rref* is like:
+
+![](figs/impossible.png){width="261"}
+
+then, there is no solution! The $\mathbf{b}=(5,-6,-8)^T$ does not belong to the column space.
+
+If the system is instead like
+
+![](figs/possible2.png){width="265"}
+
+then, there is one solution, $\mathbf{x}=(5,-6)^T$. By making the last entry of $\mathbf{b}$ zero, now it belongs to the columns space, $5$ times the first column minus $6$ times the second column gives us this $\mathbf{b}$.
+
+### Case: Infinite solutions
+
+Consider a matrix that looks like this, identity columns and free column separated
+
+![](figs/many.png){width="269"}
+
+or like this, with the identity and free blocks mixed:
+
+![](figs/many_mixed.png){width="261"}
+
+In this situation there is an infinite number of solutions. The first system has solutions of the form
+
+$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1/3z_0\\
+4/3z_0\\
+z_0
+\end{pmatrix}
+$$
+
+while the second has them of the form
+
+$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1/3y_0\\
+y_0\\
+4/3y_0
+\end{pmatrix}
+$$
+
+These solutions also constitute the nullspaces.
+
+### Case zero or infinite solutions
+
+Lets look again @eq-ex4, we identify three unknown and two equations, if we imagine we have one more equation provided by ourselves the system would have a solution, assume what equation is just $z=z_0$ for some value of $z_0$ of our liking then the system would have been
+
+$$
+\begin{pmatrix}1 & 0 & 1/3\\0 & 1 & -4/3\\0 & 0 & 1\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}0\\0\\z_0\end{pmatrix}
+$$
+
+The solution is:
+
+$$
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1/3z_0\\
+4/3z_0\\
+z_0
+\end{pmatrix}
+$$
+
+Just like we computed above. I'm showing this example for you to see that we have to have as many independent equations as unknowns, only then we have a unique solution. The key take away is that a parameter dependent solution like @eq-parameter_dep_sol is equivalent to adding an equation ourselves.
+
+## Subspaces
+
+## Dot product
+
+Falar novamente dos subespaços do secundário, que já mensionei acima na sec dos subespaços, mas desta vez dar usar a equação com produto interno tal como fazes nos teus resumos de GA do 11o ano.
+
+## Transpose of a matrix
+
+## Rank of a matrix
+
+## Basis?
+
+## Matrices as linear Operators?
+
+## Four subspaces of a matrix
+
+$$
+\begin{align}
+&\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| &b_1\\
+2 & 4 & 6 & 8 &\bigm| &b_2\\
+3 & 6 & 8 & 10 &\bigm| &b_3
+\end{pmatrix}
+\overset{l_2' = l_2-2l_1}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| &b_1\\
+0 & 0 & 2 & 4 &\bigm| &b_2-2b_1\\
+3 & 6 & 8 & 10 &\bigm| &b_3
+\end{pmatrix}\\
+&\overset{l_3' = l_3-3l_1}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| &b_1\\
+0 & 0 & 2 & 4 &\bigm| &b_2-2b_1\\
+0 & 0 & 2 & 4 &\bigm| &b_3-3b_1
+\end{pmatrix}
+\overset{l_3'=l_3-l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| &b_1\\
+0 & 0 & 2 & 4 &\bigm| &b_2-2b_1\\
+0 & 0 & 0 & 0 &\bigm| &b_3-b_2-b_1
+\end{pmatrix}\\
+&\overset{l_2'=1/2l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 2 & 2 &\bigm| &b_1\\
+0 & 0 & 1 & 2 &\bigm| &b_2/2-b_1\\
+0 & 0 & 0 & 0 &\bigm| &b_3-b_2-b_1
+\end{pmatrix}
+\overset{l_1'=l_1-2l_2}{\longrightarrow}
+\begin{pmatrix}
+1 & 2 & 0 & -2 &\bigm| &3b_1-b_2\\
+0 & 0 & 1 & 2 &\bigm| &b_2/2-b_1\\
+0 & 0 & 0 & 0 &\bigm| &b_3-b_2-b_1
+\end{pmatrix}
+\end{align}
+$$

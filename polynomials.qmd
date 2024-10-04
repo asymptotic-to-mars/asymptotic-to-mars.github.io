@@ -4,6 +4,7 @@ format: html
 editor: visual
 execute:
   echo: false
+page-navigation: false
 ---
 
 # Introduction
@@ -228,3 +229,5 @@ plt.xlabel('x')
 plt.ylabel('g(x)')
 plt.show()
 ```
+
+# 

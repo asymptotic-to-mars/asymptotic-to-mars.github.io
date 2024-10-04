@@ -1,10 +1,10 @@
 ---
-title: "Ideas to get started with Angular Momentum in Quantum Mechanics"
+title: ""
 format: html
 editor: visual
 ---
 
-# 
+# Ideas to get started with Angular Momentum in Quantum Mechanics
 
 ## 1) Commutation Relations are fundamental
 

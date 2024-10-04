@@ -13,7 +13,7 @@ knitr: #the thing that renders the file
     Message: False #setting these to false, elimintate error messages in the redered file (https://youtu.be/Auo1hjyeCl4?list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&t=181)
 ---
 
-## Teh Notes
+## Notes
 
 -   [Getting the feet wet with Polynomials](polynomials.qmd)
 

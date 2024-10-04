@@ -1,0 +1,12 @@
+---
+execute:
+  echo: false
+---
+
+::: {#exr-q_13}
+Consider the sets $A\coloneqq \{(x,y) \in \mathbb{R}\times\mathbb{R}\,|\,\, y=1\}$ and $B\coloneqq \{(x,y) \in \mathbb{R}\times \mathbb{R}\,|\,\, x=1\}$. Convince yourself whether it is or not a function using the [Definition 1](functions_as_relations.qmd#def-funcrel). For both specify the domain, range and codomain. What about $B'\coloneqq \{(x,y) \in \mathbb{R}\times \{2\}\,|\,\, x=1\}$?
+:::
+
+::: {#sol-q_13}
+$A$ is a function because all real $x$ is assigned to $1$, so for all $x$ is paired uniquely with $1$. $B$ is not a function as $x=1$ is paired with every real $y$, so the pairs where $x$ occur are not unique. $D_A=\mathbb{R}$, $R_A=\{1\}$, $D_B=\{1\}$, $R_B=\mathbb{R}$, the codomain is equal in both cases to $\mathbb{R}$. The set $B'=\{(1,2)\}$ is a function, although an weird one, because it is just one ordered pair. $D_{B'}=\{1\}$, $R_B'=\{2\}$. The starting and codomain can be red from $\mathbb{R}\times \{2\}$.
+:::

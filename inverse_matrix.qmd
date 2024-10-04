@@ -1,0 +1,150 @@
+---
+title: "Inverse Matrix"
+execute:
+  echo: false
+---
+
+Only full rank square matrices can have inverses. The inverse of $A$ is the unique solution $A^{-1}$ of the equation:
+
+$$
+AA^{-1} = I = A^{-1}A
+$$
+
+How do we solve this equation?
+
+## How to compute an inverse?
+
+Consider the matrix
+
+$$
+A=\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\right)
+$$
+
+The goal is to solve:
+
+$$
+\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\right)\left(\begin{matrix}a & c \\b & d  \end{matrix}\right)=\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\right)
+$$
+
+Close inspection of the product between the matrices shows us that we can break this problem into two independent problems:
+
+$$
+\begin{align}
+&\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\right)\left(\begin{matrix}a\\b  \end{matrix}\right) = \left(\begin{matrix}1\\0  \end{matrix}\right) \\
+&\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\right)\left(\begin{matrix}c\\d  \end{matrix}\right) = \left(\begin{matrix}0\\1  \end{matrix}\right) 
+\end{align}
+$$
+
+With elimination we find:
+
+$$
+\begin{align}
+&\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\;\middle|\;\begin{matrix}1\\0 \end{matrix}\right)
+\overset{l_2'=l_2-3l_1}{\longrightarrow}
+\left(\begin{matrix}1 & 2 \\0 & -1  \end{matrix}\;\middle|\;\begin{matrix}1\\-3 \end{matrix}\right)
+\overset{l_2'=-l_2}{\longrightarrow}
+\left(\begin{matrix}1 & 2 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}1\\3 \end{matrix}\right)
+\overset{l_1'=l_1-2l_2}{\longrightarrow}
+\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}-5\\3 \end{matrix}\right)\\
+&\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\;\middle|\;\begin{matrix}0\\1 \end{matrix}\right)
+\overset{l_2'=l_2-3l_1}{\longrightarrow}
+\left(\begin{matrix}1 & 2 \\0 & -1  \end{matrix}\;\middle|\;\begin{matrix}0\\1 \end{matrix}\right)
+\overset{l_2'=-l_2}{\longrightarrow}
+\left(\begin{matrix}1 & 2 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}0\\-1 \end{matrix}\right)
+\overset{l_1'=l_1-2l_2}{\longrightarrow}
+\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}2\\-1 \end{matrix}\right)
+\end{align}
+$$ {#eq-compute_inv_seperate}
+
+From the right systems we conclude that the inverse matrix is:
+
+$$
+A^{-1}=\left(\begin{matrix}-5 & 3 \\2 & -1  \end{matrix}\right)
+$$
+
+Checking the result:
+
+$$
+AA^{-1}=\left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\right)\left(\begin{matrix}-5 & 2 \\3 & -1  \end{matrix}\right)=\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\right)
+$$
+
+It works!
+
+**Observations:**
+
+-   Observing the calculations @eq-compute_inv_seperate we notice the arrow operators are the same for both systems, we solved both systems with the intent (as elimination method prescribes) of simplifying the matrix as much as possible, since in this case we are dealing with a full rank matrix, the end point simplification must be an identity matrix. What is different is the right vectors, which in the end tell us the columns of the inverse.
+
+::: callout-tip
+## Recall
+
+In case it is not clear why the columns $(-5,3)$ and $(2,-1)$ tell us the columns of $A^{-1}$, remember the meaning of the extended matrix notation in @eq-compute_inv_seperate:
+
+$$
+\begin{align}
+&\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}-5\\3 \end{matrix}\right)\leftrightsquigarrow\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\right)\left(\begin{matrix}a\\b \end{matrix}\right)=\left(\begin{matrix}-5\\3\end{matrix}\right) \implies \left(\begin{matrix}a\\b \end{matrix}\right)=\left(\begin{matrix}-5\\3\end{matrix}\right)\\
+&\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}2\\-1 \end{matrix}\right)\leftrightsquigarrow\left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\right)\left(\begin{matrix}c\\d \end{matrix}\right)=\left(\begin{matrix}2\\-1\end{matrix}\right) \implies \left(\begin{matrix}c\\d \end{matrix}\right)=\left(\begin{matrix}2\\-1\end{matrix}\right)
+\end{align}
+$$
+:::
+
+-   Since the calculations operations in @eq-compute_inv_seperate are the same, the main difference being the right hand side vector on which they are applied, rather than doing the same thing twice, we do it one shot adopting the following notation for @eq-compute_inv_seperate:
+
+    $$
+    \left(\begin{matrix}1 & 2 \\3 & 5  \end{matrix}\;\middle|\;\begin{matrix}1 & 0\\0 & 1\end{matrix}\right)
+    \overset{l_2'=l_2-3l_1}{\longrightarrow}
+    \left(\begin{matrix}1 & 2 \\0 & -1  \end{matrix}\;\middle|\;\begin{matrix}1 & 0\\-3 &1 \end{matrix}\right)
+    \overset{l_2'=-l_2}{\longrightarrow}
+    \left(\begin{matrix}1 & 2 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}1 & 0\\3 & -1\end{matrix}\right)
+    \overset{l_1'=l_1-2l_2}{\longrightarrow}
+    \left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}-5 & 2\\3 & -1 \end{matrix}\right)\\
+    $$
+
+    We turn the matrix $A$ into an $I$ with elimination operators, those applied to the columns of $I$ yield the $A^{-1}$.
+
+We distill the essential strategy to compute the inverse of $A$ from the previous example:
+
+-   Step 1: Write the extended matrix $[A|I]$
+
+-   Step 2: Apply elimination operation on all entries bellow and above the diagonal so that the block $A$ ends becoming an $I$, in the process apply the same operation on the extended $I$ block.
+
+-   Step 3: The final result has the form $[I| A^{-1}]$, read the inverse matrix entries from this notation and check your results by computing $AA^{-1}=I$.
+
+-   Step 4: Congratulations!
+
+# Another way to compute inverses (determinant way)
+
+Remember the formula to contains all ways to compute determinants:
+
+$$
+\left(\begin{matrix} A_{11} &  A_{12} & A_{13}\\ A_{21} & A_{22} & A_{23}\\ A_{31} & A_{32} & A_{33} \end{matrix}\right) \left(\begin{matrix} C_{11} &  C_{21} & C_{31}\\ C_{12} & C_{22} & C_{32}\\ C_{13} & C_{23} & C_{33} \end{matrix}\right)=\det A\left(\begin{matrix} 1 &  0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{matrix}\right)
+$$
+
+If an inverse of $A$ exists, then multiplying this formula by $A^{-1}$ and using $A^{-1}A=I$ and the fact that $A^{-1}I=A^{-1}$ gives us:
+
+$$
+ \left(\begin{matrix} A_{11} &  A_{12} & A_{13}\\ A_{21} & A_{22} & A_{23}\\ A_{31} & A_{32} & A_{33} \end{matrix}\right)^{-1}=\frac{1}{\det A}\left(\begin{matrix} C_{11} &  C_{21} & C_{31}\\ C_{12} & C_{22} & C_{32}\\ C_{13} & C_{23} & C_{33} \end{matrix}\right)
+$$ {#eq-inverse_formula}
+
+As an example: consider the simple $2\times2$ matrix, then:
+
+$$
+ \left(\begin{matrix} a & b\\ c & d \end{matrix}\right)^{-1} = \frac{1}{ad-bc}\left(\begin{matrix} d & -b\\ -c & a \end{matrix}\right)
+$$
+
+## Matrix with no inverse
+
+When a matrix does not have a full rank, it has no inverse \[comment: in Linear function section we'll explain why in terms of maps, for now the determinant =0 suffices, the determinant argument is a practical argument, the conceptual argument requires the idea of linear function, but that will only come later\]
+
+The reason being the determinant is zero and as a result: the calculation @eq-inverse_formula cannot be performed.
+
+Not every square matrix will have an inverse. For example $E_1$ is square, thus it may or not have an inverse $E_1^{-1}$, on the other hand the matrix $A$ is rectangular, thus no inverse exists.
+
+How do we compute an inverse of a matrix?
+
+The $E$'s matrices have inverses, always and thus:
+
+$$
+Ax=b \iff EAx=Eb \iff A'x=b'
+$$
+
+are equivalent and and as a result their truth sets are equal! Finding the truth set of the later is easier than the former.

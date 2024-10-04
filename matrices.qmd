@@ -1,0 +1,83 @@
+---
+title: "Matrices"
+execute:
+  echo: false
+---
+
+A matrix is simply put an array of numbers with $n$ rows and $m$ columns. Here are some examples:
+
+$$
+\left(\begin{matrix}1 \\2\\ 100  \end{matrix}\right)
+\qquad
+\left(\begin{matrix}1 & 1 & -1\\2 & -1 & 2  \end{matrix}\right)
+\qquad
+\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1  \end{matrix}\right)
+\qquad
+\left(\begin{matrix}1 & 1 \\2 & -1\\0 & 0  \end{matrix}\right)
+\qquad
+\left[(-1)^{i+j}\right]
+$$
+
+What can we do with matrices?
+
+*Answer:* linear combinations! \[*Comment:* provided their shape is compatible\]
+
+But this time we'll introduce more: matrix multiplication, transpose, inverses, determinants.
+
+# Matrix Product (composition if matrices)
+
+**Motivation:** Consider the following matrix operation:
+
+$$ \begin{pmatrix}1 & 2 & 2 & 2\\2 & 4 & 6 & 8\\3 & 6 & 8 & 10 \end{pmatrix}\overset{l_2' = l_2-2l_1}{\longrightarrow}\begin{pmatrix}1 & 2 & 2 & 2 \\0 & 0 & 2 & 4 \\3 & 6 & 8 & 10 \end{pmatrix} $$
+
+and corresponding vector operation
+
+$$ \begin{pmatrix} 1\\2\\3 \end{pmatrix} \overset{l_2' = l_2-2l_1}{\longrightarrow} \begin{pmatrix} 1\\0\\3 \end{pmatrix} $$
+
+the operation arrow operator $\overset{l_2' = l_2-2l_1}{\longrightarrow}$ can be recast as a matrix multiplication:
+
+$$ \begin{pmatrix}1 & 0 & 0 \\-2 & 1 & 0 \\0 & 0 & 1 \end{pmatrix}\begin{pmatrix}1 & 2 & 2 & 2 \\2 & 4 & 6 & 8 \\3 & 6 & 8 & 10\end{pmatrix} = \begin{pmatrix}1 & 2 & 2 & 2 \\0 & 0 & 2 & 4 \\3 & 6 & 8 & 10 \end{pmatrix} $$
+
+and
+
+$$ \begin{pmatrix}1 & 0 & 0 \\-2 & 1 & 0 \\0 & 0 & 1 \end{pmatrix}\begin{pmatrix}1\\2\\3\end{pmatrix}=\begin{pmatrix}1\\0\\3\end{pmatrix} $$
+
+How do we do these calculations?
+
+The general rule is:
+
+![Matrix multiplication of a 3x4 matrix by a 3x3 matrix.](figs/matrix_mult.png){#fig-mm width="523"}
+
+where, for example:
+
+$$ \begin{align} a_{22}'= e_{21}a_{12} + e_{22}a_{22} +e_{23}a_{32}\\ a_{23}'= e_{21}a_{13} + e_{22}a_{23} +e_{23}a_{33}\\ \end{align} $$
+
+Lets name the matrices involved, the $e$'s matrix is called $E_1$ and the $a$'s matrix is called $A$, the result of the multiplication is called $A'$.
+
+Another way to put it, is to see the first column of $A'$ is the l.c. of the columns of $E$ with coefficients of the first column of $A$; yet another way is to note the first row of $A'$ as the l.c. of rows of $A$ with coefficients on the first row of $E$.
+
+Observing @fig-mm and @eq-ex_of_mm we see two important aspects about $E_1 A$
+
+1.  The shape of $E_1$ is $3\times3$, the shape of $A$ is $3\times 4$ and the shape of $A'$ is $3\times4$.
+
+2.  The matrix $E_1$ needs to have as many columns as there are rows in $A$ (in this case $3$), otherwise it is not possible to do matrix multiplication. In other words, the compatible shapes for matrix multiplication are of the form $[m\times r][r\times n] = [m\times n]$, for any integers $m,n,r$. For example, the case above is $[3\times 3][3\times 4]$ and thus $m=3$, $r=3$ and $n=4$.
+
+3.  The general formula for the entries of $A'$ is the complicated formula:
+
+    $$ a_{ij}'=\sum_{k=1}^re_{ik}a_{kj} $$
+
+## Maps involved in matrix multiplication (composition)
+
+![](figs/matrix%20_product_maps.png)
+
+# Transpose
+
+$$
+\begin{pmatrix}1 & 2 & 2 & 2\\2 & 4 & 6 & 8\\3 & 6 & 8 & 10 \end{pmatrix}^\intercal = \begin{pmatrix}1 & 2 & 3  \\2 & 4 & 6  \\2 & 6 & 8 \\2 & 8 & 10  \end{pmatrix}
+$$
+
+# Inverse of a matrix
+
+# Determinant
+
+## Cramer
