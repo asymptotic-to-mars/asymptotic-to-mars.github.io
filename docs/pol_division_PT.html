@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Einstein model for a solid – asymptotic to MARS</title>
+<title>pol_division – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Einstein model for a solid</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">pol_division</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -425,13 +425,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-system" id="toc-the-system" class="nav-link" data-scroll-target="#the-system">The system</a>
+  <li><a href="#factoring-polynomials-and-related-theorems" id="toc-factoring-polynomials-and-related-theorems" class="nav-link active" data-scroll-target="#factoring-polynomials-and-related-theorems">Factoring polynomials and related theorems</a></li>
+  <li><a href="#divisão-de-inteiros" id="toc-divisão-de-inteiros" class="nav-link" data-scroll-target="#divisão-de-inteiros">Divisão de inteiros</a>
   <ul class="collapse">
-  <li><a href="#classical-model" id="toc-classical-model" class="nav-link" data-scroll-target="#classical-model">Classical Model</a></li>
+  <li><a href="#exemplo-1-223" id="toc-exemplo-1-223" class="nav-link" data-scroll-target="#exemplo-1-223">Exemplo 1: <span class="math inline">\(22/3\)</span></a>
+  <ul class="collapse">
+  <li><a href="#uma-forma-alternativa-de-calcular-223" id="toc-uma-forma-alternativa-de-calcular-223" class="nav-link" data-scroll-target="#uma-forma-alternativa-de-calcular-223">Uma forma alternativa de calcular <span class="math inline">\(22/3\)</span></a></li>
   </ul></li>
-  <li><a href="#quantum-model-of-1-oscillator" id="toc-quantum-model-of-1-oscillator" class="nav-link" data-scroll-target="#quantum-model-of-1-oscillator">Quantum model of <span class="math inline">\(1\)</span> oscillator</a></li>
-  <li><a href="#system-with-n-oscillators" id="toc-system-with-n-oscillators" class="nav-link" data-scroll-target="#system-with-n-oscillators">System with <span class="math inline">\(N\)</span> oscillators</a></li>
+  <li><a href="#example-2-100112" id="toc-example-2-100112" class="nav-link" data-scroll-target="#example-2-100112">Example 2: <span class="math inline">\(1001/12\)</span></a></li>
+  </ul></li>
+  <li><a href="#general-approach-to-computing-divisions" id="toc-general-approach-to-computing-divisions" class="nav-link" data-scroll-target="#general-approach-to-computing-divisions">General approach to computing divisions</a></li>
+  <li><a href="#division-of-polynomials" id="toc-division-of-polynomials" class="nav-link" data-scroll-target="#division-of-polynomials">Division of polynomials</a></li>
   </ul>
 </nav>
     </div>
@@ -440,7 +444,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Einstein model for a solid</h1>
+<h1 class="title">pol_division</h1>
 </div>
 
 
@@ -457,113 +461,284 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="factoring-polynomials-and-related-theorems" class="level1">
+<h1>Factoring polynomials and related theorems</h1>
+<p>The goal of polynomial division is relate two polynomials.</p>
+<p>For example:</p>
+<ul>
+<li><p>The equation that relates and is</p></li>
+<li><p>The equation that relates and is</p></li>
+</ul>
+<p>Why compute relations of this form? This relation breaks the polynomial into simpler polynomials. It is easier to analyse the simpler parts.</p>
+<p><img src="figs/conversion_pol_division.png" class="img-fluid"></p>
+<p>The algorithm for division of polynomials is analogous to the algorithm of long division learned in elementary school. We shall start by understanding the basic ideas behind long division and then use them in the division of polynomials.</p>
 </section>
-<section id="the-system" class="level1">
-<h1>The system</h1>
-<p>Our system is composed by a lattice of atoms and we want to focus our description on the oscillations performed by the nuclei, we ignore any contribution from the electrons.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/Captura de ecrã 2024-01-13 120905.png" class="img-fluid figure-img" width="264"></p>
-<figcaption>An exact pictorial representation of the Classic model, springs governed by Hook’s Law describe well the small oscillations.</figcaption>
-</figure>
-</div>
-<p>We further assume each nucleus is independent and each exhibit small oscillation around it equilibrium position.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/indeposc.png" class="img-fluid figure-img" width="310"></p>
-<figcaption>Independent oscillators are not connected among each other. The picture shows exagerated alplitudes. Use this picticture to imagine what is like in 3D.</figcaption>
-</figure>
-</div>
-<section id="classical-model" class="level2">
-<h2 class="anchored" data-anchor-id="classical-model">Classical Model</h2>
-<p><em>What is the total energy of small oscillations?</em></p>
-<p>The system is a box attached to a spring, the coordinate <span class="math inline">\(x\)</span> measures the deviation from the equilibrium position and the coordinate <span class="math inline">\(p\)</span> is the box’s linear momentum. These coordinates are real functions of time.</p>
-<div id="fig-1dosc" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1dosc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/1dosc.png" class="img-fluid figure-img" width="423">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1dosc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: One dimensional oscilator box always wants to return to the equilibrium position. For small amplitudes <span class="math inline">\(A\)</span>, the spring force on the box is given by Hook’s law.
-</figcaption>
-</figure>
-</div>
-<p><strong>The total energy of the system:</strong> We want to obtain a formula for the total energy in terms of the system coordinates using classical theory since its most familiar to us.</p>
-<p>Recall it is the sum of the kinetic energy of the box, which has the usual form <span class="math inline">\(p^2/2m\)</span>, and the potential energy <span class="math inline">\(v(x)\)</span> that characterizes the spring force. What function <span class="math inline">\(v(x)\)</span> can possibly describe well such a system?</p>
-<p>Note the assumptions! We want to describe small oscillations, i.e., the deviation <span class="math inline">\(x\)</span> from equilibrium must be really small, much smaller than 1, mathematically <span class="math inline">\(|x|\ll 1\)</span> or if you prefer, the limit as <span class="math inline">\(x \longrightarrow 0\)</span>.</p>
-<p>With this information in our hands we can do something wonderful; we can break <span class="math inline">\(v(x)\)</span> in two parts: the relevant part and negligible one. Using the power of Taylor series we find:</p>
-<p><span id="eq-taylorv"><span class="math display">\[ v(x) = \overbrace{v(0) + v'(0)x + \frac{1}{2}v''(0)x^2}^{Relevant}+\mathcal{O}(x^3).  \tag{1}\]</span></span></p>
-<p><strong>To simplify</strong> <span class="math inline">\(v(x)\)</span><strong>:</strong> the constant term <span class="math inline">\(v(0)\)</span> is set to zero to simplify notation and since <span class="math inline">\(v(x)\)</span> has a minimum at <span class="math inline">\(x=0\)</span>, <span class="math inline">\(v'(0)=0\)</span> aswell. Additionally, we identify <span class="math inline">\(v''(0)\)</span> as Hook constant <span class="math inline">\(k\)</span> which, by the way, can be rewritten as <span class="math inline">\(m\omega^2\)</span>, the <span class="math inline">\(\omega\)</span> is the characteristic frequency <span class="math inline">\(\omega\)</span> of an oscillator for which this approximation is valid.</p>
-<p>This makes this formula pleasantly simple</p>
-<p><span id="eq-vsmallosc"><span class="math display">\[
-v(x) \sim \frac{1}{2}kx^2 =\frac{1}{2}m \omega^2x^2
-\tag{2}\]</span></span></p>
-<p><strong>Pictorially</strong>, the rhs describes the parabola (pink) that better fits the original potential energy (blue).</p>
-<div id="fig-vapprox" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-vapprox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/vapprox.png" class="img-fluid figure-img" width="377">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vapprox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The actual potential vs its approximation, valid when x is small.
-</figcaption>
-</figure>
-</div>
-<p><strong>What have we achieved so far?</strong> We got the formula <a href="#eq-vsmallosc" class="quarto-xref">Equation&nbsp;2</a> . Look at it as the functional form of any function that describes the potential energy as a function of <span class="math inline">\(x\)</span> of an oscillator, oscillating :) with small amplitude. Small compared to what, small enough that the third order <span class="math inline">\(\mathcal{O}(x^3)\)</span> terms of the Taylor <a href="#eq-taylorv" class="quarto-xref">Equation&nbsp;1</a> are negligible compared with <span class="math inline">\(\mathcal{O}(x^2)\)</span> term.</p>
-<p>The total energy of the system is now one step away, its called the Hamiltonian <span class="math inline">\(h\)</span> of the system as is (as usual) the sum of the kinetic energy plus potential energy which we express has:</p>
-<p><span id="eq-oneoschamiltonian"><span class="math display">\[
-h=\frac{p^2}{2m}+\frac{1}{2}m \omega^2x^2.
-\tag{3}\]</span></span></p>
-<p>With the classical mindset we could, if we wish, derive the laws of motion for this spring-box system using this Hamiltonian, these laws are:</p>
+<section id="divisão-de-inteiros" class="level1">
+<h1>Divisão de inteiros</h1>
+<p>Recordemos com exemplos o algoritmo de divisão que aprendemos no ensino básico.</p>
+<section id="exemplo-1-223" class="level2">
+<h2 class="anchored" data-anchor-id="exemplo-1-223">Exemplo 1: <span class="math inline">\(22/3\)</span></h2>
+<p><img src="figs/22dividedby3.png" class="img-fluid"></p>
+<ol type="1">
+<li>O múltiplo de <span class="math inline">\(3\)</span> mais perto de <span class="math inline">\(22\)</span> é <span class="math inline">\(7\)</span>.</li>
+<li>Como <span class="math inline">\(7\times 3 = 21\)</span>, a subtracção <span class="math inline">\(22-21\)</span> dá-nos <span class="math inline">\(1\)</span>.</li>
+<li>Dado que <span class="math inline">\(1\)</span> não é divisível por <span class="math inline">\(3\)</span>, este é considerado o resto da divisão.</li>
+<li>Concluímos que: <span class="math inline">\(22 = 7\times 3 +1\)</span>.</li>
+</ol>
+<section id="uma-forma-alternativa-de-calcular-223" class="level3">
+<h3 class="anchored" data-anchor-id="uma-forma-alternativa-de-calcular-223">Uma forma alternativa de calcular <span class="math inline">\(22/3\)</span></h3>
+<p>O quociente de inteiros <span class="math inline">\(p/d\)</span> é o número que nos diz quantas vezes <span class="math inline">\(d\)</span> cabe em <span class="math inline">\(p\)</span>, <em>esta é a ideia chave</em>!</p>
+<p>Por sua vez este número diz-nos quem é maior, <span class="math inline">\(p\)</span> ou <span class="math inline">\(d\)</span>?</p>
+<ul>
+<li><p>Quando <span class="math inline">\(p/d&lt;1\)</span> então <span class="math inline">\(d\)</span> é maior.</p></li>
+<li><p>Quando <span class="math inline">\(p/d=1\)</span> são o mesmo número.</p></li>
+<li><p>Quando o quociente é maior do que <span class="math inline">\(1\)</span>, significa que <span class="math inline">\(p\)</span> é maior.</p></li>
+</ul>
+<p>Foque-mo-nos no último caso.</p>
+<p>Considera <span class="math inline">\(22\)</span> e <span class="math inline">\(3\)</span>, repara que, <span class="math inline">\(3\)</span>, cabe <span class="math inline">\(7\)</span> vezes em <span class="math inline">\(22\)</span> pois <span class="math inline">\(3\times 7=21\)</span>. Concluímos então que <span class="math inline">\(22=7\cdot 3+1\)</span>, o resto <span class="math inline">\(1\)</span> é a pequena correcção que falta a <span class="math inline">\(3\times 7\)</span> para chegar a <span class="math inline">\(22\)</span>. A formula</p>
 <p><span class="math display">\[
-\begin{cases}
-\dot{x} = \frac{\partial h}{\partial p}\\
-\dot{p} = - \frac{\partial h}{\partial x}
-\end{cases}
+22=7\cdot 3 +1
 \]</span></p>
-<p>This system of differential equations yields the functions <span class="math inline">\(x(t)\)</span> and <span class="math inline">\(p(t)\)</span>. But to compute them is not our goal.</p>
+<p>relacciona os números <span class="math inline">\(22\)</span> e <span class="math inline">\(3\)</span>. Observa, no lado esquerdo um único número <span class="math inline">\(22\)</span> e no lado direito <span class="math inline">\(7\times 3 +1\)</span> as peças que o compõem.</p>
+<p>Usando em geral esta decomposição tem as seguintes características:</p>
+<p>Sejam <span class="math inline">\(p\)</span> e <span class="math inline">\(d\)</span> <em>dois interiros. Então existe um inteiro</em> <span class="math inline">\(r\)</span> <em>tal que</em> <span class="math inline">\(0\leq r&lt;d\)</span> <em>e um inteiro</em> <span class="math inline">\(q\geq 0\)</span> tal que:</p>
+<p><span class="math display">\[
+p=qd+r
+\]</span></p>
+<p>A ideia chave para realizar o calculo <span class="math inline">\(22/3\)</span> é ver quantas vezes <span class="math inline">\(3\)</span> cabe dentro de <span class="math inline">\(22\)</span>, por outras palavras, a ideia chave é encontrar o número <span class="math inline">\(q\)</span> que garante a correcção <span class="math inline">\(r\)</span> mais pequena (neste caso inferior a <span class="math inline">\(3\)</span>), ou seja:</p>
+<p><span class="math display">\[
+22=q\cdot 3+r \qquad 0\leq r&lt;3
+\]</span></p>
+<p>Como é que encontramos este número <span class="math inline">\(q\)</span>? Resposta: Adivinhamos a resposta. Eis alguns exemplos:</p>
+<ul>
+<li><p>E se <span class="math inline">\(q=6\)</span>?</p>
+<p>Substituindo na equação obtemos <span class="math inline">\(22=6\cdot 3+r\)</span> o que é equivalente a<span class="math inline">\(r=22-18=4\)</span>. Da do que o resto não está entre <span class="math inline">\(0\)</span> e <span class="math inline">\(3\)</span>, temos de parti-lo em partes mais pequenas:</p>
+<p><span class="math display">\[
+4 = q'\cdot 3 + r' \qquad 0\leq r' &lt; 3
+\]</span></p>
+<p>Adivinhando que a resposta é <span class="math inline">\(q'=1\)</span>, obtemos <span class="math inline">\(r'=1\)</span>.</p>
+<p>Em conclusão:</p>
+<p><span class="math display">\[
+22 = 6\times 3 + 1\times 3 + +1
+\]</span></p>
+<p>Ou seja:</p>
+<p><span class="math display">\[
+22 = 7\times 3 +1
+\]</span></p></li>
+<li><p>E se <span class="math inline">\(q=7\)</span>?</p>
+<p>Substituindo obtemos</p>
+<p><span class="math display">\[
+22 = 7\times 3 + r
+\]</span></p>
+<p>o que é equivalente a</p>
+<p><span class="math display">\[
+r = 22-21 = 1
+\]</span></p>
+<p>Concluímos que</p>
+<p><span class="math display">\[
+22 = 7\times 3 +1
+\]</span></p></li>
+<li><p>E se <span class="math inline">\(q=8\)</span> ?</p>
+<p><span class="math display">\[
+22 = 8\times 3 + r \iff r=22-24 =-2
+\]</span></p>
+<p>Então</p>
+<p><span class="math display">\[
+22 = 8\times 3 -2
+\]</span></p>
+<p>Como o resto é negativo e precisamos dele positivo, vamos corrigir esta expressão adicionado <span class="math inline">\(0=3-3\)</span>:</p>
+<p><span class="math display">\[
+22 = 8\times 3 -2 +3-3 = (8-1)\times 3 +(3-2) = 7\times 3 +1
+\]</span></p></li>
+</ul>
+</section>
+</section>
+<section id="example-2-100112" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-100112">Example 2: <span class="math inline">\(1001/12\)</span></h2>
+<p>Let us consider now a more sophisticated division <span class="math inline">\(1001/12\)</span>, how do we argue as in elementary school?</p>
+<p>We would first ask:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="495"></p>
+</figure>
+</div>
+<p>Implicit in this question is the observation that <span class="math inline">\(1001 = 100\times 10 +1\)</span>.</p>
+<p>The answer is obviously <span class="math inline">\(8\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="398"></p>
+</figure>
+</div>
+<p>Look the position of the <span class="math inline">\(8\)</span> is at the <span class="math inline">\(10\)</span>’s place (under the <span class="math inline">\(1\)</span> in <span class="math inline">\(12\)</span>).</p>
+<p>Multiplying now <span class="math inline">\(8\times 12 = 96\)</span> we place it under the <span class="math inline">\(10\)</span>’s place of <span class="math inline">\(1001\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="354"></p>
+</figure>
+</div>
+<p>Now we remove from <span class="math inline">\(1001\)</span> the value <span class="math inline">\(96 \times 10\)</span> since <span class="math inline">\(96\)</span> sits under the <span class="math inline">\(10\)</span>’s place, the result is a <span class="math inline">\(4\)</span> under the <span class="math inline">\(10\)</span>’s place:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="385"></p>
+</figure>
+</div>
+<p>Removing <span class="math inline">\(96\times 10\)</span> from <span class="math inline">\(1000\)</span> yields the <span class="math inline">\(4 \times 10\)</span>, but removing <span class="math inline">\(96\times 10\)</span> from <span class="math inline">\(1001\)</span> gives <span class="math inline">\(4\times 10 +1\)</span>, thus we drop the <span class="math inline">\(1\)</span> in <span class="math inline">\(1001\)</span> and ask:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="437"></p>
+</figure>
+</div>
+<p>The answer is <span class="math inline">\(3\)</span>, we place it under the <span class="math inline">\(1\)</span>’s place (under the <span class="math inline">\(2\)</span> in <span class="math inline">\(12\)</span>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="396"></p>
+</figure>
+</div>
+<p>Multiplying <span class="math inline">\(3\times 12\)</span> we obtain <span class="math inline">\(36\)</span>, we write it under the <span class="math inline">\(1\)</span>’s place of <span class="math inline">\(41\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="303"></p>
+</figure>
+</div>
+<p>Removing from the current remainder <span class="math inline">\(41\)</span> this <span class="math inline">\(36\)</span> gives:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="349"></p>
+</figure>
+</div>
+<p>Combining all these removals from <span class="math inline">\(1001\)</span> we conclude:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/div_alg_step_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="408"></p>
+</figure>
+</div>
+<p>What we have been computing in elementary school with this dividion algorithm is the solution <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> of the equation:</p>
+<p><span class="math display">\[
+1001 = q \times 12 + r \qquad 0\leq r&lt;12
+\]</span></p>
+<p>There are many paths and we follow then in stages.</p>
+<p>The extreme of simplicity is to immediately guess the answer as <span class="math inline">\(q=83\)</span> and <span class="math inline">\(r=5\)</span>, you do this if you are a genius, a path of a single step.</p>
+<p>Depending on the quality of our guesses we increase the number of steps.</p>
+<p>Guess 1:</p>
+<p>Observing that <span class="math inline">\(1001=600+401\)</span> and <span class="math inline">\(5\times 12 =60\)</span> we guess that actual solution <span class="math inline">\(q\)</span> is close to <span class="math inline">\(10\times 5\)</span>:</p>
+<p><span class="math display">\[
+600+401 = \overbrace{10 \times 5}^{q} \times 12 +r
+\]</span></p>
+<p>with the remainder <span class="math inline">\(r=401\)</span>. Since it is not between <span class="math inline">\(0\)</span> and <span class="math inline">\(12\)</span> we can do better. Lets break <span class="math inline">\(401\)</span> by guessing what is <span class="math inline">\(q'\)</span> and <span class="math inline">\(r'\)</span> such that:</p>
+<p><span class="math display">\[
+401 = q'\times 12 + r' \qquad 0\leq r'&lt;12
+\]</span></p>
+<p>We think <span class="math inline">\(q'=3\times10\)</span> is a good solution since <span class="math inline">\(q'\times 12 = 360\)</span>, as a result the remainder is <span class="math inline">\(r'=401-360=41\)</span></p>
+<p>Not ideal, we want it at most <span class="math inline">\(12\)</span>. Therefore we again break into pieces:</p>
+<p><span class="math display">\[
+41 = q''\times 12 + r'' \qquad 0\leq r''&lt;12
+\]</span></p>
+<p>With the guess <span class="math inline">\(q''=3\)</span> and the current remainder is just <span class="math inline">\(r''=41-36=5\)</span>.</p>
+<p>Note, finally!! We have a remainder smaller than <span class="math inline">\(12\)</span>.</p>
+<p>Collecting out calculations we have:</p>
+<p><span class="math display">\[
+1001 = \overbrace{(10 \times 5 + 3\times 10 + 3)}^{q=83}\times 12 + 5
+\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Comment
+Commentary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Is it me, or did I pull the frequency <span class="math inline">\(\omega\)</span> out of my a#$. Right? Here is some insight, imagine a stiff spring, then we expect a high frequency of oscillation, this is what the formula</p>
-<p><span class="math display">\[ \omega =\sqrt{\frac{k}{m}},  \]</span></p>
-<p>tells us, the higher the <span class="math inline">\(k\)</span> for a fixed mass <span class="math inline">\(m\)</span>, the higher the frequency <span class="math inline">\(\omega\)</span>. The formula is derived from classical theory, if you don’t remember how, don’t worry since we will not need it anyway, just take it as a fact of life that makes intuitive sense.</p>
+<p>When guessing <span class="math inline">\(q\)</span> it is useful to break <span class="math inline">\(p\)</span> (in the example above <span class="math inline">\(p=1001\)</span>) into a large and a smaller part.</p>
+<p><span class="math display">\[
+p=[\text{large part}]+[\text{small part}]
+\]</span></p>
+<p>And then guess the best you can the <span class="math inline">\(q\)</span> that cancels the large part.</p>
+<p>There are many ways to break <span class="math inline">\(p\)</span>, experience will tell you what is ideal or not.</p>
 </div>
 </div>
 </section>
 </section>
-<section id="quantum-model-of-1-oscillator" class="level1">
-<h1>Quantum model of <span class="math inline">\(1\)</span> oscillator</h1>
-<p><strong>What we want:</strong> It was simple to derive the classical hamiltonian <a href="#eq-oneoschamiltonian" class="quarto-xref">Equation&nbsp;3</a> using classical mechanics, now we convert it into a quantum hamiltonian by translating the coordinates <span class="math inline">\(x\)</span> and <span class="math inline">\(p\)</span>, real functions of time, into quantum operators of position <span class="math inline">\(\hat{x}\)</span> and <span class="math inline">\(\hat{p}\)</span>:</p>
+<section id="general-approach-to-computing-divisions" class="level1">
+<h1>General approach to computing divisions</h1>
+<p>A general strategy to solve the problem:</p>
+<p><span id="eq-main_prob_A"><span class="math display">\[
+1001=q\cdot 12 +r\qquad 0\leq q&lt;12
+\tag{1}\]</span></span></p>
+<p>starts by splitting the parameters of the equation into powers of <span class="math inline">\(10\)</span></p>
 <p><span class="math display">\[
-\hat{h}=\frac{\hat{p}^2}{2m}+\frac{1}{2}m \omega^2\hat{x}^2.
+\begin{split}&amp;1001=1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0\\&amp;12=1\cdot 10^1+2\cdot 10^0\\\end{split}
 \]</span></p>
-<p><strong>Classical vs Quantum:</strong> In classical mechanics the system is described by the position and momentum, <span class="math inline">\((x,p)\)</span> which live in <span class="math inline">\(\mathbb{R}^2\)</span>. In quantum mechanics the system is described by the state vector <span class="math inline">\(|\psi\rangle\)</span> which live in the Hilbert space <span class="math inline">\(\mathbb{H}\)</span>.</p>
-<p><strong>Goal:</strong> introduce a basis into Hilbert space <span class="math inline">\(\mathbb{H}\)</span> composed by the eigenvectors of the hamiltonian <span class="math inline">\(\hat{h}\)</span>. It is the suitable basis to describe a quantum harmonic oscillator.</p>
-<p><strong>Basis:</strong> To drive this eigenstates is a rather long process which involves the introduction of creation and anihilation operators and to study their properties, we will skip the detail, the key takeaway is the structure (how the are organized) of these eigenvectors:</p>
+<p>and the unknowns <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> as well:</p>
 <p><span class="math display">\[
-\hat{h}|n\rangle = e_n|n\rangle,\qquad e_n = \hbar \omega(n+\frac{1}{2})
+\begin{split}&amp;q=a\cdot 10^2+b\cdot 10^2+c\cdot 10^0\\&amp;r=\alpha \cdot 10^0\end{split}
 \]</span></p>
-<p>The vectors <span class="math inline">\(|n\rangle\)</span> are index with integers <span class="math inline">\(n=0,1,2,..\)</span> and the corresponding eigenvectors are <span class="math inline">\(e_n\)</span>. The basis <span class="math inline">\(\{|n\rangle\}_{n=0,1,..}\)</span> is orthonormal:</p>
+<p>for some real numbers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>Substituting we find</p>
 <p><span class="math display">\[
-\langle n | n'\rangle = \delta_{n,n'}
+1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0=(a\cdot 10^2+b\cdot 10^1+c\cdot 10^0)\cdot (1\cdot 10^1+2\cdot 10^0) +\alpha \cdot 10^0
 \]</span></p>
-<p><strong>General state:</strong> any state of the quantum oscillator in the hilbert space can be written as a linear combination of this basis vectors</p>
+<p>Rearranging, we factor the same powers on the right side, which gives us:</p>
+<p><span id="eq-main_prob_B"><span class="math display">\[
+1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0=a\cdot 10^3+(2a+b)\cdot 10^2+(2b+c)\cdot 10^1+(2c+\alpha)\cdot 10^0
+\tag{2}\]</span></span></p>
+<p>The goal of determining what is <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> that satisfy the conditions <a href="#eq-main_prob_A" class="quarto-xref">Equation&nbsp;1</a> becomes the goal of determining <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\alpha\)</span> that satisfy <a href="#eq-main_prob_B" class="quarto-xref">Equation&nbsp;2</a>.</p>
+<p>Both sides of <a href="#eq-main_prob_B" class="quarto-xref">Equation&nbsp;2</a> are equal provides the coefficients of the same powers of <span class="math inline">\(10\)</span> are equal, that yields the following system of equations to solve:</p>
 <p><span class="math display">\[
-|\psi\rangle = \sum_{n=0}^\infty c_n |n\rangle
-\]</span> However, in what follows we can restrict ourselves to dealing with just the basis <span class="math inline">\(|n\rangle\)</span>.</p>
+\begin{cases}10^3:\,\,\,1=a\\10^2:\,\,\,0=2a+b\\10^1:\,\,\,0=2b+c\\10^0:\,\,\,1=2c+\alpha\end{cases}
+\]</span></p>
+<p>with the additional constraint <span class="math inline">\(0\leq \alpha &lt;12\)</span>.</p>
+<p>The solution of this system of equations is <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=-2\)</span>, <span class="math inline">\(c=4\)</span> and <span class="math inline">\(\alpha=-7\)</span> . Thus:</p>
+<p><span class="math display">\[
+\begin{split}&amp;q=1\cdot 10^2-2\cdot 10^1+4\cdot 10^0=84\\&amp;r=-7\cdot 10^0=-7\end{split}
+\]</span></p>
+<p>Hence, <span class="math inline">\(1001=84\cdot 12-7\)</span>, observe the remainder is negative, therefore we need to modify this result to make it positive and below <span class="math inline">\(12\)</span>. Adding <span class="math inline">\(0=12-12\)</span> to the right hand side we find:</p>
+<p><span class="math display">\[
+\begin{split}&amp;1001=84\cdot 12-7+12-12\\\implies&amp;1001=83\cdot 12+5\end{split}
+\]</span></p>
+<p>The final result is <span class="math inline">\(1001=83\cdot 12+5\)</span> as we computed through other methods.</p>
 </section>
-<section id="system-with-n-oscillators" class="level1">
-<h1>System with <span class="math inline">\(N\)</span> oscillators</h1>
+<section id="division-of-polynomials" class="level1">
+<h1>Division of polynomials</h1>
+<p>The division of polynomials follow from the theorem:</p>
+<p><em>Let</em> <span class="math inline">\(f\)</span> <em>and</em> <span class="math inline">\(g\)</span> <em>be non-zero polynomials. Then there exist polynomials</em> <span class="math inline">\(q\)</span><em>,</em> <span class="math inline">\(r\)</span> <em>such that</em> <span class="math inline">\(\deg r &lt; \deg g\)</span> <em>such that:</em></p>
+<p><span class="math display">\[
+f(x)=q(x)g(x)+r(x)
+\]</span></p>
+<p>The strategy to make this division is similar to the long division, let us see an example.</p>
+<p>Consider <span class="math inline">\(f(x):= x^3+1\)</span> and <span class="math inline">\(g(x) := x+2\)</span>. The theorem tell us that (a) the polynomial <span class="math inline">\(q(x)\)</span> must have a degree equal to <span class="math inline">\(2\)</span>; (b) the degree of <span class="math inline">\(r(x)\)</span> is <span class="math inline">\(0\)</span>. From this we know the general from of these polynomials to be:</p>
+<p><span class="math display">\[
+\begin{split}&amp;q(x) :=  ax^2+bx+c\\&amp;r(x) :=  \alpha \end{split}
+\]</span></p>
+<p>Substituting we find:</p>
+<p><span class="math display">\[
+x^3+1=(ax^2+bx+c)(x+2)+\alpha
+\]</span></p>
+<p>Expanding and lumping the same powers of <span class="math inline">\(x\)</span> we get:</p>
+<p><span class="math display">\[
+x^3+1=a x^3+(2a+b) x^2+ (2b +c)x^1+(2c+\alpha)
+\]</span></p>
+<p>The polynomial on the right is equal to the the left if the coefficients of the same powers are the same, i.e., they satisfy the following system of equations</p>
+<p><span class="math display">\[
+\begin{cases}x^3:\,\,\,1=a\\x^2:\,\,\,0=2a+b\\x^1:\,\,\,0=2b+c\\x^0:\,\,\,1=2c+\alpha\end{cases}
+\]</span></p>
+<p>The solution is <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=-2\)</span>, <span class="math inline">\(c=4\)</span> and <span class="math inline">\(\alpha=-7\)</span>:</p>
+<p><span class="math display">\[
+x^3+1=(x^2-2x+4)(x+2)-7
+\]</span></p>
+<p>The similarities between the division of integers and polynomials should be obvious, since we just replace the powers of <span class="math inline">\(10\)</span> by powers of <span class="math inline">\(x\)</span>. This allow us to use the strategies of previous section with this replacement, we leave as an exercise this translation, and instead introduce yet another approach which is based on arithmetic manipulation. The goal is to compute to compute <span class="math inline">\(q(x)\)</span> and <span class="math inline">\(r(x)\)</span>, (provided <span class="math inline">\(x\)</span> is not <span class="math inline">\(-2\)</span> since <span class="math inline">\(x+2\)</span> is in the denominator):</p>
+<p><span id="eq-factoringx38"><span class="math display">\[
+\frac{x^3+1}{x+2}=q(x)+\frac{r(x)}{x+2}
+\tag{3}\]</span></span></p>
+<p>We can focus our attention on the left side of the equation and attempt, through trial and error, to manipulate the numerator <span class="math inline">\(x^3+1\)</span> so that it becomes equal to the denominator <span class="math inline">\(x+2\)</span>. There are many ways to do it, here is one:</p>
+<p><span id="eq-poldivmanipulation"><span class="math display">\[
+\begin{split}\frac{x^3+1}{x+2}&amp;=\frac{\mathbf{x^2}(x+\mathbf{2})\mathbf{-2x^2}+1}{x+2}\\&amp;=x^2+\frac{-2x^2+1}{x+2}\\&amp;=x^2+\frac{\mathbf{-2x}(x+\mathbf{2})+\mathbf{4x}+1}{x+2}\\&amp;=x^2-2x+\frac{4x+1}{x+2}\\&amp;=x^2-2x+\frac{4x+1+\mathbf{8-8}}{x+2}\\&amp;=x^2-2x+\frac{4x+8-7}{x+2}\\&amp;=x^2-2x+4+\frac{-7}{x+2}\end{split} \tag{4}\]</span></span></p>
+<p>In the first line of <a href="#eq-poldivmanipulation" class="quarto-xref">Equation&nbsp;4</a> we introduced <span class="math inline">\(0=2x^2-2x^2\)</span> and factored factored <span class="math inline">\(x^2\)</span> giving us <span class="math inline">\(\mathbf{x^2}(x+\mathbf{2})\mathbf{-2x^2}+1\)</span>. We then cancelled the factors <span class="math inline">\(x+2\)</span> in the numerator and denominator leaving us with <span class="math inline">\((-2x^2+1)/(x+2)\)</span> in the second line; now we repeat the the same strategy and try to manipulate this numerator so that <span class="math inline">\(x+2\)</span> appears again, we do in the third line by introducing <span class="math inline">\(0=4x-4x\)</span> and factoring <span class="math inline">\(\mathbf{-2x}\)</span>, cancel the <span class="math inline">\(x+2\)</span> we obtain the result in the fourth line. On the fifth line we added <span class="math inline">\(0=8-8\)</span> with the goal of again making <span class="math inline">\(x+2\)</span> appear in the numerator; the sixth line has <span class="math inline">\(4x+8-7=4(x+2)-7\)</span>, where again we cancel with the denominator giving us the final result in the seventh line. % %Here another possible manipulation of the numerator:</p>
+<p>Hence we conclude that:</p>
+<p><span class="math display">\[
+\begin{cases}q(x) :=  x^2-2x+4\\r(x)=-7\end{cases}
+\]</span></p>
+<p>Ver serie GALOIS no yutube NPTEL-NOC IITM Introduction to Galois Theory</p>
 
 
 </section>

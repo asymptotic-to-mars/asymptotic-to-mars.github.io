@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>asymptotic to MARS - collision theory intro</title>
+<title>collision theory intro – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,17 +35,25 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,56 +62,363 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">asymptotic to MARS</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Bried Notes</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Bried Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./favourites.html" rel="" target="">
- <span class="menu-text">Favourites</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">collision theory intro</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Basic Maths</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions_as_relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions as relations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Intro to Polynomials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Atomic Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials of degree one</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line’s equation from two points</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Second order polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Focus-diretrix formulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pol_division.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomial division</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits of sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./implicit_derivative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Quantum Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./angular_momentum_qm_short_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vector spaces and subspaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_dependence_and_independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear dependence and independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_of_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solving systems using elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basis_of_vector_spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basis of vector spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./two_special_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Column space and nullspace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_from_a_new_view.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System from a new point of view</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Determinants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse Matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis_of_system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis of a system</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Things you can do with matrices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrix_multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix multiplication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./how_many_solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How many solutions a system has?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -150,7 +465,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="collision-theory" class="level1">
 <h1>Collision Theory</h1>
@@ -181,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 \mathbf{r}_1 = \mathbf{R} +\frac{m_2}{M}\mathbf{r}\\
 \mathbf{r}_2 = \mathbf{R} -\frac{m_1}{M}\mathbf{r}
 \end{cases}
-\tag{2}\]</span></span> we choose the reference frame attach located at <span class="math inline">\(\mathbf{R}\)</span>, i.e., we choose <span class="math inline">\(\mathcal{O} = \mathcal{O}_{cm}\)</span>, then <a href="#eq-r1r2">Equation&nbsp;2</a> becomes:</p>
+\tag{2}\]</span></span> we choose the reference frame attach located at <span class="math inline">\(\mathbf{R}\)</span>, i.e., we choose <span class="math inline">\(\mathcal{O} = \mathcal{O}_{cm}\)</span>, then <a href="#eq-r1r2" class="quarto-xref">Equation&nbsp;2</a> becomes:</p>
 <p><span id="eq-r1r2cm"><span class="math display">\[
 \begin{cases}
 \mathbf{r}_{1,cm} = \frac{m_2}{M}\mathbf{r}\\
@@ -209,14 +526,14 @@ ul.task-list li input[type="checkbox"] {
 <li>If the acceleration of the center of mass is zero, then its velocity is zero or constant.</li>
 <li>If the center of mass velocity is zero or constant, then a reference frame attach to it <span class="math inline">\(\mathcal{O}_{cm}\)</span> is an inertial reference frame.</li>
 </ol>
-<p>The frame <span class="math inline">\(\mathcal{O}_{cm}\)</span> will be a useful definition when studying collisions. Because in this frame the components of velocity of the center of mass are zero <span class="math inline">\(\dot{\mathbf{R}}_{cm}=\mathbf{0}\)</span> and as a result by <a href="#eq-2ndlaw">Equation&nbsp;4</a> we have:</p>
+<p>The frame <span class="math inline">\(\mathcal{O}_{cm}\)</span> will be a useful definition when studying collisions. Because in this frame the components of velocity of the center of mass are zero <span class="math inline">\(\dot{\mathbf{R}}_{cm}=\mathbf{0}\)</span> and as a result by <a href="#eq-2ndlaw" class="quarto-xref">Equation&nbsp;4</a> we have:</p>
 <p><span id="eq-stat_on_p"><span class="math display">\[
 \begin{align}
 &amp;\mathbf{p}_1+\mathbf{p}_2=\mathbf{0}\\
 \implies &amp; \mathbf{p}_1=-\mathbf{p}_2
 \end{align}
 \tag{5}\]</span></span></p>
-<p>Moreover, in this new frame the measurements of <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> become using <a href="#eq-r1r2cm">Equation&nbsp;3</a> :</p>
+<p>Moreover, in this new frame the measurements of <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> become using <a href="#eq-r1r2cm" class="quarto-xref">Equation&nbsp;3</a> :</p>
 <p><span class="math display">\[ \begin{cases} \dot{\mathbf{r}}_{1,cm} = \frac{m_2}{M}\dot{\mathbf{r}}\\ \dot{\mathbf{r}}_{2,cm} =  -\frac{m_1}{M}\dot{\mathbf{r}} \end{cases} \]</span></p>
 <p>which leads us to explicit formulas for the linear momentum:</p>
 <p><span id="eq-p1cmp2cm"><span class="math display">\[
@@ -225,7 +542,7 @@ ul.task-list li input[type="checkbox"] {
 \mathbf{p}_{2,cm} = m_2 \dot{\mathbf{r}}_{2,cm} = -\mu\dot{\mathbf{r}}
 \end{cases}
 \tag{6}\]</span></span></p>
-<p>As expected they satisfy the equation <a href="#eq-stat_on_p">Equation&nbsp;5</a> .</p>
+<p>As expected they satisfy the equation <a href="#eq-stat_on_p" class="quarto-xref">Equation&nbsp;5</a> .</p>
 </section>
 <section id="kinetic-energy" class="level2">
 <h2 class="anchored" data-anchor-id="kinetic-energy">Kinetic Energy</h2>
@@ -233,7 +550,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[
 T = \frac{1}{2} m_1 \dot{\mathbf{r}}_1+\frac{1}{2} m_2 \dot{\mathbf{r}}_2
 \]</span></p>
-<p>As we have seen in <a href="#eq-r1r2">Equation&nbsp;2</a>, from <span class="math inline">\(\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{r}_2\)</span> we can compute the generalized coordinates <span class="math inline">\(\mathbf{R}\)</span> and <span class="math inline">\(\mathbf{r}\)</span>. Differentiating, relates the velocities:</p>
+<p>As we have seen in <a href="#eq-r1r2" class="quarto-xref">Equation&nbsp;2</a>, from <span class="math inline">\(\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{r}_2\)</span> we can compute the generalized coordinates <span class="math inline">\(\mathbf{R}\)</span> and <span class="math inline">\(\mathbf{r}\)</span>. Differentiating, relates the velocities:</p>
 <p><span class="math display">\[
 \begin{cases}
 \dot{\mathbf{r}}_1 = \dot{\mathbf{R}} +\frac{m_2}{M}\dot{\mathbf{r}}\\
@@ -246,8 +563,8 @@ T = \frac{1}{2} m_1 \dot{\mathbf{r}}_1+\frac{1}{2} m_2 \dot{\mathbf{r}}_2
 T = \frac{1}{2} M\dot{\mathbf{R}}^2+\frac{1}{2} \mu\dot{\mathbf{r}}^2\qquad \mu = \frac{m_1m_2}{M}
 \tag{7}\]</span></span></p>
 <p>The total kinetic energy of <span class="math inline">\(1\)</span> plus <span class="math inline">\(2\)</span> at time <span class="math inline">\(t\)</span> measured wrt to <span class="math inline">\(\mathcal{O}\)</span> is equal to the sum of the kinetic energy of a massive particle <span class="math inline">\(M\)</span> moving with velocity <span class="math inline">\(\dot{\mathbf{R}}\)</span> plus a smaller particle <span class="math inline">\(\mu\)</span> moving with velocity <span class="math inline">\(\dot{\mathbf{r}}\)</span>, both again, measured wrt to <span class="math inline">\(\mathcal{O}\)</span>.</p>
-<p>The energy in <a href="#eq-equivalent_K">Equation&nbsp;7</a> is NOT the kinetic energy wrt to <span class="math inline">\(\mathcal{O}_{cm}\)</span>, it is just another way of computing the kinetic energy wrt to <span class="math inline">\(\mathcal{O}\)</span>. Note that both <span class="math inline">\(\dot{\mathbf{R}}\)</span> and <span class="math inline">\(\dot{\mathbf{r}}\)</span> have components with respect with the frame of reference.</p>
-<p>If we choose the <span class="math inline">\(\mathcal{O}_{cm}\)</span> frame of reference then <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> in <a href="#eq-r1r2cm">Equation&nbsp;3</a> become:</p>
+<p>The energy in <a href="#eq-equivalent_K" class="quarto-xref">Equation&nbsp;7</a> is NOT the kinetic energy wrt to <span class="math inline">\(\mathcal{O}_{cm}\)</span>, it is just another way of computing the kinetic energy wrt to <span class="math inline">\(\mathcal{O}\)</span>. Note that both <span class="math inline">\(\dot{\mathbf{R}}\)</span> and <span class="math inline">\(\dot{\mathbf{r}}\)</span> have components with respect with the frame of reference.</p>
+<p>If we choose the <span class="math inline">\(\mathcal{O}_{cm}\)</span> frame of reference then <span class="math inline">\(\dot{\mathbf{r}}_1\)</span> and <span class="math inline">\(\dot{\mathbf{r}}_2\)</span> in <a href="#eq-r1r2cm" class="quarto-xref">Equation&nbsp;3</a> become:</p>
 <p><span class="math display">\[
 \begin{cases}
 \dot{\mathbf{r}}_{1,cm} = \frac{m_2}{M}\dot{\mathbf{r}}\\
@@ -265,7 +582,7 @@ T_{cm} = \frac{1}{2} m_1 \dot{\mathbf{r}}_{1,cm}+\frac{1}{2} m_2 \dot{\mathbf{r}
 <p>Our goal is to describe the momenta and kinetic energy in a two particle elastic collision. If we assume there is no external forces acting on the particles the center of mass position moves at constant velocity and therefore constitute a inertial reference frame <span class="math inline">\(\mathcal{O}_{cm}\)</span>. This is the first point of view we’ll adopt. The second point of view is a special case of a lab reference frame - the conventional lab frame for collisions - it is set in such a way that particle <span class="math inline">\(2\)</span>, the target is initially at rest. I would like to emphasize the key word initially at rest, that means that in the reference frame, after the collision, the particle <span class="math inline">\(2\)</span> is no longer at rest.</p>
 <p>See Fig. 14.14 Taylor</p>
 <ul>
-<li><p>In <span class="math inline">\(\mathcal{O}_{cm}\)</span> the initial and final momenta of both particles is given by <a href="#eq-p1cmp2cm">Equation&nbsp;6</a></p>
+<li><p>In <span class="math inline">\(\mathcal{O}_{cm}\)</span> the initial and final momenta of both particles is given by <a href="#eq-p1cmp2cm" class="quarto-xref">Equation&nbsp;6</a></p>
 <p><span id="eq-p1cmp2cmB"><span class="math display">\[
 \begin{align}
 \mathbf{p}_{1,cm} = -\mathbf{p}_{2,cm} \equiv \mathbf{p}_{cm}= \mu \dot{\mathbf{r}}\\
@@ -289,26 +606,26 @@ T_{cm} = \frac{1}{2} m_1 \dot{\mathbf{r}}_{1,cm}+\frac{1}{2} m_2 \dot{\mathbf{r}
 \end{align}
 \tag{9}\]</span></span></p></li>
 </ul>
-<p>Now, for particle <span class="math inline">\(2\)</span> we also write <span class="math inline">\(\mathbf{p}_{2,lab} =m_2 \dot{\mathbf{r}}_2\)</span>, but since this particle is at rest in the lab frame we have <span class="math inline">\(\mathbf{p}_{2,lab}=\mathbf{0}\)</span>. Additionally, from the definition of center of mass <a href="#eq-cm">Equation&nbsp;1</a> we simplify <a href="#eq-p1labp2lab">Equation&nbsp;9</a> using the observation that:</p>
+<p>Now, for particle <span class="math inline">\(2\)</span> we also write <span class="math inline">\(\mathbf{p}_{2,lab} =m_2 \dot{\mathbf{r}}_2\)</span>, but since this particle is at rest in the lab frame we have <span class="math inline">\(\mathbf{p}_{2,lab}=\mathbf{0}\)</span>. Additionally, from the definition of center of mass <a href="#eq-cm" class="quarto-xref">Equation&nbsp;1</a> we simplify <a href="#eq-p1labp2lab" class="quarto-xref">Equation&nbsp;9</a> using the observation that:</p>
 <p><span id="eq-R_before"><span class="math display">\[
 \begin{cases}
 \dot{\mathbf{R}} = \frac{m_1}{M}\dot{\mathbf{r}}_1=\frac{m_1}{M}\dot{\mathbf{r}} =\frac{\mu}{m_2}\dot{\mathbf{r}}=\frac{\mathbf{p}}{m_2}\\
 \mathbf{r}=\mathbf{r}_1-\mathbf{r}_2 = \mathbf{r}_1
 \end{cases}
 \tag{10}\]</span></span></p>
-<p>where at the last step we used <a href="#eq-p1cmp2cmB">Equation&nbsp;8</a>; the momentum <span class="math inline">\(\mathbf{p}\)</span> is of a fictitious particle with mass <span class="math inline">\(\mu\)</span>. Substituting this result in <a href="#eq-p1labp2lab">Equation&nbsp;9</a> we find:</p>
+<p>where at the last step we used <a href="#eq-p1cmp2cmB" class="quarto-xref">Equation&nbsp;8</a>; the momentum <span class="math inline">\(\mathbf{p}\)</span> is of a fictitious particle with mass <span class="math inline">\(\mu\)</span>. Substituting this result in <a href="#eq-p1labp2lab" class="quarto-xref">Equation&nbsp;9</a> we find:</p>
 <p><span class="math display">\[
 \mathbf{p}_{1,lab} = m_1\dot{\mathbf{R}}+\mu\dot{\mathbf{r}}=\lambda \mathbf{p}+\mathbf{p}\qquad \lambda =\frac{m_1}{m_2}
 \]</span></p>
-<p>The momentum of <span class="math inline">\(1\)</span> after collision has the same form as <a href="#eq-p1labp2lab">Equation&nbsp;9</a> :</p>
+<p>The momentum of <span class="math inline">\(1\)</span> after collision has the same form as <a href="#eq-p1labp2lab" class="quarto-xref">Equation&nbsp;9</a> :</p>
 <p><span id="eq-p1_after"><span class="math display">\[
 \mathbf{p}'_{1,lab}=m_1\dot{\mathbf{R}}'+\mu\dot{\mathbf{r}}'
 \tag{11}\]</span></span></p>
-<p>Observe that <span class="math inline">\(\mu \dot{\mathbf{r}}'=\mathbf{p}'\)</span>; since <span class="math inline">\(\mathbf{F}_{1,ext}=\mathbf{0}\)</span> then <span class="math inline">\(M\dot{\mathbf{R}} = M\dot{\mathbf{R}}'\)</span>, which means the velocity of the center of mass is the same before and after the collision and as a result we can compute it using <a href="#eq-R_before">Equation&nbsp;10</a>:</p>
+<p>Observe that <span class="math inline">\(\mu \dot{\mathbf{r}}'=\mathbf{p}'\)</span>; since <span class="math inline">\(\mathbf{F}_{1,ext}=\mathbf{0}\)</span> then <span class="math inline">\(M\dot{\mathbf{R}} = M\dot{\mathbf{R}}'\)</span>, which means the velocity of the center of mass is the same before and after the collision and as a result we can compute it using <a href="#eq-R_before" class="quarto-xref">Equation&nbsp;10</a>:</p>
 <p><span class="math display">\[
 \dot{\mathbf{R}}' = \dot{\mathbf{R}}=\frac{\mathbf{p}}{m_2}
 \]</span></p>
-<p>Substituting in <a href="#eq-p1_after">Equation&nbsp;11</a> yields:</p>
+<p>Substituting in <a href="#eq-p1_after" class="quarto-xref">Equation&nbsp;11</a> yields:</p>
 <p><span class="math display">\[
 \mathbf{p}_{1,lab}' = \lambda \mathbf{p}+\mathbf{p}'\qquad \lambda =\frac{m_1}{m_2}
 \]</span></p>
@@ -369,9 +686,9 @@ E = p_4c=\gamma m c^2\sim m c^2 +\frac{1}{2}m v^2\qquad v\ll c
 T^i=T^f
 \]</span></p>
 <p>The kinetic energy is conserved and we call it an elastic collision.</p>
-<p>In an inelastic collision such as a collision between two atoms their internal energy (mass-energy terms) can be disturbed and as a result their kinetic energies before and after cannot be the same <span class="math inline">\(T^i\not = T^f\)</span>, as a result from <a href="#eq-rel_E_conserv_law">Equation&nbsp;12</a>, the masses before and after cannot be the same <span class="math inline">\(M^i \not = M^f\)</span>.</p>
+<p>In an inelastic collision such as a collision between two atoms their internal energy (mass-energy terms) can be disturbed and as a result their kinetic energies before and after cannot be the same <span class="math inline">\(T^i\not = T^f\)</span>, as a result from <a href="#eq-rel_E_conserv_law" class="quarto-xref">Equation&nbsp;12</a>, the masses before and after cannot be the same <span class="math inline">\(M^i \not = M^f\)</span>.</p>
 <p>If relativistic energy is conserved, then the mass cannot be conserved. When an atom gains internal energy, it gains mass.</p>
-<p>The following formula <a href="#eq-rel_E_conserv_law">Equation&nbsp;12</a> is equivalent to:</p>
+<p>The following formula <a href="#eq-rel_E_conserv_law" class="quarto-xref">Equation&nbsp;12</a> is equivalent to:</p>
 <p><span class="math display">\[
 Q\equiv \Delta M c^2 =-\Delta T
 \]</span></p>
@@ -453,7 +770,7 @@ N_{tot}= N_{inc}n_{tar}\sigma_{tot} \qquad \sigma_{tot} = \overbrace{\sigma_{el}
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/Pasted image 20221023111809.png" class="img-fluid figure-img" width="460"></p>
-<figcaption class="figure-caption">A particle is sent each dt seconds, either it hits or misses the array of targets. In t seconds it is sent N=infinity particles.</figcaption>
+<figcaption>A particle is sent each dt seconds, either it hits or misses the array of targets. In t seconds it is sent N=infinity particles.</figcaption>
 </figure>
 </div>
 <p>Define now the r.v. <span class="math inline">\(X=x \,\,\text{particles hit in $t$ seconds}\)</span>, then using the Binomial prob law we find: <span class="math display">\[P(X=x)=\binom{N_1}{x}p^x\left(1-p\right)^{N_1-x}\]</span> The expected value is <span class="math inline">\(E[X]= p N_1\)</span>. We would like to take now <span class="math inline">\(N_1\rightarrow \infty\)</span>, but this entails the expected value to go to infinity if we assume <span class="math inline">\(p\)</span> constant. For the present scenario a better model is to assume the expected value is constant, i.e., we expect in any <span class="math inline">\(t\)</span> seconds to find on average the same number of hits. To fix the expected value lets rename it as the product <span class="math inline">\(w t\)</span>. Hence let us introduce the quantity <span class="math inline">\(w\)</span> such that: <span class="math display">\[w t\coloneqq N_1 p =N_1 dt\, w\]</span> As a consequence of fixing the average value though the fix of <span class="math inline">\(w\)</span> we find as a side effect: <span class="math display">\[p(\text{hit between $t$ and $t+dt$})\coloneqq w dt =\frac{n_2\sigma}{t}dt\]</span> We see now that <span class="math inline">\(w\)</span> is the probability of hit per unit time. And <span class="math inline">\(dt=t/N_1\)</span>. As a result the probability law is given by <span class="math display">\[P(X=x)=\binom{N_1}{x}\left(\frac{w t}{N_1}\right)^x\left(1-\frac{w t}{N_1}\right)^{N_1-x}\]</span> The expected value is fix at <span class="math inline">\(E[X]= p N_1=w t\)</span> in this limit.</p>
@@ -487,7 +804,7 @@ d\sigma_{sc} = \frac{d\sigma_{sc}}{d\Omega}d\Omega
 dN_{sc} = N_{inc} n_{tar} d\sigma_{sc} = N_{inc} n_{tar}\frac{d\sigma_{sc}}{d\Omega}d\Omega
 \]</span></p>
 <p>This formula allow us to compute experimentally the scattering cross section and also gives meaning to it. We should note that it can also be derived theoretically.</p>
-<p>Integrating all directions we recover the equation <a href="#eq-sc">Equation&nbsp;13</a> :</p>
+<p>Integrating all directions we recover the equation <a href="#eq-sc" class="quarto-xref">Equation&nbsp;13</a> :</p>
 <p><span class="math display">\[
 N_{sc} = \int N_{inc} n_{tar}\frac{d\sigma_{sc}}{d\Omega}d\Omega = N_{inc} n_{tar}\overbrace{\int\frac{d\sigma_{sc}}{d\Omega}d\Omega}^{\sigma_{sc}}
 \]</span></p>
@@ -540,6 +857,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -555,18 +1016,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -598,11 +1048,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -612,8 +1101,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -625,7 +1123,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -669,6 +1290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -694,6 +1316,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -754,6 +1402,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

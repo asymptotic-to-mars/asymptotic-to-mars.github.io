@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Polynomial division – asymptotic to MARS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./limits_of_sequences.html" rel="next">
+<link href="./examples_of_pol_part_5.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">asymptotic to MARS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Bried Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basic Maths</li><li class="breadcrumb-item"><a href="./examples_of_pol_part_1.html">Intro to Polynomials</a></li><li class="breadcrumb-item"><a href="./pol_division.html">Polynomial division</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Maths</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions_as_relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions as relations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to Polynomials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Atomic Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials of degree one</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line’s equation from two points</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Second order polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Focus-diretrix formulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pol_division.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Polynomial division</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits of sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./implicit_derivative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Quantum Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./angular_momentum_qm_short_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vector spaces and subspaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_dependence_and_independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear dependence and independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_of_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solving systems using elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basis_of_vector_spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basis of vector spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./two_special_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Column space and nullspace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_from_a_new_view.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System from a new point of view</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Determinants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse Matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis_of_system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis of a system</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Things you can do with matrices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrix_multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix multiplication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./how_many_solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How many solutions a system has?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analogy-between-polynomial-notation-and-integer-notation" id="toc-analogy-between-polynomial-notation-and-integer-notation" class="nav-link active" data-scroll-target="#analogy-between-polynomial-notation-and-integer-notation">1) Analogy between polynomial notation and integer notation</a></li>
+  <li><a href="#to-divide-two-integers-is-to-not-only-find-the-quotient-but-also-find-the-remainder" id="toc-to-divide-two-integers-is-to-not-only-find-the-quotient-but-also-find-the-remainder" class="nav-link" data-scroll-target="#to-divide-two-integers-is-to-not-only-find-the-quotient-but-also-find-the-remainder">2) To divide two integers is to NOT ONLY find the quotient but also find the remainder!!</a></li>
+  <li><a href="#the-key-strategy-behind-computing-the-division-of-integers-and-an-example" id="toc-the-key-strategy-behind-computing-the-division-of-integers-and-an-example" class="nav-link" data-scroll-target="#the-key-strategy-behind-computing-the-division-of-integers-and-an-example">3) The key strategy behind computing the division of integers and an example</a></li>
+  <li><a href="#to-divide-two-polynomials-is-to-not-only-find-the-quotient-but-also-find-the-remainder" id="toc-to-divide-two-polynomials-is-to-not-only-find-the-quotient-but-also-find-the-remainder" class="nav-link" data-scroll-target="#to-divide-two-polynomials-is-to-not-only-find-the-quotient-but-also-find-the-remainder">4) To divide two polynomials is to NOT ONLY find the quotient but also find the remainder!!</a></li>
+  <li><a href="#the-key-strategy-behind-computing-the-division-of-polynomials-and-an-example" id="toc-the-key-strategy-behind-computing-the-division-of-polynomials-and-an-example" class="nav-link" data-scroll-target="#the-key-strategy-behind-computing-the-division-of-polynomials-and-an-example">5) The key strategy behind computing the division of polynomials and an example</a></li>
+  <li><a href="#polynomial-division-is-useful-in-polynomial-factoring" id="toc-polynomial-division-is-useful-in-polynomial-factoring" class="nav-link" data-scroll-target="#polynomial-division-is-useful-in-polynomial-factoring">6) Polynomial division is useful in polynomial factoring</a>
+  <ul class="collapse">
+  <li><a href="#factoring-polynomials" id="toc-factoring-polynomials" class="nav-link" data-scroll-target="#factoring-polynomials">Factoring polynomials</a></li>
+  </ul></li>
+  <li><a href="#why-factoring-polynomials-is-cool" id="toc-why-factoring-polynomials-is-cool" class="nav-link" data-scroll-target="#why-factoring-polynomials-is-cool">7) Why factoring polynomials is cool?</a></li>
+  <li><a href="#method-of-undetermined-coefficients-for-integer-division" id="toc-method-of-undetermined-coefficients-for-integer-division" class="nav-link" data-scroll-target="#method-of-undetermined-coefficients-for-integer-division">8) Method of undetermined coefficients for integer division</a></li>
+  <li><a href="#method-of-undetermined-coefficients-for-polynomials-division" id="toc-method-of-undetermined-coefficients-for-polynomials-division" class="nav-link" data-scroll-target="#method-of-undetermined-coefficients-for-polynomials-division">9) Method of undetermined coefficients for polynomials division</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basic Maths</li><li class="breadcrumb-item"><a href="./examples_of_pol_part_1.html">Intro to Polynomials</a></li><li class="breadcrumb-item"><a href="./pol_division.html">Polynomial division</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Polynomial division</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Look at the two divisions below:</p>
+<p><span id="eq-examples_of_div"><span class="math display">\[
+\begin{equation}
+\frac{x^3+1}{x+2}\qquad \text{vs}\qquad \frac{1001}{12}
+\end{equation}
+\tag{1}\]</span></span></p>
+<p>What do they have in common?</p>
+<p>In this notes we see 9 important ideas behind division of polynomials and integers. We’ll start by integers since its easier.</p>
+<section id="analogy-between-polynomial-notation-and-integer-notation" class="level2">
+<h2 class="anchored" data-anchor-id="analogy-between-polynomial-notation-and-integer-notation">1) Analogy between polynomial notation and integer notation</h2>
+<p>Many of you may have forgotten, but the position of watch integer in the symbol <span class="math inline">\(1001\)</span> has a meaning, specifically:</p>
+<p><span class="math display">\[
+1001 = 1\cdot 10 ^3+0\cdot10^2+0\cdot10^1+1\cdot10^0
+\]</span></p>
+<p>The left hand side is just a super compact way of writing the right side.</p>
+<p>Similarly, <span class="math inline">\(12\)</span> is just a symbol for <span class="math inline">\(1\cdot 10^1+2\cdot 10^0\)</span>.</p>
+<p>With this reminder we can see clearly the connection between the numerators and denominators in <a href="#eq-examples_of_div" class="quarto-xref">Equation&nbsp;1</a> .</p>
+<p><span class="math display">\[
+\begin{cases}
+x^3+1 = 1\cdot x^3+0\cdot x^2 + 0 \cdot x^1 + 1\cdot x^0\\
+1001 = 1\cdot 10 ^3+0\cdot10^2+0\cdot10^1+1\cdot10^0
+\end{cases}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{cases}
+x+2 = 1 \cdot x^1 + 2\cdot x^0\\
+12 = 1\cdot10^1+2\cdot10^0
+\end{cases}
+\]</span></p>
+<p>The connection is: powers of <span class="math inline">\(10\)</span> are replaced by powers of <span class="math inline">\(x\)</span>.</p>
+<p>With such a bridge, we may expect the practical realization of this calculation will also be similar. You could have done polynomial division on the 4th grade.</p>
+</section>
+<section id="to-divide-two-integers-is-to-not-only-find-the-quotient-but-also-find-the-remainder" class="level2">
+<h2 class="anchored" data-anchor-id="to-divide-two-integers-is-to-not-only-find-the-quotient-but-also-find-the-remainder">2) To divide two integers is to NOT ONLY find the quotient but also find the remainder!!</h2>
+<p>Lets see this with a picture.</p>
+<p><img src="figs/cut_here.png" class="img-fluid"></p>
+<p>Imagine a chocolate bar of length <span class="math inline">\(p=22\)</span> with grooves at each unit. You want to divide it, cutting only at the grooves, by your <span class="math inline">\(d=3\)</span> friends. You don’t want to cheat anyone (do you?), so you must give pieces of the same length and, of course, also give them the maximum possible piece-length.</p>
+<p>You might immediately think to measure the chocolate bar length, pull a calculator and compute the division</p>
+<p><span class="math display">\[
+\frac{22}{3}\approx 7.3
+\]</span></p>
+<p>Then measure and mark the cuts at <span class="math inline">\(7.3\)</span> and <span class="math inline">\(14.6\)</span>; then cut the thing and give then. See picture above.</p>
+<p>With minimal error in the calculation, because the division is only approximately <span class="math inline">\(7.3\)</span> and error in the actual measurements, you succeeded. Congratulations….but this is not what was being asked!</p>
+<p><strong>I remind you:</strong> you can only cut at the grooves that already came with the chocolate, they are spaced by <span class="math inline">\(1\)</span>unit.</p>
+<p>In this case a question naturally arises, what is the maximum piece-length <span class="math inline">\(q\)</span>, you can give your friends? Certainly it is not the real number <span class="math inline">\(7.3\)</span>, the length <span class="math inline">\(q\)</span> must be an integer.</p>
+<p>The following picture answers the problem (think about it before looking at it)</p>
+<p><img src="figs/right_cut.png" class="img-fluid"></p>
+<p>The unique solution is to cut at <span class="math inline">\(7\)</span> and <span class="math inline">\(14\)</span> and <span class="math inline">\(21\)</span> units. Give your <span class="math inline">\(d=3\)</span> friends chocolate pieces of length <span class="math inline">\(q=7\)</span>; a small one of length <span class="math inline">\(1\)</span> remains, you can eat that as a prize.</p>
+<p>The <strong>takeaway</strong> is that <em>when you divide two things and the result you desire must be an integer thing, then a remaining thing is left</em> (for you).</p>
+<p>I would like now to make things more complicated and write the statement above in proper math language, its a theorem:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Let</em> <span class="math inline">\(p\)</span> <em>and</em> <span class="math inline">\(d\)</span> <em>be two integers where</em> <span class="math inline">\(p\geq d\)</span><em>. Then there exists an integer</em> <span class="math inline">\(r\)</span> <em>such that</em> <span class="math inline">\(0\leq r&lt;d\)</span> <em>and an integer</em> <span class="math inline">\(q\geq 0\)</span> <em>such that</em></p>
+<p><span class="math display">\[ p=qd+r \]</span></p>
+</div>
+</div>
+<p>Lets break down the meaning of this theorem. We start by requiring that <span class="math inline">\(p\)</span> and <span class="math inline">\(d\)</span> be integers (a chocolate bar has an integer number of pieces and you have an integer number of friends - right?) and thus positive, we also require that <span class="math inline">\(p\)</span> is larger or equal to <span class="math inline">\(d\)</span>.</p>
+<p>If we imagine <span class="math inline">\(p\)</span> as the length of a line segment (our chocolate bar), this length is the sum of two length</p>
+<p><span class="math display">\[
+p=qd + r
+\]</span></p>
+<p>The <span class="math inline">\(qd\)</span> length, is the length of each piece you give your friends times the number of friends, thus <span class="math inline">\(qd\)</span> is the part of the chocolate bar you give away.</p>
+<p>The <span class="math inline">\(r\)</span> length, is the length of the remaining piece, you keep that!</p>
+<p>Summing both, <span class="math inline">\(qd +r\)</span> yields the original chocolate bar length <span class="math inline">\(p\)</span>.</p>
+<p><img src="figs/lines.png" class="img-fluid" width="536"></p>
+<p>To divide <span class="math inline">\(p\)</span> by <span class="math inline">\(d\)</span> subjected to the fact we want an integer result, means to find the integer result <span class="math inline">\(q\)</span> and then the integer remainder <span class="math inline">\(r\)</span>.</p>
+<p>In practice, when we seek for the value of <span class="math inline">\(q\)</span>, we seek for the highest possible <span class="math inline">\(q\)</span>, that way ensures the smallest length <span class="math inline">\(r\)</span>. By smallest I mean, <em>its length</em> <span class="math inline">\(r\)</span> <em>is not divisible by</em> <span class="math inline">\(d\)</span> - Please STOP here and ensure you understand this!</p>
+<p>We can guarantee that <span class="math inline">\(r\)</span> is not divisible by <span class="math inline">\(d\)</span> by stating that <span class="math inline">\(r\)</span> must be smaller than <span class="math inline">\(d\)</span>, thus the requirement <span class="math inline">\(0\leq r&lt;d\)</span> in the theorem above.</p>
+</section>
+<section id="the-key-strategy-behind-computing-the-division-of-integers-and-an-example" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-strategy-behind-computing-the-division-of-integers-and-an-example">3) The key strategy behind computing the division of integers and an example</h2>
+<p>To compute the division of the integer <span class="math inline">\(1001\)</span> by <span class="math inline">\(12\)</span> under the constrain that the result is also an integer is to compute the values of <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> that obey the following equation:</p>
+<p><span class="math display">\[ 1001 = q \times 12 + r \qquad 0\leq r&lt;12 \]</span></p>
+<p>How do we proceed in finding these numbers? The key strategy is very simple: guess them!</p>
+<p>Its not a random guess, this is not a lottery, its an educated guess; educated by clues provided by the problem itself.</p>
+<p>See the following line of reasoning (and guesses) to get the idea:</p>
+<ul>
+<li>Step 1: decompose <span class="math inline">\(1001\)</span> and <span class="math inline">\(12\)</span> into powers of <span class="math inline">\(10\)</span>. This a clue that will to aid (educate) our guesses!</li>
+</ul>
+<p><span class="math display">\[
+\begin{cases}
+1001 = 1\cdot 10^3+0\cdot 10^2 +0\cdot 10^1+1\cdot 10^0 = 1\cdot 10^3 +1\cdot 10^0\\
+12 = 1\cdot 10^1 + 2\cdot 10^0
+\end{cases}
+\]</span></p>
+<ul>
+<li><p>Step 2: Observe both sides of the equation:</p>
+<p><span id="eq-the_eq_to_solve"><span class="math display">\[ 1\cdot 10^3 +1 = q\cdot(10+2)+r  \tag{2}\]</span></span></p>
+<p>It is very useful to identify what are the largest numbers on both sides of the equation: the largest value on the left side is <span class="math inline">\(1\cdot 10^3\)</span>, the largest value on the right side is <span class="math inline">\(q\cdot 10\)</span>. Hence we expect that whatever <span class="math inline">\(q\)</span> is, it must, when multiplied by <span class="math inline">\(10\)</span>, to give a number with is close or equal to <span class="math inline">\(1\cdot 10^3\)</span>, for otherwise, balancing the sides of the equation is impossible. We should balance first these two terms, then we deal with the smaller ones.</p>
+<p>Our guess of <span class="math inline">\(q\)</span> must be guided by this observation.</p></li>
+<li><p>Step 3: Guess a value of <span class="math inline">\(q\)</span> which makes large terms similar or equal, i.e., <span class="math inline">\(q\cdot 10\)</span> close to <span class="math inline">\(1\cdot 10^3\)</span>. There are many possible guesses and all of them would work! Here is one possibility <span class="math inline">\(q=10^2\)</span>.</p></li>
+<li><p>Step 4: Now that we have a value for <span class="math inline">\(q\)</span> lets see how large is the remainder.</p>
+<p>Substituting <span class="math inline">\(q=10^2\)</span> into <a href="#eq-the_eq_to_solve" class="quarto-xref">Equation&nbsp;2</a> gives:</p>
+<p><span class="math display">\[ \begin{align} &amp;1\cdot 10^3 +1 = 1\cdot 10^3 +2 \cdot 10^2 + r\\ \implies&amp;r=-2\cdot10^2+1 \end{align} \]</span></p>
+<p>The remainder is negative and this presents no problem, what we really want is the final remainder to be positive. The remainder is also larger (in absolute value) than the divisor <span class="math inline">\(12\)</span>. This means the remainder is still divisible by <span class="math inline">\(12\)</span>, hence we proceed into computing the division of <span class="math inline">\(-2\cdot 10 +1\)</span> by <span class="math inline">\(12\)</span>, this is what we’ll do in step 5. To end step 4 let us summarize in a single expression what we know so far:</p>
+<p><span id="eq-step4"><span class="math display">\[
+1\cdot 10^3+1=\overbrace{10^2}^q\cdot(10+2)+\overbrace{(-2\cdot 10^2+1)}^r
+\tag{3}\]</span></span></p></li>
+<li><p>Step 5: Write the division of the remainder <span class="math inline">\(-2\cdot 10+1\)</span> by <span class="math inline">\(12\)</span>:</p>
+<p><span class="math display">\[
+-2\cdot 10^2+1 = q'\cdot(10+2)+r'
+\]</span></p>
+<p>and analyse the equation.</p>
+<p>Our goal now is to guess <span class="math inline">\(q'\)</span> that makes <span class="math inline">\(r'\)</span> as small as possible, we achieve that by balancing the largest terms on both sides of the equation, in this case we want to guess a <span class="math inline">\(q'\)</span> that when multiplied by <span class="math inline">\(10\)</span> is close to <span class="math inline">\(-2\cdot 10^2\)</span>, the largest number on the left.</p></li>
+<li><p>Step 6: Guess <span class="math inline">\(q'=-2\cdot 10\)</span> and then substitute into the equation:</p>
+<p><span class="math display">\[ \begin{align} &amp;-2\cdot 10^2+1 = -2\cdot 10^2 -4\cdot 10 + r'\\ \implies &amp;r'=4\cdot 10+1 \end{align} \]</span></p>
+<p>The remainder is <span class="math inline">\(4\cdot 10+1\)</span> and is still larger than <span class="math inline">\(12\)</span>, thus divisible by <span class="math inline">\(12\)</span>, we’ll do this calculation in step 7. Let’s end this step by summarizing what we know so far:</p>
+<p><span class="math display">\[
+\begin{cases}
+1\cdot 10^3+1=\overbrace{10^2}^q\cdot(10+2)+\overbrace{(-2\cdot 10^2+1)}^r\\
+-2\cdot10^2+1 =\overbrace{(-2\cdot10)}^{q'}\cdot(10+2)+\overbrace{(4\cdot10+1)}^{r'}
+\end{cases}
+\]</span></p></li>
+<li><p>Step 7: We repeat the process. Write the equation for the division of the current remainder <span class="math inline">\(4\cdot 10+1\)</span> by <span class="math inline">\(12\)</span>, analyse it and guess the quotient <span class="math inline">\(q''\)</span> that makes <span class="math inline">\(r''\)</span> as small as possible:</p>
+<p><span id="eq-step7"><span class="math display">\[
+4\cdot 10 +1 = q''\cdot (10+2)+r''
+\tag{4}\]</span></span></p>
+<p>Guessing <span class="math inline">\(q''=4\)</span> we balance the largest term on the lhs. The corresponding remainder is:</p>
+<p><span class="math display">\[
+r'' = -7
+\]</span></p>
+<p>Since the remainder is smaller than <span class="math inline">\(12\)</span> the guessing process ends here.</p>
+<p>Once again we summarize everything we know so far:</p>
+<p><span id="eq-summary_3"><span class="math display">\[
+\begin{cases}
+1\cdot 10^3+1=\overbrace{10^2}^q\cdot(10+2)+\overbrace{(-2\cdot 10^2+1)}^r\\
+-2\cdot10^2+1 =\overbrace{(-2\cdot10)}^{q'}\cdot(10+2)+\overbrace{(4\cdot10+1)}^{r'}\\
+4\cdot 10+1 = \overbrace{4}^{q''}\cdot(10+2)+\overbrace{(-7)}^{r''}
+\end{cases}
+\tag{5}\]</span></span></p></li>
+<li><p>Step 7: Use <a href="#eq-summary_3" class="quarto-xref">Equation&nbsp;5</a> to write</p>
+<p><span class="math display">\[
+1\cdot 10^3 +1 = (10^2-2\cdot 10+4)\cdot 12 -7
+\]</span></p>
+<p>which simplifies into:</p>
+<p><span id="eq-simplified_result"><span class="math display">\[
+1001=84\cdot 12 -7
+\tag{6}\]</span></span></p></li>
+<li><p>Step 8: Our final remainder, the <span class="math inline">\(-7\)</span> in <a href="#eq-simplified_result" class="quarto-xref">Equation&nbsp;6</a> is negative, to make it positive we resort to a trick: add <span class="math inline">\(0=12-12\)</span> to the rhs:</p>
+<p><span class="math display">\[ 1001=(84-1)\cdot 12+(12-7) \]</span></p>
+<p>In conclusion:</p>
+<p><span class="math display">\[ 1001=83\cdot 12 +5 \]</span></p>
+<p>The division is complete, our quotient is <span class="math inline">\(q=83\)</span> and the remainder is the positive number <span class="math inline">\(5\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The division of <span class="math inline">\(1001\)</span> by <span class="math inline">\(12\)</span> can be done in many ways, all ending in the result <span class="math inline">\(1001=83\cdot 12 +5\)</span>. What distinguishes the different ways are the guesses of <span class="math inline">\(q\)</span>, <span class="math inline">\(q''\)</span>, etc one makes. Among all this approaches we find one very well known by you, the <em>long division of integers</em>, which you learned in elementary school.</p>
+<p>The particular sequence of steps we followed above was chosen so that it can be compared with the sequence of step in dividing <span class="math inline">\(x^3+1\)</span> by <span class="math inline">\(x+2\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="to-divide-two-polynomials-is-to-not-only-find-the-quotient-but-also-find-the-remainder" class="level2">
+<h2 class="anchored" data-anchor-id="to-divide-two-polynomials-is-to-not-only-find-the-quotient-but-also-find-the-remainder">4) To divide two polynomials is to NOT ONLY find the quotient but also find the remainder!!</h2>
+<p>The division of polynomials is analogous to the division of integers, the division of <span class="math inline">\(1001/12\)</span> made us to seek the <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> that satisfy the equation <span class="math inline">\(1001 = q\times 12 +r\)</span>, while having the <span class="math inline">\(r\)</span> as small as possible, which means <span class="math inline">\(0\leq r &lt;12\)</span>, so that the remainder is not divisible by <span class="math inline">\(12\)</span>.</p>
+<p>The division of polynomials, for example <span class="math inline">\((x^3+1)/(x+2)\)</span> , requires to find the function <span class="math inline">\(q(x)\)</span> and <span class="math inline">\(r(x)\)</span> that obey</p>
+<p><span id="eq-original_pol_problem"><span class="math display">\[ x^3+1=q(x)\times(x+2)+r(x) \qquad 0\leq\deg r &lt; 1   \tag{7}\]</span></span></p>
+<p>The constraint <span class="math inline">\(0\leq\deg r&lt;1\)</span> ensures the degree of the remainder is the smallest, meaning in this case, not divisible by <span class="math inline">\(x+2\)</span> whose degree is <span class="math inline">\(1\)</span>.</p>
+<p>The following theorem summarizes the problem to solve:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Let</em> <span class="math inline">\(f\)</span> <em>and</em> <span class="math inline">\(g\)</span> <em>be non-zero polynomials where</em> <span class="math inline">\(\deg f \geq \deg g\)</span> (this assumption is analogous to saying <span class="math inline">\(1001&gt;12\)</span>)<em>. Then there exist polynomials</em> <span class="math inline">\(q\)</span><em>,</em> <span class="math inline">\(r\)</span> <em>such that:</em></p>
+<p><span class="math display">\[ f(x)=q(x)g(x)+r(x) \qquad 0\leq\deg r &lt; \deg g \quad\text{(Analogous to $0\leq r &lt; 12$)} \]</span></p>
+</div>
+</div>
+<p>The ideas and strategies presented above for division of integers can be employed to the division of polynomials.</p>
+</section>
+<section id="the-key-strategy-behind-computing-the-division-of-polynomials-and-an-example" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-strategy-behind-computing-the-division-of-polynomials-and-an-example">5) The key strategy behind computing the division of polynomials and an example</h2>
+<p>As usual we guess what <span class="math inline">\(q(x)\)</span> might be and then compute the corresponding remainder <span class="math inline">\(r(x)\)</span>. By checking the constraint <span class="math inline">\(0\leq \deg r&lt;1\)</span> at each stage of the guessing process, we decide whether to terminate it or keep going. Let us see this in practice:</p>
+<ul>
+<li><p>Step 1: Observe both sides of the equation:</p>
+<p><span id="eq-first"><span class="math display">\[ x^3+1=q(x)\times(x+2)+r(x) \qquad 0\leq\deg r &lt; 1   \tag{8}\]</span></span></p>
+<p>and identify the largest powers: on the lhs we have <span class="math inline">\(x^3\)</span> and on the rhs we have <span class="math inline">\(q(x) \cdot x\)</span>. This is useful information, because we want to match the largest powers on either side of the equation. This is the only way the equal sign will hold.</p></li>
+<li><p>Step 2: We want to guess what <span class="math inline">\(q(x)\)</span> based on this matching observation we did at step 1, hence <span class="math inline">\(q(x)=x^2\)</span> :</p>
+<p>Substituting into <a href="#eq-first" class="quarto-xref">Equation&nbsp;8</a>, we compute the remainder of the current guess:</p>
+<p><span class="math display">\[ \begin{align} &amp;x^3+1=x^2\times(x+2)+r(x)\\ \implies &amp;r(x) = -2x^2+1 \end{align} \]</span></p>
+<p>Is the constraint that the remainder is as “small” as possible, <span class="math inline">\(0\leq \deg r &lt;1\)</span>, satisfied by this remainder? We clearly see from the <span class="math inline">\(x^2\)</span> power that its degree is <span class="math inline">\(2\)</span>, the constraint is not satisfied and that means this remainder is divisible by <span class="math inline">\(x+2\)</span>.</p>
+<p>As we did for the integer division we summarize our calculations:</p>
+<p><span class="math display">\[
+x^3+1 = x^2\cdot(x+2)+\overbrace{(-2x^2+1)}^r
+\]</span></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Step 3: The division <span class="math inline">\((-2x^2+1)/(x+2)\)</span> is done by guessing the quotient <span class="math inline">\(q'(x)\)</span> and the remainder <span class="math inline">\(r'(x)\)</span>:</p>
+<p><span id="eq-primes_eq"><span class="math display">\[ -2x^2+1 = q'(x)(x+2)+r'(x)  \tag{9}\]</span></span></p>
+<p>We proceed as we always did above and analyze the equation before attempting any guess. The highest degree terms in either side of the equation are <span class="math inline">\(-2x^2\)</span> and <span class="math inline">\(q'(x)\cdot x\)</span>, we must match these, this will guide our guess.</p></li>
+<li><p>Step 4: To match the highest powers of the equation, set <span class="math inline">\(q'(x)=-2x\)</span></p>
+<p>Substituting into <a href="#eq-primes_eq" class="quarto-xref">Equation&nbsp;9</a> we compute the remainder:</p>
+<p><span class="math display">\[ \begin{align} &amp;-2x^2 +1 =-2x(x+2)+r'(x)\\ \implies &amp;r'(x) = 4x+1 \end{align} \]</span></p>
+<p>Again, the degree of the current remainder still does not obey <span class="math inline">\(0\leq \deg r' &lt;1\)</span>, thus the remainder is divisible by <span class="math inline">\(x+2\)</span>. Before doing this calculation we summarize calculations:</p>
+<p><span class="math display">\[
+\begin{cases}
+x^3+1 = x^2\cdot(x+2)+\overbrace{(-2x^2+1)}^r\\
+-2x^2+1 = -2x(x+2)+\overbrace{(4x+1)}^{r'}
+\end{cases}
+\]</span></p></li>
+<li><p>Step 5: Division of <span class="math inline">\(4x+1\)</span> by <span class="math inline">\(x+2\)</span> means to solve the equation:</p>
+<p><span id="eq-4xplus1"><span class="math display">\[ 4x+1 = q''(x)(x+2)+r''(x)  \tag{10}\]</span></span></p>
+<p>We should match <span class="math inline">\(q''(x)\cdot x\)</span> with <span class="math inline">\(4x\)</span> - the higher power term on the lhs.</p></li>
+<li><p>Step 6: Guess <span class="math inline">\(q''(x)=4\)</span> and substitute into <a href="#eq-4xplus1" class="quarto-xref">Equation&nbsp;10</a> to get:</p>
+<p><span class="math display">\[ \begin{align} &amp;4x+1 = 4(x+2)+r''(x)\\ \implies &amp; r''(x)=-7 \end{align} \]</span></p>
+<p>Finally we arrive at <span class="math inline">\(\deg(-7)=0\)</span> as we needed by the condition <span class="math inline">\(0\leq\deg r &lt; 1\)</span>, the process of division end here.</p>
+<p>Collecting results we have:</p>
+<p><span id="eq-summaryII"><span class="math display">\[
+\begin{cases}
+x^3+1 = x^2\cdot(x+2)+\overbrace{(-2x^2+1)}^r\\
+-2x^2+1 = -2x(x+2)+\overbrace{(4x+1)}^{r'}\\
+4x+1 = 4(x+2)+\overbrace{(-7)}^{r''}
+\end{cases}
+\tag{11}\]</span></span></p></li>
+<li><p>Step 7: From <a href="#eq-summaryII" class="quarto-xref">Equation&nbsp;11</a> we arrive at the result of our division:</p>
+<p><span class="math display">\[ \begin{align} x^3+1&amp;=\overbrace{x^2}^{q(x)}\times(x+2)+\overbrace{(-2x^2+1)}^{r(x)}\\ &amp;=\overbrace{x^2}^{q(x)}\times (x+2) + \overbrace{(-2x)}^{q'(x)}(x+2) +\overbrace{(4x+1)}^{r'(x)}\\ &amp;=\overbrace{x^2}^{q(x)}\times (x+2) + \overbrace{(-2x)}^{q'(x)}(x+2)+\overbrace{(+4)}^{q''(x)}(x+2) +\overbrace{(-7)}^{r''(x)}\\ &amp;=(x^2-2x+4)(x+2)-7 \end{align} \]</span></p></li>
+</ul>
+<p>We conclude that:</p>
+<p><span class="math display">\[ x^3+1 = (x^2-2x+4)(x+2)-7 \]</span></p>
+<p>Compare this result with <a href="#eq-simplified_result" class="quarto-xref">Equation&nbsp;6</a> !!!</p>
+</section>
+<section id="polynomial-division-is-useful-in-polynomial-factoring" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-division-is-useful-in-polynomial-factoring">6) Polynomial division is useful in polynomial factoring</h2>
+<p>The decomposition</p>
+<p><span class="math display">\[ f(x)=q(x)g(x)+r(x) \]</span>is key in factoring polynomials.</p>
+<section id="factoring-polynomials" class="level3">
+<h3 class="anchored" data-anchor-id="factoring-polynomials">Factoring polynomials</h3>
+<p>Consider <span class="math inline">\(f(x) = x^2-1\)</span>. We know by inspection that <span class="math inline">\(f(1)=0\)</span> and using our division procedures above we find:</p>
+<p><span class="math display">\[ \overbrace{x^2-1}^f = \overbrace{(x+1)}^q\overbrace{(x-1)}^g+\overbrace{0}^r \]</span></p>
+<p>This simple example is a particular case of the following fact:</p>
+<p><img src="figs/zerofimplieszeror.png" class="img-fluid" width="678"></p>
+<p>A very important observation: If somehow we know a zero of <span class="math inline">\(f\)</span> the division of <span class="math inline">\(f(x)\)</span> by <span class="math inline">\(x-\text{zero of $f$ }\)</span> yields a zero remainder!</p>
+<p>Now, consider a more complicated polynomial <span class="math inline">\(f\)</span>:<span class="math display">\[ f(x) = x^4 -x^3-3x^2+5x-2 \]</span></p>
+<p>Imagine, that we know it has a zero at <span class="math inline">\(x=1\)</span>, an observation which could be arrived by inspecting its graph. Using polynomial division we find, as expected, a complete division, nothing remains, <span class="math inline">\(r=0\)</span>:</p>
+<p><span class="math display">\[ \overbrace{x^4 -x^3-3x^2+5x-2}^f = \overbrace{(x^3-3x+2)}^q(x-1)+\overbrace{0}^r \]</span></p>
+<p>But inspection of <span class="math inline">\(q\)</span> reveals that <span class="math inline">\(q(1)=0\)</span>, the quotient has a zero as well, using again polynomial division we find <span class="math inline">\(r'=0\)</span>:</p>
+<p><span class="math display">\[ \overbrace{x^3-3x+2}^q = \overbrace{(x^2+x-2)}^{q'}(x-1)+\overbrace{0}^{r'} \]</span></p>
+<p>In general if we know a zero of <span class="math inline">\(q\)</span> then again, division of <span class="math inline">\(q(x)\)</span> by <span class="math inline">\(x-\text{zero of $q$}\)</span> yields again a zero remainder:</p>
+<p><img src="figs/zeroqimplieszeror.png" class="img-fluid" width="441"></p>
+<p>Therefore:</p>
+<p><img src="figs/therefore.png" class="img-fluid" width="546"></p>
+<p>And the same story continues with <span class="math inline">\(q'\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that a zero of <span class="math inline">\(q\)</span> is automatically a zero of <span class="math inline">\(f\)</span>. And a zero of <span class="math inline">\(q'\)</span> is a zero of <span class="math inline">\(f\)</span> as well.</p>
+</div>
+</div>
+<p>Now repeat the process and inspect the prime quotient <span class="math inline">\(x^2+x-2\)</span>, what do we find? We find that <span class="math inline">\(q'(1)=0\)</span>, using again polynomial division, yes! A zero remainder again:</p>
+<p><span class="math display">\[ \overbrace{x^2+x-2}^{q'} =\overbrace{(x+2)}^{q''}(x-1)+\overbrace{0}^{r''} \]</span></p>
+<p>Here is a summary of the sequence of steps:</p>
+<p><img src="figs/seq_of_ideas.png" class="img-fluid"></p>
+<p>Collecting terms we found:</p>
+<p><span class="math display">\[ x^4-x^3-3x^2+5x-2 =(x+2)(x-1)(x-1)(x-1)+0 \]</span></p>
+<p>The lower the degree of the polynomial the easier it is to find its zeros by inspecting the function. Figuring out the original zero (the zero of <span class="math inline">\(f\)</span>) is the hardest part, a graph might help in our guess work, if nothing else, just use trial and error. If it is found, congrats yourself, you just made one step of <span class="math inline">\(n\)</span> steps.</p>
+</section>
+</section>
+<section id="why-factoring-polynomials-is-cool" class="level2">
+<h2 class="anchored" data-anchor-id="why-factoring-polynomials-is-cool">7) Why factoring polynomials is cool?</h2>
+<p>One key aspect one should keep in mind, is that finding the zeros of a polynomial and factored polynomial goes hand in hand. As we seen, the zeros of <span class="math inline">\(x^4-x^3-3x^2+5x-2\)</span> are the singlet <span class="math inline">\(-2\)</span>, and the triplet of <span class="math inline">\(1\)</span>; knowing this allowed us to write this polynomial as <span class="math inline">\((x+2)(x-1)^3\)</span>. Going the other way around, starting from a polynomial given by <span class="math inline">\((x+2)(x-1)^3\)</span> we know, just by looking at this formula, the zeros are <span class="math inline">\(-2\)</span> and a triplet <span class="math inline">\(1\)</span>. Knowing the zeros is important or should I say knowing the factored form of a polynomial is important because, in-between those zeros, the polynomial must either positive (above the x-axis) or negative (below the x-axis). Additionally, note that the factored form of a polynomial is a product of atomic polynomials, in the current case it the product of four terms of degree one, <span class="math inline">\(x+2\)</span> and three <span class="math inline">\(x-1\)</span>; the sign (positive or negative) of each is easily computed, they are just lines in the plane! As a result the sign of the product polynomial can also be easily computed from the sign of the a product of the terms. It goes without saying: The good polynomial is the factored polynomial.</p>
+<p>What we intend to do now is precisely to find the sign (positive or negative) of the product polynomial in-between the zeros (<span class="math inline">\(-2\)</span> and <span class="math inline">\(1\)</span>), in other words, we want to compute the following sets:</p>
+<p><span id="eq-sets_in_question"><span class="math display">\[ \begin{align} \{x\in\mathbb{R}\,\,|\,\,x^4-x^3-3x^2+5x-1&gt;0\}\\ \{x\in\mathbb{R}\,\,|\,\,x^4-x^3-3x^2+5x-1&lt;0\} \end{align}  \tag{12}\]</span></span> We already know the zeros of <span class="math inline">\(x ^ 4-x ^ 3-3x^2+5x-1\)</span> which are embedded in the terms</p>
+<ul>
+<li><p><span class="math inline">\(x+2\)</span> is zero at <span class="math inline">\(x=-2\)</span></p></li>
+<li><p><span class="math inline">\(x-1\)</span> has a zero at <span class="math inline">\(x=1\)</span></p></li>
+</ul>
+<p>Now, to compute the sign of the term, draw a table as follows: in the first column put the factors, the first row is suppose to represent the real line, in it we highlight key points, which in the present case are the zeros of the factors, the point at <span class="math inline">\(-2\)</span> and <span class="math inline">\(1\)</span> , and as reference we should include the infinities (“end points” of the real line) as well:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Real line</th>
+<th><span class="math inline">\(-\infty\)</span></th>
+<th></th>
+<th><span class="math inline">\(-2\)</span></th>
+<th></th>
+<th><span class="math inline">\(1\)</span></th>
+<th></th>
+<th><span class="math inline">\(\infty\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x+2\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x-1\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x-1\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x-1\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((x+2)(x-1)^3\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here an equivalent but clearer picture of this table, which I prefer:</p>
+<p><img src="figs/sign_table.png" class="img-fluid" width="406"></p>
+<p>In the rows <span class="math inline">\(x+2\)</span> and <span class="math inline">\(x-1\)</span> fill the zeros as <span class="math inline">\(x=-2\)</span> and <span class="math inline">\(x=1\)</span> respectively. Now, take the <span class="math inline">\(x+2\)</span> row as an example, there is only one zero, hence before that zero we have a definite sign and after this zero we have also a definite sign, to find these signs we can just pick any two <span class="math inline">\(x\)</span>-values, picking <span class="math inline">\(x=-3\)</span> and <span class="math inline">\(x=1\)</span> we compute <span class="math inline">\(-3+2 = -1\)</span> which is negative and thus the region <span class="math inline">\((-\infty,-2)\)</span> must be negative; computing <span class="math inline">\(1+2=3\)</span> we get a positive value, thus the region <span class="math inline">\((-2,\infty)\)</span> is positive. We repeat the same approach and pick two numbers, one before and other after <span class="math inline">\(x=1\)</span> the zero of <span class="math inline">\(x-1\)</span> to check its sign, the results are shown above.</p>
+<p>The last row is also easy to fill from the signs of <span class="math inline">\(x+2\)</span> and <span class="math inline">\((x-1)^3\)</span>. Notice the cube power, being an odd number, does not change the sign of <span class="math inline">\(x-1\)</span>.</p>
+<p>From the last row we can read the answer for our question <a href="#eq-sets_in_question" class="quarto-xref">Equation&nbsp;12</a> , we conclude:</p>
+<p><span class="math display">\[ \begin{align} &amp;\{x\in\mathbb{R}\,\,|\,\,x^4-x^3-3x^2+5x-1&gt;0\}=(-\infty,-2)\cup (1,+\infty)\\ &amp;\{x\in\mathbb{R}\,\,|\,\,x^4-x^3-3x^2+5x-1&lt;0\}=(-2,1) \end{align} \]</span> The table method to find the signs of a complicated polynomial is fine and good, but I would like to emphasize the central idea behind it. What the table essentially is, is a representation of the graph of the factors with just the signs singled out. As such an alternative way, which I actually prefer, to find the answer to <a href="#eq-sets_in_question" class="quarto-xref">Equation&nbsp;12</a> is to just graph the terms of the product polynomial:</p>
+<p><img src="figs/graph_og_signs.png" class="img-fluid" width="543"></p>
+<p>And from it read the signs from the lines:</p>
+<p>Cool ! :)</p>
+</section>
+<section id="method-of-undetermined-coefficients-for-integer-division" class="level2">
+<h2 class="anchored" data-anchor-id="method-of-undetermined-coefficients-for-integer-division">8) Method of undetermined coefficients for integer division</h2>
+<p>A general strategy to solve the problem:</p>
+<p><span id="eq-main_prob_A"><span class="math display">\[ 1001=q\cdot 12 +r\qquad 0\leq q&lt;12  \tag{13}\]</span></span></p>
+<p>starts by splitting the parameters of the equation into powers of <span class="math inline">\(10\)</span></p>
+<p><span class="math display">\[ \begin{split}&amp;1001=1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0\\&amp;12=1\cdot 10^1+2\cdot 10^0\\\end{split} \]</span></p>
+<p>and the unknowns <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> as well:</p>
+<p><span class="math display">\[ \begin{split}&amp;q=a\cdot 10^2+b\cdot 10^2+c\cdot 10^0\\&amp;r=\alpha \cdot 10^0\end{split} \]</span></p>
+<p>for some real numbers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\alpha\)</span>. Note that <span class="math inline">\(q\)</span> must be at most a power <span class="math inline">\(10^2\)</span> to guarantee a <span class="math inline">\(10^3\)</span> of <span class="math inline">\(1001\)</span>, meanwhile the remainder <span class="math inline">\(r\)</span> which must be between <span class="math inline">\(0\)</span> and <span class="math inline">\(12\)</span> has to be a number proportional to <span class="math inline">\(10^0=1\)</span>.</p>
+<p>Substituting we find</p>
+<p><span class="math display">\[ 1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0=(a\cdot 10^2+b\cdot 10^1+c\cdot 10^0)\cdot (1\cdot 10^1+2\cdot 10^0) +\alpha \cdot 10^0 \]</span></p>
+<p>Rearranging, we factor the same powers on the right side, which gives us:</p>
+<p><span id="eq-main_prob_B"><span class="math display">\[ 1\cdot 10^3+0\cdot 10^2+0\cdot 10^1+1\cdot 10^0=a\cdot 10^3+(2a+b)\cdot 10^2+(2b+c)\cdot 10^1+(2c+\alpha)\cdot 10^0  \tag{14}\]</span></span></p>
+<p>The goal of determining what is <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> that satisfy the conditions <a href="#eq-main_prob_A" class="quarto-xref">Equation&nbsp;13</a> becomes the goal of determining <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\alpha\)</span> that satisfy <a href="#eq-main_prob_B" class="quarto-xref">Equation&nbsp;14</a>.</p>
+<p>Both sides of <a href="#eq-main_prob_B" class="quarto-xref">Equation&nbsp;14</a> are equal provided the coefficients of the same powers of <span class="math inline">\(10\)</span> are equal, that yields the following system of equations to solve:</p>
+<p><span class="math display">\[ \begin{cases}10^3:\,\,\,1=a\\10^2:\,\,\,0=2a+b\\10^1:\,\,\,0=2b+c\\10^0:\,\,\,1=2c+\alpha\end{cases} \]</span></p>
+<p>with the additional constraint <span class="math inline">\(0\leq \alpha &lt;12\)</span>.</p>
+<p>The solution of this system of equations is <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=-2\)</span>, <span class="math inline">\(c=4\)</span> and <span class="math inline">\(\alpha=-7\)</span> . Thus:</p>
+<p><span class="math display">\[ \begin{split}&amp;q=1\cdot 10^2-2\cdot 10^1+4\cdot 10^0=84\\&amp;r=-7\cdot 10^0=-7\end{split} \]</span></p>
+<p>Hence, <span class="math inline">\(1001=84\cdot 12-7\)</span>, observe the remainder is negative, therefore we modify the aesthetics of this result in order to make it positive and below <span class="math inline">\(12\)</span>. Adding <span class="math inline">\(0=12-12\)</span> to the right hand side we find:</p>
+<p><span class="math display">\[ \begin{split}&amp;1001=84\cdot 12-7+12-12\\\implies&amp;1001=83\cdot 12+5\end{split} \]</span></p>
+<p>The final result is <span class="math inline">\(1001=83\cdot 12+5\)</span> as we computed through other methods.</p>
+</section>
+<section id="method-of-undetermined-coefficients-for-polynomials-division" class="level2">
+<h2 class="anchored" data-anchor-id="method-of-undetermined-coefficients-for-polynomials-division">9) Method of undetermined coefficients for polynomials division</h2>
+<p>Here we present our problem by casting it as a system of equations to solve. Some students might prefer this approach.</p>
+<p>Comparing the lhs and rhs of <a href="#eq-original_pol_problem" class="quarto-xref">Equation&nbsp;7</a> we notice:</p>
+<ul>
+<li><p>the polynomial <span class="math inline">\(q(x)\)</span> must have a degree equal to <span class="math inline">\(2\)</span></p></li>
+<li><p>the degree of <span class="math inline">\(r(x)\)</span> is <span class="math inline">\(0\)</span></p></li>
+</ul>
+<p>From this we know the general from of these polynomials to be:</p>
+<p><span class="math display">\[ \begin{split}&amp;q(x) :=  ax^2+bx+c\\&amp;r(x) :=  \alpha \end{split} \]</span></p>
+<p>Substituting we find:</p>
+<p><span class="math display">\[ x^3+1=(ax^2+bx+c)(x+2)+\alpha  \]</span></p>
+<p>Expanding the rhs and lumping the same powers of <span class="math inline">\(x\)</span> we get:</p>
+<p><span class="math display">\[ x^3+1=a x^3+(2a+b) x^2+ (2b +c)x^1+(2c+\alpha) \]</span></p>
+<p>The polynomial on the right is equal to the the left if the coefficients of the same powers are the same, i.e., they satisfy the following system of equations</p>
+<p><span class="math display">\[ \begin{cases}x^3:\,\,\,1=a\\x^2:\,\,\,0=2a+b\\x^1:\,\,\,0=2b+c\\x^0:\,\,\,1=2c+\alpha\end{cases} \]</span></p>
+<p>The solution is <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=-2\)</span>, <span class="math inline">\(c=4\)</span> and <span class="math inline">\(\alpha=-7\)</span>:</p>
+<p><span class="math display">\[ x^3+1=(x^2-2x+4)(x+2)-7 \]</span></p>
+<p>The similarities between the division of integers and polynomials should be obvious, since we just replace the powers of <span class="math inline">\(10\)</span> by powers of <span class="math inline">\(x\)</span>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./examples_of_pol_part_5.html" class="pagination-link" aria-label="Focus-diretrix formulation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Focus-diretrix formulation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./limits_of_sequences.html" class="pagination-link" aria-label="Limits of sequences">
+        <span class="nav-page-text">Limits of sequences</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Einstein model for a solid – asymptotic to MARS</title>
+<title>Limits of sequences – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./implicit_derivative.html" rel="next">
+<link href="./pol_division.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Einstein model for a solid</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./limits_of_sequences.html">Calculus</a></li><li class="breadcrumb-item"><a href="./limits_of_sequences.html">Limits of sequences</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -253,16 +255,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link">
+  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Limits of sequences</span></a>
   </div>
 </li>
@@ -425,22 +427,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-system" id="toc-the-system" class="nav-link" data-scroll-target="#the-system">The system</a>
+  <li><a href="#basic-idea" id="toc-basic-idea" class="nav-link active" data-scroll-target="#basic-idea">Basic idea</a></li>
+  <li><a href="#proving-a-sequence-converges" id="toc-proving-a-sequence-converges" class="nav-link" data-scroll-target="#proving-a-sequence-converges">Proving a sequence converges</a>
   <ul class="collapse">
-  <li><a href="#classical-model" id="toc-classical-model" class="nav-link" data-scroll-target="#classical-model">Classical Model</a></li>
+  <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example">An example</a></li>
+  <li><a href="#basic-sequences-limits" id="toc-basic-sequences-limits" class="nav-link" data-scroll-target="#basic-sequences-limits">Basic sequences limits</a></li>
   </ul></li>
-  <li><a href="#quantum-model-of-1-oscillator" id="toc-quantum-model-of-1-oscillator" class="nav-link" data-scroll-target="#quantum-model-of-1-oscillator">Quantum model of <span class="math inline">\(1\)</span> oscillator</a></li>
-  <li><a href="#system-with-n-oscillators" id="toc-system-with-n-oscillators" class="nav-link" data-scroll-target="#system-with-n-oscillators">System with <span class="math inline">\(N\)</span> oscillators</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./limits_of_sequences.html">Calculus</a></li><li class="breadcrumb-item"><a href="./limits_of_sequences.html">Limits of sequences</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Einstein model for a solid</h1>
+<h1 class="title">Limits of sequences</h1>
 </div>
 
 
@@ -457,115 +458,127 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-</section>
-<section id="the-system" class="level1">
-<h1>The system</h1>
-<p>Our system is composed by a lattice of atoms and we want to focus our description on the oscillations performed by the nuclei, we ignore any contribution from the electrons.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/Captura de ecrã 2024-01-13 120905.png" class="img-fluid figure-img" width="264"></p>
-<figcaption>An exact pictorial representation of the Classic model, springs governed by Hook’s Law describe well the small oscillations.</figcaption>
-</figure>
-</div>
-<p>We further assume each nucleus is independent and each exhibit small oscillation around it equilibrium position.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/indeposc.png" class="img-fluid figure-img" width="310"></p>
-<figcaption>Independent oscillators are not connected among each other. The picture shows exagerated alplitudes. Use this picticture to imagine what is like in 3D.</figcaption>
-</figure>
-</div>
-<section id="classical-model" class="level2">
-<h2 class="anchored" data-anchor-id="classical-model">Classical Model</h2>
-<p><em>What is the total energy of small oscillations?</em></p>
-<p>The system is a box attached to a spring, the coordinate <span class="math inline">\(x\)</span> measures the deviation from the equilibrium position and the coordinate <span class="math inline">\(p\)</span> is the box’s linear momentum. These coordinates are real functions of time.</p>
-<div id="fig-1dosc" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1dosc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/1dosc.png" class="img-fluid figure-img" width="423">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1dosc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: One dimensional oscilator box always wants to return to the equilibrium position. For small amplitudes <span class="math inline">\(A\)</span>, the spring force on the box is given by Hook’s law.
-</figcaption>
-</figure>
-</div>
-<p><strong>The total energy of the system:</strong> We want to obtain a formula for the total energy in terms of the system coordinates using classical theory since its most familiar to us.</p>
-<p>Recall it is the sum of the kinetic energy of the box, which has the usual form <span class="math inline">\(p^2/2m\)</span>, and the potential energy <span class="math inline">\(v(x)\)</span> that characterizes the spring force. What function <span class="math inline">\(v(x)\)</span> can possibly describe well such a system?</p>
-<p>Note the assumptions! We want to describe small oscillations, i.e., the deviation <span class="math inline">\(x\)</span> from equilibrium must be really small, much smaller than 1, mathematically <span class="math inline">\(|x|\ll 1\)</span> or if you prefer, the limit as <span class="math inline">\(x \longrightarrow 0\)</span>.</p>
-<p>With this information in our hands we can do something wonderful; we can break <span class="math inline">\(v(x)\)</span> in two parts: the relevant part and negligible one. Using the power of Taylor series we find:</p>
-<p><span id="eq-taylorv"><span class="math display">\[ v(x) = \overbrace{v(0) + v'(0)x + \frac{1}{2}v''(0)x^2}^{Relevant}+\mathcal{O}(x^3).  \tag{1}\]</span></span></p>
-<p><strong>To simplify</strong> <span class="math inline">\(v(x)\)</span><strong>:</strong> the constant term <span class="math inline">\(v(0)\)</span> is set to zero to simplify notation and since <span class="math inline">\(v(x)\)</span> has a minimum at <span class="math inline">\(x=0\)</span>, <span class="math inline">\(v'(0)=0\)</span> aswell. Additionally, we identify <span class="math inline">\(v''(0)\)</span> as Hook constant <span class="math inline">\(k\)</span> which, by the way, can be rewritten as <span class="math inline">\(m\omega^2\)</span>, the <span class="math inline">\(\omega\)</span> is the characteristic frequency <span class="math inline">\(\omega\)</span> of an oscillator for which this approximation is valid.</p>
-<p>This makes this formula pleasantly simple</p>
-<p><span id="eq-vsmallosc"><span class="math display">\[
-v(x) \sim \frac{1}{2}kx^2 =\frac{1}{2}m \omega^2x^2
-\tag{2}\]</span></span></p>
-<p><strong>Pictorially</strong>, the rhs describes the parabola (pink) that better fits the original potential energy (blue).</p>
-<div id="fig-vapprox" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-vapprox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figs/vapprox.png" class="img-fluid figure-img" width="377">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vapprox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The actual potential vs its approximation, valid when x is small.
-</figcaption>
-</figure>
-</div>
-<p><strong>What have we achieved so far?</strong> We got the formula <a href="#eq-vsmallosc" class="quarto-xref">Equation&nbsp;2</a> . Look at it as the functional form of any function that describes the potential energy as a function of <span class="math inline">\(x\)</span> of an oscillator, oscillating :) with small amplitude. Small compared to what, small enough that the third order <span class="math inline">\(\mathcal{O}(x^3)\)</span> terms of the Taylor <a href="#eq-taylorv" class="quarto-xref">Equation&nbsp;1</a> are negligible compared with <span class="math inline">\(\mathcal{O}(x^2)\)</span> term.</p>
-<p>The total energy of the system is now one step away, its called the Hamiltonian <span class="math inline">\(h\)</span> of the system as is (as usual) the sum of the kinetic energy plus potential energy which we express has:</p>
-<p><span id="eq-oneoschamiltonian"><span class="math display">\[
-h=\frac{p^2}{2m}+\frac{1}{2}m \omega^2x^2.
-\tag{3}\]</span></span></p>
-<p>With the classical mindset we could, if we wish, derive the laws of motion for this spring-box system using this Hamiltonian, these laws are:</p>
+<section id="basic-idea" class="level1">
+<h1>Basic idea</h1>
+<p>Sequences are also functions, and as a result many of the concepts we introduced for functions apply to sequences as well. For instance, we may:</p>
+<ul>
+<li><p>make a table out of them</p></li>
+<li><p>plot them in some relevant window</p></li>
+<li><p>describe in detail some slices of it; in particular the region when <span class="math inline">\(n\)</span> is large.</p></li>
+</ul>
+<p>In these notes we will focus on the later.</p>
+<p>Consider the sequence:</p>
 <p><span class="math display">\[
-\begin{cases}
-\dot{x} = \frac{\partial h}{\partial p}\\
-\dot{p} = - \frac{\partial h}{\partial x}
-\end{cases}
+u_n=2+\frac{1}{n}
+\]</span>whose graph for <span class="math inline">\(n=1,.. ,20\)</span> is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/myplot3.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="559"></p>
+</figure>
+</div>
+<p>A few things strikes us in the region when <span class="math inline">\(n\)</span> is large:</p>
+<ol type="1">
+<li>As <span class="math inline">\(n\)</span> gets larger and larger, then <span class="math inline">\(2+1/n\)</span> gets closer and closer to <span class="math inline">\(2\)</span>.</li>
+<li>The values <span class="math inline">\(u_n\)</span> never actually reaches the value of <span class="math inline">\(2\)</span> because <span class="math inline">\(1/n\)</span> is never zero, no matter how large <span class="math inline">\(n\)</span> is.</li>
+</ol>
+<p><strong>In other word:</strong> the sequence <span class="math inline">\(u_n\)</span> <em>eventually</em> lies within <strong>any</strong> <em>interval centered at</em> <span class="math inline">\(2\)</span>.</p>
+<p>Lets make this wording rigorous:</p>
+<ul>
+<li><p>To say that an <em>interval centered at</em> <span class="math inline">\(2\)</span> contains a sequence means: <span class="math inline">\(|2-u_n|&lt;\varepsilon\)</span>. The radius of the interval is <span class="math inline">\(\varepsilon\)</span> and is positive, because we are speaking about an interval, not a point like thing!</p></li>
+<li><p>The <em>eventually</em> words means that after some value <span class="math inline">\(N\)</span>, any <span class="math inline">\(n\)</span>, guarantees <span class="math inline">\(|2-u_n|&lt;\varepsilon\)</span></p></li>
+<li><p>The <strong>any</strong> word means, that the above is true for any positive <span class="math inline">\(\varepsilon\)</span></p></li>
+</ul>
+<p>Putting it all together:</p>
+<ul>
+<li><p>(1) For any <span class="math inline">\(\varepsilon&gt;0\)</span>, the following is true:</p>
+<ul>
+<li><p>(2) That there exists some <span class="math inline">\(N\)</span> that guarantees that:</p>
+<ul>
+<li><p>(3) for any <span class="math inline">\(n\geq N\)</span> the following statement is true</p>
+<ul>
+<li>(4) the statement that <span class="math inline">\(|2-u_n|&lt;\varepsilon\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>We write this description using complicated mathematical notation as:</p>
+<p><span id="eq-limit_of_seq"><span class="math display">\[ \overbrace{\forall \varepsilon &gt;0 }^{(1)}:\overbrace{\exists N}^{(2)}:\overbrace{\forall  n\geq N}^{(3)}: (\overbrace{ |2-u_n|&lt;\varepsilon)}^{(4)}  \tag{1}\]</span></span></p>
+<p>Since it is just complicated to write <a href="#eq-limit_of_seq" class="quarto-xref">Equation&nbsp;1</a>, the following abbreviation is introduced:</p>
+<p><span class="math display">\[
+\lim_{n\longrightarrow \infty}u_n = 2
 \]</span></p>
-<p>This system of differential equations yields the functions <span class="math inline">\(x(t)\)</span> and <span class="math inline">\(p(t)\)</span>. But to compute them is not our goal.</p>
+<p>The lhs should be view as a single symbol that says: “the limit value of <span class="math inline">\(2+1/n\)</span> when <span class="math inline">\(n\)</span> gets larger and larger (infinity is not a number)”. The rhs tell us that <span class="math inline">\(2\)</span> is the limit value; or better said, the point around which the sequence eventually <em>always</em> lurks.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Comment
+Commentary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Is it me, or did I pull the frequency <span class="math inline">\(\omega\)</span> out of my a#$. Right? Here is some insight, imagine a stiff spring, then we expect a high frequency of oscillation, this is what the formula</p>
-<p><span class="math display">\[ \omega =\sqrt{\frac{k}{m}},  \]</span></p>
-<p>tells us, the higher the <span class="math inline">\(k\)</span> for a fixed mass <span class="math inline">\(m\)</span>, the higher the frequency <span class="math inline">\(\omega\)</span>. The formula is derived from classical theory, if you don’t remember how, don’t worry since we will not need it anyway, just take it as a fact of life that makes intuitive sense.</p>
+<p>Sequences of the form <span class="math inline">\(x_0\pm1/n\)</span> are important since they describe a step by step approach to the number <span class="math inline">\(x_0\)</span> from values above <span class="math inline">\(+\)</span> or below <span class="math inline">\(-\)</span>; without never actually getting there. They will be relevant when computing.</p>
 </div>
 </div>
 </section>
+<section id="proving-a-sequence-converges" class="level1">
+<h1>Proving a sequence converges</h1>
+<section id="an-example" class="level2">
+<h2 class="anchored" data-anchor-id="an-example">An example</h2>
+<p>We will prove that:</p>
+<p><span class="math display">\[
+\lim \frac{4n+1}{2n}=2
+\]</span></p>
+<p>Meaning we want to prove that:</p>
+<p><span class="math display">\[
+\forall \varepsilon &gt;0:\exists N:\forall n\geq N : |2-(4n+1)/2n|&lt;\varepsilon
+\]</span></p>
+<p>We proceed by unpacking the meaning with indented assumptions:</p>
+<ul>
+<li><p>Assume we have some value <span class="math inline">\(\varepsilon\)</span>, though it is arbitrary:</p>
+<ul>
+<li><p>We seek to find an <span class="math inline">\(N\)</span> that makes <span class="math inline">\(\forall n\geq N : |2-(4n+1)/2n|&lt;\varepsilon\)</span> true, i.e., we seek a lower bound on <span class="math inline">\(n\)</span> that makes this true:</p>
+<ul>
+<li><p>To do that, we assume that we have some value <span class="math inline">\(n^*\)</span> which is larger than the <span class="math inline">\(N\)</span> and which makes the statement <span class="math inline">\(|2-(4n^*+1)/2n^*|&lt;\varepsilon\)</span> true. This much we know about <span class="math inline">\(n^*\)</span>. No special conclusion was taken, yet.</p>
+<p>Now simplify this statement and see if we find something new about <span class="math inline">\(n^*\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp; |2-\frac{4n^*+1}{2n^*}|&lt;\varepsilon\\
+&amp;\implies |\frac{4n^*-4n^*+1}{2n^*}|&lt;\varepsilon\\
+&amp;\implies |\frac{1}{2n^*}|&lt;\varepsilon\\
+&amp;\implies n^*&gt;\frac{1}{2\varepsilon}
+\end{align}
+\]</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Now, this is significant! Lets recollect what we found in the three indentations: Given a radius <span class="math inline">\(\varepsilon\)</span>, a <span class="math inline">\(n^*\)</span>bounded below by <span class="math inline">\(N\)</span> and which obeys our statement is a <span class="math inline">\(n^*\)</span> larger than <span class="math inline">\(1/2\varepsilon\)</span>. The consequences of this are inescapable. If you choose smaller and smaller <span class="math inline">\(\varepsilon\)</span> the larger and larger <span class="math inline">\(n^*\)</span> must be. <span class="math inline">\(\varepsilon\)</span> can be make as small as we wish and we can always find, through the inequality <span class="math inline">\(n^*&gt;1/2\varepsilon\)</span>, a <span class="math inline">\(n^*\)</span> that makes <span class="math inline">\(|2-(4n^*+1)/2n^*|&lt;\varepsilon\)</span> true. And since <span class="math inline">\(N\)</span> is smaller than <span class="math inline">\(n^*\)</span> we can, in conclusion, always say it exist a lower bound <span class="math inline">\(N\)</span> for this <span class="math inline">\(n^*\)</span>.</p>
+<p>To say <span class="math inline">\(\lim \frac{4n+1}{2n}=2\)</span> is just an abbreviation for the whole reasoning made above!</p>
 </section>
-<section id="quantum-model-of-1-oscillator" class="level1">
-<h1>Quantum model of <span class="math inline">\(1\)</span> oscillator</h1>
-<p><strong>What we want:</strong> It was simple to derive the classical hamiltonian <a href="#eq-oneoschamiltonian" class="quarto-xref">Equation&nbsp;3</a> using classical mechanics, now we convert it into a quantum hamiltonian by translating the coordinates <span class="math inline">\(x\)</span> and <span class="math inline">\(p\)</span>, real functions of time, into quantum operators of position <span class="math inline">\(\hat{x}\)</span> and <span class="math inline">\(\hat{p}\)</span>:</p>
-<p><span class="math display">\[
-\hat{h}=\frac{\hat{p}^2}{2m}+\frac{1}{2}m \omega^2\hat{x}^2.
-\]</span></p>
-<p><strong>Classical vs Quantum:</strong> In classical mechanics the system is described by the position and momentum, <span class="math inline">\((x,p)\)</span> which live in <span class="math inline">\(\mathbb{R}^2\)</span>. In quantum mechanics the system is described by the state vector <span class="math inline">\(|\psi\rangle\)</span> which live in the Hilbert space <span class="math inline">\(\mathbb{H}\)</span>.</p>
-<p><strong>Goal:</strong> introduce a basis into Hilbert space <span class="math inline">\(\mathbb{H}\)</span> composed by the eigenvectors of the hamiltonian <span class="math inline">\(\hat{h}\)</span>. It is the suitable basis to describe a quantum harmonic oscillator.</p>
-<p><strong>Basis:</strong> To drive this eigenstates is a rather long process which involves the introduction of creation and anihilation operators and to study their properties, we will skip the detail, the key takeaway is the structure (how the are organized) of these eigenvectors:</p>
-<p><span class="math display">\[
-\hat{h}|n\rangle = e_n|n\rangle,\qquad e_n = \hbar \omega(n+\frac{1}{2})
-\]</span></p>
-<p>The vectors <span class="math inline">\(|n\rangle\)</span> are index with integers <span class="math inline">\(n=0,1,2,..\)</span> and the corresponding eigenvectors are <span class="math inline">\(e_n\)</span>. The basis <span class="math inline">\(\{|n\rangle\}_{n=0,1,..}\)</span> is orthonormal:</p>
-<p><span class="math display">\[
-\langle n | n'\rangle = \delta_{n,n'}
-\]</span></p>
-<p><strong>General state:</strong> any state of the quantum oscillator in the hilbert space can be written as a linear combination of this basis vectors</p>
-<p><span class="math display">\[
-|\psi\rangle = \sum_{n=0}^\infty c_n |n\rangle
-\]</span> However, in what follows we can restrict ourselves to dealing with just the basis <span class="math inline">\(|n\rangle\)</span>.</p>
-</section>
-<section id="system-with-n-oscillators" class="level1">
-<h1>System with <span class="math inline">\(N\)</span> oscillators</h1>
+<section id="basic-sequences-limits" class="level2">
+<h2 class="anchored" data-anchor-id="basic-sequences-limits">Basic sequences limits</h2>
+<p>Using arguments such as the one shown above we can establish a myriad of limits for basic sequences, we are going ino the details of the proofs and just list the results:</p>
+<ul>
+<li><p><span class="math inline">\(\lim \frac{a}{b}=\frac{a}{b}\)</span> provided <span class="math inline">\(b\not = 0\)</span></p></li>
+<li><p><span class="math inline">\(\lim \frac{an+b}{cn+d}=\frac{a}{c}\)</span> provided <span class="math inline">\(c\not = 0\)</span></p></li>
+<li><p><span class="math inline">\(\lim \frac{1}{n^p} =0\)</span>, if <span class="math inline">\(p&gt;0\)</span></p></li>
+<li><p>so on …</p></li>
+</ul>
+<p>We can also prove basic rules for limits, an important one is:</p>
+<ul>
+<li><p>If <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> are convergent to limits <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, then:</p>
+<ul>
+<li><p>the sequence <span class="math inline">\(a_n+b_n\)</span> converges to <span class="math inline">\(a+b\)</span>.</p></li>
+<li><p>the sequence <span class="math inline">\(a_nb_n\)</span> converges to <span class="math inline">\(ab\)</span></p></li>
+<li><p>the sequence <span class="math inline">\(a_n/b_n\)</span> converges to <span class="math inline">\(a/b\)</span> if <span class="math inline">\(b\not=0\)</span></p></li>
+<li><p>so on…</p></li>
+</ul></li>
+</ul>
+<p><strong>The idea behind these pre-made limits and the rules is similar to the one from derivatives:</strong> If you want to compute a limit of complicated sequence, then your goal is to rearrange that sequence and the limit in such a way that the basic pre-made limits can be used. Giving us the limit value of the complicated sequence.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1133,6 +1146,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./pol_division.html" class="pagination-link" aria-label="Polynomial division">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Polynomial division</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./implicit_derivative.html" class="pagination-link" aria-label="Implicit derivative">
+        <span class="nav-page-text">Implicit derivative</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
