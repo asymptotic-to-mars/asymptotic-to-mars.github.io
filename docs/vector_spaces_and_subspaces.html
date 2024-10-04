@@ -346,71 +346,6 @@ window.Quarto = {
  <span class="menu-text">System from a new point of view</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./inner_product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inner product and Orthogonal spaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Matrices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Determinants</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inverse Matrix</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./linear_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./analysis_of_system.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analysis of a system</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Things you can do with matrices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrix_multiplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Matrix multiplication</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inverse matrix</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./how_many_solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How many solutions a system has?</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
     </ul>
@@ -435,7 +370,6 @@ window.Quarto = {
   <li><a href="#example-3-cont" id="toc-example-3-cont" class="nav-link" data-scroll-target="#example-3-cont">Example 3 (cont)</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
-  <li><a href="#entulho" id="toc-entulho" class="nav-link" data-scroll-target="#entulho">Entulho</a></li>
   </ul>
 </nav>
     </div>
@@ -616,29 +550,9 @@ Commentary
 <p><em>Solve 1.1 &gt; 4 &gt; (e)</em> Same question.</p>
 <p>Solve 1.4 &gt; 1</p>
 </div>
-</section>
-</section>
-<section id="entulho" class="level1">
-<h1>Entulho</h1>
-<p>Adapting the formula <span class="math inline">\(ax+by=0\)</span> to the picture, we see that the equation describing the line is <span class="math inline">\(2x-y=0\)</span>. And this means:</p>
-<p><span class="math display">\[ \textbf{line} = \{\begin{pmatrix}x\\y \end{pmatrix}\in \mathbb{R}^2|y=2x\} \]</span></p>
-<p>This time the thought process is different: From all vectors in the plane, <span class="math inline">\(\begin{pmatrix}x\\y \end{pmatrix}\in \mathbb{R}^2\)</span>, we want only those whose entries make true <span class="math inline">\(y=2x\)</span>. No reference to building blocks is made! The equation <span class="math inline">\(y=2x\)</span> is the element-hood-test that describes this subspace.</p>
-<p>Here is the complicated part:</p>
-<p>Assume our starting point is <strong>?@eq-line_eq</strong>, this is just a set. How do we check it indeed is a vector space?</p>
-<p>We have to check that any l.c. of its content is also an element of the vector space. Specifically we do this as follows: choose two generic vectors from the set and l.c. them generically, does the resulting vectors belongs to the set, i.e., obeys <span class="math inline">\(y=2x\)</span>? Here are the steps:</p>
-<ul>
-<li><p>step 1: assume we have two generic vectors from the set whose entries satisfy: <span class="math inline">\(y_0=2x_0\)</span> and <span class="math inline">\(y_1=2x_1\)</span>.</p></li>
-<li><p>step 2: write their generic l.c.</p></li>
-</ul>
-<p><span class="math display">\[ a\begin{pmatrix}x_0\\y_0 \end{pmatrix} + b\begin{pmatrix}x_1\\y_1 \end{pmatrix}=\begin{pmatrix}ax_0+bx_1\\ay_0+by_1 \end{pmatrix} \]</span></p>
-<ul>
-<li><p>step 3: Now check whether this vector has the property <span class="math inline">\(y=2x\)</span>:</p>
-<p><span class="math display">\[ ay_0+by_1 \overset{\text{?}}{=} 2(ax_0+bx_1) \]</span>Rearranging the lhs we find: <span class="math inline">\(a2x_0+b2x_1=2(ax_0+bx_1)\)</span>. Hence the equality is true. We conclude that the set is closed under l.c.</p></li>
-</ul>
-<p><img src="figs/141.jpg" class="img-fluid" width="307"></p>
-<p>A forma dos elementos do conjunto do exercício 1.4 &gt; 1 &gt; f é a representação X=P+span Nullspace.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
