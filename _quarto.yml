@@ -76,33 +76,6 @@ website:
         - href: systems_from_a_new_view.qmd
           text: "System from a new point of view"
           
-        - href: inner_product.qmd
-          text: "Inner product and Orthogonal spaces"
-          
-        - href: matrices.qmd
-          text: "Matrices"
-        
-        - href: determinants.qmd
-          text: "Determinants"
-          
-        - href: inverse_matrix.qmd
-          text: "Inverse Matrix"
-          
-        - href: linear_functions.qmd
-          text: "Linear functions"
-              
-        - href: analysis_of_system.qmd
-          text: "Analysis of a system"
-              
-        - section: "Things you can do with matrices"
-          contents:
-            - href: matrix_multiplication.qmd
-              text: "Matrix multiplication"
-            - href: inverse_matrix.qmd
-              text: "Inverse matrix"
-
-            - href: how_many_solutions.qmd
-              text: "How many solutions a system has?"
 
   page-navigation: true
 
