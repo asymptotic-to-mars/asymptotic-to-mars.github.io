@@ -37,12 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -133,7 +131,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -358,13 +355,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vector-spaces-and-subspaces" id="toc-vector-spaces-and-subspaces" class="nav-link active" data-scroll-target="#vector-spaces-and-subspaces">Vector spaces and Subspaces</a>
-  <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link active" data-scroll-target="#example-1">Example 1</a></li>
   <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
   <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
-  </ul></li>
   <li><a href="#is-it-a-vector-space" id="toc-is-it-a-vector-space" class="nav-link" data-scroll-target="#is-it-a-vector-space">Is it a vector space?</a>
   <ul class="collapse">
   <li><a href="#example-3-cont" id="toc-example-3-cont" class="nav-link" data-scroll-target="#example-3-cont">Example 3 (cont)</a></li>
@@ -395,12 +389,23 @@ window.Quarto = {
 </header>
 
 
-<section id="vector-spaces-and-subspaces" class="level1">
-<h1>Vector spaces and Subspaces</h1>
 <p>The operation of linear combination allow us to construct vector spaces and vector subspaces. In this section we want to look at some figures and from them deduce how to construct spaces. In later sections we will adopt a new approach: to describe the space by an equation or system of equations <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span>.</p>
 <p>Key concepts: <em>vectors space, subspace, span, form of the elements, direct sum.</em></p>
 <section id="example-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/7tD1vvoqGtc" target="_blank">R2 plane as a vector space</a></p>
+</div>
+</div>
 <p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span>. Now multiply both by every possible scalar and then add them; the end result is a set of vectors. All these vectors constitute a two dimensional plane, which we call <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
 <p><img src="figs/R2_plane.png" class="img-fluid" width="318"></p>
 <p>From the picture, it is easy to convince yourself that any linear combination of two vectors of the plane <span class="math inline">\(\mathbb{R}^2\)</span> is another vector in <span class="math inline">\(\mathbb{R}^2\)</span>, in particular from the l.c. <span class="math inline">\(0\begin{pmatrix} 1\\2\end{pmatrix}+0\begin{pmatrix} 3\\0\end{pmatrix}\)</span> we get the origin. Hence we write:</p>
@@ -427,6 +432,19 @@ a(1,2)+b(3,0)
 </section>
 <section id="example-2" class="level2">
 <h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/GP76R_bv3aY" target="_blank">a line in R2 is a subspace of R2</a></p>
+</div>
+</div>
 <p>Consider the vector <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span>, this is our starting point. Now imagine multiplying it by every possible scalar; the end result is a set of vectors which lie along the same line:</p>
 <p><img src="figs/subspace_is_a_line.png" class="img-fluid" width="243"></p>
 <p>From the picture, it is easy to convince yourself that any linear combination of two (or more) vectors of the line gives us another vector in the line.</p>
@@ -466,6 +484,19 @@ Commentary
 </section>
 <section id="example-3" class="level2">
 <h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/bSUlOoCTD-4" target="_blank">R3 and some of its subspaces</a></p>
+</div>
+</div>
 <p>Consider the vectors <span class="math inline">\((1,2,0)^\intercal\)</span> and <span class="math inline">\((1,0,1)^\intercal\)</span> and <span class="math inline">\((0,0,1)^\intercal\)</span>. Linear combine them with every scalar and you obtain a set of vectors. All these vectors fill the three dimensional space <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
 <p><img src="figs/R3_space.png" class="img-fluid" width="468"></p>
 <p>In special notation we have:</p>
@@ -524,9 +555,21 @@ Commentary
 </div>
 </div>
 </section>
-</section>
 <section id="is-it-a-vector-space" class="level1">
 <h1>Is it a vector space?</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/9PjXo61_Kv8" target="_blank">how to check it</a></p>
+</div>
+</div>
 <section id="example-3-cont" class="level2">
 <h2 class="anchored" data-anchor-id="example-3-cont">Example 3 (cont)</h2>
 <p>From the pictures above we deduced what vectors we need to span to generate that space and from this choice we identified the form of the elements. Now lets assume we are given some form of the vectors, how do we know they constitute a vector space?</p>
@@ -576,150 +619,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
