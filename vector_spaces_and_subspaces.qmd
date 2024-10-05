@@ -4,13 +4,17 @@ execute:
   echo: false
 ---
 
-# Vector spaces and Subspaces
-
 The operation of linear combination allow us to construct vector spaces and vector subspaces. In this section we want to look at some figures and from them deduce how to construct spaces. In later sections we will adopt a new approach: to describe the space by an equation or system of equations $A\mathbf{x}=\mathbf{0}$.
 
 Key concepts: *vectors space, subspace, span, form of the elements, direct sum.*
 
 ## Example 1
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[R2 plane as a vector space](https://youtu.be/7tD1vvoqGtc){target="_blank"}
+:::
 
 Consider the vectors $\begin{pmatrix} 1\\2\end{pmatrix}$ and $\begin{pmatrix} 3\\0\end{pmatrix}$. Now multiply both by every possible scalar and then add them; the end result is a set of vectors. All these vectors constitute a two dimensional plane, which we call $\mathbb{R}^2$:
 
@@ -49,6 +53,12 @@ $$
 The form of elements of $\mathbb{R}^2$ appears in many way, either $(a+3b,2a)$ or $(a,b)$, etc, depending on our choice of vectors to span.
 
 ## Example 2
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[a line in R2 is a subspace of R2](https://youtu.be/GP76R_bv3aY){target="_blank"}
+:::
 
 Consider the vector $\begin{pmatrix} 1\\2\end{pmatrix}$, this is our starting point. Now imagine multiplying it by every possible scalar; the end result is a set of vectors which lie along the same line:
 
@@ -89,6 +99,12 @@ $$ a\begin{pmatrix}1\\2\end{pmatrix}+b\begin{pmatrix}0\\0\end{pmatrix} $$
 :::
 
 ## Example 3
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[R3 and some of its subspaces](https://youtu.be/bSUlOoCTD-4){target="_blank"}
+:::
 
 Consider the vectors $(1,2,0)^\intercal$ and $(1,0,1)^\intercal$ and $(0,0,1)^\intercal$. Linear combine them with every scalar and you obtain a set of vectors. All these vectors fill the three dimensional space $\mathbb{R}^3$.
 
@@ -161,6 +177,12 @@ In general a vector space $\mathbb{V}$ is a set of things with which remains inv
 :::
 
 # Is it a vector space?
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[how to check it](https://youtu.be/9PjXo61_Kv8){target="_blank"}
+:::
 
 ## Example 3 (cont)
 

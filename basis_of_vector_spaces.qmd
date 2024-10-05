@@ -1,10 +1,14 @@
 ---
-title: "Basis of vector spaces"
+title: "Definition of basis and its consequences"
 execute:
   echo: false
 ---
 
-# Definition of basis and its consequences
+::: {.callout-tip appearance="simple"}
+## Video
+
+[definition of basis](https://youtu.be/gLKoWR8Whe0){target="_blank"}
+:::
 
 The concept of basis is a natural one after the discussion on vector spaces so far.
 
@@ -115,6 +119,12 @@ So, the same kind of problem $A\mathbf{x}=\mathbf{0}$ will, as we shall see, occ
 
 ## Creating the appropriate basis for a vector space?
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[example below](https://youtu.be/gMlajHd5m8A){target="_blank"}
+:::
+
 **Example 1:** Imagine we have the following set $A=\{(1,1,0),(1,0,1)\}$ how do we create from it a basis for $\mathbb{R}^3$? Well, we have to append to this set one new vectors that point in different direction. That way we would have three independent vectors living in $\mathbb{R}^3$ which would allow us to cover the entire space by l.c. The new vector cannot be a l.c. of the vectors already present in $A$.
 
 To find the new vector in a systematic manner, we notice, a key aspect of it, *since the missing vector belongs to* $\mathbb{R}^3$*, then it has the form* $(a,b,c)$ *for* $a,b,c\in \mathbb{R}$*.* Our problem, is thus to make the third column of the following matrix
@@ -185,6 +195,12 @@ which are clearly independent.
 **Exercises:** 1.5.3,6,7
 
 # Representing a vector wrt a basis
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[the example below](https://youtu.be/sP1qyI29icE){target="_blank"}
+:::
 
 Assume we have a basis $B=\{(1,1,0),(0,1,1),(1,0,2)\}$ and the vector $\mathbf{v}=(1,2,4)$. And want to find the coefficients $c_1$, $c_2$ and $c_3$ such that:
 

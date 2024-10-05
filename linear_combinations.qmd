@@ -4,6 +4,12 @@ execute:
   echo: false
 ---
 
+::: {.callout-tip appearance="simple"}
+## Video:
+
+[Linear Combinations](https://youtu.be/3PPNNY9y-is){target="_blank"}
+:::
+
 We'll consider a vector an array of numbers:
 
 $$ \begin{pmatrix}1\\5\end{pmatrix}, \begin{pmatrix}1\\-5\\0.1\end{pmatrix},\begin{pmatrix}x\\y\\z\end{pmatrix} $$
@@ -32,7 +38,7 @@ If you know how to combine two vectors, you know how to combine three and so on.
 The list of vectors $\mathbf{u}_1,\dots,\mathbf{u}_k$ from $\mathbb{R}^n$ (i.e. $\mathbf{u}_i=(u_{i1},\dots,u_{ik})$), can be linearly combined with numbers $c_1,\dots,c_k$ as:
 
 $$
-c_1\mathbf{u}_1+\dots c_k\mathbf{u}_k =: \sum_{j=1}^kc_j\mathbf{u}_j=:\mathbf{v}
+c_1\mathbf{u}_1+\dots +c_k\mathbf{u}_k =: \sum_{j=1}^kc_j\mathbf{u}_j=:\mathbf{v}
 $$
 
 This l.c. is a new vector of $\mathbb{R}^n$, call it $\mathbf{v}$.

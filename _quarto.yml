@@ -5,10 +5,13 @@ project:
 website:
   title: "asymptotic to MARS"
   navbar:
+
     left:
       - href: index.qmd
         text: Brief Notes
   sidebar:
+    background: rgb(32,31,30)
+    foreground: rgb(120, 194, 173)
     collapse-level: 1
     style: "docked"
     search: true
@@ -75,7 +78,7 @@ website:
               
         - href: systems_from_a_new_view.qmd
           text: "System from a new point of view"
-
+          
 
   page-navigation: true
 
@@ -83,8 +86,12 @@ format:
   html:
     theme:
       light: minty
-      dark: darkly
+      #dark: darkly
     #theme: thestylishtheme.scss
+    fontcolor: rgb(190,190,190)
+    backgroundcolor: rgb(32,31,30)
+    margin-left: rgb(32,31,30)
+    navbar-color:  rgba(216, 6, 33 .65)
     toc: true
 
 editor: visual

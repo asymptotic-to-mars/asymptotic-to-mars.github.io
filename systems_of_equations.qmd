@@ -12,6 +12,12 @@ Key concepts: *systems of equations in matrix-vector notation, elimination, pivo
 
 ## Matrix-vector notation for a system
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Translating between notation](https://youtu.be/Q2Q74yG5kQU){target="_blank"}
+:::
+
 Consider the system with two equations, called $l_1$ and $l_2$:
 
 $$
@@ -52,6 +58,12 @@ Matrix times a vector on the lhs is just a super-compact way of writing the vect
 -   \[$1\times3$\]\[ $3\times 1$\] $=$ \[$1\times 1$\]
 
 ## Solving the system using the Elimination method
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Ideas behind elimination method](https://youtu.be/km8A4JhQma8){target="_blank"}
+:::
 
 Lets solve the system @eq-sist using the traditional rules we already know from high-school, recall:
 
@@ -164,6 +176,12 @@ The following examples will be given:
 -   Another system with many solutions
 
 ### Example 1: A system with one solution
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[the example below in video](https://youtu.be/6fIdP9zjeKQ){target="_blank"}
+:::
 
 Consider the system, which we write in three different notations.
 

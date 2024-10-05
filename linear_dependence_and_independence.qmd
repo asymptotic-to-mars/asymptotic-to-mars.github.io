@@ -4,7 +4,11 @@ execute:
   echo: false
 ---
 
-# Linear dependence and independence
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Testing linear independence](https://youtu.be/Lu1zby_EykI){target="_blank"}
+:::
 
 ::: {#exr-motivation style="color: gray"}
 *(Motivation exercise) Solve 1.2 \> 1 \> c* with $w=(1,10,3,4)$ instead, then compute $2u-3v+u$. The later gives the zero vector, what can you conclude?
