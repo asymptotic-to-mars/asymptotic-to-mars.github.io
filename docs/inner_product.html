@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Definition of inner product and its properties – asymptotic to MARS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./matrices.html" rel="next">
+<link href="./systems_from_a_new_view.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">asymptotic to MARS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Brief Notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./inner_product.html">Inner product and Orthogonal spaces</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Basic Maths</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions_as_relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions as relations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Intro to Polynomials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Atomic Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials of degree one</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line’s equation from two points</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Second order polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Focus-diretrix formulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pol_division.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomial division</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits of sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./implicit_derivative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Quantum Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./angular_momentum_qm_short_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vector spaces and subspaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_dependence_and_independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear dependence and independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_of_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solving systems using elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basis_of_vector_spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basis of vector spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./two_special_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Column space and nullspace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_from_a_new_view.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System from a new point of view</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-the-length-of-a-vector" id="toc-what-is-the-length-of-a-vector" class="nav-link active" data-scroll-target="#what-is-the-length-of-a-vector">What is the length of a vector?</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#how-to-build-a-unit-vector" id="toc-how-to-build-a-unit-vector" class="nav-link" data-scroll-target="#how-to-build-a-unit-vector">How to build a unit vector?</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#how-to-build-a-vector-perpendicular-to-another-vector" id="toc-how-to-build-a-vector-perpendicular-to-another-vector" class="nav-link" data-scroll-target="#how-to-build-a-vector-perpendicular-to-another-vector">How to build a vector perpendicular to another vector?</a>
+  <ul class="collapse">
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  </ul></li>
+  <li><a href="#how-to-define-a-circles-lines-planes-and-hyperplane" id="toc-how-to-define-a-circles-lines-planes-and-hyperplane" class="nav-link" data-scroll-target="#how-to-define-a-circles-lines-planes-and-hyperplane">How to define a circles, lines, planes and hyperplane?</a></li>
+  <li><a href="#how-much-a-vector-looks-like-another-vector" id="toc-how-much-a-vector-looks-like-another-vector" class="nav-link" data-scroll-target="#how-much-a-vector-looks-like-another-vector">How much a vector looks like another vector?</a>
+  <ul class="collapse">
+  <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a></li>
+  <li><a href="#example-2-1" id="toc-example-2-1" class="nav-link" data-scroll-target="#example-2-1">Example 2</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3:</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
+  </ul></li>
+  <li><a href="#orthogonal-spaces" id="toc-orthogonal-spaces" class="nav-link" data-scroll-target="#orthogonal-spaces">Orthogonal spaces</a>
+  <ul class="collapse">
+  <li><a href="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" id="toc-how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" class="nav-link" data-scroll-target="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace">How to define a basis for a subspace orthogonal to another given subspace?</a>
+  <ul class="collapse">
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  </ul></li>
+  <li><a href="#four-very-important-subspaces" id="toc-four-very-important-subspaces" class="nav-link" data-scroll-target="#four-very-important-subspaces">Four very important subspaces</a></li>
+  </ul></li>
+  <li><a href="#gram-schmidt-orthogonalization" id="toc-gram-schmidt-orthogonalization" class="nav-link" data-scroll-target="#gram-schmidt-orthogonalization">Gram-Schmidt orthogonalization</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./inner_product.html">Inner product and Orthogonal spaces</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Definition of inner product and its properties</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The inner product operation <span class="math inline">\(\cdot\)</span> is an operation between vectors that yields a number, it is defined as:</p>
+<div id="def-inner_product" class="theorem definition" style="color: gray; border: 3px solid rgb(230, 230, 230);">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> be two vectors from the same vector space <span class="math inline">\(\mathbb{R}^n\)</span> (i.e.&nbsp;<span class="math inline">\(\mathbf{u}=(u_1,\dots,u_n)\)</span> and <span class="math inline">\(\mathbf{v}=(v_1,\dots,v_n)\)</span>). The inner product of these two vectors is the real number of the form:</p>
+<p><span class="math display">\[
+[\text{inner product between}\,\, \mathbf{u}\,\, \text{and} \,\,\mathbf{v}]:=\mathbf{u}\cdot\mathbf{v} = u_1v_1+\dots+u_nv_n =: \sum_{i=1}^nu_iv_i
+\]</span></p>
+<p>Another notation for this number/operation is <span class="math inline">\(\mathbf{u}^\intercal\mathbf{v}\)</span>.</p>
+<p>The inner product also results from the calculation <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = uv\cos\theta\)</span>.</p>
+</div>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><p>it obeys the property of linearity</p>
+<p><span class="math display">\[ \mathbf{u} \cdot (\mathbf{v} + \lambda \cdot \mathbf{w}) = \mathbf{u}\cdot \mathbf{v} + \lambda \mathbf{u}\cdot \mathbf{w} \]</span> where <span class="math inline">\(\lambda\)</span> is any real number. In other words, the <span class="math inline">\(\cdot\)</span> operation obeys a distributive rule and the “we can pull out numbers” rule.</p></li>
+<li><p>The order of the vectors being dotted is irrelevant <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = \mathbf{v}\cdot\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{u}^\intercal\mathbf{v} = \mathbf{v}^\intercal \mathbf{u}\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(-1\leq\cos\theta\leq 1\)</span>, then <span class="math inline">\(-uv\leq\mathbf{u}\cdot\mathbf{v} \leq uv\)</span>.</p></li>
+<li><p>(<strong>Pythagoras theorem</strong>) If two vectors are orthogonal, then <span class="math inline">\(|\mathbf{u}+\mathbf{v}|^2=u^2+v^2\)</span>. [<em>Commentary:</em> Two orthogonal vectors can come about when decomposing a single vector <span class="math inline">\(\mathbf{w}\in\mathbb{R}^n\)</span> in two complementary spaces <span class="math inline">\(\mathbb{R}^n=U\oplus U^\perp\)</span>.]</p></li>
+<li><p>(<strong>Cauchy-Schwarz inequality</strong> aka triangular inequality) For any vectors <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> we have the following: <span class="math inline">\(|\mathbf{u}+\mathbf{v}|\leq u+v\)</span>. Equality holding when the vectors are parallel and pointing in the same sense.</p></li>
+</ul>
+<p><strong>Exercises:</strong> 1.6.3,5,6,7</p>
+<p><strong>Usefulness:</strong> The inner product operation is a tool to gather geometrical information about vectors and to describe planes and hyperplanes. I.e. it allows answering the following questions:</p>
+<section id="what-is-the-length-of-a-vector" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-length-of-a-vector">What is the length of a vector?</h2>
+<p><em>Answer:</em> Compute the inner product of a vector with itself.</p>
+<p><span class="math display">\[
+\mathbf{u}^\intercal\mathbf{u} = u_1^2+\dots+u_n^2
+\]</span></p>
+<p>Whose rhs we interpret, using the Pythagoras theorem, as the length square of <span class="math inline">\(\mathbf{u}\)</span>. The norm <span class="math inline">\(|\mathbf{u}|\)</span> of the vector is the square-root of this value:</p>
+<p><span class="math display">\[
+|\mathbf{u}|:=\sqrt{u_1^2+\dots+u_n^2}
+\]</span></p>
+<p><em>Notation:</em> we can call the norm <span class="math inline">\(|\mathbf{u}|\)</span> just by <span class="math inline">\(u\)</span>.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>The length squared of the vector <span class="math inline">\(\mathbf{u}=(1,2)\)</span> is:</p>
+<p><span class="math display">\[
+|\mathbf{u}|^2 = \mathbf{u}^\intercal\mathbf{u} = u_1^2+u_2^2 = 1^2+2^2=1+4=5
+\]</span></p>
+<p>The norm of the vector is obtained by taking the square root of <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[
+u=\sqrt{5}
+\]</span></p>
+<p><img src="figs/pythagoras.png" class="img-fluid" width="266"></p>
+<p>Another way to compute the norm-squared of a vector is to consider <span class="math inline">\(\mathbb{R}^2=[\textbf{x axis}]\oplus[\textbf{y axis}]\)</span> and write <span class="math inline">\(\mathbf{u} = (0,1)+(2,0)\)</span> and then use the Pythagoras theorem <span class="math inline">\(|\mathbf{w}+\mathbf{v}|^2=w^2+v^2\)</span> to compute:</p>
+<p><span class="math display">\[
+|\mathbf{u}|^2=|(0,1)+(2,0)|^2=(0^2+1^2)^2+(2^2+0^2)^2=1+4=5
+\]</span></p>
+<p>Then take the square-root.</p>
+<p><strong>Exercises:</strong> 1.6.1a</p>
+</section>
+</section>
+<section id="how-to-build-a-unit-vector" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-build-a-unit-vector">How to build a unit vector?</h2>
+<p>Starting with the vector <span class="math inline">\(\mathbf{u}=(u_x,u_y)\)</span> we can define a parallel unit vector by dividing it by it length:</p>
+<p><span class="math display">\[
+\mathbf{e}_u = \frac{\mathbf{u}}{|\mathbf{u}|}
+\]</span></p>
+<p><em>Justification:</em> Compute its norm <span class="math inline">\(|\mathbf{e}_u|^2 = \frac{\mathbf{u}}{|\mathbf{u}|}\cdot \frac{\mathbf{u}}{|\mathbf{u}|}=\frac{|\mathbf{u}|^2}{|\mathbf{u}|^2}=1\)</span></p>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<p>The unit vector along <span class="math inline">\(\mathbf{u}=-(1,2)\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{e}_u = \frac{-(1,2)}{\sqrt{1+2^2}}=-\frac{1}{\sqrt{5}}(1,2)
+\]</span></p>
+<p>Clearly: <span class="math inline">\(|\mathbf{e}_u|^2 = -\frac{1}{\sqrt{5}}(1,2)\cdot (-\frac{1}{\sqrt{5}}(1,2))=\frac{1}{5}(1+2^2)=1\)</span></p>
+<p><strong>Exercise:</strong> 1.6.2.c,e</p>
+</section>
+</section>
+<section id="how-to-build-a-vector-perpendicular-to-another-vector" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-build-a-vector-perpendicular-to-another-vector">How to build a vector perpendicular to another vector?</h2>
+<section id="example-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2">Example</h3>
+<p>Given again the vector <span class="math inline">\(\mathbf{n}=(1,2)\)</span>, a vector <span class="math inline">\(\mathbf{r}\)</span> perpendicular to it, obeys <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>. Solving this equation for <span class="math inline">\(\mathbf{r}\)</span> we find:</p>
+<p><span class="math display">\[
+(1,2)\cdot (x,y)=0 \implies x+2y=0
+\]</span></p>
+<p>One equation with two unknowns, we must promote one unknown to a parameter, let <span class="math inline">\(x=-2\)</span>. Then <span class="math inline">\(y=1\)</span>. Thus <span class="math inline">\((-2,1)\)</span> is perpendicular to <span class="math inline">\((1,2)\)</span>. Notice this is not the only solution!</p>
+<p>[<em>Comment:</em> This is a very simple <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span> type of problem with a matrix <span class="math inline">\(A=(1,2)\)</span> with one pivot <span class="math inline">\(1\)</span> and one dependent column <span class="math inline">\(2\)</span>.]</p>
+<p><strong>Exercises:</strong> 1.6.2.b,c,f</p>
+</section>
+</section>
+<section id="how-to-define-a-circles-lines-planes-and-hyperplane" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-define-a-circles-lines-planes-and-hyperplane">How to define a circles, lines, planes and hyperplane?</h2>
+<p><strong>Circle and spheres:</strong> A circle in <span class="math inline">\(\mathbb{R}^2\)</span> or a sphere in <span class="math inline">\(\mathbb{R}^3\)</span> centered at <span class="math inline">\(\mathbf{0}\)</span> satisfy the equation: <span class="math inline">\(|\mathbf{r}|^2=R^2\)</span> where <span class="math inline">\(R\)</span> is the radius. Centered at <span class="math inline">\(\mathbf{r}_0\)</span> they obey <span class="math inline">\(|\mathbf{r}-\mathbf{r}_0|^2=R^2\)</span>. The geometry of the situation should clearly justify the equations.</p>
+<p><strong>Exercise:</strong> 1.6.8</p>
+<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^2\)</span><strong>:</strong> A line perpendicular to <span class="math inline">\(\mathbf{n}=(1,2)\)</span> is the set of <em>all</em> solutions to the equation <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>, the answer is:</p>
+<p><span class="math display">\[
+[\textbf{line}\,\perp\,\textbf{to}\,\,(1,2)]=\{(-2c,c)\,\,|\,\,c\in \mathbb{R}\}
+\]</span></p>
+<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^3\)</span><strong>:</strong> A line (which crosses the origin) is the interception of two non-parallel planes (which cross the origin as well); a plane is the subspace perpendicular to a vector. Let <span class="math inline">\(\mathbf{n}_1=(1,0,1)\)</span> and <span class="math inline">\(\mathbf{n}_2=(1,2,0)\)</span> define the two planes <span class="math inline">\(\mathbf{n}_{1,2}^\intercal \mathbf{r}=0\)</span>. The interception is the set of vectors common to both planes, this means we have to find the <span class="math inline">\(\mathbf{r}=(x,y,z)\in\mathbb{R}^3\)</span> such that both plane equations are satisfied, i.e.</p>
+<p><span id="eq-the_problem"><span class="math display">\[
+\begin{cases}
+\mathbf{n}_{1}^\intercal \mathbf{r}=0\\
+\mathbf{n}_{2}^\intercal \mathbf{r}=0
+\end{cases}
+\leftrightsquigarrow
+\left(\begin{matrix}1 &amp; 0 &amp; 1\\1 &amp; 2 &amp; 0 \end{matrix}\;\middle|\;\begin{matrix}0\\0 \end{matrix}\right)
+\overset{l_2'=l_2-l_1}{\longrightarrow}
+\left(\begin{matrix}1 &amp; 0 &amp; 1\\0 &amp; 2 &amp; -1 \end{matrix}\;\middle|\;\begin{matrix}0\\0 \end{matrix}\right)
+\overset{l_2'=1/2l_2}{\longrightarrow}\left(\begin{matrix}1 &amp; 0 &amp; 1\\0 &amp; 1 &amp; -1/2 \end{matrix}\;\middle|\;\begin{matrix}0\\0 \end{matrix}\right)
+\tag{1}\]</span></span></p>
+<p>There are two pivots in the first two columns and a dependent column, one solution is <span class="math inline">\((-1,1/2,1)\)</span>, in general we have:</p>
+<p><span class="math display">\[
+\mathbf{x}_N = c\left(\begin{matrix}-1\\1/2\\1\end{matrix}\right)
+\]</span></p>
+<p>which gives us the form of the elements along a line!</p>
+<p><span class="math display">\[
+[\textbf{line}\,\perp\, \textbf{to}\,\, \mathbf{n}_{1,2}] = \{(-c,c/2,c)\,\,|,\, c\in \mathbb{R}\}
+\]</span></p>
+<p><em>A Captain obvious observation:</em> If we know the process of finding all vector (the line) perpendicular to these two vector, I can find just one vector perpendicular to both.</p>
+<p><strong>A plane in</strong> <span class="math inline">\(\mathbb{R}^3\)</span><strong>:</strong> The subspace perpendicular to <span class="math inline">\((1,0,1)\)</span> is the solution of <span class="math inline">\((1,0,1)\cdot (x,y,z)=0\)</span>, because there are two free columns and one pivot we expect null space <span class="math inline">\(N(1,0,1)\)</span> with two dimensions. Setting the free variable <span class="math inline">\(y=1\)</span> and <span class="math inline">\(z=0\)</span> we find <span class="math inline">\(x=-1\)</span>, hence <span class="math inline">\(\mathbf{x}_{N,1}=(-1,1,0)\)</span>; setting <span class="math inline">\(y=0\)</span> and <span class="math inline">\(z=1\)</span> we arrive at <span class="math inline">\(\mathbf{x}_{N,2}=(-1,0,1)\)</span>. Any l.c. of these solutions is a solution of the equation:</p>
+<p><span class="math display">\[
+\mathbf{x}_N=\alpha\left(\begin{matrix}-1\\1\\0 \end{matrix}\right)+\beta\left(\begin{matrix}-1\\0\\1 \end{matrix}\right)
+\]</span></p>
+<p>which defines a plane containing <span class="math inline">\(\mathbf{0}\)</span>.</p>
+<p><strong>Hyperplane:</strong> The idea is similar, just define the appropriate interception of subspaces perpendicular to the given vectors, then arrange the equations as an <span class="math inline">\(A\mathbf{r}=\mathbf{0}\)</span> problem.</p>
+<p><strong>Exercise:</strong> 1.6.9</p>
+</section>
+<section id="how-much-a-vector-looks-like-another-vector" class="level2">
+<h2 class="anchored" data-anchor-id="how-much-a-vector-looks-like-another-vector">How much a vector looks like another vector?</h2>
+<section id="example-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-1">Example 1</h3>
+<p>The formula <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = uv\cos\theta\)</span> is of great importance because it allow us to compute the angle between <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span>. Let <span class="math inline">\(\mathbf{u} = (1,2)\)</span> and <span class="math inline">\(\mathbf{v}=(-2,3)\)</span>:</p>
+<p><img src="figs/angle_between_two_vectors.png" class="img-fluid" width="240"></p>
+<p>Then the angle is obtained by solving the trigonometric equation:</p>
+<p><span class="math display">\[
+\cos \theta = \frac{\mathbf{u}^\intercal\mathbf{v}}{uv}=\frac{1\cdot (-2)+2\cdot 3}{\sqrt{1+2^2}\sqrt{2^2+3^2}}=\frac{4}{\sqrt{65}}\implies \theta \approx 1\,\, rad
+\]</span></p>
+<p>The angle of <span class="math inline">\(1\,\,rad\)</span> is quiet large, hence the two vectors directions are not close to each other.</p>
+<p>Another way to evaluate similarity is through the value of the cosine rather than the angle itself, in this case <span class="math inline">\(\cos \theta\)</span> is <span class="math inline">\(4/\sqrt{85}\)</span> which is about <span class="math inline">\(1/2\)</span>.</p>
+<p><img src="figs/cos_plot.png" class="img-fluid" width="292"></p>
+<p>Since the <span class="math inline">\(\theta\)</span> is smaller than <span class="math inline">\(\pi/2\)</span>, then the angle acute which means the vectors are not very similar, but at least point roughly in the same direction.</p>
+<p><strong>Exercises:</strong> 1.6.4</p>
+</section>
+<section id="example-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-1">Example 2</h3>
+<p>If we now let <span class="math inline">\(\mathbf{u} = (1,-2)\)</span> and <span class="math inline">\(\mathbf{v}=(-2,3)\)</span>, then the angle is: <span class="math inline">\(\theta \approx 0.95 \pi \,\,rad\)</span>. Almost <span class="math inline">\(180^\circ\)</span>, very different vectors. The inner product by being negative already tells us that the vectors point in almost opposite directions.</p>
+<p><em>Comment:</em> In example 1 and 2 above the calculation of the angle or the cosine is rather useless because we can easily draw both vectors and check whether they are or not similar. A harder task is when we try to do this in three, four, etc dimensions.</p>
+</section>
+<section id="example-3" class="level3">
+<h3 class="anchored" data-anchor-id="example-3">Example 3:</h3>
+<p>Let <span class="math inline">\(\mathbf{u} = (1,2)\)</span> and the unitary vector <span class="math inline">\(\mathbf{e}_v=(1,-1)/\sqrt{2}\)</span>:</p>
+<p><img src="figs/projection_onto_vx.png" class="img-fluid" width="265"></p>
+<p>Computing the inner product we find:</p>
+<p><span class="math display">\[
+\mathbf{e}_v\cdot \mathbf{u} = -\frac{1}{\sqrt{2}}=5\cos \theta
+\]</span></p>
+<p>On the rhs we see using trigonometry, the projection (shadow) of the vector <span class="math inline">\(\mathbf{u}\)</span> along the vector <span class="math inline">\(\mathbf{e}_v\)</span>, which is this case is negative, implying the vectors point in different directions.</p>
+<p>[<em>Comment:</em> The matrix <span class="math inline">\(\mathbf{v}\mathbf{v}^\intercal/v^2\)</span> is a projector along <span class="math inline">\(\mathbf{v}\)</span>.]</p>
+</section>
+<section id="example-4" class="level3">
+<h3 class="anchored" data-anchor-id="example-4">Example 4</h3>
+<p>This time we start with <span class="math inline">\(\mathbf{e}_x\)</span> and <span class="math inline">\(\mathbf{e}_x\)</span>, the unitary vector <span class="math inline">\((1,0)\)</span> or <span class="math inline">\((0,1)\)</span>, and keep the usual <span class="math inline">\(\mathbf{u}=(1,2)\)</span>. The inner products yields:</p>
+<p><span class="math display">\[
+\begin{cases}
+\mathbf{e}_x^\intercal \mathbf{u}=1\\
+\mathbf{e}_y^\intercal \mathbf{u}=2\\
+\end{cases}
+\]</span></p>
+<p>Moreover:</p>
+<p><span class="math display">\[
+\begin{cases}
+\mathbf{e}_x^\intercal \mathbf{u}=5\cos\theta_x\\
+\mathbf{e}_y^\intercal \mathbf{u}=5\cos\theta_y=5 \sin\theta_x
+\end{cases}
+\]</span></p>
+<p>Which means geometrically:</p>
+<p><img src="figs/projection.png" class="img-fluid" width="220"></p>
+<p>Dotting a vector with an unitary vector yields <span class="math inline">\(5\cos\theta_x\)</span> and <span class="math inline">\(5\cos\theta_y\)</span> which using trigonometry are the projections of <span class="math inline">\(\mathbf{u}\)</span> along those directions, which in turn is are the entries <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> of the vector along the unitary vectors.</p>
+<p>We conclude that, given a basis <span class="math inline">\(B=\{\mathbf{e}_x, \mathbf{e}_y\}\)</span> we can write the vector <span class="math inline">\(\mathbf{u}=(1,2)\)</span> as:</p>
+<p><span id="eq-partition_of_a_vector"><span class="math display">\[
+\mathbf{u} = (\mathbf{e}_x\cdot\mathbf{u})\mathbf{e}_x+(\mathbf{e}_y\cdot\mathbf{u})\mathbf{e}_y= 1\mathbf{e}_x+2 \mathbf{e}_y
+\tag{2}\]</span></span></p>
+<p>Which means: <span class="math inline">\([\mathbf{u}]_B=(\mathbf{e}_x\cdot\mathbf{u},\mathbf{e}_y\cdot\mathbf{u})\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We identify in <a href="#eq-partition_of_a_vector" class="quarto-xref">Equation&nbsp;2</a>, the partition of the identity:</p>
+<p><span class="math display">\[ I=\mathbf{e}_x\mathbf{e}_x^\intercal+\mathbf{e}_y\mathbf{e}_y^\intercal \]</span></p>
+<p>which when it act on a vector <span class="math inline">\(\mathbf{u}\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span> gives us:</p>
+<p><span class="math display">\[
+\mathbf{u}=I\mathbf{u} = \mathbf{e}_x\mathbf{e}_x^\intercal\mathbf{u}+\mathbf{e}_y\mathbf{e}_y^\intercal\mathbf{u}=1\mathbf{e}_x+2 \mathbf{e}_y
+\]</span></p>
+</div>
+</div>
+<p><strong>Exercises:</strong> 1.7.5</p>
+</section>
+</section>
+<section id="orthogonal-spaces" class="level1">
+<h1>Orthogonal spaces</h1>
+<p>Two subspaces are orthogonal if every vector in one is orthogonal every vector in another. Take the following examples:</p>
+<p><img src="figs/orthogonal_spaces_ex.png" class="img-fluid" width="559"></p>
+<p><strong>Far left:</strong> The two subspaces of <span class="math inline">\(\mathbb{R}^2\)</span> on the left are orthogonal. Only the origin <span class="math inline">\(\mathbf{0}\)</span> is common. If we introduce a basis for both <span class="math inline">\(U=span\{\mathbf{e}_u\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_v\}\)</span> we can say <span class="math inline">\(\mathbb{R}^2 = U\oplus V\)</span> and that <span class="math inline">\(U\)</span> is the orthogonal complement of <span class="math inline">\(V\)</span>. Notice the dimension <span class="math inline">\(n=2\)</span> of the space is equal to the sum of the dimensions of the two subspaces: <span class="math inline">\(\dim \mathbb{R}^2 = \dim U +\dim V\)</span>.</p>
+<p><strong>Middle Left:</strong> The two subspaces (shown as rectangles) of <span class="math inline">\(\mathbb{R}^3\)</span> are not orthogonal because at the interception we find vectors which are parallel and thus not orthogonal. More than the origin is common to both, the <strong>y-axis</strong> is as well.</p>
+<p><strong>Middle right:</strong> We have again two orthogonal subspaces. Only the origin is common. Introducing basis to both subspaces <span class="math inline">\(U=span\{\mathbf{e}_x,\mathbf{e}_y\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_z\}\)</span>, we see that <span class="math inline">\(\mathbb{R}^3=U\oplus V\)</span>. Again we see the dimension <span class="math inline">\(3\)</span> of <span class="math inline">\(\mathbb{R}^3\)</span> is equal to the sum of the dimensions of the orthogonal complements.</p>
+<p><strong>Far right:</strong> Finally we have two orthogonal subspaces, but we cannot write <span class="math inline">\(\mathbb{R}^3 = U\oplus V\)</span>. At most we can only say: <span class="math inline">\([\textbf{xy plane}] = U\oplus V\)</span>.</p>
+<p>These examples, motivate us to introduce the following definitions:</p>
+<div id="def-orthogonal_spaces" class="theorem definition" style="color: gray; border: 3px solid rgb(230, 230, 230);">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> [<span class="math inline">\(U\)</span> is orthogonal to <span class="math inline">\(V\)</span>] <span class="math inline">\(:=\)</span> [Every vector <span class="math inline">\(\mathbf{u}\in U\)</span> is orthogonal to every <span class="math inline">\(\mathbf{v}\in V\)</span>]</p>
+<p>[orthogonal complement of <span class="math inline">\(U\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>] <span class="math inline">\(:=U^\perp:=\{\mathbf{v}\in\mathbb{R}^n\,\,|\,\, \forall \mathbf{u}:\mathbf{u}^\intercal\mathbf{v}=0\}\)</span></p>
+<p><em>Note:</em> orthogonal complement of <span class="math inline">\(U\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span> is the subspace that complements <span class="math inline">\(U\)</span> to gives us <span class="math inline">\(\mathbb{R}^n\)</span>, i.e., it is the solution <span class="math inline">\(U^\perp\)</span> of <span class="math inline">\(\mathbb{R}^n = U\oplus U^\perp\)</span>. Clearly the sum of dimensions of both spaces must be <span class="math inline">\(n\)</span>.</p>
+</div>
+<section id="how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace">How to define a basis for a subspace orthogonal to another given subspace?</h2>
+<p>Essentially what is being asked is to solve <span class="math inline">\(U\oplus U^\perp=\mathbb{R}^n\)</span> given <span class="math inline">\(U\)</span>. And since <span class="math inline">\(U^\perp\)</span> has all its vectors perpendicular to <span class="math inline">\(U\)</span>, it is the nullspace of a matrix whose rows are the basis of <span class="math inline">\(U\)</span>.</p>
+<section id="example-5" class="level3">
+<h3 class="anchored" data-anchor-id="example-5">Example</h3>
+<p>Consider the subspace of <span class="math inline">\(\mathbb{R}^3\)</span> given by <span class="math inline">\(U=span\{(1,0,1),(1,2,0)\}\)</span>. <em>Question:</em> Define a basis for <span class="math inline">\(U^\perp\)</span>.</p>
+<p><em>Answer:</em> If we find the set of vectors perpendicular to the basis vectors of <span class="math inline">\(U\)</span>, we found <span class="math inline">\(U^\perp\)</span>. The basis of <span class="math inline">\(U\)</span> is <span class="math inline">\(\{(1,0,1),(1,2,0)\}\)</span>, a set of vectors perpendicular to it is the solution of:</p>
+<p><span class="math display">\[
+\left(\begin{matrix}1 &amp; 0 &amp; 1\\1 &amp; 2 &amp; 0 \end{matrix}\;\middle|\;\begin{matrix}0\\0 \end{matrix}\right)
+\]</span></p>
+<p>This system is solved the usual manner, see <a href="#eq-the_problem" class="quarto-xref">Equation&nbsp;1</a>. Thus:</p>
+<p><span class="math display">\[ U^\perp=[\textbf{line}\,\perp\, \textbf{to}\,\, \mathbf{n}_{1,2}] = \{(-c,c/2,c)\,\,|,\, c\in \mathbb{R}\} \]</span></p>
+<p>Now that we have the set <span class="math inline">\(U^\perp\)</span> we can pick a basis for it, for example <span class="math inline">\((-1,1/2,1)\)</span>. One basis of <span class="math inline">\(U^\perp\)</span> is <span class="math inline">\((-1,1/2,1)\)</span>.</p>
+<p>Sometimes we might want a normalized basis in which case, we pick from <span class="math inline">\(U^\perp\)</span> the vector <span class="math inline">\((-1,1/2,1)/\sqrt{(-1)^2+(1/2)^2+1^2}\)</span>.</p>
+<p><strong>Exercise:</strong> 1.7.2,3</p>
+</section>
+</section>
+<section id="four-very-important-subspaces" class="level2">
+<h2 class="anchored" data-anchor-id="four-very-important-subspaces">Four very important subspaces</h2>
+<p>For a given matrix <span class="math inline">\(A\)</span> with shape <span class="math inline">\(n\times m\)</span> we already defined the column space <span class="math inline">\(C(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^n\)</span> and the nullspace <span class="math inline">\(N(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^m\)</span>. Recall the matrix</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}
+\]</span></p>
+<p>The column space spanned by the first and third column (because they are independent), its dimension is the number of pivots, in this case <span class="math inline">\(2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^3\)</span>:</p>
+<p><span class="math display">\[
+C(A)=span\{(1,2,3),(2,6,8)\}\subset_{\text{vec}}\mathbb{R}^3
+\]</span></p>
+<p>While the nullspace was obtained by solving <span class="math inline">\(A\mathbf{x}_N=\mathbf{0}\)</span>, its dimension is the number of dependent columns, which is the number of columns <span class="math inline">\(m=4\)</span> minus the number of pivots <span class="math inline">\(r=2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^4\)</span>.</p>
+<p><span class="math display">\[
+N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}\subset_{\text{vec}}\mathbb{R}^4
+\]</span></p>
+<p>Now we’ll introduce their orthogonal complements in the <span class="math inline">\(\mathbb{R}^3\)</span> and <span class="math inline">\(\mathbb{R}^4\)</span> respectively.</p>
+<section id="left-nullspace" class="level4">
+<h4 class="anchored" data-anchor-id="left-nullspace">Left Nullspace</h4>
+<p><span class="math inline">\(C(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(C(A)\)</span>. It is the nullspace of <span class="math inline">\(A^\intercal\)</span>, aka, left nullspace <span class="math inline">\(N(A^\intercal)\)</span>.</p>
+<p>Why is this so?</p>
+<p><img src="figs/leftnullspace_perp_colspace.png" class="img-fluid" width="317"></p>
+</section>
+<section id="row-space" class="level4">
+<h4 class="anchored" data-anchor-id="row-space">Row space</h4>
+<p><span class="math inline">\(N(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(N(A)\)</span>. It is the column space of <span class="math inline">\(A^\intercal\)</span>, aka, row space.</p>
+<p>Why is this so?</p>
+<p><img src="figs/row_space_perp_to_nullspace.png" class="img-fluid" width="329"></p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations:</h4>
+<p>We know (<span class="math inline">\(n=3\)</span> and <span class="math inline">\(m=4\)</span>):</p>
+<p><span class="math display">\[
+\mathbb{R}^n = C(A) \oplus N(A^\intercal)\qquad \mathbb{R}^m=C(A^\intercal)\oplus N(A)
+\]</span></p>
+<p>Since <span class="math inline">\(\dim C(A) = \dim C(A^\intercal) =r\)</span>, <span class="math inline">\(\dim N(A) =n-r\)</span> and <span class="math inline">\(\dim N(A^\intercal) =m-r\)</span> we can verify that:</p>
+<p><span class="math display">\[
+n = \dim C(A) + \dim N(A^\intercal) \qquad m = \dim C(A^\intercal)+\dim N(A)
+\]</span></p>
+<p>Pictorially we find:</p>
+<p><img src="figs/four_subspaces_basic.png" class="img-fluid"></p>
+<p>With this subspaces in hand we can look again at <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>:</p>
+<ul>
+<li><p>Any vector <span class="math inline">\(\mathbf{x}\)</span> lives in <span class="math inline">\(\mathbb{R}^m\)</span>, it has as many entries as there are columns in the matrix it multiplies. Since this space is broken down into two complements <span class="math inline">\(\mathbb{R}^m=C(A^\intercal)\oplus N(A)\)</span> we can also break <span class="math inline">\(\mathbf{x}\)</span> into <span class="math inline">\(\mathbf{x}=\mathbf{x}_\text{row}+\mathbf{x}_\text{null}\)</span>.</p></li>
+<li><p>The vector belong to the space <span class="math inline">\(\mathbf{b}\in\mathbb{R}^n\)</span> and can be broken in <span class="math inline">\(\mathbf{b} = \mathbf{b}_{col}+\mathbf{b}_{\textit{left null}}\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When solving <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span> we found <span class="math inline">\(\mathbf{x}=\mathbf{x}_P+\mathbf{x}_N\)</span>. So it seem as if <span class="math inline">\(x_P\)</span> and <span class="math inline">\(x_{row}\)</span> must be the same thing. But need not be the same. The particular solution may have some component in the nullspace of <span class="math inline">\(A\)</span>. As an example, our favorite system of equation has general solution:</p>
+<p><span class="math display">\[
+\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix} +span\{\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix} ,\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}\}
+\]</span></p>
+<p>Notice <span class="math inline">\((1,0,0,0)\)</span> has non zero projection along the <span class="math inline">\((-2,1,0,0)\)</span> and <span class="math inline">\((2,0,-2,1)\)</span>. However this solution can be rewritten written as <span class="math inline">\(\mathbf{x}_\text{row}+\mathbf{x}_\text{null}\)</span>. To achieve that some they strategies already used in Gram-Schmidt might be useful.</p>
+</div>
+</div>
+<p><strong>Exercises:</strong> 1.5.11,12</p>
+</section>
+</section>
+</section>
+<section id="gram-schmidt-orthogonalization" class="level1">
+<h1>Gram-Schmidt orthogonalization</h1>
+<p><strong>Goal:</strong> From a set of independent vectors <span class="math inline">\(\{\mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3\}\)</span> to obtain a set of orthogonal vectors.</p>
+<p><strong>Idea:</strong> First consider one of the vectors of the list, say <span class="math inline">\(\mathbf{q}_1\)</span>, as being fixed. Choose a second vector of the list, for example <span class="math inline">\(\mathbf{q}_2\)</span>; to make it orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, I just need to project <span class="math inline">\(\mathbf{q}_2\)</span> on <span class="math inline">\(\mathbf{q}_1\)</span> and then remove from <span class="math inline">\(\mathbf{q}_2\)</span> this projection; what is left in <span class="math inline">\(\mathbf{q}_2\)</span> is orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, call this remainder as <span class="math inline">\(\mathbf{q}_2^\perp\)</span>. Choose a third vector <span class="math inline">\(\mathbf{q}_3\)</span> from the list, we want to make it perpendicular to <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>; to do that we have to project it on the plane formed by <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>, then we remove from <span class="math inline">\(\mathbf{q}_3\)</span> this projection, once again what is left is the perpendicular part <span class="math inline">\(\mathbf{q}_3^\perp\)</span> to the plane. And so on…</p>
+<p>To orthogonalize the following list of vectors <span class="math inline">\(\{\mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3\}\)</span>:</p>
+<ol type="1">
+<li><p>Fix <span class="math inline">\(\mathbf{q}_1\)</span>.</p></li>
+<li><p>Remove from <span class="math inline">\(\mathbf{q}_2\)</span> the projection part on <span class="math inline">\(\mathbf{q}_1\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{q}_2^\perp = \mathbf{q}_2-\frac{\mathbf{q}_1\mathbf{q}_1^\intercal}{\mathbf{q}_1^\intercal\mathbf{q}_1}\mathbf{q}_2
+\]</span></p></li>
+<li><p>Remove from <span class="math inline">\(\mathbf{q}_3\)</span> the projection on <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span> (i.e.&nbsp;the projection on the plane formed by both):</p>
+<p><span class="math display">\[
+\mathbf{q}_3^\perp = \mathbf{q}_3-\frac{\mathbf{q}_1\mathbf{q}_1^\intercal}{\mathbf{q}_1^\intercal\mathbf{q}_1}\mathbf{q}_3-\frac{\mathbf{q}_2^\perp(\mathbf{q}_2^\perp)^\intercal}{(\mathbf{q}_2^\perp)^\intercal\mathbf{q}_2^\perp}\mathbf{q}_3
+\]</span></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The expression <span class="math inline">\(\mathbf{q}^\intercal \mathbf{q}\)</span> found in the denominator in these expression is the norm square <span class="math inline">\(|\mathbf{q}|^2\)</span> of the vectors in the numerator. The terms</p>
+<p><span class="math display">\[
+\frac{\mathbf{q}\mathbf{q}^\intercal}{|\mathbf{q}|^2}=\frac{\mathbf{q}}{|\mathbf{q}|}\frac{\mathbf{q}^\intercal}{|\mathbf{q}|}=\hat{\mathbf{q}}\hat{\mathbf{q}}^\intercal
+\]</span></p>
+<p>are projectors along the unitary vector <span class="math inline">\(\hat{\mathbf{q}}\)</span>.</p>
+</div>
+</div>
+<p><strong>Exercise:</strong> 1.7.6,7,8</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./systems_from_a_new_view.html" class="pagination-link" aria-label="System from a new point of view">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">System from a new point of view</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./matrices.html" class="pagination-link" aria-label="Matrices">
+        <span class="nav-page-text">Matrices</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
