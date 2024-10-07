@@ -1,8 +1,10 @@
 ---
 title: "Determinants"
+execute:
+  echo: false
 ---
 
-Determinant of a square $n\times n$ matrix is a special number we assign to the matrix and on which many other properties of it lie. It a useful definition.
+Determinant of a square $n\times n$ matrix is a special number we assign to the matrix and on which many other properties of it lie. It is a useful definition.
 
 Rather than giving a formula for the calculation, lets list its properties that this formula would have:
 
@@ -64,7 +66,7 @@ Rather than giving a formula for the calculation, lets list its properties that 
 
     What number satisfies these two conditions? Answer: $0$.
 
-5.  Linear cobination of rows does not change the $\det$
+5.  Linear combination of rows does not change the $\det$
 
     For example:
 
@@ -74,7 +76,11 @@ Rather than giving a formula for the calculation, lets list its properties that 
 
     The second determinant is zero, since the two rows are equal.
 
-    *Warning:* l.c. of rows, multiplying a row by a number or flipping rows are operation used in elimination which lead to equivalent systems of equations. However, as we see from rule 2. and 3., the determinant changes, only l.c. of rows keeps the determinant!
+    ::: callout-warning
+    ## Warning
+
+    l.c. of rows, multiplying a row by a number or flipping rows are operation used in elimination which lead to equivalent systems of equations. However, as we see from rule 2. and 3., the determinant changes, only l.c. of rows keeps the determinant!
+    :::
 
 6.  A row of zeros, mean the $\det$ is zero.
 
@@ -100,7 +106,9 @@ Rather than giving a formula for the calculation, lets list its properties that 
 
     In the first step we used l.c. to eliminate the entries above the pivots, on the second step we used the row-wise linearity to pull out the diagonal leaving us the determinant of the identity which is just $1$.
 
-8.  Following 6., when $\det A = 0$ then we can find a row of zeros in the $\text{rref}\, A$.
+8.  When a matrix has dependent rows, then its $\det A = 0$.
+
+    *Justification:* Let $A$ be $3\times 3$, and imagine the last row is the sum of the first two, then through l.c. of rows we can eliminate all entries in the last row, which means by rule 6, the determinate is zero.
 
 9.  Determinant of a product is the product of determinants.
 
@@ -113,6 +121,8 @@ Rather than giving a formula for the calculation, lets list its properties that 
     $$
     \det A^\intercal =\det A
     $$
+
+    *Consequence:* If two columns are dependent, then the determinant is zero.
 
 # Using determinant properties to compute determinants
 
@@ -203,3 +213,19 @@ In compact form:
 $$
 AC^\intercal =I\det A
 $$
+
+# Determinants define volumes
+
+Here is a fact about the meaning of determinant of a matrix:
+
+$$
+\det \left(\begin{matrix} A_{11} &  A_{12} & A_{13}\\ A_{21} & A_{22} & A_{23}\\ A_{31} & A_{32} & A_{33} \end{matrix}\right) = [\text{signed volume of columns}] = [\text{signed volume of rows}]
+$$
+
+We'll not prove this fact but give three clues that make it seem reasonable:
+
+-   If one column (or row) is dependent, then as expected, the volume is zero and correspondingly the determinant is zero as well by rule 8.
+
+-   The determinant of the identity is $1$, as expected by a cube of side $1$. Since the columns of $A$ are essentially $A\mathbf{e}_i$, we would expect that $\det A$ is the volume encapsulated within the columns.
+
+-   Flipping rows, only changes the sign of the determinant. but not its absolute value. The sign has to do with the order in which the columns (or rows) appear in $A$.

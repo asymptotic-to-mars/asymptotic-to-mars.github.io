@@ -24,7 +24,27 @@ What can we do with matrices?
 
 But this time we'll introduce more: matrix multiplication, transpose, inverses, determinants.
 
-# Matrix Product (composition if matrices)
+# Linear combination of matrices (sum of linear functions)
+
+A number times a matrix is the matrix with every entry multiplied by that number:
+
+$$
+\lambda\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\1 & 0 & 1  \end{matrix}\right)=\left(\begin{matrix}\lambda & 0 & 0\\0 & \lambda & 0\\\lambda & 0 & \lambda  \end{matrix}\right)
+$$ {#eq-mult_by_lambda}
+
+From @eq-mult_by_lambda we know in general: $B_{ij}=\lambda A_{ij}$.
+
+Adding two matrices is done entry-wise:
+
+$$
+\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\1 & 0 & 1  \end{matrix}\right)+\left(\begin{matrix}1 & 0 & 1\\0 & 0 & 0\\1 & 0 & 1  \end{matrix}\right) =\left(\begin{matrix}2 & 0 & 1\\0 & 1 & 0\\2 & 0 & 2  \end{matrix}\right)
+$$ {#eq-adding_mats}
+
+From @eq-adding_mats we identify the rule: $C_{ij}=A_{ij}+B_{ij}$.
+
+A linear combination $aA+bB$ is thus computed entry-wise with the rule: $C_{ij}=aA_{ij}+bB_{ij}$.
+
+# Matrix Product (composition if linear functions)
 
 **Motivation:** Consider the following matrix operation:
 
@@ -66,18 +86,60 @@ Observing @fig-mm and @eq-ex_of_mm we see two important aspects about $E_1 A$
 
     $$ a_{ij}'=\sum_{k=1}^re_{ik}a_{kj} $$
 
-## Maps involved in matrix multiplication (composition)
-
-![](figs/matrix%20_product_maps.png)
-
 # Transpose
+
+The transpose of a matrix $A$ is the operation of turning its rows into a column, for example:
 
 $$
 \begin{pmatrix}1 & 2 & 2 & 2\\2 & 4 & 6 & 8\\3 & 6 & 8 & 10 \end{pmatrix}^\intercal = \begin{pmatrix}1 & 2 & 3  \\2 & 4 & 6  \\2 & 6 & 8 \\2 & 8 & 10  \end{pmatrix}
 $$
 
-# Inverse of a matrix
+In components: $(A^\intercal)_{ij} =A_{ji}$.
 
-# Determinant
+**Properties:** (which can be verified with basic examples)
 
-## Cramer
+-   $(A^\intercal)^\intercal=A$
+
+-   $(A+B)^\intercal=A^\intercal+B^\intercal$
+
+-   $(AB)^\intercal = B^\intercal A^\intercal$
+
+# Component rules of complicated matrix operations
+
+## Example 1:
+
+We want to compute the entries of the matrix $AB-BA$ in terms of the entries of the matrices $A$ and $B$.
+
+$$
+(AB)_{ij} = \sum_k A_{ik}B_{kj} \qquad (BA)_{ij} = \sum_k B_{ik}A_{kj}
+$$
+
+Thus:
+
+$$
+(AB-BA)_{ij} = (AB)_{ij} - (BA)_{ij} = \sum_k A_{ik}B_{kj} - \sum_k B_{ik}A_{kj}=\sum_k (A_{ik}B_{kj} -B_{ik}A_{kj})
+$$
+
+## Example 2:
+
+Compute all matrices that commute ($AB-BA=0I$) with the matrix $A_{ij}=1$ with $i,j=1,2$.
+
+We see the solution $B$ for the problem:
+
+$$
+0=\sum_{k=1,2} (A_{ik}B_{kj} -B_{ik}A_{kj})
+$$
+
+Since the entries of $A$ are all ones this equation reduces to:
+
+$$
+0=\sum_{k=1,2}(B_{kj}-B_{ik}) \iff 0= B_{1j}+B_{2j}-B_{i1}-B_{i2} \iff B_{1j}+B_{2j}=B_{i1}+B_{i2}
+$$
+
+In words: $B$ must be in such a way what, the sum of the entries in any of its columns must be the sum of the entries in any of its rows. After some guess work we arrive at the general form for $B$:
+
+$$
+\left(\begin{matrix}\alpha & \beta \\\beta & \alpha  \end{matrix}\right)
+$$
+
+**Exercises:** 2.1.All

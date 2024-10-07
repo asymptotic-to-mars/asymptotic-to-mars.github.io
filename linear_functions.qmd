@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-Up to now, we learned a more pratical part of the course:
+Up to now, we learned a more practical part of the course:
 
 -   How to compute the solution of $A\mathbf{x}=\mathbf{b}$?
 
@@ -463,3 +463,17 @@ $$
 **Example 4 (cont):** $2 = \dim \{(0,0)\} +\dim \mathbb{R}^2=0+2$
 
 **Example 5 (cont):** $2 = \dim \{c(1,1)\,\,|\,\,c\in\mathbb{R}\} + \dim [\text{line with equation} \,\, y=x/2]=1+1$
+
+![](images/clipboard-688989313.png)
+
+This picture helps us also understand the following better:
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have one solution provided* $r=r^*=m$. Why? $m-r=0$ and thus there is no nullspace, the whole $\mathbb{R}^m$ is the row space. And the $\mathbf{b}$ lives inside the column space. The vector $\mathbf{x}$ is in the row space and we are computing ................???????
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have infinite solutions provided* $r=r^*<n$.
+
+-   *A system of equations* $A\mathbf{x}=\mathbf{b}$ *have no solutions provided* $r<r^*$.
+
+## Maps involved in matrix multiplication (composition)
+
+![](figs/matrix%20_product_maps.png)

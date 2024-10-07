@@ -148,3 +148,5 @@ Ax=b \iff EAx=Eb \iff A'x=b'
 $$
 
 are equivalent and and as a result their truth sets are equal! Finding the truth set of the later is easier than the former.
+
+# Cramer

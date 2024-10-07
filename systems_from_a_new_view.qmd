@@ -18,6 +18,12 @@ We now to return to the observations:
 
 ## Looking at $A\mathbf{x}=\mathbf{b}$ from a new point of view
 
+::: {.callout-note appearance="simple"}
+## Video
+
+[A new view](https://youtu.be/qIw4M2sDOBo){target="_blank"}
+:::
+
 Return to the equations:
 
 $$
@@ -73,6 +79,12 @@ How would we find $x,y,z,w$ that satisfy the equations above?
 3.  Third, The complete solution is of the form $\mathbf{x}_P+\mathbf{x}_N$.
 
 # Following Way 2 we have:
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[The way](https://youtu.be/7hzHUsa13Is){target="_blank"}
+:::
 
 ## First, how to compute $\mathbf{x}_P$?
 
