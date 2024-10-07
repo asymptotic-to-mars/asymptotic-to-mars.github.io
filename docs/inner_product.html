@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inner Product – asymptotic to MARS</title>
+<title>Definition of inner product and its properties – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./matrices.html" rel="next">
+<link href="./systems_from_a_new_view.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +139,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inner Product</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./inner_product.html">Inner product and Orthogonal spaces</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -292,13 +294,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
@@ -341,6 +343,18 @@ window.Quarto = {
  <span class="menu-text">System from a new point of view</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -353,29 +367,32 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#definition-of-inner-product-and-its-properties" id="toc-definition-of-inner-product-and-its-properties" class="nav-link active" data-scroll-target="#definition-of-inner-product-and-its-properties">Definition of inner product and its properties</a>
+  <li><a href="#what-is-the-length-of-a-vector" id="toc-what-is-the-length-of-a-vector" class="nav-link active" data-scroll-target="#what-is-the-length-of-a-vector">What is the length of a vector?</a>
   <ul class="collapse">
-  <li><a href="#what-is-the-length-of-a-vector" id="toc-what-is-the-length-of-a-vector" class="nav-link" data-scroll-target="#what-is-the-length-of-a-vector">What is the length of a vector?</a>
-  <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example:</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
   <li><a href="#how-to-build-a-unit-vector" id="toc-how-to-build-a-unit-vector" class="nav-link" data-scroll-target="#how-to-build-a-unit-vector">How to build a unit vector?</a>
   <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example:</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
   </ul></li>
-  <li><a href="#how-to-build-a-perpendicular-vector" id="toc-how-to-build-a-perpendicular-vector" class="nav-link" data-scroll-target="#how-to-build-a-perpendicular-vector">How to build a perpendicular vector?</a></li>
+  <li><a href="#how-to-build-a-vector-perpendicular-to-another-vector" id="toc-how-to-build-a-vector-perpendicular-to-another-vector" class="nav-link" data-scroll-target="#how-to-build-a-vector-perpendicular-to-another-vector">How to build a vector perpendicular to another vector?</a>
+  <ul class="collapse">
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  </ul></li>
   <li><a href="#how-to-define-a-circles-lines-planes-and-hyperplane" id="toc-how-to-define-a-circles-lines-planes-and-hyperplane" class="nav-link" data-scroll-target="#how-to-define-a-circles-lines-planes-and-hyperplane">How to define a circles, lines, planes and hyperplane?</a></li>
   <li><a href="#how-much-a-vector-looks-like-another-vector" id="toc-how-much-a-vector-looks-like-another-vector" class="nav-link" data-scroll-target="#how-much-a-vector-looks-like-another-vector">How much a vector looks like another vector?</a>
   <ul class="collapse">
   <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#example-2-1" id="toc-example-2-1" class="nav-link" data-scroll-target="#example-2-1">Example 2</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3:</a></li>
   <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
   </ul></li>
-  </ul></li>
   <li><a href="#orthogonal-spaces" id="toc-orthogonal-spaces" class="nav-link" data-scroll-target="#orthogonal-spaces">Orthogonal spaces</a>
   <ul class="collapse">
-  <li><a href="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" id="toc-how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" class="nav-link" data-scroll-target="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace">How to define a basis for a subspace orthogonal to another given subspace?</a></li>
+  <li><a href="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" id="toc-how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" class="nav-link" data-scroll-target="#how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace">How to define a basis for a subspace orthogonal to another given subspace?</a>
+  <ul class="collapse">
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  </ul></li>
   <li><a href="#four-very-important-subspaces" id="toc-four-very-important-subspaces" class="nav-link" data-scroll-target="#four-very-important-subspaces">Four very important subspaces</a></li>
   </ul></li>
   <li><a href="#gram-schmidt-orthogonalization" id="toc-gram-schmidt-orthogonalization" class="nav-link" data-scroll-target="#gram-schmidt-orthogonalization">Gram-Schmidt orthogonalization</a></li>
@@ -385,9 +402,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./inner_product.html">Inner product and Orthogonal spaces</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Inner Product</h1>
+<h1 class="title">Definition of inner product and its properties</h1>
 </div>
 
 
@@ -404,9 +421,7 @@ window.Quarto = {
 </header>
 
 
-<section id="definition-of-inner-product-and-its-properties" class="level1">
-<h1>Definition of inner product and its properties</h1>
-<p>Linear combinations we also have a inner product operation <span class="math inline">\(\cdot\)</span> which is an operation between vectors and yields a number, it is defined as:</p>
+<p>The inner product operation <span class="math inline">\(\cdot\)</span> is an operation between vectors that yields a number, it is defined as:</p>
 <div id="def-inner_product" class="theorem definition" style="color: gray; border: 3px solid rgb(230, 230, 230);">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> be two vectors from the same vector space <span class="math inline">\(\mathbb{R}^n\)</span> (i.e.&nbsp;<span class="math inline">\(\mathbf{u}=(u_1,\dots,u_n)\)</span> and <span class="math inline">\(\mathbf{v}=(v_1,\dots,v_n)\)</span>). The inner product of these two vectors is the real number of the form:</p>
 <p><span class="math display">\[
@@ -418,14 +433,14 @@ window.Quarto = {
 <p><strong>Properties:</strong></p>
 <ul>
 <li><p>it obeys the property of linearity</p>
-<p><span class="math display">\[ \mathbf{u} \cdot (\mathbf{v} + \lambda \cdot \mathbf{w}) = \mathbf{u}\cdot \mathbf{v} + \lambda \mathbf{u}\cdot \mathbf{w} \]</span> where <span class="math inline">\(\lambda\)</span> is any real number. The scalar product <span class="math inline">\(\mathbf{u}\cdot \mathbf{v}\)</span> is a number, <span class="math inline">\(\mathbf{u}\cdot \mathbf{w}\)</span> is a number, the right hand side of this formula is a number, as is the left.</p></li>
+<p><span class="math display">\[ \mathbf{u} \cdot (\mathbf{v} + \lambda \cdot \mathbf{w}) = \mathbf{u}\cdot \mathbf{v} + \lambda \mathbf{u}\cdot \mathbf{w} \]</span> where <span class="math inline">\(\lambda\)</span> is any real number. In other words, the <span class="math inline">\(\cdot\)</span> operation obeys a distributive rule and the “we can pull out numbers” rule.</p></li>
 <li><p>The order of the vectors being dotted is irrelevant <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = \mathbf{v}\cdot\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{u}^\intercal\mathbf{v} = \mathbf{v}^\intercal \mathbf{u}\)</span>.</p></li>
 <li><p>Since <span class="math inline">\(-1\leq\cos\theta\leq 1\)</span>, then <span class="math inline">\(-uv\leq\mathbf{u}\cdot\mathbf{v} \leq uv\)</span>.</p></li>
 <li><p>(<strong>Pythagoras theorem</strong>) If two vectors are orthogonal, then <span class="math inline">\(|\mathbf{u}+\mathbf{v}|^2=u^2+v^2\)</span>. [<em>Commentary:</em> Two orthogonal vectors can come about when decomposing a single vector <span class="math inline">\(\mathbf{w}\in\mathbb{R}^n\)</span> in two complementary spaces <span class="math inline">\(\mathbb{R}^n=U\oplus U^\perp\)</span>.]</p></li>
 <li><p>(<strong>Cauchy-Schwarz inequality</strong> aka triangular inequality) For any vectors <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> we have the following: <span class="math inline">\(|\mathbf{u}+\mathbf{v}|\leq u+v\)</span>. Equality holding when the vectors are parallel and pointing in the same sense.</p></li>
 </ul>
-<p><strong>Usefulness:</strong> The inner product operation is a tool to gather geometrical information about vectors, and to describe planes and hyperplanes.</p>
-<p>I.e. it allows answering the following questions:</p>
+<p><strong>Exercises:</strong> 1.6.3,5,6,7</p>
+<p><strong>Usefulness:</strong> The inner product operation is a tool to gather geometrical information about vectors and to describe planes and hyperplanes. I.e. it allows answering the following questions:</p>
 <section id="what-is-the-length-of-a-vector" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-the-length-of-a-vector">What is the length of a vector?</h2>
 <p><em>Answer:</em> Compute the inner product of a vector with itself.</p>
@@ -438,7 +453,7 @@ window.Quarto = {
 \]</span></p>
 <p><em>Notation:</em> we can call the norm <span class="math inline">\(|\mathbf{u}|\)</span> just by <span class="math inline">\(u\)</span>.</p>
 <section id="example" class="level3">
-<h3 class="anchored" data-anchor-id="example">Example:</h3>
+<h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>The length squared of the vector <span class="math inline">\(\mathbf{u}=(1,2)\)</span> is:</p>
 <p><span class="math display">\[
 |\mathbf{u}|^2 = \mathbf{u}^\intercal\mathbf{u} = u_1^2+u_2^2 = 1^2+2^2=1+4=5
@@ -448,7 +463,7 @@ window.Quarto = {
 u=\sqrt{5}
 \]</span></p>
 <p><img src="figs/pythagoras.png" class="img-fluid" width="266"></p>
-<p>Another way to compute the norm-squared of a vector is to consider <span class="math inline">\(\mathbb{R}^2=[\textbf{x axis}]\oplus[\textbf{y axis}]\)</span> and write <span class="math inline">\(\mathbf{u} = (0,1)+(2,0)\)</span> and then use the pythagoras theorem <span class="math inline">\(|\mathbf{w}+\mathbf{v}|^2=w^2+v^2\)</span> to compute:</p>
+<p>Another way to compute the norm-squared of a vector is to consider <span class="math inline">\(\mathbb{R}^2=[\textbf{x axis}]\oplus[\textbf{y axis}]\)</span> and write <span class="math inline">\(\mathbf{u} = (0,1)+(2,0)\)</span> and then use the Pythagoras theorem <span class="math inline">\(|\mathbf{w}+\mathbf{v}|^2=w^2+v^2\)</span> to compute:</p>
 <p><span class="math display">\[
 |\mathbf{u}|^2=|(0,1)+(2,0)|^2=(0^2+1^2)^2+(2^2+0^2)^2=1+4=5
 \]</span></p>
@@ -464,30 +479,37 @@ u=\sqrt{5}
 \]</span></p>
 <p><em>Justification:</em> Compute its norm <span class="math inline">\(|\mathbf{e}_u|^2 = \frac{\mathbf{u}}{|\mathbf{u}|}\cdot \frac{\mathbf{u}}{|\mathbf{u}|}=\frac{|\mathbf{u}|^2}{|\mathbf{u}|^2}=1\)</span></p>
 <section id="example-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-1">Example:</h3>
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
 <p>The unit vector along <span class="math inline">\(\mathbf{u}=-(1,2)\)</span> is:</p>
 <p><span class="math display">\[
 \mathbf{e}_u = \frac{-(1,2)}{\sqrt{1+2^2}}=-\frac{1}{\sqrt{5}}(1,2)
 \]</span></p>
 <p>Clearly: <span class="math inline">\(|\mathbf{e}_u|^2 = -\frac{1}{\sqrt{5}}(1,2)\cdot (-\frac{1}{\sqrt{5}}(1,2))=\frac{1}{5}(1+2^2)=1\)</span></p>
+<p><strong>Exercise:</strong> 1.6.2.c,e</p>
 </section>
 </section>
-<section id="how-to-build-a-perpendicular-vector" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-build-a-perpendicular-vector">How to build a perpendicular vector?</h2>
-<p>Example: Given again the vector <span class="math inline">\(\mathbf{n}=(1,2)\)</span>, a vector <span class="math inline">\(\mathbf{r}\)</span> perpendicular to it if it obeys <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>. Solving this equation for <span class="math inline">\(\mathbf{r}\)</span> we find:</p>
+<section id="how-to-build-a-vector-perpendicular-to-another-vector" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-build-a-vector-perpendicular-to-another-vector">How to build a vector perpendicular to another vector?</h2>
+<section id="example-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2">Example</h3>
+<p>Given again the vector <span class="math inline">\(\mathbf{n}=(1,2)\)</span>, a vector <span class="math inline">\(\mathbf{r}\)</span> perpendicular to it, obeys <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>. Solving this equation for <span class="math inline">\(\mathbf{r}\)</span> we find:</p>
 <p><span class="math display">\[
 (1,2)\cdot (x,y)=0 \implies x+2y=0
 \]</span></p>
-<p>[Comment: This is a very simple <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span> type of problem, its already fully simplified] One equation with two unknowns, we must promote one to parameter: choose <span class="math inline">\(x=-2\)</span>, then <span class="math inline">\(y=1\)</span>. Thus <span class="math inline">\((-2,1)\)</span> is perpendicular to <span class="math inline">\((1,2)\)</span>. This is not the only solution.</p>
+<p>One equation with two unknowns, we must promote one unknown to a parameter, let <span class="math inline">\(x=-2\)</span>. Then <span class="math inline">\(y=1\)</span>. Thus <span class="math inline">\((-2,1)\)</span> is perpendicular to <span class="math inline">\((1,2)\)</span>. Notice this is not the only solution!</p>
+<p>[<em>Comment:</em> This is a very simple <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span> type of problem with a matrix <span class="math inline">\(A=(1,2)\)</span> with one pivot <span class="math inline">\(1\)</span> and one dependent column <span class="math inline">\(2\)</span>.]</p>
+<p><strong>Exercises:</strong> 1.6.2.b,c,f</p>
+</section>
 </section>
 <section id="how-to-define-a-circles-lines-planes-and-hyperplane" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-define-a-circles-lines-planes-and-hyperplane">How to define a circles, lines, planes and hyperplane?</h2>
 <p><strong>Circle and spheres:</strong> A circle in <span class="math inline">\(\mathbb{R}^2\)</span> or a sphere in <span class="math inline">\(\mathbb{R}^3\)</span> centered at <span class="math inline">\(\mathbf{0}\)</span> satisfy the equation: <span class="math inline">\(|\mathbf{r}|^2=R^2\)</span> where <span class="math inline">\(R\)</span> is the radius. Centered at <span class="math inline">\(\mathbf{r}_0\)</span> they obey <span class="math inline">\(|\mathbf{r}-\mathbf{r}_0|^2=R^2\)</span>. The geometry of the situation should clearly justify the equations.</p>
-<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^2\)</span><strong>:</strong> A line perpendicular to <span class="math inline">\(\mathbf{n}=(1,2)\)</span> is the set of all solutions (not just one) to the equation <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>, the answer is:</p>
+<p><strong>Exercise:</strong> 1.6.8</p>
+<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^2\)</span><strong>:</strong> A line perpendicular to <span class="math inline">\(\mathbf{n}=(1,2)\)</span> is the set of <em>all</em> solutions to the equation <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>, the answer is:</p>
 <p><span class="math display">\[
 [\textbf{line}\,\perp\,\textbf{to}\,\,(1,2)]=\{(-2c,c)\,\,|\,\,c\in \mathbb{R}\}
 \]</span></p>
-<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^3\)</span><strong>:</strong> A line (which crosses the origin) is the interception of two non-parallel planes (which cross it as well); a plane is the subspace perpendicular to a vector. Let <span class="math inline">\(\mathbf{n}_1=(1,0,1)\)</span> and <span class="math inline">\(\mathbf{n}_2=(1,2,0)\)</span> define the two planes <span class="math inline">\(\mathbf{n}_{1,2}^\intercal \mathbf{r}=0\)</span>. The interception is the set of vectors common to both planes, this means we have to find the <span class="math inline">\(\mathbf{r}=(x,y,z)\in\mathbb{R}^3\)</span> such that both plane equations are satisfied, i.e.</p>
+<p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^3\)</span><strong>:</strong> A line (which crosses the origin) is the interception of two non-parallel planes (which cross the origin as well); a plane is the subspace perpendicular to a vector. Let <span class="math inline">\(\mathbf{n}_1=(1,0,1)\)</span> and <span class="math inline">\(\mathbf{n}_2=(1,2,0)\)</span> define the two planes <span class="math inline">\(\mathbf{n}_{1,2}^\intercal \mathbf{r}=0\)</span>. The interception is the set of vectors common to both planes, this means we have to find the <span class="math inline">\(\mathbf{r}=(x,y,z)\in\mathbb{R}^3\)</span> such that both plane equations are satisfied, i.e.</p>
 <p><span id="eq-the_problem"><span class="math display">\[
 \begin{cases}
 \mathbf{n}_{1}^\intercal \mathbf{r}=0\\
@@ -503,17 +525,18 @@ u=\sqrt{5}
 <p><span class="math display">\[
 \mathbf{x}_N = c\left(\begin{matrix}-1\\1/2\\1\end{matrix}\right)
 \]</span></p>
-<p>which is the form of the elements along a line!</p>
+<p>which gives us the form of the elements along a line!</p>
 <p><span class="math display">\[
 [\textbf{line}\,\perp\, \textbf{to}\,\, \mathbf{n}_{1,2}] = \{(-c,c/2,c)\,\,|,\, c\in \mathbb{R}\}
 \]</span></p>
-<p><em>Captain obvious:</em> If we know the process of finding all vector (the line) perpendicular to these two vector, I can find just one vector perpendicular to both.</p>
+<p><em>A Captain obvious observation:</em> If we know the process of finding all vector (the line) perpendicular to these two vector, I can find just one vector perpendicular to both.</p>
 <p><strong>A plane in</strong> <span class="math inline">\(\mathbb{R}^3\)</span><strong>:</strong> The subspace perpendicular to <span class="math inline">\((1,0,1)\)</span> is the solution of <span class="math inline">\((1,0,1)\cdot (x,y,z)=0\)</span>, because there are two free columns and one pivot we expect null space <span class="math inline">\(N(1,0,1)\)</span> with two dimensions. Setting the free variable <span class="math inline">\(y=1\)</span> and <span class="math inline">\(z=0\)</span> we find <span class="math inline">\(x=-1\)</span>, hence <span class="math inline">\(\mathbf{x}_{N,1}=(-1,1,0)\)</span>; setting <span class="math inline">\(y=0\)</span> and <span class="math inline">\(z=1\)</span> we arrive at <span class="math inline">\(\mathbf{x}_{N,2}=(-1,0,1)\)</span>. Any l.c. of these solutions is a solution of the equation:</p>
 <p><span class="math display">\[
 \mathbf{x}_N=\alpha\left(\begin{matrix}-1\\1\\0 \end{matrix}\right)+\beta\left(\begin{matrix}-1\\0\\1 \end{matrix}\right)
 \]</span></p>
 <p>which defines a plane containing <span class="math inline">\(\mathbf{0}\)</span>.</p>
 <p><strong>Hyperplane:</strong> The idea is similar, just define the appropriate interception of subspaces perpendicular to the given vectors, then arrange the equations as an <span class="math inline">\(A\mathbf{r}=\mathbf{0}\)</span> problem.</p>
+<p><strong>Exercise:</strong> 1.6.9</p>
 </section>
 <section id="how-much-a-vector-looks-like-another-vector" class="level2">
 <h2 class="anchored" data-anchor-id="how-much-a-vector-looks-like-another-vector">How much a vector looks like another vector?</h2>
@@ -521,30 +544,31 @@ u=\sqrt{5}
 <h3 class="anchored" data-anchor-id="example-1-1">Example 1</h3>
 <p>The formula <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = uv\cos\theta\)</span> is of great importance because it allow us to compute the angle between <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span>. Let <span class="math inline">\(\mathbf{u} = (1,2)\)</span> and <span class="math inline">\(\mathbf{v}=(-2,3)\)</span>:</p>
 <p><img src="figs/angle_between_two_vectors.png" class="img-fluid" width="240"></p>
-<p>Then the angle, is obtained by solving the trigonometric equation:</p>
+<p>Then the angle is obtained by solving the trigonometric equation:</p>
 <p><span class="math display">\[
 \cos \theta = \frac{\mathbf{u}^\intercal\mathbf{v}}{uv}=\frac{1\cdot (-2)+2\cdot 3}{\sqrt{1+2^2}\sqrt{2^2+3^2}}=\frac{4}{\sqrt{65}}\implies \theta \approx 1\,\, rad
 \]</span></p>
-<p>[write <span class="math inline">\(\frac{1\cdot (-2)+2\cdot 3}{(1+2^2)(2+3^2)}\)</span> on white board rather than <span class="math inline">\(\frac{1\cdot (-2)+2\cdot 3}{\sqrt{(1+2^2)(2+3^2)}}\)</span> and ask for where is the mistake.]</p>
-<p>Another way to evaluate similarity is through the value of the cosine, in this case <span class="math inline">\(\cos \theta\)</span> is <span class="math inline">\(4/\sqrt{85}\)</span> which is about <span class="math inline">\(1/2\)</span>.</p>
+<p>The angle of <span class="math inline">\(1\,\,rad\)</span> is quiet large, hence the two vectors directions are not close to each other.</p>
+<p>Another way to evaluate similarity is through the value of the cosine rather than the angle itself, in this case <span class="math inline">\(\cos \theta\)</span> is <span class="math inline">\(4/\sqrt{85}\)</span> which is about <span class="math inline">\(1/2\)</span>.</p>
 <p><img src="figs/cos_plot.png" class="img-fluid" width="292"></p>
-<p>Since the <span class="math inline">\(\theta\)</span> is smaller than <span class="math inline">\(\pi/2\)</span>, then the angle acute which means the vectors are not very similar, but at least point in the same direction.</p>
+<p>Since the <span class="math inline">\(\theta\)</span> is smaller than <span class="math inline">\(\pi/2\)</span>, then the angle acute which means the vectors are not very similar, but at least point roughly in the same direction.</p>
+<p><strong>Exercises:</strong> 1.6.4</p>
 </section>
-<section id="example-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-2">Example 2</h3>
+<section id="example-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-1">Example 2</h3>
 <p>If we now let <span class="math inline">\(\mathbf{u} = (1,-2)\)</span> and <span class="math inline">\(\mathbf{v}=(-2,3)\)</span>, then the angle is: <span class="math inline">\(\theta \approx 0.95 \pi \,\,rad\)</span>. Almost <span class="math inline">\(180^\circ\)</span>, very different vectors. The inner product by being negative already tells us that the vectors point in almost opposite directions.</p>
-<p>For this <span class="math inline">\(\mathbb{R}^2\)</span> examples, the calculation of the angle or the cosine is rather useless because we can easily draw both vectors and check whether they are or not similar. A harder task is when we try to do this in three, four, etc dimensions.</p>
+<p><em>Comment:</em> In example 1 and 2 above the calculation of the angle or the cosine is rather useless because we can easily draw both vectors and check whether they are or not similar. A harder task is when we try to do this in three, four, etc dimensions.</p>
 </section>
 <section id="example-3" class="level3">
 <h3 class="anchored" data-anchor-id="example-3">Example 3:</h3>
 <p>Let <span class="math inline">\(\mathbf{u} = (1,2)\)</span> and the unitary vector <span class="math inline">\(\mathbf{e}_v=(1,-1)/\sqrt{2}\)</span>:</p>
 <p><img src="figs/projection_onto_vx.png" class="img-fluid" width="265"></p>
-<p>Computing the inner product two ways we find:</p>
+<p>Computing the inner product we find:</p>
 <p><span class="math display">\[
 \mathbf{e}_v\cdot \mathbf{u} = -\frac{1}{\sqrt{2}}=5\cos \theta
 \]</span></p>
 <p>On the rhs we see using trigonometry, the projection (shadow) of the vector <span class="math inline">\(\mathbf{u}\)</span> along the vector <span class="math inline">\(\mathbf{e}_v\)</span>, which is this case is negative, implying the vectors point in different directions.</p>
-<p>Thus the matrix <span class="math inline">\(\mathbf{v}^\intercal/v\)</span> is a projector along <span class="math inline">\(\mathbf{v}\)</span>.</p>
+<p>[<em>Comment:</em> The matrix <span class="math inline">\(\mathbf{v}\mathbf{v}^\intercal/v^2\)</span> is a projector along <span class="math inline">\(\mathbf{v}\)</span>.]</p>
 </section>
 <section id="example-4" class="level3">
 <h3 class="anchored" data-anchor-id="example-4">Example 4</h3>
@@ -566,19 +590,36 @@ u=\sqrt{5}
 <p><img src="figs/projection.png" class="img-fluid" width="220"></p>
 <p>Dotting a vector with an unitary vector yields <span class="math inline">\(5\cos\theta_x\)</span> and <span class="math inline">\(5\cos\theta_y\)</span> which using trigonometry are the projections of <span class="math inline">\(\mathbf{u}\)</span> along those directions, which in turn is are the entries <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> of the vector along the unitary vectors.</p>
 <p>We conclude that, given a basis <span class="math inline">\(B=\{\mathbf{e}_x, \mathbf{e}_y\}\)</span> we can write the vector <span class="math inline">\(\mathbf{u}=(1,2)\)</span> as:</p>
-<p><span class="math display">\[
+<p><span id="eq-partition_of_a_vector"><span class="math display">\[
 \mathbf{u} = (\mathbf{e}_x\cdot\mathbf{u})\mathbf{e}_x+(\mathbf{e}_y\cdot\mathbf{u})\mathbf{e}_y= 1\mathbf{e}_x+2 \mathbf{e}_y
-\]</span></p>
+\tag{2}\]</span></span></p>
 <p>Which means: <span class="math inline">\([\mathbf{u}]_B=(\mathbf{e}_x\cdot\mathbf{u},\mathbf{e}_y\cdot\mathbf{u})\)</span></p>
-<p>Exercises: 1.7.5</p>
-</section>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We identify in <a href="#eq-partition_of_a_vector" class="quarto-xref">Equation&nbsp;2</a>, the partition of the identity:</p>
+<p><span class="math display">\[ I=\mathbf{e}_x\mathbf{e}_x^\intercal+\mathbf{e}_y\mathbf{e}_y^\intercal \]</span></p>
+<p>which when it act on a vector <span class="math inline">\(\mathbf{u}\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span> gives us:</p>
+<p><span class="math display">\[
+\mathbf{u}=I\mathbf{u} = \mathbf{e}_x\mathbf{e}_x^\intercal\mathbf{u}+\mathbf{e}_y\mathbf{e}_y^\intercal\mathbf{u}=1\mathbf{e}_x+2 \mathbf{e}_y
+\]</span></p>
+</div>
+</div>
+<p><strong>Exercises:</strong> 1.7.5</p>
 </section>
 </section>
 <section id="orthogonal-spaces" class="level1">
 <h1>Orthogonal spaces</h1>
-<p>Two subspaces are orthogonal if every vector in one is orthogonal every vector in another. For example:</p>
+<p>Two subspaces are orthogonal if every vector in one is orthogonal every vector in another. Take the following examples:</p>
 <p><img src="figs/orthogonal_spaces_ex.png" class="img-fluid" width="559"></p>
-<p><strong>Far left:</strong> The two subspaces of <span class="math inline">\(\mathbb{R}^2\)</span> on the left are orthogonal. Only the origin is common. If we introduce a basis for both <span class="math inline">\(U=span\{\mathbf{e}_u\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_v\}\)</span> we can say <span class="math inline">\(\mathbb{R}^2 = U\oplus V\)</span> and that <span class="math inline">\(U\)</span> is the orthogonal complement of <span class="math inline">\(V\)</span>. Notice the dimension <span class="math inline">\(n=2\)</span> of the space is equal to the sum of the dimensions of the two subspaces: <span class="math inline">\(\dim \mathbb{R}^2 = \dim U +\dim V\)</span>.</p>
+<p><strong>Far left:</strong> The two subspaces of <span class="math inline">\(\mathbb{R}^2\)</span> on the left are orthogonal. Only the origin <span class="math inline">\(\mathbf{0}\)</span> is common. If we introduce a basis for both <span class="math inline">\(U=span\{\mathbf{e}_u\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_v\}\)</span> we can say <span class="math inline">\(\mathbb{R}^2 = U\oplus V\)</span> and that <span class="math inline">\(U\)</span> is the orthogonal complement of <span class="math inline">\(V\)</span>. Notice the dimension <span class="math inline">\(n=2\)</span> of the space is equal to the sum of the dimensions of the two subspaces: <span class="math inline">\(\dim \mathbb{R}^2 = \dim U +\dim V\)</span>.</p>
 <p><strong>Middle Left:</strong> The two subspaces (shown as rectangles) of <span class="math inline">\(\mathbb{R}^3\)</span> are not orthogonal because at the interception we find vectors which are parallel and thus not orthogonal. More than the origin is common to both, the <strong>y-axis</strong> is as well.</p>
 <p><strong>Middle right:</strong> We have again two orthogonal subspaces. Only the origin is common. Introducing basis to both subspaces <span class="math inline">\(U=span\{\mathbf{e}_x,\mathbf{e}_y\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_z\}\)</span>, we see that <span class="math inline">\(\mathbb{R}^3=U\oplus V\)</span>. Again we see the dimension <span class="math inline">\(3\)</span> of <span class="math inline">\(\mathbb{R}^3\)</span> is equal to the sum of the dimensions of the orthogonal complements.</p>
 <p><strong>Far right:</strong> Finally we have two orthogonal subspaces, but we cannot write <span class="math inline">\(\mathbb{R}^3 = U\oplus V\)</span>. At most we can only say: <span class="math inline">\([\textbf{xy plane}] = U\oplus V\)</span>.</p>
@@ -591,11 +632,19 @@ u=\sqrt{5}
 <section id="how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-define-a-basis-for-a-subspace-orthogonal-to-another-given-subspace">How to define a basis for a subspace orthogonal to another given subspace?</h2>
 <p>Essentially what is being asked is to solve <span class="math inline">\(U\oplus U^\perp=\mathbb{R}^n\)</span> given <span class="math inline">\(U\)</span>. And since <span class="math inline">\(U^\perp\)</span> has all its vectors perpendicular to <span class="math inline">\(U\)</span>, it is the nullspace of a matrix whose rows are the basis of <span class="math inline">\(U\)</span>.</p>
-<p><strong>Example:</strong> consider the subspace given by <span class="math inline">\(U=span\{(1,0,1),(1,2,0)\}\)</span>. Define a basis for <span class="math inline">\(U^\perp\)</span>.</p>
-<p>If we find the set of vectors perpendicular to these basis vectors, we found the set perpendicular to every element of this span. But finding this set is the same as solving <a href="#eq-the_problem" class="quarto-xref">Equation&nbsp;1</a> ! Thus</p>
+<section id="example-5" class="level3">
+<h3 class="anchored" data-anchor-id="example-5">Example</h3>
+<p>Consider the subspace of <span class="math inline">\(\mathbb{R}^3\)</span> given by <span class="math inline">\(U=span\{(1,0,1),(1,2,0)\}\)</span>. <em>Question:</em> Define a basis for <span class="math inline">\(U^\perp\)</span>.</p>
+<p><em>Answer:</em> If we find the set of vectors perpendicular to the basis vectors of <span class="math inline">\(U\)</span>, we found <span class="math inline">\(U^\perp\)</span>. The basis of <span class="math inline">\(U\)</span> is <span class="math inline">\(\{(1,0,1),(1,2,0)\}\)</span>, a set of vectors perpendicular to it is the solution of:</p>
+<p><span class="math display">\[
+\left(\begin{matrix}1 &amp; 0 &amp; 1\\1 &amp; 2 &amp; 0 \end{matrix}\;\middle|\;\begin{matrix}0\\0 \end{matrix}\right)
+\]</span></p>
+<p>This system is solved the usual manner, see <a href="#eq-the_problem" class="quarto-xref">Equation&nbsp;1</a>. Thus:</p>
 <p><span class="math display">\[ U^\perp=[\textbf{line}\,\perp\, \textbf{to}\,\, \mathbf{n}_{1,2}] = \{(-c,c/2,c)\,\,|,\, c\in \mathbb{R}\} \]</span></p>
-<p>A basis for <span class="math inline">\(U^\perp\)</span> is for example <span class="math inline">\((-1,1/2,1)\)</span>. If we want it normalized we have <span class="math inline">\((-1,1/2,1)/\sqrt{(-1)^2+(1/2)^2+1^2}\)</span>.</p>
-<p><strong>Exercise:</strong> 1.7.3</p>
+<p>Now that we have the set <span class="math inline">\(U^\perp\)</span> we can pick a basis for it, for example <span class="math inline">\((-1,1/2,1)\)</span>. One basis of <span class="math inline">\(U^\perp\)</span> is <span class="math inline">\((-1,1/2,1)\)</span>.</p>
+<p>Sometimes we might want a normalized basis in which case, we pick from <span class="math inline">\(U^\perp\)</span> the vector <span class="math inline">\((-1,1/2,1)/\sqrt{(-1)^2+(1/2)^2+1^2}\)</span>.</p>
+<p><strong>Exercise:</strong> 1.7.2,3</p>
+</section>
 </section>
 <section id="four-very-important-subspaces" class="level2">
 <h2 class="anchored" data-anchor-id="four-very-important-subspaces">Four very important subspaces</h2>
@@ -603,13 +652,13 @@ u=\sqrt{5}
 <p><span class="math display">\[
 A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}
 \]</span></p>
-<p>The column space is the first and third column (because they are independent); its dimension is the number of pivots, in this case <span class="math inline">\(2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
+<p>The column space spanned by the first and third column (because they are independent), its dimension is the number of pivots, in this case <span class="math inline">\(2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^3\)</span>:</p>
 <p><span class="math display">\[
-C(A)=span\{\begin{pmatrix}1\\2\\3\end{pmatrix},\begin{pmatrix}2\\6\\8\end{pmatrix}\}
+C(A)=span\{(1,2,3),(2,6,8)\}\subset_{\text{vec}}\mathbb{R}^3
 \]</span></p>
-<p>While the nullspace was obtained by solving <span class="math inline">\(A\mathbf{x}_N=\mathbf{0}\)</span>, its dimension is the number of dependent columns, which is the number of columns <span class="math inline">\(m=4\)</span> minus the number of pivots <span class="math inline">\(r=2\)</span> (number of independent columns); it is a subspace of <span class="math inline">\(\mathbb{R}^4\)</span>.</p>
+<p>While the nullspace was obtained by solving <span class="math inline">\(A\mathbf{x}_N=\mathbf{0}\)</span>, its dimension is the number of dependent columns, which is the number of columns <span class="math inline">\(m=4\)</span> minus the number of pivots <span class="math inline">\(r=2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^4\)</span>.</p>
 <p><span class="math display">\[
-N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}
+N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}\subset_{\text{vec}}\mathbb{R}^4
 \]</span></p>
 <p>Now we’ll introduce their orthogonal complements in the <span class="math inline">\(\mathbb{R}^3\)</span> and <span class="math inline">\(\mathbb{R}^4\)</span> respectively.</p>
 <section id="left-nullspace" class="level4">
@@ -626,7 +675,7 @@ N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}
 </section>
 <section id="observations" class="level4">
 <h4 class="anchored" data-anchor-id="observations">Observations:</h4>
-<p>We know then:</p>
+<p>We know (<span class="math inline">\(n=3\)</span> and <span class="math inline">\(m=4\)</span>):</p>
 <p><span class="math display">\[
 \mathbb{R}^n = C(A) \oplus N(A^\intercal)\qquad \mathbb{R}^m=C(A^\intercal)\oplus N(A)
 \]</span></p>
@@ -635,16 +684,37 @@ N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}
 n = \dim C(A) + \dim N(A^\intercal) \qquad m = \dim C(A^\intercal)+\dim N(A)
 \]</span></p>
 <p>Pictorially we find:</p>
-<p><img src="figs/four_subspaces.png" class="img-fluid"></p>
-<p>Any vector <span class="math inline">\(\mathbf{x}\)</span> lives in <span class="math inline">\(\mathbb{R}^m\)</span>, it has as many entries as there are columns in the matrix it multiplies. Since this space is broken down into two complements <span class="math inline">\(\mathbb{R}^m=C(A^\intercal)\oplus N(A)\)</span> we can write <span class="math inline">\(\mathbf{x}=\mathbf{x}_\text{row}+\mathbf{x}_\text{null}\)</span>, the entries of each being in the canonical basis. We can see now why finding a particular solution we chose the free variables as zero. In that way, the particular solution lives solely in the row space (though it need not to)</p>
-<p>What happens when we multiply <span class="math inline">\(\mathbf{x}\)</span> by <span class="math inline">\(A\)</span>? <em>Answer:</em> We “project” <span class="math inline">\(\mathbf{x}\)</span> written in the canonical basis into each row the row space (we use “project” because, the inner product is being made with most probably non orthogonal and non normalized rows), the components of that projection is the vector <span class="math inline">\(\mathbf{b}\)</span>. The same “projection” would be obtained if we use <span class="math inline">\(\mathbf{x}_\text{row}\)</span> instead, since this is written in the canonical basis, we just compute its components (times the row length) along each row.</p>
+<p><img src="figs/four_subspaces_basic.png" class="img-fluid"></p>
+<p>With this subspaces in hand we can look again at <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>:</p>
+<ul>
+<li><p>Any vector <span class="math inline">\(\mathbf{x}\)</span> lives in <span class="math inline">\(\mathbb{R}^m\)</span>, it has as many entries as there are columns in the matrix it multiplies. Since this space is broken down into two complements <span class="math inline">\(\mathbb{R}^m=C(A^\intercal)\oplus N(A)\)</span> we can also break <span class="math inline">\(\mathbf{x}\)</span> into <span class="math inline">\(\mathbf{x}=\mathbf{x}_\text{row}+\mathbf{x}_\text{null}\)</span>.</p></li>
+<li><p>The vector belong to the space <span class="math inline">\(\mathbf{b}\in\mathbb{R}^n\)</span> and can be broken in <span class="math inline">\(\mathbf{b} = \mathbf{b}_{col}+\mathbf{b}_{\textit{left null}}\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When solving <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span> we found <span class="math inline">\(\mathbf{x}=\mathbf{x}_P+\mathbf{x}_N\)</span>. So it seem as if <span class="math inline">\(x_P\)</span> and <span class="math inline">\(x_{row}\)</span> must be the same thing. But need not be the same. The particular solution may have some component in the nullspace of <span class="math inline">\(A\)</span>. As an example, our favorite system of equation has general solution:</p>
+<p><span class="math display">\[
+\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix} +span\{\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix} ,\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}\}
+\]</span></p>
+<p>Notice <span class="math inline">\((1,0,0,0)\)</span> has non zero projection along the <span class="math inline">\((-2,1,0,0)\)</span> and <span class="math inline">\((2,0,-2,1)\)</span>. However this solution can be rewritten written as <span class="math inline">\(\mathbf{x}_\text{row}+\mathbf{x}_\text{null}\)</span>. To achieve that some they strategies already used in Gram-Schmidt might be useful.</p>
+</div>
+</div>
+<p><strong>Exercises:</strong> 1.5.11,12</p>
 </section>
 </section>
 </section>
 <section id="gram-schmidt-orthogonalization" class="level1">
 <h1>Gram-Schmidt orthogonalization</h1>
-<p><strong>Goal:</strong> From a set of independent vectors to obtain a set of orthogonal vectors.</p>
-<p><strong>Idea:</strong> First consider one of the vectors of the list, say <span class="math inline">\(\mathbf{q}_1\)</span>, as being fixed. Choose a second vector of the list, for example <span class="math inline">\(\mathbf{q}_2\)</span>, to make it orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, I just need to project <span class="math inline">\(\mathbf{q}_2\)</span> on <span class="math inline">\(\mathbf{q}_1\)</span> and then remove from <span class="math inline">\(\mathbf{q}_2\)</span> this projection; what is left in <span class="math inline">\(\mathbf{q}_2\)</span> is orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, call this remainder as <span class="math inline">\(\mathbf{q}_2^\perp\)</span>. Choose a third vector <span class="math inline">\(\mathbf{q}_3\)</span> from the list, we want to make it perpendicular to <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>, to do that we have to project it on the plane formed by <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>, then we remove from <span class="math inline">\(\mathbf{q}_3\)</span> this projection, once again what is left is the perpendicular part <span class="math inline">\(\mathbf{q}_3^\perp\)</span> to the plane. And so on…</p>
+<p><strong>Goal:</strong> From a set of independent vectors <span class="math inline">\(\{\mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3\}\)</span> to obtain a set of orthogonal vectors.</p>
+<p><strong>Idea:</strong> First consider one of the vectors of the list, say <span class="math inline">\(\mathbf{q}_1\)</span>, as being fixed. Choose a second vector of the list, for example <span class="math inline">\(\mathbf{q}_2\)</span>; to make it orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, I just need to project <span class="math inline">\(\mathbf{q}_2\)</span> on <span class="math inline">\(\mathbf{q}_1\)</span> and then remove from <span class="math inline">\(\mathbf{q}_2\)</span> this projection; what is left in <span class="math inline">\(\mathbf{q}_2\)</span> is orthogonal to <span class="math inline">\(\mathbf{q}_1\)</span>, call this remainder as <span class="math inline">\(\mathbf{q}_2^\perp\)</span>. Choose a third vector <span class="math inline">\(\mathbf{q}_3\)</span> from the list, we want to make it perpendicular to <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>; to do that we have to project it on the plane formed by <span class="math inline">\(\mathbf{q}_1\)</span> and <span class="math inline">\(\mathbf{q}_2^\perp\)</span>, then we remove from <span class="math inline">\(\mathbf{q}_3\)</span> this projection, once again what is left is the perpendicular part <span class="math inline">\(\mathbf{q}_3^\perp\)</span> to the plane. And so on…</p>
 <p>To orthogonalize the following list of vectors <span class="math inline">\(\{\mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3\}\)</span>:</p>
 <ol type="1">
 <li><p>Fix <span class="math inline">\(\mathbf{q}_1\)</span>.</p></li>
@@ -657,17 +727,21 @@ n = \dim C(A) + \dim N(A^\intercal) \qquad m = \dim C(A^\intercal)+\dim N(A)
 \mathbf{q}_3^\perp = \mathbf{q}_3-\frac{\mathbf{q}_1\mathbf{q}_1^\intercal}{\mathbf{q}_1^\intercal\mathbf{q}_1}\mathbf{q}_3-\frac{\mathbf{q}_2^\perp(\mathbf{q}_2^\perp)^\intercal}{(\mathbf{q}_2^\perp)^\intercal\mathbf{q}_2^\perp}\mathbf{q}_3
 \]</span></p></li>
 </ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Recall
+Commentary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The expression <span class="math inline">\(\mathbf{q}^\intercal \mathbf{q}\)</span> found in the denominator in these expression is the norm square <span class="math inline">\(|\mathbf{q}|^2\)</span> of the vectors in the numerator. Clearly dividing both by their norm yields unitary vectors, which is exactly what we need to compute the projections. We can see the matrix <span class="math inline">\(\mathbf{q}\mathbf{q}^\intercal/\mathbf{q}^\intercal \mathbf{q}\)</span> as a projection matrix along the vector <span class="math inline">\(\mathbf{q}\)</span>.</p>
+<p>The expression <span class="math inline">\(\mathbf{q}^\intercal \mathbf{q}\)</span> found in the denominator in these expression is the norm square <span class="math inline">\(|\mathbf{q}|^2\)</span> of the vectors in the numerator. The terms</p>
+<p><span class="math display">\[
+\frac{\mathbf{q}\mathbf{q}^\intercal}{|\mathbf{q}|^2}=\frac{\mathbf{q}}{|\mathbf{q}|}\frac{\mathbf{q}^\intercal}{|\mathbf{q}|}=\hat{\mathbf{q}}\hat{\mathbf{q}}^\intercal
+\]</span></p>
+<p>are projectors along the unitary vector <span class="math inline">\(\hat{\mathbf{q}}\)</span>.</p>
 </div>
 </div>
 <p><strong>Exercise:</strong> 1.7.6,7,8</p>
@@ -1096,6 +1170,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./systems_from_a_new_view.html" class="pagination-link" aria-label="System from a new point of view">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">System from a new point of view</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./matrices.html" class="pagination-link" aria-label="Matrices">
+        <span class="nav-page-text">Matrices</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

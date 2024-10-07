@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./inner_product.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +138,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Matrices</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./matrices.html">Matrices</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -292,13 +293,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
@@ -341,6 +342,18 @@ window.Quarto = {
  <span class="menu-text">System from a new point of view</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -353,15 +366,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#matrix-product-composition-if-matrices" id="toc-matrix-product-composition-if-matrices" class="nav-link active" data-scroll-target="#matrix-product-composition-if-matrices">Matrix Product (composition if matrices)</a>
-  <ul class="collapse">
-  <li><a href="#maps-involved-in-matrix-multiplication-composition" id="toc-maps-involved-in-matrix-multiplication-composition" class="nav-link" data-scroll-target="#maps-involved-in-matrix-multiplication-composition">Maps involved in matrix multiplication (composition)</a></li>
-  </ul></li>
+  <li><a href="#linear-combination-of-matrices-sum-of-linear-functions" id="toc-linear-combination-of-matrices-sum-of-linear-functions" class="nav-link active" data-scroll-target="#linear-combination-of-matrices-sum-of-linear-functions">Linear combination of matrices (sum of linear functions)</a></li>
+  <li><a href="#matrix-product-composition-if-linear-functions" id="toc-matrix-product-composition-if-linear-functions" class="nav-link" data-scroll-target="#matrix-product-composition-if-linear-functions">Matrix Product (composition if linear functions)</a></li>
   <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
-  <li><a href="#inverse-of-a-matrix" id="toc-inverse-of-a-matrix" class="nav-link" data-scroll-target="#inverse-of-a-matrix">Inverse of a matrix</a></li>
-  <li><a href="#determinant" id="toc-determinant" class="nav-link" data-scroll-target="#determinant">Determinant</a>
+  <li><a href="#component-rules-of-complicated-matrix-operations" id="toc-component-rules-of-complicated-matrix-operations" class="nav-link" data-scroll-target="#component-rules-of-complicated-matrix-operations">Component rules of complicated matrix operations</a>
   <ul class="collapse">
-  <li><a href="#cramer" id="toc-cramer" class="nav-link" data-scroll-target="#cramer">Cramer</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1:</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -369,7 +380,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./matrices.html">Matrices</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Matrices</h1>
 </div>
@@ -403,8 +414,22 @@ window.Quarto = {
 <p>What can we do with matrices?</p>
 <p><em>Answer:</em> linear combinations! [<em>Comment:</em> provided their shape is compatible]</p>
 <p>But this time we’ll introduce more: matrix multiplication, transpose, inverses, determinants.</p>
-<section id="matrix-product-composition-if-matrices" class="level1">
-<h1>Matrix Product (composition if matrices)</h1>
+<section id="linear-combination-of-matrices-sum-of-linear-functions" class="level1">
+<h1>Linear combination of matrices (sum of linear functions)</h1>
+<p>A number times a matrix is the matrix with every entry multiplied by that number:</p>
+<p><span id="eq-mult_by_lambda"><span class="math display">\[
+\lambda\left(\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\\1 &amp; 0 &amp; 1  \end{matrix}\right)=\left(\begin{matrix}\lambda &amp; 0 &amp; 0\\0 &amp; \lambda &amp; 0\\\lambda &amp; 0 &amp; \lambda  \end{matrix}\right)
+\tag{1}\]</span></span></p>
+<p>From <a href="#eq-mult_by_lambda" class="quarto-xref">Equation&nbsp;1</a> we know in general: <span class="math inline">\(B_{ij}=\lambda A_{ij}\)</span>.</p>
+<p>Adding two matrices is done entry-wise:</p>
+<p><span id="eq-adding_mats"><span class="math display">\[
+\left(\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\\1 &amp; 0 &amp; 1  \end{matrix}\right)+\left(\begin{matrix}1 &amp; 0 &amp; 1\\0 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 1  \end{matrix}\right) =\left(\begin{matrix}2 &amp; 0 &amp; 1\\0 &amp; 1 &amp; 0\\2 &amp; 0 &amp; 2  \end{matrix}\right)
+\tag{2}\]</span></span></p>
+<p>From <a href="#eq-adding_mats" class="quarto-xref">Equation&nbsp;2</a> we identify the rule: <span class="math inline">\(C_{ij}=A_{ij}+B_{ij}\)</span>.</p>
+<p>A linear combination <span class="math inline">\(aA+bB\)</span> is thus computed entry-wise with the rule: <span class="math inline">\(C_{ij}=aA_{ij}+bB_{ij}\)</span>.</p>
+</section>
+<section id="matrix-product-composition-if-linear-functions" class="level1">
+<h1>Matrix Product (composition if linear functions)</h1>
 <p><strong>Motivation:</strong> Consider the following matrix operation:</p>
 <p><span class="math display">\[ \begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2\\2 &amp; 4 &amp; 6 &amp; 8\\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}\overset{l_2' = l_2-2l_1}{\longrightarrow}\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\0 &amp; 0 &amp; 2 &amp; 4 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix} \]</span></p>
 <p>and corresponding vector operation</p>
@@ -436,24 +461,50 @@ Figure&nbsp;1: Matrix multiplication of a 3x4 matrix by a 3x3 matrix.
 <li><p>The general formula for the entries of <span class="math inline">\(A'\)</span> is the complicated formula:</p>
 <p><span class="math display">\[ a_{ij}'=\sum_{k=1}^re_{ik}a_{kj} \]</span></p></li>
 </ol>
-<section id="maps-involved-in-matrix-multiplication-composition" class="level2">
-<h2 class="anchored" data-anchor-id="maps-involved-in-matrix-multiplication-composition">Maps involved in matrix multiplication (composition)</h2>
-<p><img src="figs/matrix _product_maps.png" class="img-fluid"></p>
-</section>
 </section>
 <section id="transpose" class="level1">
 <h1>Transpose</h1>
+<p>The transpose of a matrix <span class="math inline">\(A\)</span> is the operation of turning its rows into a column, for example:</p>
 <p><span class="math display">\[
 \begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2\\2 &amp; 4 &amp; 6 &amp; 8\\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}^\intercal = \begin{pmatrix}1 &amp; 2 &amp; 3  \\2 &amp; 4 &amp; 6  \\2 &amp; 6 &amp; 8 \\2 &amp; 8 &amp; 10  \end{pmatrix}
 \]</span></p>
+<p>In components: <span class="math inline">\((A^\intercal)_{ij} =A_{ji}\)</span>.</p>
+<p><strong>Properties:</strong> (which can be verified with basic examples)</p>
+<ul>
+<li><p><span class="math inline">\((A^\intercal)^\intercal=A\)</span></p></li>
+<li><p><span class="math inline">\((A+B)^\intercal=A^\intercal+B^\intercal\)</span></p></li>
+<li><p><span class="math inline">\((AB)^\intercal = B^\intercal A^\intercal\)</span></p></li>
+</ul>
 </section>
-<section id="inverse-of-a-matrix" class="level1">
-<h1>Inverse of a matrix</h1>
+<section id="component-rules-of-complicated-matrix-operations" class="level1">
+<h1>Component rules of complicated matrix operations</h1>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1:</h2>
+<p>We want to compute the entries of the matrix <span class="math inline">\(AB-BA\)</span> in terms of the entries of the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p><span class="math display">\[
+(AB)_{ij} = \sum_k A_{ik}B_{kj} \qquad (BA)_{ij} = \sum_k B_{ik}A_{kj}
+\]</span></p>
+<p>Thus:</p>
+<p><span class="math display">\[
+(AB-BA)_{ij} = (AB)_{ij} - (BA)_{ij} = \sum_k A_{ik}B_{kj} - \sum_k B_{ik}A_{kj}=\sum_k (A_{ik}B_{kj} -B_{ik}A_{kj})
+\]</span></p>
 </section>
-<section id="determinant" class="level1">
-<h1>Determinant</h1>
-<section id="cramer" class="level2">
-<h2 class="anchored" data-anchor-id="cramer">Cramer</h2>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2:</h2>
+<p>Compute all matrices that commute (<span class="math inline">\(AB-BA=0I\)</span>) with the matrix <span class="math inline">\(A_{ij}=1\)</span> with <span class="math inline">\(i,j=1,2\)</span>.</p>
+<p>We see the solution <span class="math inline">\(B\)</span> for the problem:</p>
+<p><span class="math display">\[
+0=\sum_{k=1,2} (A_{ik}B_{kj} -B_{ik}A_{kj})
+\]</span></p>
+<p>Since the entries of <span class="math inline">\(A\)</span> are all ones this equation reduces to:</p>
+<p><span class="math display">\[
+0=\sum_{k=1,2}(B_{kj}-B_{ik}) \iff 0= B_{1j}+B_{2j}-B_{i1}-B_{i2} \iff B_{1j}+B_{2j}=B_{i1}+B_{i2}
+\]</span></p>
+<p>In words: <span class="math inline">\(B\)</span> must be in such a way what, the sum of the entries in any of its columns must be the sum of the entries in any of its rows. After some guess work we arrive at the general form for <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+\left(\begin{matrix}\alpha &amp; \beta \\\beta &amp; \alpha  \end{matrix}\right)
+\]</span></p>
+<p><strong>Exercises:</strong> 2.1.All</p>
 
 
 </section>
@@ -880,6 +931,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./inner_product.html" class="pagination-link" aria-label="Inner product and Orthogonal spaces">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Inner product and Orthogonal spaces</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
