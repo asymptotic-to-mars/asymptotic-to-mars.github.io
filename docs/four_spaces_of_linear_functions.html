@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Vector spaces and subspaces – asymptotic to MARS</title>
+<title>Understanding mapping properties of linear functions – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./linear_dependence_and_independence.html" rel="next">
-<link href="./linear_combinations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -139,7 +137,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./vector_spaces_and_subspaces.html">Vector spaces and subspaces</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Understanding mapping properties of linear functions</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -294,13 +292,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
@@ -309,7 +307,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link active">
+  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vector spaces and subspaces</span></a>
   </div>
 </li>
@@ -379,14 +377,33 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link active" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#mapping-properties-of-f" id="toc-mapping-properties-of-f" class="nav-link active" data-scroll-target="#mapping-properties-of-f">Mapping properties of <span class="math inline">\(f\)</span></a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#the-4-subspaces-of-a-mtatrix-and-their-consequences" id="toc-the-4-subspaces-of-a-mtatrix-and-their-consequences" class="nav-link" data-scroll-target="#the-4-subspaces-of-a-mtatrix-and-their-consequences">The 4 subspaces of a mtatrix and their consequences</a></li>
+  </ul></li>
   <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
-  <li><a href="#is-it-a-vector-space" id="toc-is-it-a-vector-space" class="nav-link" data-scroll-target="#is-it-a-vector-space">Is it a vector space?</a>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4:</a></li>
+  <li><a href="#mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" id="toc-mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" class="nav-link" data-scroll-target="#mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat">(Mathematical) Motivation: Linear Maps are Structure preserving maps. Whaaaat?</a></li>
+  </ul></li>
+  <li><a href="#def-f-through-action-on-the-basis" id="toc-def-f-through-action-on-the-basis" class="nav-link" data-scroll-target="#def-f-through-action-on-the-basis">Def f through action on the basis</a></li>
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition">Composition</a></li>
+  <li><a href="#inverse." id="toc-inverse." class="nav-link" data-scroll-target="#inverse.">Inverse.</a></li>
+  <li><a href="#change-of-basis" id="toc-change-of-basis" class="nav-link" data-scroll-target="#change-of-basis">Change of Basis</a></li>
+  <li><a href="#vaps-e-veps" id="toc-vaps-e-veps" class="nav-link" data-scroll-target="#vaps-e-veps">Vaps e Veps</a></li>
+  <li><a href="#diagonalização" id="toc-diagonalização" class="nav-link" data-scroll-target="#diagonalização">Diagonalização</a></li>
+  <li><a href="#entulho" id="toc-entulho" class="nav-link" data-scroll-target="#entulho">Entulho</a>
   <ul class="collapse">
-  <li><a href="#example-3-cont" id="toc-example-3-cont" class="nav-link" data-scroll-target="#example-3-cont">Example 3 (cont)</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5</a>
+  <ul class="collapse">
+  <li><a href="#example-2-1" id="toc-example-2-1" class="nav-link" data-scroll-target="#example-2-1">Example 2:</a></li>
+  <li><a href="#example-3-1" id="toc-example-3-1" class="nav-link" data-scroll-target="#example-3-1">Example 3:</a></li>
+  <li><a href="#example-5-1" id="toc-example-5-1" class="nav-link" data-scroll-target="#example-5-1">Example 5:</a></li>
+  <li><a href="#example-6-non-linear" id="toc-example-6-non-linear" class="nav-link" data-scroll-target="#example-6-non-linear">Example 6: (NON-linear)</a></li>
+  </ul></li>
+  <li><a href="#example-5-this-time-we-give-specific-v-w-and-f-supress-this-homework" id="toc-example-5-this-time-we-give-specific-v-w-and-f-supress-this-homework" class="nav-link" data-scroll-target="#example-5-this-time-we-give-specific-v-w-and-f-supress-this-homework">Example 5: This time we give specific <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span> and <span class="math inline">\(f\)</span> (SUPRESS THIS; HOMEWORK)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -394,9 +411,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./vector_spaces_and_subspaces.html">Vector spaces and subspaces</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vector spaces and subspaces</h1>
+<h1 class="title">Understanding mapping properties of linear functions</h1>
 </div>
 
 
@@ -413,158 +430,146 @@ window.Quarto = {
 </header>
 
 
-<p>The operation of linear combination allow us to construct vector spaces and vector subspaces. In this section we want to look at some figures and from them deduce how to construct spaces. In later sections we will adopt a new approach: to describe the space by an equation or system of equations <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span>.</p>
-<p>Key concepts: <em>vectors space, subspace, span, form of the elements, direct sum.</em></p>
+<section id="mapping-properties-of-f" class="level1">
+<h1>Mapping properties of <span class="math inline">\(f\)</span></h1>
+<p>The way <span class="math inline">\(f\)</span> maps vectors is analogous to the way <span class="math inline">\(A\)</span> maps column vectors. Thus, working out properties of the map <span class="math inline">\(A\)</span> tell us something about the map <span class="math inline">\(f\)</span>. And by properties I mean: is <span class="math inline">\(f\)</span> 1-1? Onto? Bijective? We can answer these questions by asking them instead to <span class="math inline">\(A\)</span>.</p>
 <section id="example-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Video
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://youtu.be/7tD1vvoqGtc" target="_blank">R2 plane as a vector space</a></p>
-</div>
-</div>
-<p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span>. Now multiply both by every possible scalar and then add them; the end result is a set of vectors. All these vectors constitute a two dimensional plane, which we call <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
-<p><img src="figs/R2_plane.png" class="img-fluid" width="318"></p>
-<p>From the picture, it is easy to convince yourself that any linear combination of two vectors of the plane <span class="math inline">\(\mathbb{R}^2\)</span> is another vector in <span class="math inline">\(\mathbb{R}^2\)</span>, in particular from the l.c. <span class="math inline">\(0\begin{pmatrix} 1\\2\end{pmatrix}+0\begin{pmatrix} 3\\0\end{pmatrix}\)</span> we get the origin. Hence we write:</p>
-<p><span id="eq-span1"><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
-\tag{1}\]</span></span> Another important way to write this set is to identify the form of its elements, the form of its elements is:</p>
-<p><span class="math display">\[
-a(1,2)+b(3,0)
-\]</span></p>
-<p>or written more compactly <span class="math inline">\((a+3b,2a)\)</span>; the set of this elements is</p>
-<p><span class="math display">\[
-\{(a+3b,2a)\,\,|\,\,a,b\in\mathbb{R}\}=\mathbb{R}^2
-\]</span></p>
-<p>The idea of a set of things (in this case column vectors) where any l.c. of its elements gives us again an element of the set (we say the set is closed under l.c.) is very important and will appear countless times in this course. Hence we give it a special name: vector space.</p>
-<div id="def-vector_space" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> [Vector space] := a set of vectors with the property of being closed under linear combinations</p>
-</div>
-<p><span class="math inline">\(\mathbb{R}^2\)</span> is a vector space.</p>
-<p>Notice the same space comes about if we consider <span class="math inline">\(\begin{pmatrix} 1\\0\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 0\\1\end{pmatrix}\)</span> as our starting vectors. More, any other pair of vectors of <span class="math inline">\(\mathbb{R}^2\)</span> that point in distinct directions, do the job. Hence we write</p>
-<p><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\} = span\{\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 0\\1\end{pmatrix}\}=\dots
-\]</span></p>
-<p>The form of elements of <span class="math inline">\(\mathbb{R}^2\)</span> appears in many way, either <span class="math inline">\((a+3b,2a)\)</span> or <span class="math inline">\((a,b)\)</span>, etc, depending on our choice of vectors to span.</p>
+<p>Consider two vector spaces whose dimensions are:</p>
+<p><span class="math display">\[ \dim \mathbb{V}=3 \qquad \dim\mathbb{W}=1 \]</span></p>
+<p>we do not know what are its elements, but still we label a basis they have as:</p>
+<p><span class="math display">\[ \mathbf{B}=(v_1,v_2,v_3)\qquad\mathbf{C}=(w_1) \]</span></p>
+<p>these are just labels, but they immediately tells us that elements of <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span> can acquire the form:</p>
+<p><span id="eq-repre_v"><span class="math display">\[ v=\mathbf{B} X  \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}  \tag{1}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-repre_w"><span class="math display">\[
+w=\mathbf{C}Y \qquad Y=y_1
+\tag{2}\]</span></span></p>
+<p>I want now to introduce a function <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{W}\)</span>, but rather than telling a formula for it (which would also require to provide a form for the elements of <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span>) , I decide just to provide the action of <span class="math inline">\(f\)</span> on the basis labels:</p>
+<p><span class="math display">\[ f(v_1)=f(v_3)=2w_1\qquad f(v_2)=0w_1 \]</span></p>
+<p>i.e.</p>
+<p><span class="math display">\[ f(\mathbf{B})=\mathbf{C} A \qquad A=\begin{pmatrix}2&amp; 0&amp;2\end{pmatrix} \]</span></p>
+<p>This is enough for us to be able to compute the action of <span class="math inline">\(f\)</span> on a generic <span class="math inline">\(v\in\mathbb{V}\)</span>:</p>
+<p><span class="math display">\[ f(v)=\mathbf{C}AX = w_1 \begin{pmatrix}2&amp; 0&amp;2\end{pmatrix} \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \]</span></p>
+<p>Since we have <span class="math inline">\(f(v)\in \mathbb{W}\)</span>, we know from <a href="#eq-repre_w" class="quarto-xref">Equation&nbsp;2</a> that <span class="math inline">\(f(v)=y_1 w_1\)</span>, we conclude:</p>
+<p><span class="math display">\[ (y_1)=\begin{pmatrix}2&amp; 0&amp;2\end{pmatrix} \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \]</span></p>
+<p>This is <span class="math inline">\(Y=AX\)</span>, mapping the <span class="math inline">\(v\in \mathbb{V}\)</span> represented wrt <span class="math inline">\(\mathbf{B}\)</span> into a <span class="math inline">\(f(v)\)</span> represented wrt <span class="math inline">\(\mathbf{C}\)</span>.</p>
+<p>Notice we know how to map any vector even though we did not specify what is <span class="math inline">\(\mathbb{V}\)</span>, nor <span class="math inline">\(\mathbb{W}\)</span> and neither the form of the basis elements of both, we only provided labels for them. Knowing how <span class="math inline">\(f\)</span> act on these labels was enough!</p>
+<section id="the-4-subspaces-of-a-mtatrix-and-their-consequences" class="level3">
+<h3 class="anchored" data-anchor-id="the-4-subspaces-of-a-mtatrix-and-their-consequences">The 4 subspaces of a mtatrix and their consequences</h3>
+<p>What is the kernel of <span class="math inline">\(f\)</span>? Adapting the definition to the present example we have to solve the problem of finding the nullspace of the matrix <span class="math inline">\((2,0,2)\)</span>:</p>
+<p><span class="math display">\[ AX_N=0 \iff \begin{pmatrix}2&amp; 0&amp;2\end{pmatrix}\begin{pmatrix}x_{1N}\\x_{2N}\\x_{3N}\end{pmatrix}=(0) \]</span></p>
+<p>Since we have one pivot on the first column and two dependent columns, we expect two dimensions.</p>
+<p>Isolating <span class="math inline">\(Col_2\)</span> by setting <span class="math inline">\(y_N=1\)</span> and <span class="math inline">\(z_N=0\)</span>, the only answer is <span class="math inline">\(x_N=0\)</span>, thus <span class="math inline">\((0,1,0)\)</span> is in the nullspace.</p>
+<p>Isolating <span class="math inline">\(Col_3\)</span> by setting <span class="math inline">\(y_N=0\)</span> and <span class="math inline">\(z_N=1\)</span>, we find <span class="math inline">\(x_N=-1\)</span>, the second basis vector is <span class="math inline">\((-1,0,1)\)</span>.</p>
+<p>Any l.c. of these solutions is also mapped to <span class="math inline">\(0\)</span>, thus:</p>
+<p><span class="math display">\[ N(A) = span \{(0,1,0)^\intercal,(-1,0,1)^\intercal\} \]</span></p>
+<p>Now we convert the nullspace into the kernel of <span class="math inline">\(f\)</span> by multiplying the elements of the set by <span class="math inline">\(\mathbf{B}\)</span> (see diagrams above) and <strong>?@eq-ker_f</strong>:</p>
+<p><span class="math display">\[ \ker f = span \{\mathbf{B}(0,1,0)^\intercal,\mathbf{B}(-1,0,1)^\intercal\} \]</span></p>
+<p>The image of <span class="math inline">\(f\)</span> is <span class="math inline">\(f(\mathbb{V})\)</span> and we can get it from the column space of the matrix <span class="math inline">\(A\)</span></p>
+<p>Looking closer at <span class="math inline">\(AX\)</span> we find:</p>
+<p><span class="math display">\[ \begin{pmatrix}2&amp; 0&amp;2\end{pmatrix}\begin{pmatrix}x_{1}\\x_{2}\\x_{3}\end{pmatrix} \]</span>only one independent column, the first one, thus the column space is just:</p>
+<p><span class="math display">\[ C(A)=span\{(2)\} \]</span></p>
+<p>And from <strong>?@eq-im_f</strong>, the image of <span class="math inline">\(f\)</span> is:</p>
+<p><span class="math display">\[ f(\mathbb{V})=span\{2w_1\} \]</span></p>
+<p>We see that the kernel and image of <span class="math inline">\(f\)</span> are just analogous to the nullspace and column space of the matrix <span class="math inline">\((2,0,2)\)</span>. See diagrams above.</p>
+<p><strong>Orthogonal spaces:</strong> (Rowspace and left-nullspace) From the matrix <span class="math inline">\(A\)</span> we can define the row-space as</p>
+<p><span class="math display">\[ C(A^\intercal)=span\{(1,0,1)^\intercal\} \]</span></p>
+<p>[<em>Commentary:</em> when multiplied by <span class="math inline">\(\mathbf{B}\)</span> gives us the image of <span class="math inline">\(\hat{f}\)</span>. Note that while rowspace and nullspace are orthogonal wrt <span class="math inline">\(\cdot_{\mathbb{R}^n}\)</span>, the corresponding subspaces in <span class="math inline">\(\mathbb{V}\)</span> need not be, since <span class="math inline">\(\{v_i\}_{i=1,..,n}\)</span> may not be orthogonal wrt <span class="math inline">\(\cdot_\mathbb{V}\)</span>]</p>
+<p>While the left-nullspace is just</p>
+<p><span class="math display">\[ N(A^\intercal)=\{(0)\} \]</span></p>
+<p>The rowspace and nullspace break the domain <span class="math inline">\(\mathbb{R}^3\)</span> into two subspaces, while the column space and codomain are equal:</p>
+<p><span class="math display">\[ \mathbb{R}^3 = span\{(1,0,1)^\intercal\}\oplus span \{(0,1,0)^\intercal,(-1,0,1)^\intercal\}\qquad \mathbb{R} = \mathbb{R}\oplus\{0\} \]</span></p>
+<p>From this, the following picture tells us how one vector <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span> is mapped into <span class="math inline">\(AX\in\mathbb{R}\)</span></p>
+<p><img src="figs/maps_yellow_vector.png" class="img-fluid" width="634"></p>
+<p>Given these subspaces of the domain and codomain we can now focus on describing the kind of mapping that <span class="math inline">\(A\)</span> does and turn that <span class="math inline">\(f\)</span> does. On the picture we see a vector <span class="math inline">\(X\)</span> being decomposed into its parts, one in the nullspace and another in the row space:</p>
+<p><span class="math display">\[ X=X_{R}+X_{N} \]</span></p>
+<p>The <span class="math inline">\(X_N\)</span> is mapped by this <span class="math inline">\(A\)</span> into <span class="math inline">\(0\)</span>, and <span class="math inline">\(X_R\)</span> is mapped into <span class="math inline">\(AX_R\)</span>, thus we can write <span class="math inline">\(AX=AX_R\)</span> for all <span class="math inline">\(X\in \mathbb{R}^3\)</span>.</p>
+<p>For each <span class="math inline">\(X_R\)</span> in the rowspace we can any add any vector of the null space, the image is always <span class="math inline">\(AX_R\)</span>. Therefore this is not a 1-1 function.</p>
+<p>But is it onto? For any element <span class="math inline">\(Y\)</span> of <span class="math inline">\(\mathbb{R}\)</span> we can find a <span class="math inline">\(X\)</span>, such that <span class="math inline">\(AX=Y\)</span> i.e.&nbsp;there are always solution <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_3\)</span> such that</p>
+<p><span class="math display">\[ y_1=2x_1+2x_3 \]</span></p>
+<p>for any <span class="math inline">\(y_1\)</span> we choose from <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Thus <span class="math inline">\(A\)</span> is onto and so is <span class="math inline">\(f\)</span>.</p>
+<p>As a consequence we conclude that any equation</p>
+<p><span class="math display">\[ f(v)=w \]</span></p>
+<p>(given a <span class="math inline">\(w\)</span>) always has solution, in fact has an infinite number of solutions, thanks to the fact that the nullspace is not just <span class="math inline">\(0\)</span>.</p>
+<p>Another way to put this, this <span class="math inline">\(f\)</span> has no inverse, however in its place a fiber can be defined:</p>
+<p><span class="math display">\[ f^{-1}(w)=\{v\in\mathbb{V}\,\,|\,\,f(v)=w\} \]</span></p>
+<p>To compute this requires solving an already known to us problem <span class="math inline">\(AX=Y\)</span>! This is what we have been doing in the beginning of the course.</p>
+</section>
 </section>
 <section id="example-2" class="level2">
 <h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Video
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://youtu.be/GP76R_bv3aY" target="_blank">a line in R2 is a subspace of R2</a></p>
-</div>
-</div>
-<p>Consider the vector <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span>, this is our starting point. Now imagine multiplying it by every possible scalar; the end result is a set of vectors which lie along the same line:</p>
-<p><img src="figs/subspace_is_a_line.png" class="img-fluid" width="243"></p>
-<p>From the picture, it is easy to convince yourself that any linear combination of two (or more) vectors of the line gives us another vector in the line.</p>
-<p><span id="eq-line_subspace"><span class="math display">\[
-\textbf{line} = span\{\begin{pmatrix}1\\2 \end{pmatrix}\}=\{(a,2a)\,\,|\,\, a\in\mathbb{R}\}
-\tag{2}\]</span></span></p>
-<p>In particular if you multiply any of its vectors by <span class="math inline">\(0\)</span>, we get the origin <span class="math inline">\(\begin{pmatrix} 0\\0\end{pmatrix}\)</span>. Thus the line we are referring passes through the origin and we can say <span class="math inline">\(\mathbf{0} \in \textbf{line}\)</span>.</p>
-<p>Once again, the line is a set closed under l.c., which means it is a vector space.</p>
-<p>Additionally, notice that the line lives inside the plane <span class="math inline">\(\mathbb{R}^2\)</span>, because of that we say it is a subspace of <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
-<div id="def-subspace" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> [subspace (of a vector space <span class="math inline">\(A\)</span>)] := a vector space which is a subset of <span class="math inline">\(A\)</span>.</p>
-<p>(A subspace is also closed under linear combinations of its vectors.)</p>
-</div>
-<p><em>Note that:</em> the same line we see in the picture also results if you consider as your starting vector, the vector <span class="math inline">\(\begin{pmatrix} 2\\4\end{pmatrix}\)</span>, and then multiply it by all possible numbers (i.e.&nbsp;all l.c. of this vector). Thus this line can be created in many ways:</p>
-<p><span class="math display">\[
-\textbf{line} = span\{\begin{pmatrix}1\\2 \end{pmatrix}\} = span\{\begin{pmatrix}2\\4 \end{pmatrix}\}=\dots
-\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Commentary
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Multiplying a vector by a scalar is just a particular example of a linear combination:</li>
-</ul>
-<p><span class="math display">\[ a\begin{pmatrix}1\\2\end{pmatrix}+b\begin{pmatrix}0\\0\end{pmatrix} \]</span></p>
-<ul>
-<li>Any two vectors on the line are parallel, i.e., <span class="math inline">\(u||v\)</span> if they are proportional.</li>
-</ul>
-</div>
-</div>
+<p>Consider two vector spaces <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span> and the following action on a basis:</p>
+<p><span class="math display">\[ \begin{align} f(v_1)&amp;=w_1+2w_2+3w_3\\ f(v_2)&amp;=2w_1+4w_2+6w_3\\ f(v_3)&amp;=2w_1+6w_2+8w_3\\ f(v_4)&amp;=2w_1+8w_2+10w_3 \end{align} \]</span></p>
+<p>i.e.</p>
+<p><span class="math display">\[ f(\mathbf{B})=\mathbf{C}A,\qquad A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix} \]</span></p>
+<p>The action of <span class="math inline">\(f\)</span> on some generic element of <span class="math inline">\(\mathbb{V}\)</span></p>
+<p><span class="math display">\[ v=\mathbf{B}X\qquad X=\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix} \]</span></p>
+<p>is:</p>
+<p><span class="math display">\[ f(v)=\mathbf{C}AX=\begin{pmatrix}w_1 &amp; w_2 &amp; w_3\end{pmatrix} \begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix} \]</span></p>
+<p>And since:</p>
+<p><span class="math display">\[ f(v)=\mathbf{C} Y \qquad Y=\begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} \]</span></p>
+<p>we conclude that:</p>
+<p><span class="math display">\[ \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix}=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix} \]</span></p>
+<p>The nullspace of <span class="math inline">\(A\)</span> is (we already computed this before, here):</p>
+<p><span class="math display">\[ N(A)=span\{\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix},\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}\} \]</span></p>
+<p>The image of <span class="math inline">\(f\)</span> is computed from the <span class="math inline">\(C(A)\)</span>, which is:</p>
+<p><span class="math display">\[ C(A) =span\{\begin{pmatrix}1\\2\\3\end{pmatrix},\begin{pmatrix}2\\6\\8\end{pmatrix}\}  \]</span></p>
+<p><strong>The orthogonal spaces:</strong> (rowspace and left-nullspace) Recall the rowspace and left nullspace are orthogonal to these and have the following dimensions:</p>
+<p><span class="math display">\[ C(A^\intercal)=span\{(1,2,2,2)^\intercal,(2,4,6,8)^\intercal\} \qquad N(A^\intercal)=span\{(-1,-1,1)^\intercal\} \]</span></p>
+<p><img src="figs/maps_fav_matrix.png" class="img-fluid"></p>
+<p>Looking at the diagram, any <span class="math inline">\(X\)</span>, can be broken into two parts:</p>
+<p><span class="math display">\[ X=X_R+X_N \]</span></p>
+<p>Any <span class="math inline">\(Y\)</span> can also be broken into:</p>
+<p><span class="math display">\[ Y=Y_C+Y_{LN} \]</span></p>
+<p>The matrix <span class="math inline">\(A\)</span> maps any <span class="math inline">\(X\)</span> into the <span class="math inline">\(C(A)\)</span>, the <span class="math inline">\(N(A^\intercal)\)</span> is never reached. This means that for any <span class="math inline">\(Y\)</span> with components in the left null space the equation:</p>
+<p><span class="math display">\[ AX=Y \]</span></p>
+<p>has no solution.</p>
+<p>Any <span class="math inline">\(Y\)</span> living exclusively in the column space has a fiber of elements of the form <span class="math inline">\(X_R+X_N\)</span>, for a fixed <span class="math inline">\(X_R\)</span> and <span class="math inline">\(X_N\)</span> ranging over the entire two dimensional <span class="math inline">\(N(A)\)</span>. [<em>Comment:</em> This <span class="math inline">\(X_R\)</span> may or not be the particular solution we find when solving a system of equation, see here.]</p>
+<p>Evidently, this function is neither 1-1, nor onto, and no inverse (except in the sense of fiber) exists.</p>
 </section>
 <section id="example-3" class="level2">
 <h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Video
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://youtu.be/bSUlOoCTD-4" target="_blank">R3 and some of its subspaces</a></p>
-</div>
-</div>
-<p>Consider the vectors <span class="math inline">\((1,2,0)^\intercal\)</span> and <span class="math inline">\((1,0,1)^\intercal\)</span> and <span class="math inline">\((0,0,1)^\intercal\)</span>. Linear combine them with every scalar and you obtain a set of vectors. All these vectors fill the three dimensional space <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
-<p><img src="figs/R3_space.png" class="img-fluid" width="468"></p>
-<p>In special notation we have:</p>
-<p><span class="math display">\[
-\mathbb{R}^3 = span\{(1,2,0)^\intercal,(1,0,1)^\intercal,(0,0,1)^\intercal\}
-\]</span>From the picture here can identify some subspaces of <span class="math inline">\(\mathbb{R}^3\)</span>, we also write the equation that describes them, take them as facts for now, later, when we introduce matrices we justify them.</p>
-<p><span class="math display">\[
-[\textbf{pink-blue plane}] = span\{(1,2,0), (0,0,1)\}=\{(a,2a,b)\,\,|\,\,a,b\in\mathbb{R}\}
-\]</span></p>
-<p><span class="math display">\[
-[\textbf{xy plane}] = span \{(1,0,0),(0,1,0\}=\{(a,b,0)\,\,|\,\,a,b\in\mathbb{R}\}
-\]</span></p>
-<p><span class="math display">\[
-[\textbf{yellow line}] = span \{(1,0,1)\}=\{(a,0,a)\,\,|\,\, a\in\mathbb{R}\}
-\]</span></p>
-<p><em>Observation 1:</em> The vector space <span class="math inline">\(\mathbb{R}^3\)</span> results from summing vectors from the <strong>x0y plane</strong> and <strong>z axis</strong> subspaces. Thus any vector in <span class="math inline">\(\mathbb{R}^3\)</span> can be written as a sum of a vector from the first plus one of the second. We have special notation for this:</p>
-<div id="def-oplus" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> Assume we have two subspaces <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> of <span class="math inline">\(\mathbb{R}^3\)</span> (eg. the xoy plane and z axis) where the only common element is the origin <span class="math inline">\(\mathbf{0}\)</span>. Then any vector <span class="math inline">\(\mathbf{r}\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span> can be written by some appropriate sum of <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{w}\)</span>:</p>
-<p><span class="math display">\[
-\mathbf{r} = \mathbf{u}+\mathbf{w}
-\]</span></p>
-<p>In math language:</p>
-<p><span class="math display">\[
-\mathbb{R}^3 = \{\mathbf{u}+\mathbf{v}\,\,|\,\, \mathbf{u}\in U \,\,\text{and} \,\,\mathbf{v}\in V\}
-\]</span></p>
-<p>The nick-name of this set is: <span class="math inline">\(U\oplus V\)</span>. The direct sum. Reading <span class="math inline">\(\mathbb{R}^3=U\oplus V\)</span> from right to left we see what we said above; reading from left to right we see the space being decomposed in subspaces, clearly this can be done in many ways:</p>
-<p><span class="math display">\[
-\mathbb{R}^3 = [\textbf{xy plane}] \oplus [\textbf{0z line}] = [\textbf{yellow line}]\oplus [\textbf{plane perpendicular to yellow line}]=\dots
-\]</span></p>
-</div>
-<p><em>Observation 2:</em> Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two (non parallel) planes containing the yellow-line, then the intersection of both yields the yellow line:</p>
-<p><span class="math display">\[
-[\textbf{yellow-line}] = A \cap B
-\]</span></p>
-<p>This is important because it tells us that interception of vectors spaces yields new vector spaces.</p>
+<p>The map:</p>
+<p><span class="math display">\[ \begin{align} f:\mathbb{V}&amp;\longrightarrow \mathbb{W}\\ v&amp;\longmapsto f(v)  \end{align} \]</span></p>
+<p>can be specified wrt the bases:</p>
+<p><span class="math display">\[ \mathbf{B}=\begin{pmatrix}v_1 &amp; v_2 &amp; v_3\end{pmatrix} \qquad \mathbf{C}=\begin{pmatrix}w_1 &amp; w_2 &amp; w_3\end{pmatrix} \]</span></p>
+<p>by introducing the matrix:</p>
+<p><span class="math display">\[ A=\begin{pmatrix}1 &amp; 1 &amp; -1 \\2 &amp; -1&amp; 2 \\1 &amp; 2 &amp; -1\end{pmatrix} \]</span></p>
+<p>Thus <span class="math inline">\(f(v)\)</span> acquires the form:</p>
+<p><span class="math display">\[ f(v)=\mathbf{C}AX \qquad v=\mathbf{B}X \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \]</span></p>
+<p>The map between entries of <span class="math inline">\(v\)</span> wrt <span class="math inline">\(\mathbf{B}\)</span> and the entries of <span class="math inline">\(f(v)\)</span> wrt <span class="math inline">\(\mathbf{C}\)</span> is the equation:</p>
+<p><span class="math display">\[ Y=AX \]</span></p>
+<p>For which we can get the nullspace and column space.</p>
+<p><span class="math display">\[ N(A)=\{(0,0,0)^\intercal\} \qquad C(A)=\mathbb{R}^3 \]</span></p>
+<p>just like we computed before.</p>
+<p><img src="figs/map_fc_full_rank.png" class="img-fluid" width="587"></p>
+<p>There is only one solution. It is 1-1 and surjective. There is inverse.</p>
 </section>
 <section id="example-4" class="level2">
-<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
-<p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> , <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 0\\1\end{pmatrix}\)</span>. All linear combinations of these three vectors always yield a vector in <span class="math inline">\(\mathbb{R}^2\)</span>, a two-dimensional vector space and not three-dimensional!</p>
-<p><img src="figs/three_vectors_R2.png" class="img-fluid" width="201"></p>
-<p>Notice one of the three vectors is redundant.</p>
-<p><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix},\begin{pmatrix} 0\\3\end{pmatrix}\}=span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
-\]</span></p>
+<h2 class="anchored" data-anchor-id="example-4">Example 4:</h2>
+<p><span class="math display">\[ \begin{align} f:\mathbb{R}^3&amp;\longrightarrow \mathbb{R}^3\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=A\mathbf{x}  \end{align} \]</span></p>
+<p>with</p>
+<p><span class="math display">\[ A=\begin{pmatrix}2 &amp; -1 \\2 &amp; 1 \\2 &amp; 1\end{pmatrix}  \]</span></p>
+<p>The four spaces were already computed before, here is a diagram:</p>
+<p><img src="figs/map_no_sol.png" class="img-fluid" width="533"></p>
+<p>If <span class="math inline">\(b\)</span> vector is outside column space them there is no solution! Not surjective.</p>
+</section>
+<section id="mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat">(Mathematical) Motivation: Linear Maps are Structure preserving maps. Whaaaat?</h2>
+<p>Why are these linear functions important?</p>
+<p>We will answer this question in two ways: a zoom in version and a zoom out version (later)</p>
+<p><strong>Zoom in version:</strong> The rule says something important about the map <span class="math inline">\(f\)</span>, on the lhs we see an l.c. of elements of <span class="math inline">\(\mathbb{R}^n\)</span>, i.e., <span class="math inline">\(\nu\bf{u}\)</span> and <span class="math inline">\(\lambda \bf{v}\)</span> are mapped into <span class="math inline">\(\nu\bf{u}+\lambda\bf{v}\in \mathbb{R}^n\)</span>. This vector in turn is mapped, now under <span class="math inline">\(f\)</span>, into the element <span class="math inline">\(f(\nu\bf{u}+\lambda\bf{v})\in\mathbb{R}^m\)</span>. On the rhs we see a l.c. of elements of <span class="math inline">\(\mathbb{R}^m\)</span>: <span class="math inline">\(f (\bf{u})\)</span> is being combined with <span class="math inline">\(f (\bf{v})\)</span> with the coefficients <span class="math inline">\(\nu\)</span> and <span class="math inline">\(\lambda\)</span>.</p>
+<p><img src="figs/linear_func.png" class="img-fluid" width="618"></p>
+<p>On the picture we see a l.c. diagram-<span class="math inline">\((\nu,\lambda)\)</span> on the left and another on the right whose coefficients are the same. These diagrams and all the other are what we can the connectivity structure of the vector space. Notice, the elements being combined are different - on the left we have <span class="math inline">\(\bf{u}\)</span> with <span class="math inline">\(n\)</span> dimensions while <span class="math inline">\(\bf{u}'\)</span> has <span class="math inline">\(m\)</span> dimensions.</p>
+<p>The equality <span class="math inline">\(f(\nu \bf{u}+\lambda \bf{v}) = \nu f (\bf{u}) + \lambda f(\bf{v})\)</span> says the three points of diagram on the left are “connected” to a diagram on the right involving the same coefficients. As a result, the connection on the left is preserved because it is reproduced on the right. Its image under <span class="math inline">\(f\)</span> does not change.</p>
+<p>Lets use the <span class="math inline">\(f\)</span> from example 1 to illustrate this idea:</p>
+<p>If we linearly combine two vectors the following map is observed:</p>
+<p><img src="figs/map_of_lc.png" class="img-fluid" width="378"></p>
+<p>However if we add the nullspace to each one of these we have the same map</p>
+<p><img src="figs/planes_map.png" class="img-fluid"></p>
+<p>In other words the structure on the domain is replicated in the codomain. The structure is preserved.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -575,48 +580,101 @@ Commentary
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In general a vector space <span class="math inline">\(\mathbb{V}\)</span> is a set of things with which remains invariant under linear combinations. Those things are what we call vectors. A vector is simply a member of this set. An array of numbers, like a column vector, is such an example; matrices, functions are other examples as we’ll see later.</p>
+<p>An example of a non-preserving function is the <span class="math inline">\(\square\)</span> function</p>
+<p><span class="math display">\[
+\begin{align}\square:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto \square(x,y):=(2x^2,y)\end{align}
+\]</span></p>
+<p>whose behavior is diagrammatically akin to this:</p>
+<p><img src="figs/not_linear.png" class="img-fluid" width="658"></p>
+<p>The image of the l.c. diagram on the left does not have a corresponding l.c. diagram (with the same coefficients) on the right. Thus we say <span class="math inline">\(\square\)</span> does not preserve the diagram during is mapping action.</p>
 </div>
 </div>
 </section>
-<section id="is-it-a-vector-space" class="level1">
-<h1>Is it a vector space?</h1>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Video
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://youtu.be/9PjXo61_Kv8" target="_blank">how to check it</a></p>
-</div>
-</div>
-<section id="example-3-cont" class="level2">
-<h2 class="anchored" data-anchor-id="example-3-cont">Example 3 (cont)</h2>
-<p>From the pictures above we deduced what vectors we need to span to generate that space and from this choice we identified the form of the elements. Now lets assume we are given some form of the vectors, how do we know they constitute a vector space?</p>
-<p>Whether they do or do not form one is a matter of checking the definition of space, recall that a space is a collection of things which remain invariant under l.c.</p>
-<p>To see this concretely, consider <strong>pink-blue plane</strong>:</p>
-<p><span class="math display">\[
-\{(a,2a,b)^\intercal\,\,|\,\, a,b\in\mathbb{R}\}
-\]</span></p>
-<p>Is it a vector space?</p>
-<p>Let <span class="math inline">\((a_1,2a_1,b_1)\)</span> and <span class="math inline">\((a_2,2a_2,b_2)\)</span> be two generic vectors of the set, now take a generic l.c. <span class="math inline">\(\alpha(a_1,2a_1,b_1)+\beta(a_2,2a_2,b_2)\)</span>. Is this again an element of that set? If it is, it must have the form <span class="math inline">\((a,2a,b)\)</span>. Lets check if this is true:</p>
-<p><span class="math display">\[
-\alpha(a_1,2a_1,b_1)+\beta(a_2,2a_2,b_2) = (\alpha a_1+\beta a_2,2(\alpha a_1 +\beta a_2),\alpha b_1+\beta b_2) = (\spadesuit,2\spadesuit,\clubsuit)
-\]</span></p>
-<p>It has.</p>
-<p>Because, the chosen elements and the l.c. were arbitrary we can conclude that this set is closed under l.c. and therefore constitute a vector space.</p>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exr-test_yourself" class="theorem exercise" style="color:gray">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> <em>Solve 1.1 &gt; 3:</em> If a span of <span class="math inline">\(3v\)</span>, <span class="math inline">\((2,-1)\)</span> and <span class="math inline">\(1/2(-2,4)\)</span> what can you say?</p>
-<p><em>Solve 1.1 &gt; 4 &gt; (e)</em> Same question.</p>
-<p>Solve 1.4 &gt; 1</p>
-</div>
+<section id="def-f-through-action-on-the-basis" class="level1">
+<h1>Def f through action on the basis</h1>
+</section>
+<section id="composition" class="level1">
+<h1>Composition</h1>
+</section>
+<section id="inverse." class="level1">
+<h1>Inverse.</h1>
+</section>
+<section id="change-of-basis" class="level1">
+<h1>Change of Basis</h1>
+</section>
+<section id="vaps-e-veps" class="level1">
+<h1>Vaps e Veps</h1>
+</section>
+<section id="diagonalização" class="level1">
+<h1>Diagonalização</h1>
+</section>
+<section id="entulho" class="level1">
+<h1>Entulho</h1>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example 5</h2>
+<p>Consider the function <span class="math inline">\(\mathbb{V}=\mathbb{W}=\mathbb{R}\)</span> and the function:</p>
+<p><span class="math display">\[ \begin{align}f:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\ x&amp;\longmapsto f(x):=10x\end{align} \]</span></p>
+<p>When <span class="math inline">\(f\)</span> acts on the element <span class="math inline">\(x\)</span> it assigns <span class="math inline">\(f(x)\)</span> which specifically is the element <span class="math inline">\(10x\)</span> in <span class="math inline">\(\mathbb{R}\)</span>. This <span class="math inline">\(f\)</span> in this case is the ten-x function.</p>
+<p>But does ithe procedure <span class="math inline">\(10x\)</span> have the so called linearity property?</p>
+<p>To check, we choose two generic elements of the domain <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and l.c. them using a generic coefficients <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>:</p>
+<p><span class="math display">\[ f(c_1 x_1+ c_2 x_2) = 10 ( c_1 x_1+ c_2 x_2) = c_1 10x_1+ c_2 10x_2 = c_1f(x_1)+c_2f(x_2) \]</span></p>
+<p>Indeed it is.</p>
+<section id="example-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-1">Example 2:</h3>
+<p>Now a function from <span class="math inline">\(\mathbb{V}=\mathbb{R}\)</span> into <span class="math inline">\(\mathbb{W}=\mathbb{R}^2\)</span>, which maps as follows:</p>
+<p><span class="math display">\[ \begin{align}g:\mathbb{R}&amp;\longrightarrow \mathbb{R}^2\\ x&amp;\longmapsto g(x):=(2x,x)\end{align} \]</span></p>
+<p>Choose as a basis:</p>
+<p>The procedure on which the map is based is to each <span class="math inline">\(x\)</span> compute <span class="math inline">\(2x\)</span> and construct which these numbers the vector <span class="math inline">\((2x,x)\)</span>. Is this procedure linear?</p>
+<p><span class="math display">\[ g(c_1 x_1+ c_2 x_2)=(2(c_1 x_1+ c_2 x_2),c_1 x_1+ c_2 x_2) = c_1(2x_1+,x_1)+c_2(2x_2,x_2)=c_1g(x_1)+c_2g(x_2) \]</span></p>
+<p>Because our choices where arbitrary, yes, this it is linear.</p>
+</section>
+<section id="example-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-1">Example 3:</h3>
+<p>The projection function procedure consists in picks out the <span class="math inline">\(x\)</span> component of the vector <span class="math inline">\((x,y)\)</span>, it is a map from <span class="math inline">\(\mathbb{V}=\mathbb{R}^2\)</span> into <span class="math inline">\(\mathbb{W}=\mathbb{R}\)</span></p>
+<p><span class="math display">\[ \begin{align}\pi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}\\ (x,y)&amp;\longmapsto \pi(x,y):=x\end{align} \]</span></p>
+<p>Choosing basis:</p>
+<p><span class="math display">\[ \mathbf{B}=(v_1,v_2) \qquad v_1=\begin{pmatrix}1\\0\end{pmatrix}, v_2=\begin{pmatrix}1\\2\end{pmatrix} \]</span></p>
+<p>for <span class="math inline">\(\mathbb{R}^2\)</span> and <span class="math display">\[ \mathbf{C}=(w_1)\qquad w_1=3 \]</span> Then acting with <span class="math inline">\(\pi\)</span> on it we find: <span class="math display">\[ \begin{cases} \pi(1,0)=1\\ \pi(1,2)=1 \end{cases} \]</span> Expressing these results wrt <span class="math inline">\(\mathbf{C}\)</span> we have <span class="math display">\[ \begin{cases} \pi(1,0)=\frac{1}{3}3\\ \pi(1,2)=1 \end{cases} \]</span></p>
+<p>Is it linear?</p>
+<p><span class="math display">\[ \pi(c_1(x_1,y_1)+c_2(x_2,y_2)) = \pi (c_1x_1+c_2x_2,c_1y_1+c_2y_2)=c_1x_1+c_2x_2 =c_1 \pi(x_1,y_1) + c_2\pi(x_2,y_2) \]</span></p>
+<p>A l.c. of inputs - <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span> - yields the same l.c. of outputs - <span class="math inline">\(\pi(x_1,y_1)\)</span> and <span class="math inline">\(\pi(x_2,y_2)\)</span>.</p>
+</section>
+<section id="example-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-5-1">Example 5:</h3>
+<p>From <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span> once more:</p>
+<p><span class="math display">\[ \begin{align}\Xi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto \Xi(x,y):=(2x-2y,x-y)\end{align} \]</span></p>
+<p>?</p>
+<p><span class="math display">\[ \begin{align} \Xi(c_1(x_1,y_1)+c_2(x_2,y_2)) &amp;= \Xi(c_1x_1+c_2x_2,c_1y_1+c_2y_2)\\  &amp;=(2(c_1x_1+c_2x_2)-2(c_1y_1+c_2y_2),c_1x_1+c_2x_2-c_1y_1-c_2y_2)\\ &amp;=c_1(2x_1-2y_1,x_1-y_1)+c_2(2x_2-2y_2,x_2-y_2)\\ &amp;=c_1\Xi(x_1,y_1)+c_2\Xi(x_2,y_2) \end{align} \]</span></p>
+<p>It is.</p>
+</section>
+<section id="example-6-non-linear" class="level3">
+<h3 class="anchored" data-anchor-id="example-6-non-linear">Example 6: (NON-linear)</h3>
+<p>Again, from <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>, but this time we have a square involved, hence the name square function:</p>
+<p><span class="math display">\[ \begin{align}\square:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto \square(x,y):=(2x^2,y)\end{align} \]</span></p>
+<p>Checking as usual:</p>
+<p><span class="math display">\[ \begin{align} \square(c_1(x_1,y_1)+c_2(x_2,y_2))&amp;=\square(c_1x_1+c_2x_2,c_1y_1+c_2y_2)\\ &amp;=(2(c_1x_1+c_2x_2)^2,c_1y_1+c_2y_2)\\ &amp;=(2((c_1x_1)^2+2c_1c_2x_1x_2+(c_2x_2)^2),c_1y_1+c_2y_2)\\ &amp;\not=c_1\square(x_1,y_1)+c_2\square(x_2,y_2) \end{align} \]</span></p>
+<p>The range is <span class="math inline">\(\square(\mathbb{R}^2)=[0,\infty)\times\mathbb{R}\)</span>.</p>
+</section>
+</section>
+<section id="example-5-this-time-we-give-specific-v-w-and-f-supress-this-homework" class="level2">
+<h2 class="anchored" data-anchor-id="example-5-this-time-we-give-specific-v-w-and-f-supress-this-homework">Example 5: This time we give specific <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span> and <span class="math inline">\(f\)</span> (SUPRESS THIS; HOMEWORK)</h2>
+<p>From <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
+<p><span class="math display">\[ \begin{align}f:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto f(x,y):=(2x-y,x+y)\end{align} \]</span></p>
+<p>Choosing basis:</p>
+<p><span class="math display">\[ \mathbf{B}=(\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}1\\0\end{pmatrix}) \qquad v_1=\begin{pmatrix}1\\0\end{pmatrix}, v_2=\begin{pmatrix}1\\2\end{pmatrix} \]</span></p>
+<p>for <span class="math inline">\(\mathbb{R}^2\)</span> and <span class="math display">\[ \mathbf{C}=(\begin{pmatrix}0\\1\end{pmatrix},\begin{pmatrix}1\\1\end{pmatrix})\qquad \qquad w_1=\begin{pmatrix}0\\1\end{pmatrix}, w_2=\begin{pmatrix}1\\1\end{pmatrix} \]</span></p>
+<p>for <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>We have the following matrix:</p>
+<p><span class="math display">\[ f(1,0)=(2,1)\qquad f(1,2)=(0,3) \]</span> Expressing now <span class="math inline">\(f(1,0)\)</span> and <span class="math inline">\(f(1,2)\)</span> in terms of <span class="math inline">\(\mathbf{C}\)</span> we have to solve: <span class="math display">\[ \begin{pmatrix}0 &amp; 1\\1 &amp; 2\end{pmatrix}\begin{pmatrix}A_{11}\\A_{21}\end{pmatrix}=\begin{pmatrix}2\\1\end{pmatrix} \qquad \begin{pmatrix}0 &amp; 1\\1 &amp; 2\end{pmatrix}\begin{pmatrix}A_{12}\\A_{22}\end{pmatrix}=\begin{pmatrix}0\\3\end{pmatrix} \]</span> Whose solution is: <span class="math display">\[ A=\begin{pmatrix}2 &amp; 3\\-2 &amp; 0\end{pmatrix} \]</span> Thus wrt the chosen basis lets compute the 4 spaces and from them deduce the kind of mapping <span class="math inline">\(A\)</span> does and in turn what <span class="math inline">\(f\)</span> does. Using elimination we arrive at <span class="math display">\[ rref\,\, A = \begin{pmatrix}1 &amp; 0\\0 &amp; 1\end{pmatrix} \]</span> Thus:</p>
+<ul>
+<li><p><span class="math inline">\(N(A)=\{0\}\)</span></p></li>
+<li><p><span class="math inline">\(C(A)=span\{\begin{pmatrix}2\\-2\end{pmatrix},\begin{pmatrix}3\\0\end{pmatrix}\}\)</span></p></li>
+<li><p><span class="math inline">\(N(A^\intercal)=\{0\}\)</span></p></li>
+<li><p><span class="math inline">\(C(A^\intercal)=span\{\begin{pmatrix}1\\0\end{pmatrix},\begin{pmatrix}0\\1\end{pmatrix}\}\)</span></p></li>
+</ul>
+<p>This <span class="math inline">\(A\)</span> and thus <span class="math inline">\(f\)</span> are clearly <span class="math inline">\(1-1\)</span> and onto, the function is bijective and an inverse exists.</p>
+<p>Yes.</p>
 
 
 </section>
@@ -1043,18 +1101,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./linear_combinations.html" class="pagination-link" aria-label="Linear Combinations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Combinations</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./linear_dependence_and_independence.html" class="pagination-link" aria-label="Linear dependence and independence">
-        <span class="nav-page-text">Linear dependence and independence</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

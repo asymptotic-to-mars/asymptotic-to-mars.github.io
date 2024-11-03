@@ -355,6 +355,18 @@ window.Quarto = {
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Determinants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse Matrix</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -421,6 +433,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/Fua3wTeAjjs">inner product definition</a></p>
+</div>
+</div>
 <p>The inner product operation <span class="math inline">\(\cdot\)</span> is an operation between vectors that yields a number, it is defined as:</p>
 <div id="def-inner_product" class="theorem definition" style="color: gray; border: 3px solid rgb(230, 230, 230);">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> be two vectors from the same vector space <span class="math inline">\(\mathbb{R}^n\)</span> (i.e.&nbsp;<span class="math inline">\(\mathbf{u}=(u_1,\dots,u_n)\)</span> and <span class="math inline">\(\mathbf{v}=(v_1,\dots,v_n)\)</span>). The inner product of these two vectors is the real number of the form:</p>
@@ -443,6 +468,19 @@ window.Quarto = {
 <p><strong>Usefulness:</strong> The inner product operation is a tool to gather geometrical information about vectors and to describe planes and hyperplanes. I.e. it allows answering the following questions:</p>
 <section id="what-is-the-length-of-a-vector" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-the-length-of-a-vector">What is the length of a vector?</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/DOW-QTRLqiQ">Magnitude of a vector</a></p>
+</div>
+</div>
 <p><em>Answer:</em> Compute the inner product of a vector with itself.</p>
 <p><span class="math display">\[
 \mathbf{u}^\intercal\mathbf{u} = u_1^2+\dots+u_n^2
@@ -503,6 +541,19 @@ u=\sqrt{5}
 </section>
 <section id="how-to-define-a-circles-lines-planes-and-hyperplane" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-define-a-circles-lines-planes-and-hyperplane">How to define a circles, lines, planes and hyperplane?</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/04eGSCYETkQ">A line in 2D and 3D</a></p>
+</div>
+</div>
 <p><strong>Circle and spheres:</strong> A circle in <span class="math inline">\(\mathbb{R}^2\)</span> or a sphere in <span class="math inline">\(\mathbb{R}^3\)</span> centered at <span class="math inline">\(\mathbf{0}\)</span> satisfy the equation: <span class="math inline">\(|\mathbf{r}|^2=R^2\)</span> where <span class="math inline">\(R\)</span> is the radius. Centered at <span class="math inline">\(\mathbf{r}_0\)</span> they obey <span class="math inline">\(|\mathbf{r}-\mathbf{r}_0|^2=R^2\)</span>. The geometry of the situation should clearly justify the equations.</p>
 <p><strong>Exercise:</strong> 1.6.8</p>
 <p><strong>Line in</strong> <span class="math inline">\(\mathbb{R}^2\)</span><strong>:</strong> A line perpendicular to <span class="math inline">\(\mathbf{n}=(1,2)\)</span> is the set of <em>all</em> solutions to the equation <span class="math inline">\(\mathbf{n}^\intercal \mathbf{r}=0\)</span>, the answer is:</p>
@@ -540,6 +591,19 @@ u=\sqrt{5}
 </section>
 <section id="how-much-a-vector-looks-like-another-vector" class="level2">
 <h2 class="anchored" data-anchor-id="how-much-a-vector-looks-like-another-vector">How much a vector looks like another vector?</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/F8M_ItYLIkQ">Comparing vectors</a></p>
+</div>
+</div>
 <section id="example-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="example-1-1">Example 1</h3>
 <p>The formula <span class="math inline">\(\mathbf{u}\cdot\mathbf{v} = uv\cos\theta\)</span> is of great importance because it allow us to compute the angle between <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span>. Let <span class="math inline">\(\mathbf{u} = (1,2)\)</span> and <span class="math inline">\(\mathbf{v}=(-2,3)\)</span>:</p>
@@ -617,6 +681,19 @@ Commentary
 </section>
 <section id="orthogonal-spaces" class="level1">
 <h1>Orthogonal spaces</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/WgBGz6VKthE">Definition and the 4 spaces</a></p>
+</div>
+</div>
 <p>Two subspaces are orthogonal if every vector in one is orthogonal every vector in another. Take the following examples:</p>
 <p><img src="figs/orthogonal_spaces_ex.png" class="img-fluid" width="559"></p>
 <p><strong>Far left:</strong> The two subspaces of <span class="math inline">\(\mathbb{R}^2\)</span> on the left are orthogonal. Only the origin <span class="math inline">\(\mathbf{0}\)</span> is common. If we introduce a basis for both <span class="math inline">\(U=span\{\mathbf{e}_u\}\)</span> and <span class="math inline">\(V=span\{\mathbf{e}_v\}\)</span> we can say <span class="math inline">\(\mathbb{R}^2 = U\oplus V\)</span> and that <span class="math inline">\(U\)</span> is the orthogonal complement of <span class="math inline">\(V\)</span>. Notice the dimension <span class="math inline">\(n=2\)</span> of the space is equal to the sum of the dimensions of the two subspaces: <span class="math inline">\(\dim \mathbb{R}^2 = \dim U +\dim V\)</span>.</p>
@@ -648,9 +725,9 @@ Commentary
 </section>
 <section id="four-very-important-subspaces" class="level2">
 <h2 class="anchored" data-anchor-id="four-very-important-subspaces">Four very important subspaces</h2>
-<p>For a given matrix <span class="math inline">\(A\)</span> with shape <span class="math inline">\(n\times m\)</span> we already defined the column space <span class="math inline">\(C(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^n\)</span> and the nullspace <span class="math inline">\(N(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^m\)</span>. Recall the matrix</p>
+<p>For a given matrix <span class="math inline">\(A\)</span> with shape <span class="math inline">\(n\times m\)</span> we already defined the column space <span class="math inline">\(C(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^n\)</span> and the nullspace <span class="math inline">\(N(A)\)</span> which is a subspace of <span class="math inline">\(\mathbb{R}^m\)</span>. Recall the matrix before and after elimination:</p>
 <p><span class="math display">\[
-A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}
+A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}\longrightarrow\longrightarrow\longrightarrow  \begin{pmatrix}\mathbf{1} &amp; 2 &amp; 0 &amp; -2 \\0 &amp; 0 &amp; \mathbf{1} &amp; 2 \\0 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}=A' \equiv\text{rref} \,A
 \]</span></p>
 <p>The column space spanned by the first and third column (because they are independent), its dimension is the number of pivots, in this case <span class="math inline">\(2\)</span>; it is a subspace of <span class="math inline">\(\mathbb{R}^3\)</span>:</p>
 <p><span class="math display">\[
@@ -661,17 +738,31 @@ C(A)=span\{(1,2,3),(2,6,8)\}\subset_{\text{vec}}\mathbb{R}^3
 N(A) = span\{(-2,1,0,0),(2,0,-2,1)\}\subset_{\text{vec}}\mathbb{R}^4
 \]</span></p>
 <p>Now we’ll introduce their orthogonal complements in the <span class="math inline">\(\mathbb{R}^3\)</span> and <span class="math inline">\(\mathbb{R}^4\)</span> respectively.</p>
-<section id="left-nullspace" class="level4">
-<h4 class="anchored" data-anchor-id="left-nullspace">Left Nullspace</h4>
-<p><span class="math inline">\(C(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(C(A)\)</span>. It is the nullspace of <span class="math inline">\(A^\intercal\)</span>, aka, left nullspace <span class="math inline">\(N(A^\intercal)\)</span>.</p>
-<p>Why is this so?</p>
-<p><img src="figs/leftnullspace_perp_colspace.png" class="img-fluid" width="317"></p>
-</section>
 <section id="row-space" class="level4">
 <h4 class="anchored" data-anchor-id="row-space">Row space</h4>
-<p><span class="math inline">\(N(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(N(A)\)</span>. It is the column space of <span class="math inline">\(A^\intercal\)</span>, aka, row space.</p>
-<p>Why is this so?</p>
-<p><img src="figs/row_space_perp_to_nullspace.png" class="img-fluid" width="329"></p>
+<p><span class="math inline">\(N(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(N(A)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/row_space_perp_to_nullspace.png" class="img-fluid figure-img" width="329"></p>
+<figcaption>It is the column space of <span class="math inline">\(A^\intercal\)</span>, aka, row space. Since row 1 and 2 have the pivots, these form a basis:</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[
+C(A^\intercal)=span\{(1,2,2,2),(2,4,6,8)\}\qquad \dim C(A^\intercal) = 2
+\]</span></p>
+</section>
+<section id="left-nullspace" class="level4">
+<h4 class="anchored" data-anchor-id="left-nullspace">Left Nullspace</h4>
+<p><span class="math inline">\(C(A)^\perp\)</span> is the set of all vectors perpendicular to every vector in <span class="math inline">\(C(A)\)</span>.</p>
+<p><img src="figs/leftnullspace_perp_colspace.png" class="img-fluid" width="317"></p>
+<p>It is the nullspace of <span class="math inline">\(A^\intercal\)</span>, aka, left nullspace <span class="math inline">\(N(A^\intercal)\)</span>. For example:</p>
+<p><span class="math display">\[
+A^\intercal=\begin{pmatrix}1 &amp; 2 &amp; 3\\2 &amp; 4 &amp; 6 \\2 &amp; 6 &amp; 8\\ 2 &amp; 8 &amp; 10 \end{pmatrix}\longrightarrow\longrightarrow\longrightarrow  \begin{pmatrix}1 &amp; 0 &amp; 1\\0 &amp; 1 &amp; 1 \\0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 \end{pmatrix}=(A^\intercal)' \equiv\text{rref} \,A^\intercal
+\]</span></p>
+<p>From the reduced form we deduce the solutions set:</p>
+<p><span class="math display">\[
+N(A^\intercal)=span\{(-1,-1,1)\} \qquad \dim N(A^\intercal) = 1
+\]</span></p>
 </section>
 <section id="observations" class="level4">
 <h4 class="anchored" data-anchor-id="observations">Observations:</h4>
