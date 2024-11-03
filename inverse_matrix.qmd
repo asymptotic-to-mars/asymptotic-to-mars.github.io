@@ -4,7 +4,9 @@ execute:
   echo: false
 ---
 
-Only full rank square matrices can have inverses. The inverse of $A$ is the unique solution $A^{-1}$ of the equation:
+This section focus on how to compute the inverse of a matrix. Later we'll see it from the point of view of an inverse map.
+
+Only full rank square matrices have inverses. From a calculation's perspective, what we know is that the inverse of $A$ is the unique solution $A^{-1}$ of the equation:
 
 $$
 AA^{-1} = I = A^{-1}A
@@ -56,7 +58,7 @@ $$
 \end{align}
 $$ {#eq-compute_inv_seperate}
 
-From the right systems we conclude that the inverse matrix is:
+From the rhs of @eq-compute_inv_seperate we conclude that the inverse matrix is:
 
 $$
 A^{-1}=\left(\begin{matrix}-5 & 3 \\2 & -1  \end{matrix}\right)
@@ -72,7 +74,7 @@ It works!
 
 **Observations:**
 
--   Observing the calculations @eq-compute_inv_seperate we notice the arrow operators are the same for both systems, we solved both systems with the intent (as elimination method prescribes) of simplifying the matrix as much as possible, since in this case we are dealing with a full rank matrix, the end point simplification must be an identity matrix. What is different is the right vectors, which in the end tell us the columns of the inverse.
+-   Observing the calculations @eq-compute_inv_seperate we notice the arrow operators are the same for both problems, and since in this case we are dealing with a full rank matrix, the end point simplification must be an identity matrix, just like we observe on the rhs of @eq-compute_inv_seperate.
 
 ::: callout-tip
 ## Recall
@@ -97,27 +99,43 @@ $$
     \left(\begin{matrix}1 & 2 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}1 & 0\\3 & -1\end{matrix}\right)
     \overset{l_1'=l_1-2l_2}{\longrightarrow}
     \left(\begin{matrix}1 & 0 \\0 & 1  \end{matrix}\;\middle|\;\begin{matrix}-5 & 2\\3 & -1 \end{matrix}\right)\\
+    $$ {#eq-compute_inv_oneshot}
+
+-   Lets describe what is going on in @eq-compute_inv_oneshot using a different notation. To each arrow operator corresponds a matrix. There are three eliminations steps and thus three elimination matrices $E_1$, $E_2$ and $E_3$. Acting with them on $A$ we reduced it to an $I$:
+
+    $$
+    \overbrace{E_3 E_2 E_1}^\text{arrows operators} A =I
     $$
 
-    We turn the matrix $A$ into an $I$ with elimination operators, those applied to the columns of $I$ yield the $A^{-1}$.
+    In turn acting with them on $I$ returns $A^{-1}$:
 
-We distill the essential strategy to compute the inverse of $A$ from the previous example:
+    $$
+    E_3 E_2 E_1 I = A^{-1}
+    $$
 
--   Step 1: Write the extended matrix $[A|I]$
+    From this we conclude that the inverse is in fact the product of these elimination matrices!
 
--   Step 2: Apply elimination operation on all entries bellow and above the diagonal so that the block $A$ ends becoming an $I$, in the process apply the same operation on the extended $I$ block.
+    $$
+    A^{-1} = E_3 E_2 E_1 
+    $$
 
--   Step 3: The final result has the form $[I| A^{-1}]$, read the inverse matrix entries from this notation and check your results by computing $AA^{-1}=I$.
+-   Here is the recipe to compute the inverse of a given $A$:
 
--   Step 4: Congratulations!
+    -   Step 1: Write the extended matrix $[A|I]$
+
+    -   Step 2: Apply elimination operations on all entries bellow and above the diagonal so that the block $A$ ends becoming an $I$, in the process apply the same operation on the extended $I$ block.
+
+    -   Step 3: The final result has the form $[I| A^{-1}]$, read the inverse matrix entries from this notation and check your results by computing $AA^{-1}=I$.
+
+    -   Step 4: Congratulations!
 
 # Another way to compute inverses (determinant way)
 
-Remember the formula to contains all ways to compute determinants:
+Remember the formula that contained all ways to compute determinants:
 
 $$
 \left(\begin{matrix} A_{11} &  A_{12} & A_{13}\\ A_{21} & A_{22} & A_{23}\\ A_{31} & A_{32} & A_{33} \end{matrix}\right) \left(\begin{matrix} C_{11} &  C_{21} & C_{31}\\ C_{12} & C_{22} & C_{32}\\ C_{13} & C_{23} & C_{33} \end{matrix}\right)=\det A\left(\begin{matrix} 1 &  0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{matrix}\right)
-$$
+$$ {#eq-ACdet}
 
 If an inverse of $A$ exists, then multiplying this formula by $A^{-1}$ and using $A^{-1}A=I$ and the fact that $A^{-1}I=A^{-1}$ gives us:
 
@@ -133,20 +151,40 @@ $$
 
 ## Matrix with no inverse
 
-When a matrix does not have a full rank, it has no inverse \[comment: in Linear function section we'll explain why in terms of maps, for now the determinant =0 suffices, the determinant argument is a practical argument, the conceptual argument requires the idea of linear function, but that will only come later\]
+When a matrix does not have a full rank, it has no inverse, the reason being the determinant is zero and as a result: the calculation @eq-inverse_formula cannot be performed.
 
-The reason being the determinant is zero and as a result: the calculation @eq-inverse_formula cannot be performed.
+## Elimination matrices
 
-Not every square matrix will have an inverse. For example $E_1$ is square, thus it may or not have an inverse $E_1^{-1}$, on the other hand the matrix $A$ is rectangular, thus no inverse exists.
-
-How do we compute an inverse of a matrix?
-
-The $E$'s matrices have inverses, always and thus:
+The $E$ matrices always have inverses, thus:
 
 $$
 Ax=b \iff EAx=Eb \iff A'x=b'
 $$
 
-are equivalent and and as a result their truth sets are equal! Finding the truth set of the later is easier than the former.
+are equivalent and as a result their truth sets are equal! Finding the truth set of the later is easier than the former, because the $E$ eliminated most of the unknowns of the systems.
 
-# Cramer
+# Properties of inverses
+
+-   $(A^{-1})^{-1}=A$
+
+    *Justification:* since given an $A$ the solution of $AA^{-1}=I$ is the unique $A^{-1}$, then given an $A^{-1}$ the solution of $(A^{-1})^{-1}A^{-1}=I$ must be unique as well. Comparing both equation, it must be that $(A^{-1})^{-1}=A$.
+
+-   $(AB)^{-1}=B^{-1}A^{-1}$
+
+    *Justification:* If first I put my socks on and then my shoes, the reverse of that is to first take my shoes and then my socks.
+
+-   $(aA)^{-1}=\frac{1}{a}A^{-1}$
+
+    *Justification:* Just rewrite $a$ as $a I$ and then use the rule above.
+
+-   $(A^{-1})^\intercal = (A^\intercal)^{-1}$
+
+    *Justification:* Start with what we know: $A^{-1} A =I$, then take the transpose of both sides, $A^\intercal (A^{-1})^\intercal=I$, but this is equivalent to $(A^{-1})^\intercal = (A^\intercal)^{-1}$.
+
+-   $(A^{-1})^n=(A^n)^{-1}$
+
+    *Justification:* Start again with what we know $A^{-1} A =I$, then modify it so that powers of $n$ appear. Since what we know is equivalent to $(A^{-1} A )^n=I^n$, and this in turn is $(A^{-1})^n A^n =I$, rearranging we find our result.
+
+-   $|A^{-1}|=1/|A|$
+
+    Justification: Going back to @eq-ACdet we notice $|A||C|=|A|$ which means $|C|=1$, thus, from @eq-inverse_formula we conclude this result.

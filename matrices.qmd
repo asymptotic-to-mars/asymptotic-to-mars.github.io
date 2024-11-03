@@ -44,7 +44,7 @@ From @eq-adding_mats we identify the rule: $C_{ij}=A_{ij}+B_{ij}$.
 
 A linear combination $aA+bB$ is thus computed entry-wise with the rule: $C_{ij}=aA_{ij}+bB_{ij}$.
 
-# Matrix Product (composition if linear functions)
+# Matrix Product (composition of linear functions)
 
 **Motivation:** Consider the following matrix operation:
 

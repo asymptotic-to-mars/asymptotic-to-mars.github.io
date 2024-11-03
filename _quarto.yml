@@ -85,8 +85,14 @@ website:
         
           - href: matrices.qmd
             text: "Matrices"
-
-
+      
+          - href: determinants.qmd
+            text: "Determinants"
+        
+          - href: inverse_matrix.qmd
+            text: "Inverse Matrix"
+        
+  
   page-navigation: true
 
 format:

@@ -4,6 +4,12 @@ execute:
   echo: false
 ---
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[inner product definition](https://youtu.be/Fua3wTeAjjs)
+:::
+
 The inner product operation $\cdot$ is an operation between vectors that yields a number, it is defined as:
 
 ::: {#def-inner_product style="color: gray; border: 3px solid rgb(230, 230, 230);"}
@@ -37,6 +43,12 @@ The inner product also results from the calculation $\mathbf{u}\cdot\mathbf{v} =
 **Usefulness:** The inner product operation is a tool to gather geometrical information about vectors and to describe planes and hyperplanes. I.e. it allows answering the following questions:
 
 ## What is the length of a vector?
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Magnitude of a vector](https://youtu.be/DOW-QTRLqiQ)
+:::
 
 *Answer:* Compute the inner product of a vector with itself.
 
@@ -118,6 +130,12 @@ One equation with two unknowns, we must promote one unknown to a parameter, let 
 
 ## How to define a circles, lines, planes and hyperplane?
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[A line in 2D and 3D](https://youtu.be/04eGSCYETkQ)
+:::
+
 **Circle and spheres:** A circle in $\mathbb{R}^2$ or a sphere in $\mathbb{R}^3$ centered at $\mathbf{0}$ satisfy the equation: $|\mathbf{r}|^2=R^2$ where $R$ is the radius. Centered at $\mathbf{r}_0$ they obey $|\mathbf{r}-\mathbf{r}_0|^2=R^2$. The geometry of the situation should clearly justify the equations.
 
 **Exercise:** 1.6.8
@@ -169,6 +187,12 @@ which defines a plane containing $\mathbf{0}$.
 **Exercise:** 1.6.9
 
 ## How much a vector looks like another vector?
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Comparing vectors](https://youtu.be/F8M_ItYLIkQ)
+:::
 
 ### Example 1
 
@@ -266,6 +290,12 @@ $$
 
 # Orthogonal spaces
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Definition and the 4 spaces](https://youtu.be/WgBGz6VKthE)
+:::
+
 Two subspaces are orthogonal if every vector in one is orthogonal every vector in another. Take the following examples:
 
 ![](figs/orthogonal_spaces_ex.png){width="559"}
@@ -314,10 +344,10 @@ Sometimes we might want a normalized basis in which case, we pick from $U^\perp$
 
 ## Four very important subspaces
 
-For a given matrix $A$ with shape $n\times m$ we already defined the column space $C(A)$ which is a subspace of $\mathbb{R}^n$ and the nullspace $N(A)$ which is a subspace of $\mathbb{R}^m$. Recall the matrix
+For a given matrix $A$ with shape $n\times m$ we already defined the column space $C(A)$ which is a subspace of $\mathbb{R}^n$ and the nullspace $N(A)$ which is a subspace of $\mathbb{R}^m$. Recall the matrix before and after elimination:
 
 $$
-A=\begin{pmatrix}1 & 2 & 2 & 2 \\2 & 4 & 6 & 8 \\3 & 6 & 8 & 10 \end{pmatrix}
+A=\begin{pmatrix}1 & 2 & 2 & 2 \\2 & 4 & 6 & 8 \\3 & 6 & 8 & 10 \end{pmatrix}\longrightarrow\longrightarrow\longrightarrow  \begin{pmatrix}\mathbf{1} & 2 & 0 & -2 \\0 & 0 & \mathbf{1} & 2 \\0 & 0 & 0 & 0 \end{pmatrix}=A' \equiv\text{rref} \,A 
 $$
 
 The column space spanned by the first and third column (because they are independent), its dimension is the number of pivots, in this case $2$; it is a subspace of $\mathbb{R}^3$:
@@ -334,21 +364,33 @@ $$
 
 Now we'll introduce their orthogonal complements in the $\mathbb{R}^3$ and $\mathbb{R}^4$ respectively.
 
+#### Row space
+
+$N(A)^\perp$ is the set of all vectors perpendicular to every vector in $N(A)$.
+
+![It is the column space of $A^\intercal$, aka, row space. Since row 1 and 2 have the pivots, these form a basis:](figs/row_space_perp_to_nullspace.png){width="329"}
+
+$$
+C(A^\intercal)=span\{(1,2,2,2),(2,4,6,8)\}\qquad \dim C(A^\intercal) = 2
+$$
+
 #### Left Nullspace
 
-$C(A)^\perp$ is the set of all vectors perpendicular to every vector in $C(A)$. It is the nullspace of $A^\intercal$, aka, left nullspace $N(A^\intercal)$.
-
-Why is this so?
+$C(A)^\perp$ is the set of all vectors perpendicular to every vector in $C(A)$.
 
 ![](figs/leftnullspace_perp_colspace.png){width="317"}
 
-#### Row space
+It is the nullspace of $A^\intercal$, aka, left nullspace $N(A^\intercal)$. For example:
 
-$N(A)^\perp$ is the set of all vectors perpendicular to every vector in $N(A)$. It is the column space of $A^\intercal$, aka, row space.
+$$
+A^\intercal=\begin{pmatrix}1 & 2 & 3\\2 & 4 & 6 \\2 & 6 & 8\\ 2 & 8 & 10 \end{pmatrix}\longrightarrow\longrightarrow\longrightarrow  \begin{pmatrix}1 & 0 & 1\\0 & 1 & 1 \\0 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}=(A^\intercal)' \equiv\text{rref} \,A^\intercal 
+$$
 
-Why is this so?
+From the reduced form we deduce the solutions set:
 
-![](figs/row_space_perp_to_nullspace.png){width="329"}
+$$
+N(A^\intercal)=span\{(-1,-1,1)\} \qquad \dim N(A^\intercal) = 1
+$$
 
 #### Observations:
 

@@ -18,7 +18,7 @@ We now to return to the observations:
 
 ## Looking at $A\mathbf{x}=\mathbf{b}$ from a new point of view
 
-::: {.callout-note appearance="simple"}
+::: {.callout-tip appearance="simple"}
 ## Video
 
 [A new view](https://youtu.be/qIw4M2sDOBo){target="_blank"}

@@ -4,6 +4,12 @@ execute:
   echo: false
 ---
 
+::: {.callout-tip appearance="simple"}
+## Video
+
+[10 properties](https://youtu.be/XpHWtYALXOE)
+:::
+
 Determinant of a square $n\times n$ matrix is a special number we assign to the matrix and on which many other properties of it lie. It is a useful definition.
 
 Rather than giving a formula for the calculation, lets list its properties that this formula would have:
@@ -125,6 +131,12 @@ Rather than giving a formula for the calculation, lets list its properties that 
     *Consequence:* If two columns are dependent, then the determinant is zero.
 
 # Using determinant properties to compute determinants
+
+::: {.callout-tip appearance="simple"}
+## Video
+
+[Determinant of a 2 by 2 and 3 by 3 matrix](https://youtu.be/l4tSYsJLNG0)
+:::
 
 We still do not have a formula for the calculation of the determinant, but the rules above were provided, and are sufficient, to do the task; they work by breaking the original determinant into small and computable pieces.
 
