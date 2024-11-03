@@ -408,7 +408,7 @@ $$
 
 Pictorially we find:
 
-![](figs/four_subspaces_basic.png)
+![](figs/four_subspaces_basic.png){width="538"}
 
 With this subspaces in hand we can look again at $A\mathbf{x}=\mathbf{b}$:
 
