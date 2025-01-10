@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>macros – asymptotic to MARS</title>
+<title>Change of basis – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./eigen.html" rel="next">
+<link href="./four_spaces_of_linear_functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -108,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">macros</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./change_of_basis.html">Change of basis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,13 +294,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
@@ -350,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./change_of_basis.html" class="sidebar-item-text sidebar-link">
+  <a href="./change_of_basis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Change of basis</span></a>
   </div>
 </li>
@@ -367,15 +398,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#change-of-basis-of-vectors" id="toc-change-of-basis-of-vectors" class="nav-link active" data-scroll-target="#change-of-basis-of-vectors">Change of basis of vectors</a></li>
+  <li><a href="#change-of-basis-of-linear-function" id="toc-change-of-basis-of-linear-function" class="nav-link" data-scroll-target="#change-of-basis-of-linear-function">Change of basis of linear function</a>
+  <ul class="collapse">
+  <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1:</a></li>
+  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2:</a></li>
+  <li><a href="#step-3" id="toc-step-3" class="nav-link" data-scroll-target="#step-3">Step 3:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./change_of_basis.html">Change of basis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">macros</h1>
+<h1 class="title">Change of basis</h1>
 </div>
 
 
@@ -392,9 +435,179 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<pre><code>::: {.hidden} $$ \newcommand{\foo}{E=mc^{2}} $$ :::</code></pre>
+<section id="change-of-basis-of-vectors" class="level1">
+<h1>Change of basis of vectors</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/iLS94D2BNeE">Basis change and vector representations</a></p>
+</div>
+</div>
+<p>We start with a invertible (1-1 and onto) linear function <span class="math inline">\(p\)</span>, that maps <span class="math inline">\(\mathbb{V}\)</span> into itself:</p>
+<p><span class="math display">\[
+\begin{align}p:\mathbb{V}&amp;\longrightarrow \mathbb{V}\\ v&amp;\longmapsto p(v)\end{align}
+\]</span></p>
+<p>Choose a basis in <span class="math inline">\(\mathbb{V}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{B} =\begin{pmatrix}v_1 &amp; v_2 &amp;\dots &amp; v_n\end{pmatrix}
+\]</span></p>
+<p>Which, as usual, allow us to give a form to elements of our vector space:</p>
+<p><span class="math display">\[
+v=\mathbf{B} X\qquad\text{with}\qquad X=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}
+\]</span></p>
+<p>Since we do not have an explicit formula for <span class="math inline">\(p\)</span> , nor for the elements of <span class="math inline">\(\mathbb{V}\)</span>, the next best thing we can have is to know how the function acts on the basis, that is, what is the matrix <span class="math inline">\(P\)</span> in the following formula:</p>
+<p><span id="eq-phiB"><span class="math display">\[
+\begin{pmatrix}p(v_1) &amp; p(v_2) &amp; \cdots &amp; p(v_n)\end{pmatrix}=:p(\mathbf{B})=\mathbf{B}P
+\tag{1}\]</span></span></p>
+<p>The matrix <span class="math inline">\(P\)</span> is full rank and thus also invertible.</p>
+<p>We could, as we did previously, act now with <span class="math inline">\(p\)</span> on any element of <span class="math inline">\(v\)</span>, that would return:</p>
+<p><span id="eq-varphi_map"><span class="math display">\[
+p(\mathbf{B}X)=\mathbf{B}PX
+\tag{2}\]</span></span></p>
+<p>thanks to the linearity property of <span class="math inline">\(p\)</span>. Since <span class="math inline">\(p(\mathbf{B}X)\)</span> is in <span class="math inline">\(\mathbb{V}\)</span> we can write as some linear combination <span class="math inline">\(\mathbf{B}Y\)</span>, substitution on <a href="#eq-varphi_map" class="quarto-xref">Equation&nbsp;2</a> gives us <span class="math inline">\(Y=PX\)</span>.</p>
+<p>Recall the type of mapping (1-1? Onto?) that <span class="math inline">\(p\)</span> is, we already stated it is invertible, thus, the nullspace and left nullspace of <span class="math inline">\(P\)</span> are zero. Therefore, the function is 1-1 and onto, this properties are important for what follows.</p>
+<p>Regarding change of basis, what we are interested is the formula <a href="#eq-phiB" class="quarto-xref">Equation&nbsp;1</a>. Because <span class="math inline">\(p\)</span> is 1-1 and onto, each one of the <span class="math inline">\(n\)</span> vectors in <span class="math inline">\(p(\mathbf{B})\)</span> is distinct and thus, they constitute a new basis for <span class="math inline">\(\mathbb{V}\)</span>. Lets make this official by giving it the name:</p>
+<p><span id="eq-change_of_basis_I"><span class="math display">\[
+\mathbf{B}':=p(\mathbf{B})=\mathbf{B}P\qquad\text{and}\qquad \mathbf{B}':=\begin{pmatrix}v_1' &amp; v_2' &amp; \cdots &amp; v_n'\end{pmatrix}
+\tag{3}\]</span></span></p>
+<p>If we read this formula from right to left, we see a map of the basis vectors into new vectors, which we promoted to new prime basis. Reading from left to right we see a decomposition (or expressing) the prime basis vectors in terms of the original (unprimed) basis vectors.</p>
+<p>Since <span class="math inline">\(P\)</span> is invertible, we can also write the original (unprimed) basis vectors in terms of the prime vectors:</p>
+<p><span id="eq-change_of_basis_II"><span class="math display">\[
+\mathbf{B} = \mathbf{B}'P^{-1}
+\tag{4}\]</span></span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The function <span class="math inline">\(p\)</span> defined above transforms one <span class="math inline">\(v\)</span> vector of <span class="math inline">\(\mathbb{V}\)</span> into another vector <span class="math inline">\(p(v)\)</span> of <span class="math inline">\(\mathbb{V}\)</span>. Since the underlying space is the same, we can think of <span class="math inline">\(p\)</span> as rotating and rescaling <span class="math inline">\(v\)</span>.</p>
+<p>The same rotating and rescalling can be observed in <span class="math inline">\(\mathbb{R}^n\)</span>, looking back at <a href="#eq-varphi_map" class="quarto-xref">Equation&nbsp;2</a>, its matrix representation maps as follows</p>
+<p><span id="eq-formula"><span class="math display">\[
+Y=PX
+\tag{5}\]</span></span></p>
+<p>where the entries of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are wrt the same basis <span class="math inline">\(\mathbf{B}\)</span> (rather than wrt <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{C}\)</span> just like seen in previous lecture). Implying that <span class="math inline">\(P\)</span> transforms the columns vector <span class="math inline">\(X\)</span> by rotating it and recalling into <span class="math inline">\(Y\)</span>. In other words, there is an <em>active transformation</em> of the column vector into another different and distinct vector <span class="math inline">\(Y\)</span>. The formula <a href="#eq-formula" class="quarto-xref">Equation&nbsp;5</a> tells us how the components (again wrt to <span class="math inline">\(\mathbf{B}\)</span>) changed.</p>
+</div>
+</div>
+<p><a href="#eq-change_of_basis_II" class="quarto-xref">Equation&nbsp;4</a> provides us with a way to write any vector written in the original basis <span class="math inline">\(\mathbf{B}\)</span> in terms of the new basis <span class="math inline">\(\mathbf{B}'\)</span>, how?</p>
+<p>Whatever the basis (original or new) we use to express <span class="math inline">\(v\)</span>, the vector is still the same element of <span class="math inline">\(\mathbb{V}\)</span>, therefore, given <span class="math inline">\(v\)</span>, the following equality is assured:</p>
+<p><span id="eq-same_v"><span class="math display">\[
+v=\mathbf{B}X=\mathbf{B}'X'
+\tag{6}\]</span></span></p>
+<p>for some columns vectors <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span>, which must be somehow related.</p>
+<p>To obtain that relation remember we know <a href="#eq-change_of_basis_II" class="quarto-xref">Equation&nbsp;4</a>, substituting we find:</p>
+<p><span class="math display">\[
+v=\mathbf{B}'P^{-1}X=\mathbf{B}'X'
+\]</span></p>
+<p>Which in turn leads us to the inescapable conclusion that the coordinates <span class="math inline">\(X'\)</span> of <span class="math inline">\(v\)</span> in the new basis can be obtained from the coordinates in the old original basis <span class="math inline">\(X\)</span> as follows:</p>
+<p><span id="eq-passive_I"><span class="math display">\[
+X'=P^{-1}X
+\tag{7}\]</span></span></p>
+<p>which, by the way, also allow us to compute from the new coordinates the original coordinates:</p>
+<p><span id="eq-passive_II"><span class="math display">\[
+X=PX'
+\tag{8}\]</span></span></p>
+<p>The equation <a href="#eq-passive_I" class="quarto-xref">Equation&nbsp;7</a> (or equivalently <a href="#eq-passive_II" class="quarto-xref">Equation&nbsp;8</a> ) relate the <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> so that <a href="#eq-same_v" class="quarto-xref">Equation&nbsp;6</a> is true.</p>
+<p>A key point to note when writing <a href="#eq-same_v" class="quarto-xref">Equation&nbsp;6</a> is that the vector <span class="math inline">\(v\)</span> does not change, there is no rotation or rescaling of the vector. The formulas <a href="#eq-passive_I" class="quarto-xref">Equation&nbsp;7</a> and <a href="#eq-passive_II" class="quarto-xref">Equation&nbsp;8</a>, despite the similarity with <a href="#eq-formula" class="quarto-xref">Equation&nbsp;5</a>, have radical different meaning! The <a href="#eq-passive_II" class="quarto-xref">Equation&nbsp;8</a>, translate from points of view on the vector <span class="math inline">\(v\)</span>, justifying the name <em>passive transformation</em> (of coordinates), rather than <em>active transformation</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>It should be clear that <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> are completely distinct vectors, even with different lengths, thus they were rotated and rescaled, but the key point remains, the <span class="math inline">\(v\)</span> is still he same:</li>
+</ul>
+<p><span class="math display">\[
+v=\mathbf{B}X=\mathbf{B}'X'
+\]</span></p>
+<ul>
+<li><strong>Warning:</strong> while <span class="math inline">\(P\)</span> in <span class="math inline">\(\mathbf{B}'=\mathbf{B}P\)</span> maps from original to new basis; in <span class="math inline">\(X=PX'\)</span>, the matrix <span class="math inline">\(P\)</span> maps new to original components! The prime order is reversed.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="change-of-basis-of-linear-function" class="level1">
+<h1>Change of basis of linear function</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/aaBdII84hDk">Basis change and linear function representations</a></p>
+</div>
+</div>
+<p>The starting four ingredients:</p>
+<ol type="1">
+<li><span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow}\mathbb{W}\)</span>, not necessarily invertible.</li>
+<li><span class="math inline">\(p:\mathbb{V}\overset{\sim}{\longrightarrow}\mathbb{V}\)</span> which is invertible.</li>
+<li><span class="math inline">\(q:\mathbb{W}\overset{\sim}{\longrightarrow}\mathbb{W}\)</span> which is also invertible.</li>
+<li>A basis <span class="math inline">\(\mathbf{B}\subset\mathbb{V}\)</span> and a basis <span class="math inline">\(\mathbf{C}\subset \mathbb{W}\)</span></li>
+</ol>
+<p>With them we cook the following diagram:</p>
+<p><img src="figs/change_of_basis_in_f.png" class="img-fluid" width="400"></p>
+<p>Lets do it in steps:</p>
+<section id="step-1" class="level2">
+<h2 class="anchored" data-anchor-id="step-1">Step 1:</h2>
+<p>Define the action of <span class="math inline">\(f\)</span> on any vector <span class="math inline">\(v\in\mathbb{V}\)</span> as usual:</p>
+<p><span class="math display">\[
+\mathbf{C}Y=:f(v)=\mathbf{C}AX \qquad v=\mathbf{B}X \qquad X=\begin{pmatrix}x_1\\\vdots\\ x_n\end{pmatrix} \qquad Y=\begin{pmatrix}y_1\\\vdots\\ y_n\end{pmatrix}
+\]</span></p>
+<p>Notice that the column vector <span class="math inline">\(X\)</span> of the components of <span class="math inline">\(v\)</span> wrt <span class="math inline">\(\mathbf{B}\)</span> are mapped into the column vector <span class="math inline">\(Y\)</span> of components of <span class="math inline">\(f(v)\)</span> wrt <span class="math inline">\(\mathbf{B}\)</span> by the action of the matrix <span class="math inline">\(A\)</span>.</p>
+</section>
+<section id="step-2" class="level2">
+<h2 class="anchored" data-anchor-id="step-2">Step 2:</h2>
+<p>Use the endomorphisms <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> to define new (primed) bases for the domain and codomain of <span class="math inline">\(f\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{B}':=p(\mathbf{B})=\mathbf{B}P\qquad \mathbf{C}':=p(\mathbf{C})=\mathbf{C}Q
+\]</span></p>
+<p>which mean the components of <span class="math inline">\(X\)</span> of <span class="math inline">\(v\)</span> and the components <span class="math inline">\(Y\)</span> of <span class="math inline">\(w\)</span> wrt the original bases transform as:</p>
+<p><span class="math display">\[
+X=PX'\qquad Y=QY'
+\]</span></p>
+</section>
+<section id="step-3" class="level2">
+<h2 class="anchored" data-anchor-id="step-3">Step 3:</h2>
+<p>Substitute the results:</p>
+<p><span class="math display">\[
+\mathbf{C}'Y'=f(v)=\mathbf{C}'Q^{-1}APX'
+\]</span></p>
+<p>which implies, the mapping between components in the new bases of both <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span> are given by:</p>
+<p><span class="math display">\[
+Y'=Q^{-1}APX'
+\]</span></p>
+<p>This equation tells us something important, just as <span class="math inline">\(A\)</span> maps <span class="math inline">\(X\)</span> into <span class="math inline">\(Y\)</span>, the matrix <span class="math inline">\(Q^{-1}AP\)</span> maps <span class="math inline">\(X'\)</span> into <span class="math inline">\(Y'\)</span>, in other words, the matrix:</p>
+<p><span id="eq-rel_A_A_prime"><span class="math display">\[
+A'=Q^{-1}AP
+\tag{9}\]</span></span></p>
+<p>play the role of <span class="math inline">\(A\)</span> wrt to the new basis.</p>
+<p>If a <span class="math inline">\(v\)</span> is mapped into <span class="math inline">\(f(v)\)</span> by <span class="math inline">\(f\)</span>, then from the point of view of <span class="math inline">\(\mathbf{B}\)</span>, the matrix <span class="math inline">\(A\)</span> maps <span class="math inline">\(X\)</span> into <span class="math inline">\(Y\)</span>, while from the point of view of <span class="math inline">\(\mathbf{B}'\)</span>, the matrix <span class="math inline">\(A'\)</span> maps <span class="math inline">\(X?\)</span> into <span class="math inline">\(Y'\)</span>; the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(A'\)</span> are related by <a href="#eq-rel_A_A_prime" class="quarto-xref">Equation&nbsp;9</a>.</p>
+<p>These calculations are summarized in the following diagram:</p>
+<p><img src="figs/change_of_basis_in_f_two_views.png" class="img-fluid" width="880"></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,6 +1030,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./four_spaces_of_linear_functions.html" class="pagination-link" aria-label="Kernel and Image">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Kernel and Image</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./eigen.html" class="pagination-link" aria-label="Eigenvalues and eigenvectors">
+        <span class="nav-page-text">Eigenvalues and eigenvectors</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

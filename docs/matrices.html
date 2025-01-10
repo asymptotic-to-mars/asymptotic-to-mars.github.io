@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./determinants.html" rel="next">
 <link href="./inner_product.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -354,6 +355,42 @@ window.Quarto = {
  <span class="menu-text">Matrices</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Determinants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse Matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_functions_v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./four_spaces_of_linear_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kernel and Image</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_basis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of basis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./eigen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenvalues and eigenvectors</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -367,7 +404,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#linear-combination-of-matrices-sum-of-linear-functions" id="toc-linear-combination-of-matrices-sum-of-linear-functions" class="nav-link active" data-scroll-target="#linear-combination-of-matrices-sum-of-linear-functions">Linear combination of matrices (sum of linear functions)</a></li>
-  <li><a href="#matrix-product-composition-if-linear-functions" id="toc-matrix-product-composition-if-linear-functions" class="nav-link" data-scroll-target="#matrix-product-composition-if-linear-functions">Matrix Product (composition if linear functions)</a></li>
+  <li><a href="#matrix-product-composition-of-linear-functions" id="toc-matrix-product-composition-of-linear-functions" class="nav-link" data-scroll-target="#matrix-product-composition-of-linear-functions">Matrix Product (composition of linear functions)</a></li>
   <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
   <li><a href="#component-rules-of-complicated-matrix-operations" id="toc-component-rules-of-complicated-matrix-operations" class="nav-link" data-scroll-target="#component-rules-of-complicated-matrix-operations">Component rules of complicated matrix operations</a>
   <ul class="collapse">
@@ -428,8 +465,8 @@ window.Quarto = {
 <p>From <a href="#eq-adding_mats" class="quarto-xref">Equation&nbsp;2</a> we identify the rule: <span class="math inline">\(C_{ij}=A_{ij}+B_{ij}\)</span>.</p>
 <p>A linear combination <span class="math inline">\(aA+bB\)</span> is thus computed entry-wise with the rule: <span class="math inline">\(C_{ij}=aA_{ij}+bB_{ij}\)</span>.</p>
 </section>
-<section id="matrix-product-composition-if-linear-functions" class="level1">
-<h1>Matrix Product (composition if linear functions)</h1>
+<section id="matrix-product-composition-of-linear-functions" class="level1">
+<h1>Matrix Product (composition of linear functions)</h1>
 <p><strong>Motivation:</strong> Consider the following matrix operation:</p>
 <p><span class="math display">\[ \begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2\\2 &amp; 4 &amp; 6 &amp; 8\\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix}\overset{l_2' = l_2-2l_1}{\longrightarrow}\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\0 &amp; 0 &amp; 2 &amp; 4 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix} \]</span></p>
 <p>and corresponding vector operation</p>
@@ -938,6 +975,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./determinants.html" class="pagination-link" aria-label="Determinants">
+        <span class="nav-page-text">Determinants</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

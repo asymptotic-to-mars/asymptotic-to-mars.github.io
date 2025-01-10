@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear functions – asymptotic to MARS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./four_spaces_of_linear_functions.html" rel="next">
+<link href="./inverse_matrix.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">asymptotic to MARS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Brief Notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./linear_functions_v4.html">Linear functions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Basic Maths</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions_as_relations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions as relations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Intro to Polynomials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Atomic Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Molecular Polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_2.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomials of degree one</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line’s equation from two points</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Second order polynomials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples_of_pol_part_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Focus-diretrix formulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pol_division.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polynomial division</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./limits_of_sequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limits of sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./implicit_derivative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Implicit derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Quantum Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./angular_momentum_qm_short_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Angular Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Combinations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vector_spaces_and_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vector spaces and subspaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_dependence_and_independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear dependence and independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_of_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solving systems using elimination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basis_of_vector_spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basis of vector spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./two_special_subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Column space and nullspace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systems_from_a_new_view.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System from a new point of view</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inner_product.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inner product and Orthogonal spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Determinants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inverse_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse Matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_functions_v4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Linear functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./four_spaces_of_linear_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kernel and Image</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./change_of_basis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change of basis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./eigen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenvalues and eigenvectors</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-concept-of-a-vector-space" id="toc-the-concept-of-a-vector-space" class="nav-link active" data-scroll-target="#the-concept-of-a-vector-space">The concept of a vector space</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1:</a></li>
+  <li><a href="#example-2-of-a-vector-space" id="toc-example-2-of-a-vector-space" class="nav-link" data-scroll-target="#example-2-of-a-vector-space">Example 2 of a vector space</a></li>
+  </ul></li>
+  <li><a href="#linear-functions" id="toc-linear-functions" class="nav-link" data-scroll-target="#linear-functions">Linear functions</a>
+  <ul class="collapse">
+  <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5:</a></li>
+  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example 6:</a></li>
+  </ul></li>
+  <li><a href="#the-matrix-representation-of-a-linear-function" id="toc-the-matrix-representation-of-a-linear-function" class="nav-link" data-scroll-target="#the-matrix-representation-of-a-linear-function">The Matrix representation of a linear function</a>
+  <ul class="collapse">
+  <li><a href="#step-1-choose-a-basis-for-the-domain-and-codomain" id="toc-step-1-choose-a-basis-for-the-domain-and-codomain" class="nav-link" data-scroll-target="#step-1-choose-a-basis-for-the-domain-and-codomain">Step 1: Choose a basis for the domain and codomain</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#step-2-compute-how-f-acts-on-the-domains-basis" id="toc-step-2-compute-how-f-acts-on-the-domains-basis" class="nav-link" data-scroll-target="#step-2-compute-how-f-acts-on-the-domains-basis">Step 2: Compute how <span class="math inline">\(f\)</span> acts on the domain’s basis</a></li>
+  <li><a href="#step-3-mapping-a-generic-vector" id="toc-step-3-mapping-a-generic-vector" class="nav-link" data-scroll-target="#step-3-mapping-a-generic-vector">Step 3: Mapping a generic vector</a></li>
+  </ul></li>
+  <li><a href="#what-does-steps-1.-2.-3.-above-have-to-do-with-axb" id="toc-what-does-steps-1.-2.-3.-above-have-to-do-with-axb" class="nav-link" data-scroll-target="#what-does-steps-1.-2.-3.-above-have-to-do-with-axb">What does steps 1. 2. 3. above have to do with <span class="math inline">\(Ax=b\)</span>?</a></li>
+  <li><a href="#isomorphism-and-stuff" id="toc-isomorphism-and-stuff" class="nav-link" data-scroll-target="#isomorphism-and-stuff">Isomorphism and stuff</a>
+  <ul class="collapse">
+  <li><a href="#revisiting-two-important-subspaces" id="toc-revisiting-two-important-subspaces" class="nav-link" data-scroll-target="#revisiting-two-important-subspaces">Revisiting Two important subspaces</a>
+  <ul class="collapse">
+  <li><a href="#kernel-of-a-linear-function" id="toc-kernel-of-a-linear-function" class="nav-link" data-scroll-target="#kernel-of-a-linear-function">Kernel of a linear function</a></li>
+  <li><a href="#image-of-the-domain-range-of-linear-functions" id="toc-image-of-the-domain-range-of-linear-functions" class="nav-link" data-scroll-target="#image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./linear_functions_v4.html">Linear functions</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Linear functions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Up to now, we learned a more practical part of the course:</p>
+<ul>
+<li><p>How to compute the solution of <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>?</p></li>
+<li><p>How to compute a basis for the <span class="math inline">\(4\)</span> subspaces associated with <span class="math inline">\(A\)</span>?</p></li>
+<li><p>How to compute the inverse <span class="math inline">\(A^{-1}\)</span>?</p></li>
+<li><p>How to compute the determinant?</p></li>
+</ul>
+<p>It always <em>how to compute</em>.</p>
+<p>Now we enter a more conceptual part of the course and organize ideas.</p>
+<section id="the-concept-of-a-vector-space" class="level1">
+<h1>The concept of a vector space</h1>
+<p>We have been speaking about a vector space as being closed under linear combinations. However if we stop to think about it, we can only compute a linear combination provided we know how to multiply vectors by numbers and how to add vectors, see the linear combination below:</p>
+<p><span class="math display">\[
+\overbrace{\alpha u}^\text{number times a vector} + \overbrace{\beta v}^\text{number times a vector}=\underbrace{u'+v'}_\text{sum of vectors}
+\]</span></p>
+<p>Lets look more carefully at two questions:</p>
+<ul>
+<li><p>What is a sum of two vectors?</p></li>
+<li><p>What is a vector times a number?</p></li>
+</ul>
+<p>Answering these questions is important because the concept of linear combination and of vector space we adopted so far - a set of things closed under linear combinations - hinges on answering these two questions.</p>
+<p>Start with a set of <span class="math inline">\(n\)</span> things with labels <span class="math inline">\(v_1\)</span>, <span class="math inline">\(v_2\)</span>, …, <span class="math inline">\(v_n\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{V}=\{v_1,v_2,\dots,v_n\}
+\]</span></p>
+<p>What can we do with these things in this set?</p>
+<p>We can define a map, i.e., an assignment or a function, from the set onto itself. There are two specific kinds of maps that are relevant to those questions:</p>
+<ul>
+<li><p>A function which to each pair of elements of <span class="math inline">\(\mathbb{V}\)</span> assigns another element of <span class="math inline">\(\mathbb{V}\)</span>, in math language we write:<span id="eq-plus"><span class="math display">\[
+\begin{align}
++ : \mathbb{V}\times\mathbb{V} &amp;\longrightarrow\mathbb{V}\\
+(u,v)&amp;\longmapsto u+v
+\end{align}
+\tag{1}\]</span></span></p>
+<p>This is relevant for the first question.</p></li>
+<li><p>A function which to each <span class="math inline">\(\mathbb{V}\)</span> and a real number assigns another element of <span class="math inline">\(\mathbb{V}\)</span>, in math language:</p>
+<p><span id="eq-times"><span class="math display">\[
+\begin{align}\cdot : \mathbb{R}\times\mathbb{V} &amp;\longrightarrow\mathbb{V}\\(\alpha,v)&amp;\longmapsto \alpha\cdot v\end{align}
+\tag{2}\]</span></span> is relevant for the second question.</p></li>
+</ul>
+<p>The <span class="math inline">\(u+v\)</span> is the symbol for the element in <span class="math inline">\(\mathbb{V}\)</span> that corresponds to the pair <span class="math inline">\((u,v)\)</span>. And <span class="math inline">\(\alpha\cdot v\)</span> is the symbol for the element of <span class="math inline">\(\mathbb{V}\)</span> assigned to <span class="math inline">\((\alpha,v)\)</span>.</p>
+<p>We wish additionally that those maps to have the properties:</p>
+<ul>
+<li><p>Commutative: <span class="math inline">\(u+v=v+u\)</span>. [<em>You can flip the order</em>]</p></li>
+<li><p>Associative: <span class="math inline">\((u+v)+w=u+(v+w)\)</span>. [<em>You can shift the brackets</em>]</p></li>
+<li><p>Neutral element (wrt to <span class="math inline">\(+\)</span>): There is an element in <span class="math inline">\(\mathbb{V}\)</span>, call it <span class="math inline">\(o\)</span> so that for all <span class="math inline">\(u\in \mathbb{V}\)</span> we find <span class="math inline">\(u+o=u\)</span>. [<em>This is not</em> <span class="math inline">\(0\)</span> <em>from the real numbers, it is the zero of</em> <span class="math inline">\(\mathbb{V}\)</span><em>. To avoid confusion you can call</em> <span class="math inline">\(o\)</span> <em>as circle rather than zero.</em>]</p></li>
+<li><p>Inverse element (wrt to <span class="math inline">\(+\)</span>): For every element <span class="math inline">\(u\)</span> there an element, which we denote by <span class="math inline">\(-u\)</span>, that guarantees <span class="math inline">\(u+(-u)=o\)</span>. [ <span class="math inline">\(u-v\)</span> <em>is just a short notation for</em> <span class="math inline">\(u+(-v)\)</span>.</p></li>
+</ul>
+<p>The next list of rules describe how the operations <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> interact when both present in a calculation, two of this rules are distributive rules:</p>
+<ul>
+<li><p>Associative: <span class="math inline">\(\alpha(\beta u)=(\alpha\beta)v\)</span></p></li>
+<li><p>Distributive I: <span class="math inline">\((\alpha+\beta)u = \alpha u +\beta u\)</span></p></li>
+<li><p>Distributive II: <span class="math inline">\(\alpha (u +v) = \alpha u + \alpha v\)</span></p></li>
+<li><p>Unitary: <span class="math inline">\(1 u = u\)</span></p></li>
+</ul>
+<p>When looking at <a href="#eq-plus" class="quarto-xref">Equation&nbsp;1</a>, <a href="#eq-times" class="quarto-xref">Equation&nbsp;2</a> and the CANI-ADDU rules note we did not mention what are the elements of <span class="math inline">\(\mathbb{V}\)</span> and neither did we mention how to compute the assignment, the only thing stated is that <span class="math inline">\(+\)</span>, whatever it ends up being in practice, it maps two elements of <span class="math inline">\(\mathbb{V}\)</span> into another element of <span class="math inline">\(\mathbb{V}\)</span> and that, whatever the dot <span class="math inline">\(\cdot\)</span> ends up meaning in practice, it must assign to a real number and an element <span class="math inline">\(\mathbb{V}\)</span> another element of <span class="math inline">\(\mathbb{V}\)</span>. All this while, simultaneously all the above rules are obeyed. So, in practice, the <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> are really special operation, such is the number of constraints imposed.</p>
+<p>A vector space is then a triplet <span class="math inline">\((\mathbb{V},+,\cdot)\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentaries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Why these two maps with these rules? Because on them fit many useful maps in practice. The list of properties is like describing someone: you can list all its characteristics, or just list the essential ones. Here essential depends for what the description is useful for. For example, your CV works for the purpose of getting a job.</p></li>
+<li><p>There are many constraints (CANI and ADDU) on the operation <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span>, but all these boil down to make <span class="math inline">\(\mathbb{V}\)</span> being closed under l.c., where the l.c. is realized in practice the natural and expected way. The constraints above are the rules of common sense for l.c.</p></li>
+<li><p>The set of assignments made by <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> which we can write as <span class="math inline">\(\{(u,v,u+v)\}\)</span> and <span class="math inline">\(\{(c,u,cu)\}\)</span> is what we call the structure of the vector space.</p></li>
+</ul>
+</div>
+</div>
+<p>What specific sets and <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> operations fit the profile above? Here are some examples:</p>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1:</h2>
+<p>The set of all polynomials of degree <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{P}=\{p:\mathbb{R}\rightarrow\mathbb{R}; x\mapsto a_2 x^2 +a_1 x +a_0\,\,|\,\, a_i \text{'s are real}\}
+\]</span></p>
+<p>Together with:</p>
+<p><span class="math display">\[
+\begin{align}+ : \mathbb{P}\times\mathbb{P} &amp;\longrightarrow\mathbb{V}\\(p,q)&amp;\longmapsto (p+q)(x)=p(x)+q(x)\end{align}
+\]</span></p>
+<p>Here, the <span class="math inline">\(+\)</span> function of functions <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> is defined from the summation <span class="math inline">\(+\)</span> of real numbers <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(q(x)\)</span>. While before <span class="math inline">\(+\)</span> did not have meaning now it has in terms of the <span class="math inline">\(+\)</span> between numbers.</p>
+<p><span class="math display">\[
+\begin{align}\cdot : \mathbb{R}\times\mathbb{P} &amp;\longrightarrow\mathbb{V}\\(\alpha,p)&amp;\longmapsto (\alpha\cdot p)(x):=\alpha\cdot p(x)\end{align}
+\]</span></p>
+<p>The multiplication between a real number and the function <span class="math inline">\(p\)</span> is understood in therms of the multiplication between the real numbers <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p(x)\)</span>.</p>
+<p>All the rules above can be checked for this example.</p>
+<p>The natural basis for this vector space is: <span class="math inline">\(\{1,x,x^2\}\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This example is provided to show that the elements of vectors spaces need not be column vectors!</p>
+</div>
+</div>
+</section>
+<section id="example-2-of-a-vector-space" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-of-a-vector-space">Example 2 of a vector space</h2>
+<p>Consider the set ordered pairs:</p>
+<p><span class="math inline">\(\mathbb{V} = \{(x,y)\,\,|\,\, x,y\in \mathbb{R}\}\)</span></p>
+<p>And the maps:</p>
+<p><span class="math display">\[
+\begin{align}
++ : \mathbb{V}\times\mathbb{V} &amp;\longrightarrow\mathbb{V}\\
+(u,v)&amp;\longmapsto u+v := (u_x,u_y)+(v_x,v_y)=(u_x+v_x,u_y+v_y)
+\end{align}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{align}\cdot : \mathbb{R}\times\mathbb{V} &amp;\longrightarrow\mathbb{V}\\(\alpha,u)&amp;\longmapsto \alpha\cdot u:=(\alpha u_x,\alpha u_y)\end{align}
+\]</span></p>
+<p>Once again the summation of vectors manifests as a entry-wise summation of numbers and the multiplication of a vector by a real number means the multiplication of its entries (real numbers) by the real number <span class="math inline">\(\alpha\)</span>. While before <span class="math inline">\(\cdot\)</span> procedure was not specified, now it is, through the multiplication <span class="math inline">\(\cdot\)</span> between numbers.</p>
+<p>Notice that when I write <span class="math inline">\((u_x,u_y)+(v_x,v_y)\)</span> one may wonder what it means, we know it is another element of <span class="math inline">\(\mathbb{V}\)</span>, but which one? To answer that we have to tell how the operation <span class="math inline">\(+\)</span> between two elements of <span class="math inline">\(\mathbb{V}\)</span> actually maps. Whatever the way it maps, it must be consistent with the rules defined above. It turn out that to define this <span class="math inline">\(+\)</span> as doing <span class="math inline">\((u_x+v_x,u_y+v_y)\)</span> (a plus between reals) is a good and useful choice.</p>
+</section>
+</section>
+<section id="linear-functions" class="level1">
+<h1>Linear functions</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/RuVKcV56CbM">How to check if a function is linear?</a></p>
+</div>
+</div>
+<p>Consider two generic vector spaces <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span>.</p>
+<p>A linear function are the set of links between elements of both vectors spaces, these links (i.e.&nbsp;pairs <span class="math inline">\((v,w)\)</span>) are constructed as follows:</p>
+<div id="def-linear_func" class="theorem definition" style="color:gray">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <span class="math display">\[
+\begin{align}
+f:\mathbb{V}&amp;\overset{\sim}{\longrightarrow} \mathbb{W}\\
+v&amp;\longmapsto f(v)
+\end{align}
+\]</span></p>
+<p>the word linear, describes a property that <span class="math inline">\(f\)</span> must have: <span class="math inline">\(f(a u+b v) = a f (u) + b f(v)\)</span> for all <span class="math inline">\(a,b \in \mathbb{R}\)</span> and <span class="math inline">\(u,v\in \mathbb{V}\)</span>.</p>
+<p><em>Terminology:</em> The vector space <span class="math inline">\(\mathbb{V}\)</span> is the domain of the function <span class="math inline">\(f\)</span>, while <span class="math inline">\(\mathbb{W}\)</span> is the codomain (of <span class="math inline">\(f\)</span>)</p>
+<p>When referring to a linear function we will use <span class="math inline">\(\sim\)</span> and write: <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{W}\)</span>.</p>
+</div>
+<p>[<em>Commentary:</em> Many function which are useful in practice have this property. Hence the definition.] Here are some examples of <span class="math inline">\(f\)</span>’s and the tests for linearity property.</p>
+<section id="example-1-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-1">Example 1</h2>
+<p>Start with the vectors spaces of polynomials of degree <span class="math inline">\(2\)</span> and <span class="math inline">\(1\)</span>. The procedure <span class="math inline">\(\frac{d}{dx}\)</span> defines the following map:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{P}_2&amp;\longrightarrow \mathbb{P}_1,\qquad  a_2x^2+a_1x+a_0\longmapsto f(a_2x^2+a_1x+a_0):=\frac{d}{dx}(a_2x^2+a_1x+a_0)=2a_2x+a_1\end{align}
+\]</span></p>
+<p>which is clearly linear.</p>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<p>Still the same vector spaces but this time the map is:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{P}_2&amp;\longrightarrow \mathbb{P}_1,\qquad  a_2x^2+a_1x+a_0\longmapsto f(a_2x^2+a_1x+a_0):=(a_2-a_1)x+(a_1+a_0)\end{align}
+\]</span></p>
+<p>It is linear as well!</p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
+<p>Now a function from <span class="math inline">\(\mathbb{R}\)</span> into <span class="math inline">\(\mathbb{R}^2\)</span>, which maps as follows:</p>
+<p><span class="math display">\[ \begin{align}g:\mathbb{R}&amp;\longrightarrow \mathbb{R}^2\\ x&amp;\longmapsto g(x):=(2x,x)\end{align} \]</span></p>
+<p>The procedure on which the map is based is to each <span class="math inline">\(x\)</span> compute <span class="math inline">\(2x\)</span> and then write <span class="math inline">\((2x,x)\)</span>. Is this procedure linear?</p>
+<p><span class="math display">\[ g(c_1 x_1+ c_2 x_2)=(2(c_1 x_1+ c_2 x_2),c_1 x_1+ c_2 x_2) = c_1(2x_1+,x_1)+c_2(2x_2,x_2)=c_1g(x_1)+c_2g(x_2) \]</span></p>
+<p>Because our choices where arbitrary, yes, it is linear.</p>
+</section>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example 5:</h2>
+<p>The projection function procedure consists in picking out the <span class="math inline">\(x\)</span> component of the vector <span class="math inline">\((x,y)\)</span>:</p>
+<p><span class="math display">\[ \begin{align}\pi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}\\ (x,y)&amp;\longmapsto \pi(x,y):=x\end{align} \]</span></p>
+<p>Is it linear?</p>
+<p><span class="math display">\[ \pi(c_1(x_1,y_1)+c_2(x_2,y_2)) = \pi (c_1x_1+c_2x_2,c_1y_1+c_2y_2)=c_1x_1+c_2x_2 =c_1 \pi(x_1,y_1) + c_2\pi(x_2,y_2) \]</span></p>
+<p>A l.c. of inputs <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span> yields the same l.c. of outputs <span class="math inline">\(\pi(x_1,y_1)\)</span> and <span class="math inline">\(\pi(x_2,y_2)\)</span>.</p>
+</section>
+<section id="example-6" class="level2">
+<h2 class="anchored" data-anchor-id="example-6">Example 6:</h2>
+<p>From <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
+<p><span class="math display">\[ \begin{align}\Phi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto \Phi(x,y):=(2x-y,x+y)\end{align} \]</span></p>
+<p>Is it?</p>
+<p><span class="math display">\[ \begin{align} \Phi(c_1(x_1,y_1)+c_2(x_2,y_2)) &amp;= \Phi(c_1x_1+c_2x_2,c_1y_1+c_2y_2)\\  &amp;=(2(c_1x_1+c_2x_2)-(c_1y_1+c_2y_2),c_1x_1+c_2x_2+c_1y_1+c_2y_2)\\ &amp;=c_1(2x_1-y_1,x_1+y_1)+c_2(2x_2-y_2,x_2+y_2)\\ &amp;=c_1\Phi(x_1,y_1)+c_2\Phi(x_2,y_2) \end{align} \]</span></p>
+<p>Yes.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is usual to give a more break down version of the rule <span class="math inline">\(f(a u+b v) = a f (u) + b f(v)\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(f(u+v)=f(u)+f(v)\)</span></p></li>
+<li><p><span class="math inline">\(f(b u)=b f(v)\)</span></p></li>
+</ul>
+<p>Because, if you know these then <span class="math inline">\(f(a u+b v) = a f (u) + b f(v)\)</span> comes as natural consequence. So just checking for these two suffices.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-matrix-representation-of-a-linear-function" class="level1">
+<h1>The Matrix representation of a linear function</h1>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://youtu.be/ZLeRc4rjUZ0">From linear function a matrix is born</a></p>
+</div>
+</div>
+<p>Given a function <span class="math inline">\(f\)</span>, for example <span class="math inline">\(f(x,y)=(2x-y,x+y)\)</span>, what is its matrix representation?</p>
+<p><strong>How:</strong></p>
+<ol type="1">
+<li>Choose a basis for the domain and a basis for the codomain;</li>
+<li>Compute the output of <span class="math inline">\(f\)</span> when it act on the basis of the domain and then write the output in terms of the basis of the codomain.</li>
+<li>With 2. we can now act with the matrix on any vector of the domain, which is written wrt to that basis.</li>
+</ol>
+<p>Lets follow these steps.</p>
+<section id="step-1-choose-a-basis-for-the-domain-and-codomain" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-choose-a-basis-for-the-domain-and-codomain">Step 1: Choose a basis for the domain and codomain</h2>
+<p>As said above we have to chose a basis for <span class="math inline">\(\mathbb{V}\)</span>, let it be:</p>
+<p><span id="eq-basis_of_domain"><span class="math display">\[
+\mathbf{B}=(v_1, v_2, .. , v_n)
+\tag{3}\]</span></span></p>
+<p>The next step is to choose a basis for the codomain <span class="math inline">\(\mathbb{W}\)</span>.</p>
+<p><span id="eq-basis_of_codomain"><span class="math display">\[
+\mathbf{C}=(w_1,w_1,..,w_m)
+\tag{4}\]</span></span></p>
+<p>Choosing a basis allow us to express any element of these spaces in terms of the basis, therefore:</p>
+<ul>
+<li>If <span class="math inline">\(v\in\mathbb{V}\)</span> it has the form:</li>
+</ul>
+<p><span id="eq-v_repre"><span class="math display">\[ v=\sum_{j=1}^n x_j v_j = \mathbf{B}X,\qquad X=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}  \tag{5}\]</span></span></p>
+<ul>
+<li>If <span class="math inline">\(w\in\mathbb{W}\)</span> it has the form:</li>
+</ul>
+<p><span id="eq-w_repre"><span class="math display">\[ w=\sum_{i=1}^m y_i w_i = \mathbf{C}Y,\qquad Y=\begin{pmatrix}x_1\\\vdots\\x_m\end{pmatrix}  \tag{6}\]</span></span></p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>For the function <span class="math inline">\(f:\mathbb{R}^2\longrightarrow \mathbb{R}^2\)</span> given by <span class="math inline">\(f(x,y)=(2x-y,x+y)\)</span> we have <span class="math inline">\(\mathbb{V}=\mathbb{W}=\mathbb{R}^2\)</span> . Choose the basis:</p>
+<p><span id="eq-chosen_bases"><span class="math display">\[
+v_1:=(1,-4),v_2:=(0,1)\qquad w_1:=(1,0),w_2:=(1,1)
+\tag{7}\]</span></span></p>
+<p>I would like to stress the fact that this is my choice, we can make other choices (as we shall see) of bases for <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span>.</p>
+<p>Thus any vector <span class="math inline">\(v\)</span> of the domain is expressed as:</p>
+<p><span id="eq-repre_in_V"><span class="math display">\[
+v=\begin{pmatrix}v_1 &amp; v_2 \end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}
+\tag{8}\]</span></span></p>
+<p>and any <span class="math inline">\(w\)</span> from the codomain can be written as:</p>
+<p><span id="eq-repre_in_W"><span class="math display">\[
+w=\begin{pmatrix}w_1 &amp; w_2 \end{pmatrix}\begin{pmatrix}y_1\\y_2\end{pmatrix}
+\tag{9}\]</span></span></p>
+<p>How to compute <span class="math inline">\(x_1, x_2, y_1, y_2\)</span> for given <span class="math inline">\(v,w\in\mathbb{R}^2\)</span> ?</p>
+<p>Substitute into the lhs of <a href="#eq-repre_in_V" class="quarto-xref">Equation&nbsp;8</a> our <span class="math inline">\(v=(\alpha,\beta)\)</span> and on the rhs our choice of <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> from <a href="#eq-chosen_bases" class="quarto-xref">Equation&nbsp;7</a>:</p>
+<p><span id="eq-repre_in_V_II"><span class="math display">\[
+\begin{pmatrix}\alpha\\\beta\end{pmatrix}=\begin{pmatrix}1 &amp; 0\\-4 &amp; 1 \end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}
+\tag{10}\]</span></span></p>
+<p>then solve for <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>.</p>
+<p>Similarly, given <span class="math inline">\(w=(\mu,\nu)^\intercal\)</span>, <a href="#eq-repre_in_W" class="quarto-xref">Equation&nbsp;9</a> becomes:</p>
+<p><span id="eq-repre_in_W_II"><span class="math display">\[
+\begin{pmatrix}\mu\\\nu\end{pmatrix}=\begin{pmatrix}1 &amp; 1\\0 &amp; 1 \end{pmatrix}\begin{pmatrix}y_1\\y_2\end{pmatrix}
+\tag{11}\]</span></span></p>
+</section>
+</section>
+<section id="step-2-compute-how-f-acts-on-the-domains-basis" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-compute-how-f-acts-on-the-domains-basis">Step 2: Compute how <span class="math inline">\(f\)</span> acts on the domain’s basis</h2>
+<p>Act with <span class="math inline">\(f\)</span> on the chosen basis vectors <span class="math inline">\(v_j\)</span>, obtaining <span class="math inline">\(f(v_j)\)</span>.</p>
+<p>For the particular example we are considering we find:</p>
+<p><span class="math display">\[
+f(v_1)=f(1,-4)=(2\cdot 1-(-4),1-4)=(6,-3)\qquad f(v_2)=f(0,1)=(2\cdot 0-1,0+1)=(-1,1)
+\]</span></p>
+<p>But since these outputs live in <span class="math inline">\(\mathbb{W}=\mathbb{R}^2\)</span> they can be written as an appropriate l.c. of the basis <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span>, see <a href="#eq-repre_in_W_II" class="quarto-xref">Equation&nbsp;11</a>:</p>
+<p><span id="eq-f_onbasis"><span class="math display">\[
+\begin{align}
+f(v_1)&amp;=(6,-3)=9(1,0)-3(1,1)=9w_1-3w_2\\
+f(v_2)&amp;=(-1,1)=-2(1,0)+1(1,1)=-2w_1+w_2
+\end{align}
+\tag{12}\]</span></span></p>
+<p>The rhs of these formulas have the form:</p>
+<p><span id="eq-repre_of_outputs"><span class="math display">\[
+f(v_j) = \sum_{i=1}^m A_{ij}\,\,w_i
+\tag{13}\]</span></span></p>
+<p>the coefficients are conveniently named as <span class="math inline">\(A_{ij}\)</span>. See <a href="#eq-repre_of_outputs" class="quarto-xref">Equation&nbsp;13</a> as a special case of the second equation in <a href="#eq-repre_in_W" class="quarto-xref">Equation&nbsp;9</a> for the basis vectors.</p>
+<p>Comparing <a href="#eq-repre_of_outputs" class="quarto-xref">Equation&nbsp;13</a> and <a href="#eq-f_onbasis" class="quarto-xref">Equation&nbsp;12</a> we see that:</p>
+<p><span class="math display">\[
+\begin{matrix}
+A_{11} = 9 &amp; A_{12}=-2\\
+A_{21} = -3 &amp; A_{22} = 1
+\end{matrix}
+\]</span></p>
+<p>The numbers <span class="math inline">\(A_{ij}\)</span> tell us how much <span class="math inline">\(f(v_j)\)</span> looks like <span class="math inline">\(w_i\)</span> just as the <span class="math inline">\(y_i\)</span>’s did in <a href="#eq-repre_in_W" class="quarto-xref">Equation&nbsp;9</a>. Of course, unlike the <span class="math inline">\(y_i\)</span>’s which were specific for the <span class="math inline">\(w\)</span> vector, the <span class="math inline">\(A_{ij}\)</span>’s have an additional index <span class="math inline">\(j\)</span> to remind us that we are currently expressing <span class="math inline">\(f(v_j)\)</span>. As a result <span class="math inline">\(i=1,2,..,m\)</span> and <span class="math inline">\(j=1,2,..,n\)</span>, where <span class="math inline">\(m=\dim \mathbb{W}\)</span> is the dimension of the codomain and <span class="math inline">\(n=\dim \mathbb{V}\)</span> is that of the domain. In the present example both <span class="math inline">\(n=m=2\)</span>.</p>
+<p>We can write the <span class="math inline">\(n\)</span> results in <a href="#eq-repre_of_outputs" class="quarto-xref">Equation&nbsp;13</a> in a compact manner as:</p>
+<p><span id="eq-fv"><span class="math display">\[ (f(v_1),..,f(v_n))=:f(\mathbf{B})=\mathbf{C}A  \tag{14}\]</span></span></p>
+<p>where the <span class="math inline">\(A\)</span> is a matrix with entries <span class="math inline">\(A_{ij}\)</span>.</p>
+<p><a href="#eq-fv" class="quarto-xref">Equation&nbsp;14</a> for our particular case turns out to be:</p>
+<p><span id="eq-map_of_basis"><span class="math display">\[
+(f(v_1),f(v_2))=:f(\mathbf{B})=\begin{pmatrix}w_1 &amp; w_2 \end{pmatrix}\begin{pmatrix}9 &amp; -2\\-3 &amp; 1\end{pmatrix}=\begin{pmatrix} 9w_1-3w_2 &amp; -2w_1+w_2\end{pmatrix}
+\tag{15}\]</span></span></p>
+</section>
+<section id="step-3-mapping-a-generic-vector" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-mapping-a-generic-vector">Step 3: Mapping a generic vector</h2>
+<p>We can act with <span class="math inline">\(f(x,y)=(2x-y,x+y)\)</span> on any vector of <span class="math inline">\(\mathbb{V}=\mathbb{R}^2\)</span>, no problem, for example, acting with <span class="math inline">\(f\)</span> on <span class="math inline">\(v=(1,3)\)</span> gives us:</p>
+<p><span id="eq-eg_of_calc"><span class="math display">\[
+f(1,3)=(2\cdot 1-3,1+3)=(-1,4)
+\tag{16}\]</span></span></p>
+<p>However, what we want is to do something quiet different from the calculation <a href="#eq-eg_of_calc" class="quarto-xref">Equation&nbsp;16</a>, which is to represent how <span class="math inline">\(f\)</span> acts on any element of <span class="math inline">\(\mathbb{V}\)</span> expressed in terms of <span class="math inline">\(\mathbf{B}\)</span> and return the output expressed in terms of the chosen <span class="math inline">\(\mathbf{C}\)</span>. Step 1 and 2 allow us to do that.</p>
+<p>We express <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(\mathbf{B}\)</span> which is:</p>
+<p><span class="math display">\[
+v=\begin{pmatrix}v_1 &amp; v_2 \end{pmatrix} \begin{pmatrix}x_1\\x_2\end{pmatrix}\qquad\text{with}\qquad x_1=1\,\,\, x_2=7
+\]</span></p>
+<p>Act with <span class="math inline">\(f\)</span> on it:</p>
+<p><span id="eq-action_of_f"><span class="math display">\[  f\left(\begin{pmatrix}v_1 &amp; v_2 \end{pmatrix}\begin{pmatrix}1\\7\end{pmatrix}\right)=f\begin{pmatrix}v_1 &amp; v_2 \end{pmatrix}\begin{pmatrix}1\\7\end{pmatrix}=\begin{pmatrix}w_1 &amp; w_2 \end{pmatrix}\begin{pmatrix}9 &amp; -2\\-3 &amp; 1\end{pmatrix}\begin{pmatrix}1\\7\end{pmatrix} = \begin{pmatrix}w_1 &amp; w_2 \end{pmatrix}\begin{pmatrix}-5\\4\end{pmatrix}  \tag{17}\]</span></span></p>
+<p>where in the first step we used linearity and in the second step we used how <span class="math inline">\(f\)</span> acts on the basis, see <a href="#eq-map_of_basis" class="quarto-xref">Equation&nbsp;15</a>.</p>
+<p>The vector <span class="math inline">\(\mathbf{B}\begin{pmatrix}1\\7\end{pmatrix}\)</span> is mapped into the vector <span class="math inline">\(\mathbf{C}\begin{pmatrix}-5\\4\end{pmatrix}\)</span> by the function <span class="math inline">\(f\)</span>. As we can check, the output is the <span class="math inline">\((-1,4)\)</span> we had in <strong>?@eq-eg_og_calc</strong> is just the rhs of <a href="#eq-action_of_f" class="quarto-xref">Equation&nbsp;17</a>:</p>
+<p><span class="math display">\[
+\begin{pmatrix}w_1 &amp; w_2 \end{pmatrix}\begin{pmatrix}-5\\4\end{pmatrix} =-5w_1+4w_2 =  -5\begin{pmatrix}1\\0 \end{pmatrix}+4 \begin{pmatrix}1\\1 \end{pmatrix}=\begin{pmatrix}-1\\4 \end{pmatrix}
+\]</span></p>
+<p>In general formula <a href="#eq-action_of_f" class="quarto-xref">Equation&nbsp;17</a> can be compactly written as:</p>
+<p><span id="eq-CAX"><span class="math display">\[
+f(v)=f(\mathbf{B}X)=f(\mathbf{B})X=\mathbf{C}AX
+\tag{18}\]</span></span></p>
+<div class="callout callout-style-simple callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Details
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The <a href="#eq-CAX" class="quarto-xref">Equation&nbsp;18</a> is an abbreviation for:</p>
+<p><span class="math display">\[
+\begin{align}f(v)&amp;=f(\sum_{j=1}^m x_jv_j)\\&amp;=\sum_{j=1}^m x_jf(v_j)\\&amp;=\sum_{j=1}^m x_j\sum_{i=1}^n A_{ij}\,\,w_i\\&amp;=\sum_{i=1}^n\left(\sum_{j=1}^m A_{ij}x_j\right)w_i\end{align}
+\]</span></p>
+<p>where in the last line is the expanded version of <span class="math inline">\(\mathbf{C} AX\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-does-steps-1.-2.-3.-above-have-to-do-with-axb" class="level1">
+<h1>What does steps 1. 2. 3. above have to do with <span class="math inline">\(Ax=b\)</span>?</h1>
+<p>Starting from <a href="#eq-CAX" class="quarto-xref">Equation&nbsp;18</a>, with further calculation, we can see the connection.</p>
+<p>Since <span class="math inline">\(f(v)\)</span> is in the codomain <span class="math inline">\(\mathbb{W}\)</span>, then it is some l.c. of the <span class="math inline">\(w\)</span>’s, recall <a href="#eq-w_repre" class="quarto-xref">Equation&nbsp;6</a>. Therefore:</p>
+<p><span id="eq-general_repre"><span class="math display">\[
+f(v)=\sum_{i=1}^n y_i w_i =\mathbf{C}Y, \qquad Y=\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}
+\tag{19}\]</span></span></p>
+<p>Comparing <strong>?@eq-general_map</strong> with <a href="#eq-CAX" class="quarto-xref">Equation&nbsp;18</a>:</p>
+<p><span id="eq-almost_Axequaly"><span class="math display">\[
+\mathbf{C}Y = \mathbf{C}A X
+\tag{20}\]</span></span></p>
+<p>Which implies:</p>
+<p><span class="math display">\[
+Y=AX
+\]</span></p>
+<p>Which is our <span class="math inline">\(A\mathbf{x} =\mathbf{b}\)</span> we have dealing with.</p>
+<div class="callout callout-style-simple callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Details
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><a href="#eq-almost_Axequaly" class="quarto-xref">Equation&nbsp;20</a> is:</p>
+<p><span class="math display">\[
+\begin{align}
+\sum_{i=1}^m y_iw_i=\sum_{i=1}^m\left(\sum_{j=1}^n A_{ij}x_j\right)w_i\\
+\implies y_i=\sum_{j=1}^n A_{ij}x_j
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>This calculation tell us something important: from the coefficients of <span class="math inline">\(v\)</span> on the chosen basis of the domain of <span class="math inline">\(f\)</span>, they give us the coefficients of <span class="math inline">\(f(u)\)</span> in the chosen basis of the codomain. Lets read better the meaning of this formula, the <span class="math inline">\(x\)</span>’s tell us how much the input vector <span class="math inline">\(v\)</span> looks like to each one of the basis vectors <span class="math inline">\(v\)</span>. The numbers <span class="math inline">\(A_{ij}\)</span> quantify how much a basis vector <span class="math inline">\(f(v_j)\)</span> look like the basis vector <span class="math inline">\(w_j\)</span>. This means that the calculation <span class="math inline">\(\sum_{j=1}^n A_{ij}x_j\)</span> can be understood like:</p>
+<p><strong>[</strong>how much <span class="math inline">\(f(v)\)</span> looks like <span class="math inline">\(w_i\)</span><strong>]</strong> = <strong>[</strong>how much <span class="math inline">\(f(v_1)\)</span> looks like <span class="math inline">\(w_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(v\)</span> looks like <span class="math inline">\(v_1\)</span><strong>]</strong> <span class="math inline">\(+\)</span> [how much <span class="math inline">\(f(v_2)\)</span> looks like <span class="math inline">\(w_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(\mathbf{u}\)</span> looks like <span class="math inline">\(v_2\)</span><strong>]</strong> <span class="math inline">\(+\dots +\)</span> <strong>[</strong>how much <span class="math inline">\(f(v_n)\)</span> looks like <span class="math inline">\(w_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(v\)</span> looks like <span class="math inline">\(v_n\)</span><strong>]</strong></p>
+<p>Its a weighted sum of the representation of <span class="math inline">\(v\)</span>!</p>
+<p>This understanding is clear because we know exactly what basis we are speaking off, after all, the first step was to make the choice of bases.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I these sections we have started with a specific function <span class="math inline">\(f\)</span>, specific sets <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span> and bases. Notice however that the only essential ingredients for the whole derivation is to know how <span class="math inline">\(f\)</span> acting on the basis of the domain is expressed in the basis of the codomain! Knowing this together with the property <span class="math inline">\(f(au+\mu bv) = a f (u) + b f(v)\)</span> allowed us to recast the procedures <span class="math inline">\(f\)</span> in a matrix form. These three steps are based on the idea that if we know how a linear function <span class="math inline">\(f\)</span> maps the chosen basis of the domain, we know how it maps any vector of the domain. And this is possible because <span class="math inline">\(f\)</span> has the linear property.</p>
+</div>
+</div>
+</section>
+<section id="isomorphism-and-stuff" class="level1">
+<h1>Isomorphism and stuff</h1>
+<p>The hypervector <span class="math inline">\(\mathbf{B}\)</span> (and <span class="math inline">\(\mathbf{C}\)</span>) allow us to make a bijective correspondence between vectors in <span class="math inline">\(\mathbb{R}^n\)</span> (and <span class="math inline">\(\mathbb{R}^m\)</span>) and vectors in <span class="math inline">\(\mathbb{V}\)</span> (and <span class="math inline">\(\mathbb{W}\)</span>). A vector <span class="math inline">\(X\in\mathbb{R}^n\)</span> is transformed into <span class="math inline">\(v\in\mathbb{V}\)</span> by dotting the column vector <span class="math inline">\(X\)</span> with the hypervector <span class="math inline">\(\mathbf{B}\)</span>:</p>
+<p><span class="math display">\[
+v=\mathbf{B}X
+\]</span></p>
+<p>same thing with <span class="math inline">\(Y\)</span> and <span class="math inline">\(w\)</span>:</p>
+<p><span class="math display">\[
+w=\mathbf{C}Y
+\]</span></p>
+<p>We picture this correspondence by the vertical arrows in the following picture:</p>
+<p><img src="images/clipboard-690894529.png" class="img-fluid" width="402"></p>
+<p>Subspaces in <span class="math inline">\(\mathbb{R}^n\)</span> are translated into subspaces of <span class="math inline">\(\mathbb{V}\)</span>, this has important consequences. If <span class="math inline">\(\mathbb{R}^n=\alpha\oplus\beta\)</span> is decomposed by a direct sum of subspaces <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, then multiplying the vectors in the them by the hypervector <span class="math inline">\(\mathbf{B}\)</span> yields vector spaces in <span class="math inline">\(\mathbb{V}=(\mathbf{B}\alpha) \oplus(\mathbf{B}\beta)\)</span>. [Warning: if <span class="math inline">\(\beta=\alpha^\perp\)</span> it may happen that it is <em>not</em> the case that<span class="math inline">\((\mathbf{B}\beta)=(\mathbf{B}\alpha)^\perp\)</span>.]</p>
+<p>Now, introduce a map <span class="math inline">\(f\)</span> between elements of <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span>, as was our <span class="math inline">\(f(x,y)=(2x-y,x+y)\)</span>, this is represented by the bottom arrow. Since the elements <span class="math inline">\(v\)</span> are being mapped into <span class="math inline">\(w\)</span> and both can be translated uniquely into <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, we naturally expect that there is also map, called <span class="math inline">\(A\)</span>, that directly connects <span class="math inline">\(X\)</span> with <span class="math inline">\(Y\)</span>.</p>
+<p>If <span class="math inline">\(f\)</span> links <span class="math inline">\(\mathbf{B}X\)</span> with <span class="math inline">\(\mathbf{C}Y\)</span>, then <span class="math inline">\(A\)</span> links <span class="math inline">\(X\)</span> with <span class="math inline">\(Y\)</span>, how? Answer: <span class="math inline">\(Y=AX\)</span>.</p>
+<p>See the diagram below:</p>
+<p><img src="images/clipboard-3851920532.png" class="img-fluid" width="321"></p>
+<p>We have been talking about maps of individual vectors, but we can also do it for subspaces. A subspace <span class="math inline">\(V\subset_{vec}\mathbb{V}\)</span> is mapped by <span class="math inline">\(f\)</span> into the subspace<span class="math inline">\(f(V)\subset_{vec} \mathbb{W}\)</span>. Here is an intuitive justification: if <span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> are a basis for <span class="math inline">\(V\)</span>, then any l.c. of them gives us a vector in <span class="math inline">\(V\)</span>, this is expected, after all <span class="math inline">\(V\)</span> is a vector space. But is it true that any l.c. of <span class="math inline">\(f(e_1)\)</span> and <span class="math inline">\(f(e_2)\)</span> is also a vector of <span class="math inline">\(f(V)\)</span>? Well, a generic vector in <span class="math inline">\(f(V)\)</span> must have the form <span class="math inline">\(f(ae_1+be_2)\)</span>, but since <span class="math inline">\(f\)</span> is linear this in turn means <span class="math inline">\(af(e_1)+bf(e_2)\)</span>, but this just tells us that any element of <span class="math inline">\(f(V)\)</span> is a l.c. of <span class="math inline">\(f(e_1)\)</span> and <span class="math inline">\(f(e_2)\)</span>.</p>
+<p><strong>Thus:</strong> <em>a linear function</em> <span class="math inline">\(f\)</span> <em>maps subspaces of</em> <span class="math inline">\(\mathbb{V}\)</span> <em>into subspaces of</em> <span class="math inline">\(\mathbb{W}\)</span><em>.</em></p>
+<p>And since subspaces of <span class="math inline">\(\mathbb{V}\)</span> and <span class="math inline">\(\mathbb{W}\)</span> in turn have a version in <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span>, the matrix <span class="math inline">\(A\)</span> maps those as well.</p>
+<p><strong>Thus:</strong> <em>a linear function</em> <span class="math inline">\(f\)</span> <em>maps subspaces of</em> <span class="math inline">\(\mathbb{V}\)</span> <em>into subspaces of</em> <span class="math inline">\(\mathbb{W}\)</span><em>. And correspondingly, its matrix representation</em> <span class="math inline">\(A\)</span> <em>maps subspaces of</em> <span class="math inline">\(\mathbb{R}^n\)</span> <em>into the corresponding subspaces of</em> <span class="math inline">\(\mathbb{R}^m\)</span><em>.</em></p>
+<section id="revisiting-two-important-subspaces" class="level2">
+<h2 class="anchored" data-anchor-id="revisiting-two-important-subspaces">Revisiting Two important subspaces</h2>
+<p>In the domain and codomain of a map <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow}\mathbb{W}\)</span> we find two important subspaces.</p>
+<section id="kernel-of-a-linear-function" class="level3">
+<h3 class="anchored" data-anchor-id="kernel-of-a-linear-function">Kernel of a linear function</h3>
+<div id="def-kernel" class="theorem definition" style="color:gray">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Let <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{W}\)</span>, then the kernel of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{V}\)</span>:</p>
+<p><span class="math display">\[ \ker f = \{v_N\in\mathbb{V}\,\,|\,\,f(v_N)=0\} \]</span></p>
+<p>Moreover, it is in fact a subspace.</p>
+</div>
+<p>With basis introduced in both spaces we can write this set as:</p>
+<p><span class="math display">\[ \ker f = \{\mathbf{B}X_N\in\mathbb{V}\,\,|\,\,\mathbf{C}AX_N=\mathbf{C}0\} \]</span></p>
+<p>After solving <span class="math inline">\(AX_N=0\)</span> we multiply the solutions by <span class="math inline">\(\mathbf{B}\)</span>, giving us <span class="math inline">\(\ker f\)</span>.</p>
+<p>Notice that the solutions of <span class="math inline">\(AX_N=0\)</span> constitute the nullspace of the matrix <span class="math inline">\(A\)</span>. The difference between <span class="math inline">\(N(A)\)</span> and <span class="math inline">\(\ker f\)</span> is a multiplication by <span class="math inline">\(\mathbf{B}\)</span></p>
+<p><span class="math display">\[ \ker f = \mathbf{B} N(A) \]</span></p>
+<p>See the diagram above.</p>
+</section>
+<section id="image-of-the-domain-range-of-linear-functions" class="level3">
+<h3 class="anchored" data-anchor-id="image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</h3>
+<div id="def-range" class="theorem definition" style="color:gray">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Let <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{W}\)</span>, then the range (image) of <span class="math inline">\(f\)</span> is the following subset of the domain <span class="math inline">\(\mathbb{W}\)</span>:</p>
+<p><span class="math display">\[ f(\mathbb{V}) = \{f(u)\in\mathbb{W}\,\,|\,\,u\in\mathbb{V}\} \]</span></p>
+<p>Moreover, it is also a subspace.</p>
+</div>
+<p>Upon introducing a basis, this problem can be reformulated as:</p>
+<p><span class="math display">\[ f(\mathbb{V}) = \{\mathbf{C}AX\in\mathbb{W}\,\,|\,\,X\in\mathbb{R}^{\dim \mathbb{V}}\} \]</span></p>
+<p>To compute this vector space we find first the column space of <span class="math inline">\(A\)</span> and then multiply it by <span class="math inline">\(\mathbf{C}\)</span> get us the image!</p>
+<p><span class="math display">\[ f(\mathbb{V})=\mathbf{C} C(A) \]</span></p>
+<p>See the diagram above.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We know that:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{R}^n=C(A^\intercal) \oplus N(A)\)</span> which translate into <span class="math inline">\(\mathbb{V}=(\mathbf{B}C(A^\intercal)) \oplus (\mathbf{B}N(A))\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{R}^m=C(A) \oplus N(A^\intercal)\)</span> which translates into <span class="math inline">\(\mathbb{W}=(\mathbf{C}C(A)) \oplus (\mathbf{C}N(A^\intercal))\)</span></p></li>
+<li><p><span class="math inline">\(C(A^\intercal) \perp N(A)\)</span> and that <span class="math inline">\(C(A) \perp N(A)^\intercal\)</span>, always! But the same is not true after multiplying by <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{C}\)</span>, unless the chosen basis <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{C}\)</span> are orthogonal (eg. canonical basis).</p></li>
+</ul>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./inverse_matrix.html" class="pagination-link" aria-label="Inverse Matrix">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Inverse Matrix</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./four_spaces_of_linear_functions.html" class="pagination-link" aria-label="Kernel and Image">
+        <span class="nav-page-text">Kernel and Image</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

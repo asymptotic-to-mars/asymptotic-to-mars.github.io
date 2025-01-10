@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>macros – asymptotic to MARS</title>
+<title>Eigenvalues and eigenvectors – asymptotic to MARS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./change_of_basis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -108,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">macros</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./eigen.html">Eigenvalues and eigenvectors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,13 +293,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./linear_combinations.html" class="sidebar-item-text sidebar-link">
@@ -356,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eigen.html" class="sidebar-item-text sidebar-link">
+  <a href="./eigen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Eigenvalues and eigenvectors</span></a>
   </div>
 </li>
@@ -367,15 +397,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-to-compute-the-eigenvalues-and-eigenvectors-of-f" id="toc-how-to-compute-the-eigenvalues-and-eigenvectors-of-f" class="nav-link active" data-scroll-target="#how-to-compute-the-eigenvalues-and-eigenvectors-of-f">How to compute the eigenvalues and eigenvectors of <span class="math inline">\(f\)</span>?</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
+  </ul></li>
+  <li><a href="#representing-f-wrt-basis-of-its-eigenvectors-diagonalization" id="toc-representing-f-wrt-basis-of-its-eigenvectors-diagonalization" class="nav-link" data-scroll-target="#representing-f-wrt-basis-of-its-eigenvectors-diagonalization">Representing <span class="math inline">\(f\)</span> wrt basis of its eigenvectors (Diagonalization)</a>
+  <ul class="collapse">
+  <li><a href="#example-1-cont." id="toc-example-1-cont." class="nav-link" data-scroll-target="#example-1-cont.">Example 1 (cont.)</a></li>
+  <li><a href="#example-2-cont." id="toc-example-2-cont." class="nav-link" data-scroll-target="#example-2-cont.">Example 2 (cont.)</a></li>
+  <li><a href="#example-3-cont" id="toc-example-3-cont" class="nav-link" data-scroll-target="#example-3-cont">Example 3 (cont)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./linear_combinations.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="./eigen.html">Eigenvalues and eigenvectors</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">macros</h1>
+<h1 class="title">Eigenvalues and eigenvectors</h1>
 </div>
 
 
@@ -392,9 +439,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<pre><code>::: {.hidden} $$ \newcommand{\foo}{E=mc^{2}} $$ :::</code></pre>
+<p>In the following section we will, again, focus our attention on linear functions that map vectors of <span class="math inline">\(\mathbb{V}\)</span> into vectors of <span class="math inline">\(\mathbb{V}\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{V}&amp;\overset{\sim}{\longrightarrow}    \mathbb{V}\\ v&amp;\longmapsto f(v)\end{align}
+\]</span></p>
+<p>To each element <span class="math inline">\(v\)</span> of <span class="math inline">\(\mathbb{V}\)</span> the function <span class="math inline">\(f\)</span> assigns a new vector of <span class="math inline">\(\mathbb{V}\)</span>.</p>
+<p>It may happen, as we shall see, that within <span class="math inline">\(\mathbb{V}\)</span> we find special subspaces, special because, any of its elements under <span class="math inline">\(f\)</span> is assigned to some vector within that subspace. If <span class="math inline">\(\mathbb{G}\)</span> is such a subspace we can write in mathematical language that the image of <span class="math inline">\(\mathbb{G}\)</span> is a subset, and thus a subspace of <span class="math inline">\(\mathbb{G}\)</span>:</p>
+<p><span class="math display">\[
+f(\mathbb{G})\subseteq_{\text{vec}} \mathbb{G}
+\]</span></p>
+<p>Because <span class="math inline">\(\mathbb{G}\subseteq_\text{vec} \mathbb{V}\)</span>, the dimension <span class="math inline">\(k\)</span> of <span class="math inline">\(\mathbb{G}\)</span> is less or equal to the dimension <span class="math inline">\(n\)</span> of <span class="math inline">\(\mathbb{V}\)</span>. This observation provides us with a good idea for the choice of the <span class="math inline">\(n\)</span> basis vectors required to span <span class="math inline">\(\mathbb{V}\)</span>. We may choose the <span class="math inline">\(k\)</span> basis vectors of <span class="math inline">\(\mathbb{G}\)</span> as the first <span class="math inline">\(k\)</span> basis vectors of <span class="math inline">\(\mathbb{V}\)</span> and pick the remaining <span class="math inline">\(n-k\)</span> vectors from the complementary space. Thus:</p>
+<p><span class="math display">\[
+\mathbf{B}=\begin{pmatrix}g_1 &amp; \cdots &amp; g_k &amp;; &amp; w_{k+1} &amp; \cdots &amp; w_n\end{pmatrix}
+\]</span></p>
+<p>Hence <span class="math inline">\(\mathbb{V}=\mathbb{G}\oplus\mathbb{W}\)</span> where <span class="math inline">\(\mathbb{W}\)</span> is the complementary (not necessarily orthogonal) space of <span class="math inline">\(\mathbb{G}\)</span>.</p>
+<p>If a choice such as this is made, then the matrix representation of <span class="math inline">\(f\)</span> becomes like this:</p>
+<p><span class="math display">\[
+f(\mathbf{B}) = \mathbf{B}A\qquad A=\begin{pmatrix}\alpha &amp; \beta\\0 &amp;\delta \end{pmatrix}
+\]</span></p>
+<p>Here the <span class="math inline">\(\alpha\)</span> is a matrix blocks of shape <span class="math inline">\(k\times k\)</span> whose columns tell us the components of <span class="math inline">\(f(g_1)\)</span> through <span class="math inline">\(f(g_k)\)</span> wrt the basis <span class="math inline">\(\begin{pmatrix}g_1 &amp;\cdots &amp; g_k\end{pmatrix}\)</span>. If the second part of the chosen basis, <span class="math inline">\(\begin{pmatrix}w_{k+1} &amp;\cdots &amp; w_n\end{pmatrix}\)</span> does <em>not</em> span another invariant subspace, the images of <span class="math inline">\(f(w_{k+1})\)</span> through <span class="math inline">\(f(w_n)\)</span> have a part that belongs to <span class="math inline">\(\mathbb{W}\)</span>, hence the non-zero block <span class="math inline">\(\beta\)</span>, and another part lives on the complementary space of <span class="math inline">\(\mathbb{G}\)</span>, requiring the components found in the <span class="math inline">\(\delta\)</span> matrix block. The shapes of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\delta\)</span> are <span class="math inline">\(k\times(n-k)\)</span> and <span class="math inline">\((n-k)\times (n-k)\)</span>, respectively. The block <span class="math inline">\(\begin{pmatrix}\beta\\ \delta \end{pmatrix}\)</span> has shape <span class="math inline">\(n\times (n-k)\)</span> and describes the components of <span class="math inline">\(f(w_{k+1})\)</span> through <span class="math inline">\(f(w_n)\)</span>, again, wrt whole <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<p><em>Observe:</em> If we imagine that the complementary space <span class="math inline">\(\mathbb{W}\)</span> is another invariant subspace of <span class="math inline">\(f\)</span>, then the representation of <span class="math inline">\(f(w_{k+1})\)</span> through <span class="math inline">\(f(w_n)\)</span> only requires the basis vectors <span class="math inline">\(\begin{pmatrix}w_{k+1} &amp;\cdots &amp; w_n\end{pmatrix}\)</span>, as a result only the <span class="math inline">\(\delta\)</span> is needed and thus <span class="math inline">\(\beta\)</span> is a block of zeros. The matrix <span class="math inline">\(A\)</span> becomes in this case:</p>
+<p><span class="math display">\[
+\begin{pmatrix}\alpha &amp; 0\\0 &amp;\delta \end{pmatrix}
+\]</span></p>
+<p>Decomposing a vector space into two invariant subspaces introduces many zeros into <span class="math inline">\(A\)</span> and thus easier calculation can be performed with this representation.</p>
+<p>How do we find these invariant subspaces?</p>
+<p><em>Answer:</em> A simple example is to compute the eigenvectors of <span class="math inline">\(f\)</span> for example <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span> and <span class="math inline">\(s_3\)</span>. Then <span class="math inline">\(\text{span}\{s_1\}\)</span>, <span class="math inline">\(\text{span}\{s_2\}\)</span> and <span class="math inline">\(\text{span}\{s_3\}\)</span> each constitute invariant subspaces each dimension <span class="math inline">\(1\)</span>.</p>
+<section id="how-to-compute-the-eigenvalues-and-eigenvectors-of-f" class="level1">
+<h1>How to compute the eigenvalues and eigenvectors of <span class="math inline">\(f\)</span>?</h1>
+<div id="def-vaps_veps" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{V}\)</span> then a vector <span class="math inline">\(v\)</span> different from zero is an eigenvector of <span class="math inline">\(f\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span> if</p>
+<p><span class="math display">\[
+f(v)=\lambda v
+\]</span></p>
+<p>The number <span class="math inline">\(\lambda\)</span> can be a complex number. But in these notes we’ll only consider examples where <span class="math inline">\(\lambda\in\mathbb{R}\)</span>.</p>
+</div>
+<p>How to we solve this problem? To solve it we need to do calculation, and to do calculation we need to choose a basis for <span class="math inline">\(\mathbb{V}\)</span>, any basis!</p>
+<p>If we have chosen:</p>
+<p><span class="math display">\[
+\mathbf{B}=\begin{pmatrix}v_1 &amp; v_2 &amp; \cdots &amp; v_n\end{pmatrix}
+\]</span></p>
+<p>then our problem becomes:</p>
+<p><span class="math display">\[
+\mathbf{B}A X =\lambda\mathbf{B}  X\implies AX=\lambda X\qquad v=\mathbf{B}X\qquad X=\begin{pmatrix}x_1\\ \vdots\\ x_n\end{pmatrix}
+\]</span></p>
+<p>In practice, what we have to compute are the solutions of:<br>
+</p>
+<p><span class="math display">\[
+AX=\lambda X
+\]</span></p>
+<p>How do we compute these?</p>
+<ol type="1">
+<li>Rearrange into <span class="math inline">\((A-\lambda)X=0\)</span>.</li>
+<li>We have <span class="math inline">\(n\)</span> equations and <span class="math inline">\(n+1\)</span> unknowns (the <span class="math inline">\(\lambda\)</span> being the <span class="math inline">\(+1\)</span> unknown). For this system to be solvable we need to provide a new equation which involves the unknown <span class="math inline">\(\lambda\)</span>.</li>
+<li>The extra equation to add could be for example something as simples as <span class="math inline">\(\lambda=1\)</span>, however, noticing that we really want solutions <span class="math inline">\(X\not = 0\)</span>, that extra equation (involving <span class="math inline">\(\lambda\)</span>) better be: <span class="math inline">\(|A-\lambda|=0\)</span>. Why? The pool of <span class="math inline">\(\lambda\)</span>’s provided by solving <span class="math inline">\(|A-\lambda|=0\)</span> guarantees that <span class="math inline">\(A-\lambda\)</span> matrix has dependent columns and in return this guarantees that <span class="math inline">\(X\not = 0\)</span>. Something which is not safe guarded if we simply choose <span class="math inline">\(\lambda=1\)</span> or make any other choice, for that matter.</li>
+<li>Compute the <span class="math inline">\(\lambda\)</span>’s that satisfy <span class="math inline">\(|A-\lambda|=0\)</span>.</li>
+<li>Substitute these into <span class="math inline">\((A-\lambda)X=0\)</span>, and since we have now dependent columns we can compute the corresponding eigenvector(s) <span class="math inline">\(X\)</span>, these constitute the <span class="math inline">\(N(A-\lambda)\)</span> and are the eigenvectors of the matrix <span class="math inline">\(A\)</span>.</li>
+<li>The eigenvectors of <span class="math inline">\(f\)</span> are obtained by dotting these <span class="math inline">\(X\)</span>’s with the hypervector <span class="math inline">\(\mathbf{B}\)</span>.</li>
+</ol>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
+<p>We start with the endomorphism:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{R}^2&amp;\overset{\sim}{\longrightarrow}    \mathbb{R}^2\\ (x,y)&amp;\longmapsto f(x,y):=(2x-y,2y-x)\end{align}
+\]</span></p>
+<p>We want to solve the problem:</p>
+<p><span class="math display">\[
+f(v)=\lambda v \qquad v=(x,y)
+\]</span></p>
+<p>To do that we introduce a basis in <span class="math inline">\(\mathbb{R}^2\)</span>, any basis works, but we opt for the simplest one:</p>
+<p><span class="math display">\[
+\mathbf{B}=\begin{pmatrix}v_1 &amp; v_2\end{pmatrix}\qquad v_1=(1,0) \qquad v_2=(0,1)
+\]</span></p>
+<p>Therefore, any element <span class="math inline">\(v\)</span> of <span class="math inline">\(\mathbb{R}^2\)</span> can be written as dotting <span class="math inline">\(\mathbf{B}\)</span> with the column vector <span class="math inline">\(X\)</span> of coefficients:</p>
+<p><span class="math display">\[
+\mathbb{R}^2\ni v= \mathbf{B} X \qquad X=\begin{pmatrix}x_1\\x_2 \end{pmatrix}
+\]</span></p>
+<p>while the column vectors <span class="math inline">\(X\)</span> belong to the vector space of column vectors denote, also, by <span class="math inline">\(\mathbf{R}^2\)</span>. (Not to be confused the <span class="math inline">\(\mathbb{R}^2\)</span> whose elements are of the form <span class="math inline">\((x,y)\)</span>.</p>
+<p>The action of <span class="math inline">\(f\)</span> on the basis is:</p>
+<p><span class="math display">\[
+f(\mathbf{B})=\mathbf{B} A \qquad A=\begin{pmatrix}2 &amp; -1\\-1 &amp; 2\end{pmatrix}
+\]</span></p>
+<p>Substituting into <span class="math inline">\(f(v)=\lambda v\)</span> yields:</p>
+<p><span class="math display">\[
+AX=\lambda X \leftrightsquigarrow \begin{pmatrix}2 &amp; -1\\-1 &amp; 2\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\lambda \begin{pmatrix}x_1\\x_2 \end{pmatrix}
+\]</span></p>
+<p>To find nonzero solutions of this equation is to solve the following problem:</p>
+<p><span class="math display">\[
+(A-\lambda) X=0 \leftrightsquigarrow \begin{pmatrix}2-\lambda &amp; -1\\-1 &amp; 2-\lambda\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix}
+\]</span></p>
+<p>provided we choose <span class="math inline">\(\lambda\)</span>’s that make the matrix have dependent columns, i.e., we must choose the <span class="math inline">\(\lambda\)</span>’s that obey:</p>
+<p><span class="math display">\[
+|A-\lambda|=0
+\]</span></p>
+<p>Lets solve this equation first, to get our pool of eigenvalues, the <span class="math inline">\(\lambda\)</span>’s that ensure <span class="math inline">\(A-\lambda\)</span> have dependent columns:</p>
+<p><span class="math display">\[
+\begin{vmatrix} 2-\lambda &amp; -1\\-1 &amp; 2-\lambda\end{vmatrix}=0 \implies (\lambda-2)^2-1=0 \implies \lambda = 2\pm1
+\]</span></p>
+<p>We found two eigenvalues, lets now substitute one at a time and compute the corresponding eigenvector:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\lambda=2+1 \implies \begin{pmatrix}-1 &amp; -1\\-1 &amp; -1\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix} \implies \begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}-1\\1 \end{pmatrix}\\
+&amp;\lambda=2-1 \implies \begin{pmatrix}1 &amp; -1\\-1 &amp; 1\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix} \implies \begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}1\\1 \end{pmatrix}
+\end{align}
+\]</span></p>
+<p>[<em>Commentary:</em> above we just compute the nullspaces of two matrices, which are so simple, we did it by guess work. Of course the elimination method can be employed as usual.]</p>
+<p>The solution set <span class="math inline">\(V_{3}\)</span> of eigenvectors of <span class="math inline">\(A\)</span> with eigenvalue <span class="math inline">\(3\)</span> is:</p>
+<p><span class="math display">\[
+V_{3}=N(A-3)=span\{\begin{pmatrix}-1\\1 \end{pmatrix}\}
+\]</span></p>
+<p>while the solution set <span class="math inline">\(V_1\)</span> is:</p>
+<p><span class="math display">\[
+V_{1}=N(A-1)=span\{\begin{pmatrix}1\\1 \end{pmatrix}\}
+\]</span></p>
+<p>Both constitute subspaces of the vector space of column vectors <span class="math inline">\(\mathbf{R}^2\)</span>.</p>
+<p>Since the basis are independent we can also say that:</p>
+<p><span class="math display">\[
+\mathbf{R}^2=V_3\oplus V_1
+\]</span></p>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<p>This time our linear function is:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{R}^3&amp;\overset{\sim}{\longrightarrow}    \mathbb{R}^3\\ (x,y)&amp;\longmapsto f(x,y,z):=(3x-y,y,3z-y)\end{align}
+\]</span></p>
+<p>In the canonical basis:</p>
+<p><span class="math display">\[
+\mathbf{B}=\begin{pmatrix}e_1 &amp; e_2 &amp; e_3\end{pmatrix}\qquad e_1=(1,0,0)\qquad e_2=(0,1,0)\qquad e_3=(0,0,1)
+\]</span></p>
+<p>Our function is represented as:</p>
+<p><span class="math display">\[
+f(v) = \mathbf{B} A X \qquad A=\begin{pmatrix} 3 &amp; -1 &amp; 0\\0 &amp; 1 &amp; 0 \\ 0 &amp; -1 &amp; 3\end{pmatrix} \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+\]</span></p>
+<p>To compute its eigenvalues and eigenvectors we solve first:</p>
+<p><span class="math display">\[
+\begin{vmatrix} 3-\lambda &amp; -1 &amp; 0\\0 &amp; 1-\lambda &amp; 0 \\ 0 &amp; -1 &amp; 3-\lambda\end{vmatrix}=0
+\]</span></p>
+<p>Which gives us:</p>
+<p><span class="math display">\[
+(3-\lambda)(3-\lambda)(1-\lambda)=0
+\]</span>The eigenvalues are <span class="math inline">\(3\)</span>, again <span class="math inline">\(3\)</span> and <span class="math inline">\(1\)</span>.</p>
+<p>The corresponding eigenvectors are:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;V_3=span\{\begin{pmatrix}1&amp; 0&amp;0\end{pmatrix}^\intercal,\begin{pmatrix}2 &amp; 0 &amp; 1\end{pmatrix}^\intercal\}\\
+&amp;V_1=span\{\begin{pmatrix}1&amp;2&amp;1\end{pmatrix}^\intercal\}
+\end{align}
+\]</span></p>
+<p>Thus the eigenvectors of <span class="math inline">\(f\)</span> are:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\mathbb{V}_3=span\{\mathbf{B}\begin{pmatrix}1&amp; 0&amp;0\end{pmatrix}^\intercal,\mathbf{B}\begin{pmatrix}2 &amp; 0 &amp; 1\end{pmatrix}^\intercal\}\\
+&amp;\mathbb{V}_1=span\{\mathbf{B}\begin{pmatrix}1&amp;2&amp;1\end{pmatrix}^\intercal\}
+\end{align}
+\]</span></p>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
+<p>The function:</p>
+<p><span class="math display">\[
+\begin{align}f:\mathbb{R}^3&amp;\overset{\sim}{\longrightarrow}    \mathbb{R}^3\\ (x,y)&amp;\longmapsto f(x,y,z):=(3x+y,3y,2z)\end{align}
+\]</span></p>
+<p>acting on vectors represented wrt canonical basis as:</p>
+<p><span class="math display">\[
+f(v) = \mathbf{B} A X \qquad A=\begin{pmatrix} 3 &amp; 1 &amp; 0\\0 &amp; 3 &amp; 0 \\ 0 &amp; 0 &amp; 2\end{pmatrix} \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+\]</span></p>
+<p>Computing the eigenvalues as usual</p>
+<p><span class="math display">\[
+\begin{vmatrix} 3-\lambda &amp; 1 &amp; 0\\0 &amp; 3-\lambda &amp; 0 \\ 0 &amp; 0 &amp; 2-\lambda\end{vmatrix}=0
+\]</span></p>
+<p>Solving <span class="math inline">\((3-\lambda)^2(2-\lambda)=0\)</span> gives us: <span class="math inline">\(\lambda=3,2\)</span>.</p>
+<p>For <span class="math inline">\(\lambda=3\)</span>, the eigenvector of <span class="math inline">\(A\)</span> and <span class="math inline">\(f\)</span> are respectively:</p>
+<p><span class="math display">\[
+c\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad c\mathbf{B}\begin{pmatrix}1\\0\\0\end{pmatrix}
+\]</span></p>
+<p>Just one! Despite the fact that the eigenvalue <span class="math inline">\(3\)</span> appear twice in that determinant equation.</p>
+<p>For <span class="math inline">\(\lambda=2\)</span>:</p>
+<p><span class="math display">\[
+c\begin{pmatrix}0\\0\\1\end{pmatrix},\qquad c\mathbf{B}\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]</span></p>
+<p>In this example we have a shortage on eigenvectors, not enough to span the <span class="math inline">\(\mathbf{R}^3\)</span> they are embedded in.</p>
+</section>
+</section>
+<section id="representing-f-wrt-basis-of-its-eigenvectors-diagonalization" class="level1">
+<h1>Representing <span class="math inline">\(f\)</span> wrt basis of its eigenvectors (Diagonalization)</h1>
+<p>In the previous three examples seen how to compute the eigenvalues and eigenvectors of a linear function represented wrt the canonical basis.</p>
+<p>What is the matrix representing those <span class="math inline">\(f\)</span>’s wrt to the eigenvector basis? Is this always possible?</p>
+<p>To get the <span class="math inline">\(A'\)</span> representation of <span class="math inline">\(f\)</span> we can follow either one of two paths that we seen before:</p>
+<ol type="1">
+<li>Act with <span class="math inline">\(f\)</span> on the eigenvectors we computed at express the output wrt those as well.</li>
+<li>Compute <span class="math inline">\(A\)</span> wrt the canonical basis, compute the change of basis <span class="math inline">\(P\)</span>, that related <span class="math inline">\(\mathbf{B}'=\mathbf{B}P\)</span>, and compute <span class="math inline">\(P^{-1} A P =: A'\)</span>. We will call the matrix <span class="math inline">\(P\)</span> as <span class="math inline">\(S\)</span> when dealing with eigenvectors.</li>
+</ol>
+<p>We will only focus on the 2. approach.</p>
+<section id="example-1-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-1-cont.">Example 1 (cont.)</h2>
+<p>Since the eigenvectors:</p>
+<p><span id="eq-1"><span class="math display">\[
+v_1=\mathbf{B}\begin{pmatrix}-1\\1\end{pmatrix} \qquad v_2=\mathbf{B}\begin{pmatrix}1\\1\end{pmatrix}\qquad \mathbf{B}=\begin{pmatrix}e_1 &amp; e_2\end{pmatrix}
+\tag{1}\]</span></span></p>
+<p>are independent and they span the vector space <span class="math inline">\(\mathbb{V}\)</span>. Lets promote them to a basis:</p>
+<p><span id="eq-2"><span class="math display">\[
+\mathbf{B}':=\begin{pmatrix}v_1 &amp; v_2\end{pmatrix}
+\tag{2}\]</span></span></p>
+<p>There is a connection <span class="math inline">\(s\)</span> (or <span class="math inline">\(S\)</span>) between both bases, substituting <a href="#eq-1" class="quarto-xref">Equation&nbsp;1</a> into <a href="#eq-2" class="quarto-xref">Equation&nbsp;2</a> we obtain:</p>
+<p><span class="math display">\[
+\mathbf{B}'=\mathbf{B} S=: s(\mathbf{B}) \qquad S=\begin{pmatrix}-1 &amp; 1\\1 &amp; 1\end{pmatrix}
+\]</span></p>
+<p>where the matrix we call <span class="math inline">\(S\)</span> (before we called it <span class="math inline">\(P\)</span>) is a special matrix, whose columns are the eigenvectors of <span class="math inline">\(A\)</span>. And the function <span class="math inline">\(s\)</span> (previously called <span class="math inline">\(p\)</span>) is a linear function that transforms the canonical basis into the eigenvector basis. This means that the components <span class="math inline">\(X\)</span> of <span class="math inline">\(v\)</span> wrt the canonical basis are transformed into the components <span class="math inline">\(X'\)</span> of <span class="math inline">\(v\)</span> wrt the eigenvector basis as:</p>
+<p><span class="math display">\[
+X=SX'
+\]</span></p>
+<p>Since <span class="math inline">\(\mathbf{B} Y =:f(v)=\mathbf{B}AX\)</span> then:</p>
+<p><span class="math display">\[
+\mathbf{B}'Y' =:f(v)=\mathbf{B}'S^{-1} A SX'
+\]</span></p>
+<p>Thus: <span class="math inline">\(Y'=S^{-1}AS\)</span> and <span class="math inline">\(A'=S^{-1}AS\)</span>. Substituting the matrices above we find:</p>
+<p><span id="eq-Aprime"><span class="math display">\[
+A'=\begin{pmatrix}-1 &amp; 1\\1 &amp; 1\end{pmatrix}^{-1}\begin{pmatrix}2 &amp; -1\\-1 &amp; 2\end{pmatrix}\begin{pmatrix}-1 &amp; 1\\1 &amp; 1\end{pmatrix}=\begin{pmatrix}3 &amp; 0\\0 &amp; 1\end{pmatrix}
+\tag{3}\]</span></span></p>
+<p>Computing these matrix product gave us a diagonal matrix whose entries are the eigenvalues.</p>
+<p>Why a diagonal matrix?</p>
+<p><em>Answer:</em> Equation <a href="#eq-Aprime" class="quarto-xref">Equation&nbsp;3</a> is closely related to the equation <span class="math inline">\(AS=\Lambda S\)</span>:</p>
+<p><span class="math display">\[
+\begin{pmatrix}2 &amp; -1\\-1 &amp; 2\end{pmatrix}\begin{pmatrix}-1 &amp; 1\\1 &amp; 1\end{pmatrix}=\begin{pmatrix}3 &amp; 0\\0 &amp; 1\end{pmatrix}\begin{pmatrix}-1 &amp; 1\\1 &amp; 1\end{pmatrix}
+\]</span></p>
+<p>Since <span class="math inline">\(S\)</span> is invertible (the eigenvectors are independent) multiplying both sides from the left by <span class="math inline">\(S^{-1}\)</span> tell us <span class="math inline">\(\Lambda=S^{-1}AS\)</span>. Thus the <span class="math inline">\(A'\)</span> in <a href="#eq-Aprime" class="quarto-xref">Equation&nbsp;3</a> above is in fact the <span class="math inline">\(\Lambda\)</span>.</p>
+<p>Thus, <span class="math inline">\(f\)</span> act on vectors represented wrt to the eigenvector basis as:</p>
+<p><span class="math display">\[
+f(v)=\mathbf{B}'\Lambda X'\qquad v=\mathbf{B}'X' \qquad \Lambda = \begin{pmatrix}3 &amp; 0\\0 &amp; 1\end{pmatrix}
+\]</span></p>
+<p>much easier and simple to compute maps from now on, the eigenvectors are indeed special.</p>
+</section>
+<section id="example-2-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-2-cont.">Example 2 (cont.)</h2>
+<p>Calculations are similar to example 1. Putting the eigenvectors of <span class="math inline">\(A\)</span> as columns of matrix we get our special matrix:</p>
+<p><span id="eq-Smatrix_eg_2"><span class="math display">\[
+S=\begin{pmatrix}1 &amp; 2 &amp; 1\\0 &amp; 1 &amp; 2\\0 &amp; 2 &amp; 1\end{pmatrix}
+\tag{4}\]</span></span></p>
+<p>Notice in this case that col 1 and col 2 of <span class="math inline">\(S\)</span> could be any other l.c. of <span class="math inline">\(\begin{pmatrix}1 &amp; 0 &amp; 0\end{pmatrix}^\intercal\)</span> and <span class="math inline">\(\begin{pmatrix}2 &amp; 1 &amp; 2\end{pmatrix}^\intercal\)</span> since <span class="math inline">\(V_3\)</span> is two dimensional and thus many other basis could be used, similarly, any multiple of col 3 could also have been used when defining <span class="math inline">\(S\)</span> above, since <span class="math inline">\(V_1\)</span> is one dimensional and any multiple of <span class="math inline">\(\begin{pmatrix}1 &amp; 2 &amp; 1\end{pmatrix}^\intercal\)</span> constitutes a basis.</p>
+<p>Sticking with our <a href="#eq-Smatrix_eg_2" class="quarto-xref">Equation&nbsp;4</a>, we know that:</p>
+<p><span class="math display">\[
+AS=\Lambda S \leftrightsquigarrow \begin{pmatrix} 3 &amp; -1 &amp; 0\\0 &amp; 1 &amp; 0 \\ 0 &amp; -1 &amp; 3\end{pmatrix}\begin{pmatrix}1 &amp; 2 &amp; 1\\0 &amp; 1 &amp; 2\\0 &amp; 2 &amp; 1\end{pmatrix}=\begin{pmatrix}3 &amp; 0 &amp; 0\\0 &amp; 3 &amp; 0\\0 &amp; 0 &amp; 1\end{pmatrix}\begin{pmatrix}1 &amp; 2 &amp; 1\\0 &amp; 1 &amp; 2\\0 &amp; 2 &amp; 1\end{pmatrix}
+\]</span></p>
+<p>And therefore:</p>
+<p><span class="math display">\[
+f(v)=\mathbf{B}'\Lambda X'\qquad v=\mathbf{B}'X' \qquad \Lambda = \begin{pmatrix}3 &amp; 0 &amp; 0\\0 &amp; 3 &amp; 0\\0 &amp; 0 &amp; 1\end{pmatrix}
+\]</span></p>
+</section>
+<section id="example-3-cont" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-cont">Example 3 (cont)</h2>
+<p>In this case, we only have two eigenvectors. We needed three to write our <span class="math inline">\(S\)</span>. In this case it is not possible to represent our <span class="math inline">\(f\)</span> wrt to its eigenvector basis, simply because the eigenvectors for this specific <span class="math inline">\(f\)</span> do now constitute a basis, one vector is missing.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,6 +1116,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./change_of_basis.html" class="pagination-link" aria-label="Change of basis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Change of basis</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

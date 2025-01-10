@@ -407,23 +407,53 @@ window.Quarto = {
   <li><a href="#example-2-of-a-vector-space" id="toc-example-2-of-a-vector-space" class="nav-link" data-scroll-target="#example-2-of-a-vector-space">Example 2 of a vector space</a></li>
   </ul></li>
   <li><a href="#intuitive-idea-of-structure-of-a-vs-retirar" id="toc-intuitive-idea-of-structure-of-a-vs-retirar" class="nav-link" data-scroll-target="#intuitive-idea-of-structure-of-a-vs-retirar">Intuitive idea of structure of a vs (Retirar?)</a></li>
-  <li><a href="#linear-functions" id="toc-linear-functions" class="nav-link" data-scroll-target="#linear-functions">Linear functions</a>
+  <li><a href="#linear-functions-start-here" id="toc-linear-functions-start-here" class="nav-link" data-scroll-target="#linear-functions-start-here">Linear functions (START HERE)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-choose-a-basis-for-the-domain-and-codomain" id="toc-step-1-choose-a-basis-for-the-domain-and-codomain" class="nav-link" data-scroll-target="#step-1-choose-a-basis-for-the-domain-and-codomain">Step 1: Choose a basis for the domain and codomain</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#step-2-decide-how-f-acts-on-the-domains-basis" id="toc-step-2-decide-how-f-acts-on-the-domains-basis" class="nav-link" data-scroll-target="#step-2-decide-how-f-acts-on-the-domains-basis">Step 2: Decide how <span class="math inline">\(f\)</span> acts on the domain’s basis</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#step-3-mapping-a-generic-vector-of-the-domain" id="toc-step-3-mapping-a-generic-vector-of-the-domain" class="nav-link" data-scroll-target="#step-3-mapping-a-generic-vector-of-the-domain">Step 3: Mapping a generic vector of the domain</a></li>
+  <li><a href="#a-formula-for-f" id="toc-a-formula-for-f" class="nav-link" data-scroll-target="#a-formula-for-f">A formula for <span class="math inline">\(f\)</span>:</a></li>
+  </ul></li>
+  <li><a href="#revisiting-two-important-subspaces" id="toc-revisiting-two-important-subspaces" class="nav-link" data-scroll-target="#revisiting-two-important-subspaces">Revisiting Two important subspaces</a>
+  <ul class="collapse">
+  <li><a href="#kernel-of-a-linear-function" id="toc-kernel-of-a-linear-function" class="nav-link" data-scroll-target="#kernel-of-a-linear-function">Kernel of a linear function</a></li>
+  <li><a href="#image-of-the-domain-range-of-linear-functions" id="toc-image-of-the-domain-range-of-linear-functions" class="nav-link" data-scroll-target="#image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</a></li>
+  <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#the-4-spaces-of-example-1" id="toc-the-4-spaces-of-example-1" class="nav-link" data-scroll-target="#the-4-spaces-of-example-1">The 4 spaces of example 1:</a></li>
+  </ul></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4:</a></li>
+  <li><a href="#mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" id="toc-mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" class="nav-link" data-scroll-target="#mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat">(Mathematical) Motivation: Linear Maps are Structure preserving maps. Whaaaat?</a></li>
+  <li><a href="#commentary-2" id="toc-commentary-2" class="nav-link" data-scroll-target="#commentary-2">Commentary</a></li>
+  </ul></li>
+  <li><a href="#def-f-through-action-on-the-basis" id="toc-def-f-through-action-on-the-basis" class="nav-link" data-scroll-target="#def-f-through-action-on-the-basis">Def f through action on the basis</a></li>
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition">Composition</a></li>
+  <li><a href="#inverse." id="toc-inverse." class="nav-link" data-scroll-target="#inverse.">Inverse.</a></li>
+  <li><a href="#change-of-basis" id="toc-change-of-basis" class="nav-link" data-scroll-target="#change-of-basis">Change of Basis</a>
   <ul class="collapse">
   <li><a href="#is-it-linear-or-not" id="toc-is-it-linear-or-not" class="nav-link" data-scroll-target="#is-it-linear-or-not">Is it linear or not?</a>
   <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1:</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2:</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3:</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4:</a></li>
+  <li><a href="#example-1-2" id="toc-example-1-2" class="nav-link" data-scroll-target="#example-1-2">Example 1:</a></li>
+  <li><a href="#example-2-1" id="toc-example-2-1" class="nav-link" data-scroll-target="#example-2-1">Example 2:</a></li>
+  <li><a href="#example-3-1" id="toc-example-3-1" class="nav-link" data-scroll-target="#example-3-1">Example 3:</a></li>
+  <li><a href="#example-4-1" id="toc-example-4-1" class="nav-link" data-scroll-target="#example-4-1">Example 4:</a></li>
   <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5:</a></li>
   <li><a href="#example-6-non-linear" id="toc-example-6-non-linear" class="nav-link" data-scroll-target="#example-6-non-linear">Example 6: (NON-linear)</a></li>
   </ul></li>
-  <li><a href="#example-7-matrices-are-procedures-that-define-linear-functions" id="toc-example-7-matrices-are-procedures-that-define-linear-functions" class="nav-link" data-scroll-target="#example-7-matrices-are-procedures-that-define-linear-functions">Example 7: Matrices are procedures that define linear functions</a></li>
+  <li><a href="#example-7-matrices-define-procedures-that-define-linear-functions" id="toc-example-7-matrices-define-procedures-that-define-linear-functions" class="nav-link" data-scroll-target="#example-7-matrices-define-procedures-that-define-linear-functions">Example 7: Matrices define procedures that define linear functions</a></li>
   <li><a href="#mathematical-motivation" id="toc-mathematical-motivation" class="nav-link" data-scroll-target="#mathematical-motivation">(Mathematical) Motivation</a></li>
   </ul></li>
   <li><a href="#two-important-subspaces" id="toc-two-important-subspaces" class="nav-link" data-scroll-target="#two-important-subspaces">Two important subspaces</a>
   <ul class="collapse">
-  <li><a href="#kernel-of-a-linear-function" id="toc-kernel-of-a-linear-function" class="nav-link" data-scroll-target="#kernel-of-a-linear-function">Kernel of a linear function</a>
+  <li><a href="#kernel-of-a-linear-function-1" id="toc-kernel-of-a-linear-function-1" class="nav-link" data-scroll-target="#kernel-of-a-linear-function-1">Kernel of a linear function</a>
   <ul class="collapse">
   <li><a href="#example-1-cont" id="toc-example-1-cont" class="nav-link" data-scroll-target="#example-1-cont">Example 1 (cont):</a></li>
   <li><a href="#example-2-cont" id="toc-example-2-cont" class="nav-link" data-scroll-target="#example-2-cont">Example 2 (cont):</a></li>
@@ -431,7 +461,7 @@ window.Quarto = {
   <li><a href="#example-4-cont" id="toc-example-4-cont" class="nav-link" data-scroll-target="#example-4-cont">Example 4 (cont):</a></li>
   <li><a href="#example-5-cont" id="toc-example-5-cont" class="nav-link" data-scroll-target="#example-5-cont">Example 5 (cont):</a></li>
   </ul></li>
-  <li><a href="#image-of-the-domain-range-of-linear-functions" id="toc-image-of-the-domain-range-of-linear-functions" class="nav-link" data-scroll-target="#image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</a></li>
+  <li><a href="#image-of-the-domain-range-of-linear-functions-1" id="toc-image-of-the-domain-range-of-linear-functions-1" class="nav-link" data-scroll-target="#image-of-the-domain-range-of-linear-functions-1">Image of the domain (range of linear functions)</a></li>
   </ul></li>
   <li><a href="#describing-the-type-of-mapping-f" id="toc-describing-the-type-of-mapping-f" class="nav-link" data-scroll-target="#describing-the-type-of-mapping-f">Describing the type of mapping <span class="math inline">\(f\)</span></a></li>
   <li><a href="#dimension-theorem" id="toc-dimension-theorem" class="nav-link" data-scroll-target="#dimension-theorem">Dimension Theorem</a>
@@ -588,14 +618,12 @@ Commentary
 <p>A generic l.c. <span class="math inline">\(\alpha(1,3)+\beta(0,1) = (\alpha,3\alpha+\beta)\)</span>. Connects <span class="math inline">\(\alpha(1,3)\)</span> and <span class="math inline">\(\beta(0,1)\)</span> with <span class="math inline">\((\alpha,3\alpha+\beta)\)</span>.</p>
 <p>The operation l.c. creates this web of connectivity between elements of a vector space.</p>
 </section>
-<section id="linear-functions" class="level1">
-<h1>Linear functions</h1>
-<p>Consider two vector spaces <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span>. As such they are closed under l.c. and present a structure of connectivity among its elements.</p>
-<p>A linear function is a bridge between elements of both vectors spaces, but it is not just any bridge, it a bridge that is constructed following one rule.</p>
+<section id="linear-functions-start-here" class="level1">
+<h1>Linear functions (START HERE)</h1>
+<p>Consider two vector spaces <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span>.</p>
+<p>A linear function is a bridge between elements of both vectors spaces defined as follows:</p>
 <div id="def-linear_func" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span> be two vector spaces (thus with their own structure induced by the operation of l.c.)</p>
-<p>A linear function is defined as:</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <span class="math display">\[
 \begin{align}
 f:\mathbb{R}^n&amp;\longrightarrow \mathbb{R}^m\\
 \bf{u}&amp;\longmapsto f(\bf{u})
@@ -604,40 +632,434 @@ f:\mathbb{R}^n&amp;\longrightarrow \mathbb{R}^m\\
 <p>such that the following rule is obeyed: <span class="math inline">\(f(\lambda \bf{u}+\mu \bf{v}) = \lambda f (\bf{u}) + \mu f(\bf{v})\)</span></p>
 <p>for all <span class="math inline">\(\lambda,\mu \in \mathbb{R}\)</span> and <span class="math inline">\(\bf{u},\bf{v}\in \mathbb{R}^n\)</span>.</p>
 <p><em>Terminology:</em> The vector space <span class="math inline">\(\mathbb{R}^n\)</span> is the domain of the function <span class="math inline">\(f\)</span>, while <span class="math inline">\(\mathbb{R}^m\)</span> is the codomain (of <span class="math inline">\(f\)</span>)</p>
-<p>when referring to a linear function well use <span class="math inline">\(\sim\)</span> and write: <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>.</p>
+<p>When referring to a linear function we will use <span class="math inline">\(\sim\)</span> and write: <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>.</p>
 </div>
-<p>Lets see some example, as well as answer the question: Is it linear or not?</p>
+<p>We do know how <span class="math inline">\(f\)</span> maps between the spaces, but whatever procedure <span class="math inline">\(f\)</span> is, it must have the property <span class="math inline">\(f(\lambda \bf{u}+\mu \bf{v}) = \lambda f (\bf{u}) + \mu f(\bf{v})\)</span>. In fact, this property, together with the choice of a basis for the domain and codomain, we can write a concrete formula (procedure) for <span class="math inline">\(f\)</span>.</p>
+<p><strong>Goal:</strong> Choose the natural basis for the domain and the natural basis for the codomain and then write a formula for the linear map <span class="math inline">\(f\)</span> .</p>
+<p><strong>Idea:</strong> If we know how a linear function <span class="math inline">\(f\)</span> maps the chosen basis of the domain, we know how it maps any vector of the domain.</p>
+<p>To put this idea in practice we follow three steps:</p>
+<section id="step-1-choose-a-basis-for-the-domain-and-codomain" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-choose-a-basis-for-the-domain-and-codomain">Step 1: Choose a basis for the domain and codomain</h2>
+<p>As said above we have to chose a basis for <span class="math inline">\(\mathbb{R}^n\)</span>, let it be:</p>
+<p><span class="math display">\[
+\mathbf{e}_1:=\begin{pmatrix}1\\0\\ \vdots\\0\end{pmatrix}\qquad \mathbf{e}_2:=\begin{pmatrix}0\\1\\ \vdots\\0\end{pmatrix}\qquad\dots\qquad \mathbf{e}_n:=\begin{pmatrix}0\\0\\ \vdots\\1\end{pmatrix}
+\]</span></p>
+<p>Each vector is <span class="math inline">\(n\times 1\)</span> and there are <span class="math inline">\(n\)</span> of them.</p>
+<p>This basis is called the canonical basis of <span class="math inline">\(\mathbb{R}^n\)</span>, it is the natural basis for that space.</p>
+<p>The next step is to choose a basis for the codomain <span class="math inline">\(\mathbb{R}^m\)</span>. Let us choose its canonical basis:</p>
+<p><span id="eq-basis_of_codomain"><span class="math display">\[
+\mathbf{b}_1:=\begin{pmatrix}1\\0\\ \vdots\\0\end{pmatrix}\qquad \mathbf{b}_2:=\begin{pmatrix}0\\1\\ \vdots\\0\end{pmatrix}\qquad\dots\qquad \mathbf{b}_m:=\begin{pmatrix}0\\0\\ \vdots\\1\end{pmatrix}
+\tag{1}\]</span></span></p>
+<p>Where this time each vector is <span class="math inline">\(m\times 1\)</span>.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Let <span class="math inline">\(n=2\)</span> and <span class="math inline">\(m=3\)</span>. The canonical basis for the domain <span class="math inline">\(\mathbb{R}^2\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{e}_1=\begin{pmatrix}1\\0\end{pmatrix}\qquad \mathbf{e}_2=\begin{pmatrix}0\\1\end{pmatrix}
+\]</span></p>
+<p>The canonical basis for the codomain <span class="math inline">\(\mathbb{R}^3\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{b}_1=\begin{pmatrix}1\\0\\0\end{pmatrix}\qquad \mathbf{b}_2=\begin{pmatrix}0\\1\\0\end{pmatrix}\qquad\mathbf{b}_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]</span></p>
+</section>
+</section>
+<section id="step-2-decide-how-f-acts-on-the-domains-basis" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-decide-how-f-acts-on-the-domains-basis">Step 2: Decide how <span class="math inline">\(f\)</span> acts on the domain’s basis</h2>
+<p>When <span class="math inline">\(f\)</span> acts on <span class="math inline">\(\mathbf{e}_1\)</span>, we obtain <span class="math inline">\(f(\mathbf{e}_j)\)</span>, but what is <span class="math inline">\(f(\mathbf{e}_j)\)</span> specifically? We can say what it is specifically by saying what this vector (living in <span class="math inline">\(\mathbb{R}^m\)</span>) looks like wrt to its basis. Thus <span class="math inline">\(f(\mathbf{e}_j)\)</span> can be written by an appropriate l.c. of the <span class="math inline">\(\mathbf{b}\)</span>’s:</p>
+<p><span id="eq-repre_of_output"><span class="math display">\[
+f(\mathbf{e}_j) = \sum_{i=1}^m A_{ij}\,\,\mathbf{b}_i
+\tag{2}\]</span></span></p>
+<p>The numbers <span class="math inline">\(A_{ij}\)</span> are chosen by us and they tell us how much we want <span class="math inline">\(f(\mathbf{e}_j)\)</span> to look like <span class="math inline">\(\mathbf{b}_i\)</span>. Of course <span class="math inline">\(A_{ij}\)</span> has two indices <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, one for the current <span class="math inline">\(\mathbf{e}_j\)</span> being mapped and another for the basis vector <span class="math inline">\(\mathbf{e}_j\)</span> to which it is being compared, as a result <span class="math inline">\(i=1,2,..,m\)</span> and <span class="math inline">\(j=1,2,..,n\)</span>.</p>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<p>I choose the <span class="math inline">\(A_{ij}\)</span> to be like this:</p>
+<p><span id="eq-choice_of_As"><span class="math display">\[
+\begin{align}
+f(\mathbf{e}_1)&amp;=A_{11}\mathbf{b}_1+A_{21}\mathbf{b}_2+A_{31}\mathbf{b}_3=2\mathbf{b}_1+2\mathbf{b}_2+2\mathbf{b}_3\\
+f(\mathbf{e}_2)&amp;=A_{12}\mathbf{b}_1+A_{22}\mathbf{b}_2+A_{32}\mathbf{b}_3=-\mathbf{b}_1+\mathbf{b}_2+ \mathbf{b}_3
+\end{align}
+\tag{3}\]</span></span></p>
+</section>
+</section>
+<section id="step-3-mapping-a-generic-vector-of-the-domain" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-mapping-a-generic-vector-of-the-domain">Step 3: Mapping a generic vector of the domain</h2>
+<p>Armed with <a href="#eq-repre_of_output" class="quarto-xref">Equation&nbsp;2</a> we can compute the output <span class="math inline">\(f(\mathbf{u})\)</span> for any <span class="math inline">\(\mathbf{u}\)</span> of the domain <span class="math inline">\(\mathbb{R}^2\)</span>, i.e., for any <span class="math inline">\(\mathbf{u}\)</span> of the form:</p>
+<p><span class="math display">\[
+\mathbf{u}=c_1\mathbf{e}_1+c_2\mathbf{e}_2
+\]</span></p>
+<p>Let us do the calculation:</p>
+<p><span class="math display">\[
+\begin{align}
+f(\mathbf{u}) &amp;= f(c_1\mathbf{e}_1+c_2\mathbf{e}_2)\\
+&amp;=c_1f(\mathbf{e}_1)+c_2f(\mathbf{e}_2)\\
+&amp;=c_1(A_{11}\mathbf{b}_1+A_{21}\mathbf{b}_2+A_{31}\mathbf{b}_3)+c_2(A_{12}\mathbf{b}_1+A_{22}\mathbf{b}_2+A_{32}\mathbf{b}_3)\\
+&amp;=(A_{11}c_1+A_{12}c_2)\mathbf{b}_1+(A_{21}c_1+A_{22}c_2)\mathbf{b}_2+(A_{31}c_1+A_{32}c_2)\mathbf{b}_3
+\end{align}
+\]</span></p>
+<p>Now we substitute the numbers <span class="math inline">\(A_{ij}\)</span> we chose in <a href="#eq-choice_of_As" class="quarto-xref">Equation&nbsp;3</a> into:</p>
+<p><span id="eq-general_map"><span class="math display">\[
+f(c_1\mathbf{e}_1+c_2\mathbf{e}_2)=(A_{11}c_1+A_{12}c_2)\mathbf{b}_1+(A_{21}c_1+A_{22}c_2)\mathbf{b}_2+(A_{31}c_1+A_{32}c_2)\mathbf{b}_3
+\tag{4}\]</span></span></p>
+<p>which gives us:</p>
+<p><span class="math display">\[
+f(c_1\mathbf{e}_1+c_2\mathbf{e}_2)=(2c_1-c_2)\mathbf{b}_1+(2c_1+c_2)\mathbf{b}_2+(c_1+c_2)\mathbf{b}_3
+\]</span></p>
+<p>For example, if I want to map <span class="math inline">\(3\mathbf{e}_1+7\mathbf{e}_2\)</span>, we obtain:</p>
+<p><span class="math display">\[
+f(3\mathbf{e}_1+7\mathbf{e}_2)=(2\cdot3-7)\mathbf{b}_1+(2\cdot 3+7)\mathbf{b}_2+(3+7)\mathbf{b}_3=-\mathbf{b}_1+13\mathbf{b}_2+10\mathbf{b}_3
+\]</span></p>
+<p><strong>Important observation:</strong> Since <span class="math inline">\(f(\mathbf{u})\)</span> is in the codomain <span class="math inline">\(\mathbb{R}^3\)</span>, then it is some l.c. of the <span class="math inline">\(\mathbf{b}\)</span>’s as we did for the <span class="math inline">\(f(\mathbf{e}_1)\)</span> and <span class="math inline">\(f(\mathbf{e}_2)\)</span> in <a href="#eq-choice_of_As" class="quarto-xref">Equation&nbsp;3</a>. Therefore:</p>
+<p><span id="eq-general_repre"><span class="math display">\[
+f(\mathbf{u})=d_1\mathbf{b}_1+d_2\mathbf{b}_2+d_3\mathbf{b}_3
+\tag{5}\]</span></span></p>
+<p>Comparing <a href="#eq-general_map" class="quarto-xref">Equation&nbsp;4</a> with <a href="#eq-general_repre" class="quarto-xref">Equation&nbsp;5</a>:</p>
+<p><span class="math display">\[
+d_1\mathbf{b}_1+d_2\mathbf{b}_2+d_3\mathbf{b}_3=(A_{11}c_1+A_{12}c_2)\mathbf{b}_1+(A_{21}c_1+A_{22}c_2)\mathbf{b}_2+(A_{31}c_1+A_{32}c_2)\mathbf{b}_3
+\]</span></p>
+<p>we conclude that the coefficients <span class="math inline">\(d\)</span> are in fact the calculations:</p>
+<p><span class="math display">\[
+\begin{align}
+d_1&amp;=A_{11}c_1+A_{12}c_2\\
+d_2 &amp;= A_{21}c_1+A_{22}c_2\\
+d_3 &amp;=A_{31}c_1+A_{32}c_2
+\end{align}
+\]</span></p>
+</section>
+<section id="a-formula-for-f" class="level2">
+<h2 class="anchored" data-anchor-id="a-formula-for-f">A formula for <span class="math inline">\(f\)</span>:</h2>
+<p>From the three steps above we can write the image of <span class="math inline">\(\mathbf{u}=c_1\mathbf{e}_1+\dots+c_m\mathbf{e}_m\)</span> under <span class="math inline">\(f\)</span> as:</p>
+<p><span id="eq-gen_map"><span class="math display">\[
+\begin{align}
+f(\mathbf{u})&amp;=f(\sum_{j=1}^m c_j\mathbf{e}_j)\\
+&amp;=\sum_{j=1}^n c_jf(\mathbf{e}_j)\\
+&amp;=\sum_{j=1}^n c_j\sum_{i=1}^m A_{ij}\,\,\mathbf{b}_i\\
+&amp;=\sum_{i=1}^m\left(\sum_{j=1}^n A_{ij}c_j\right)\mathbf{b}_i
+\end{align}
+\tag{6}\]</span></span></p>
+<p>But since <span class="math inline">\(f(\mathbf{u})=\sum_{i=1}^m d_i\,\,\mathbf{b}_i\)</span>, substituting in <a href="#eq-gen_map" class="quarto-xref">Equation&nbsp;6</a>:</p>
+<p><span class="math display">\[
+\sum_{i=1}^m d_i\mathbf{b}_i=f(\mathbf{u})=\sum_{i=1}^m\left(\sum_{j=1}^n A_{ij}c_j\right)\mathbf{b}_i
+\]</span></p>
+<p>Since the coefficients must be the same we conclude that:</p>
+<p><span id="eq-matrix_mult_in_comp"><span class="math display">\[
+d_i=\sum_{j=1}^n A_{ij}c_j
+\tag{7}\]</span></span></p>
+<p>This calculation tell us something important: from the coefficients of <span class="math inline">\(\mathbf{u}\)</span> on the chosen basis of the domain of <span class="math inline">\(f\)</span>, they give us the coefficients of <span class="math inline">\(f(\mathbf{u})\)</span> in the chosen basis of the codomain. Lets read better the meaning of this formula, the <span class="math inline">\(c\)</span>’s tell us how much the input vector <span class="math inline">\(\mathbf{u}\)</span> looks like to each one of the basis vectors <span class="math inline">\(\mathbf{e}\)</span>. The numbers <span class="math inline">\(A_{ij}\)</span> quantify how much a basis vector <span class="math inline">\(f(\mathbf{e}_j)\)</span> look like the basis vector <span class="math inline">\(\mathbf{b}_j\)</span>. This means that the calculation <span class="math inline">\(\sum_{j=1}^n A_{ij}c_j\)</span> can be understood like:</p>
+<p><strong>[</strong>how much <span class="math inline">\(f(\mathbf{u})\)</span> looks like <span class="math inline">\(\mathbf{b}_i\)</span><strong>]</strong> = <strong>[</strong>how much <span class="math inline">\(f(\mathbf{e}_1)\)</span> looks like <span class="math inline">\(\mathbf{b}_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(\mathbf{u}\)</span> looks like <span class="math inline">\(\mathbf{e}_1\)</span><strong>]</strong> <span class="math inline">\(+\)</span> [how much <span class="math inline">\(f(\mathbf{e}_2)\)</span> looks like <span class="math inline">\(\mathbf{b}_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(\mathbf{u}\)</span> looks like <span class="math inline">\(\mathbf{e}_2\)</span><strong>]</strong> <span class="math inline">\(+\dots +\)</span> <strong>[</strong>how much <span class="math inline">\(f(\mathbf{e}_n)\)</span> looks like <span class="math inline">\(\mathbf{b}_i\)</span><strong>]</strong> <span class="math inline">\(\times\)</span> <strong>[</strong>how much <span class="math inline">\(\mathbf{u}\)</span> looks like <span class="math inline">\(\mathbf{e}_n\)</span><strong>]</strong></p>
+<p>Its a weighted sum of the representation of <span class="math inline">\(\mathbf{u}\)</span>!</p>
+<p>This understanding is clear because we know exactly what basis we are speaking off, after all, the first step was to make the choice of bases.</p>
+<p>Now, we can arrange these numbers (if you wish) in a more geometrically pleasing form as:</p>
+<p><span id="eq-matrix_form"><span class="math display">\[
+\left(\begin{matrix}d_1\\d_2\\\vdots\\d_n\end{matrix}\right)=
+\left(\begin{matrix}A_{11} &amp; A_{12} &amp; \dots &amp; A_{1m}\\A_{21} &amp; A_{22} &amp; \dots &amp; A_{2m} \\\vdots &amp; \vdots &amp;\ddots &amp; \vdots\\A_{n1} &amp; A_{n2} &amp;\dots &amp; A_{nm} \end{matrix}\right)
+\left(\begin{matrix}c_1\\c_2\\\vdots\\c_m\end{matrix}\right)
+\tag{8}\]</span></span></p>
+<p>which is just the <span class="math inline">\(A\mathbf{u}\)</span>. Always in the back of our minds, we need to remember that <a href="#eq-matrix_form" class="quarto-xref">Equation&nbsp;8</a> is just <a href="#eq-matrix_mult_in_comp" class="quarto-xref">Equation&nbsp;7</a>, and <a href="#eq-matrix_mult_in_comp" class="quarto-xref">Equation&nbsp;7</a> comes from <a href="#eq-gen_map" class="quarto-xref">Equation&nbsp;6</a>, where is the meaning of these coefficients <span class="math inline">\(d\)</span>, <span class="math inline">\(A\)</span>’s and <span class="math inline">\(c\)</span>’s are clear (because right next to them we find the basis vectors they multiply)</p>
+<p>As a final conclusion we should note that: if the bases chosen where canonical bases, then we can rewrite the formula:</p>
+<p><span id="eq-one"><span class="math display">\[
+f(\mathbf{u})=\sum_{i=1}^m\left(\sum_{j=1}^n A_{ij}c_j\right)\mathbf{b}_i
+\tag{9}\]</span></span></p>
+<p>by substituting in it the <span class="math inline">\(\mathbf{b}\)</span>’s in <a href="#eq-basis_of_codomain" class="quarto-xref">Equation&nbsp;1</a>, the then <a href="#eq-one" class="quarto-xref">Equation&nbsp;9</a> turn into:</p>
+<p><span id="eq-two"><span class="math display">\[
+f(\mathbf{u}) = A\mathbf{u}
+\tag{10}\]</span></span></p>
+<p>Now we have the context where operations <span class="math inline">\(A\)</span> times a vector <span class="math inline">\(\mathbf{u}\)</span> emerges. They are the concrete realization of linear maps between vector spaces after a basis for each is chosen.</p>
+<p><em>Notice:</em> <a href="#eq-one" class="quarto-xref">Equation&nbsp;9</a> is useful to understand the meaning of the numbers, while <a href="#eq-two" class="quarto-xref">Equation&nbsp;10</a> is useful to do calculations, like column space and nullspace as we shall see.</p>
+<p>The matrix we have been considering is:</p>
+<p><span class="math display">\[
+\left(\begin{matrix}d_1\\d_2\\d_3\end{matrix}\right)=\left(\begin{matrix}2 &amp; -1\\2 &amp; 1 \\1 &amp; 1  \end{matrix}\right)\left(\begin{matrix}c_1\\c_2\end{matrix}\right)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I wish you could follow the steps:</p>
+<p>Step 1: Choose a basis for the domain and codomain</p>
+<p>Step 2: Decide how <span class="math inline">\(f\)</span> acts on the domain’s basis</p>
+<p>Step 3: Mapping a generic vector of the domain</p>
+<p>and reach <a href="#eq-matrix_mult_in_comp" class="quarto-xref">Equation&nbsp;7</a> and then the matrix.</p>
+<p>And also go backwards!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="revisiting-two-important-subspaces" class="level1">
+<h1>Revisiting Two important subspaces</h1>
+<p>The domain and codomain of a map <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow}\mathbb{R}^m\)</span> are defined by us when we introduce <span class="math inline">\(f\)</span> to the world. But within <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span> there are subspaces of great importance and which are determined by the type of operation <span class="math inline">\(f\)</span> we choose.</p>
+<p>These two spaces are the range of <span class="math inline">\(f\)</span> also known as the <em>image of the domain under</em> <span class="math inline">\(f\)</span> and the <em>kernel</em> (or nullspace) <em>of</em> <span class="math inline">\(f\)</span><em>,</em> [<em>Comment:</em> the nullspace of <span class="math inline">\(f\)</span> are the zeros of the function, just you have seen in high-school.]</p>
+<section id="kernel-of-a-linear-function" class="level2">
+<h2 class="anchored" data-anchor-id="kernel-of-a-linear-function">Kernel of a linear function</h2>
+<div id="def-kernel" class="theorem definition" style="color:gray">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the kernel of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^n\)</span>:</p>
+<p><span class="math display">\[ \ker f = \{\mathbf{u}\in\mathbb{R}^n\,\,|\,\,f(\bf{u})=\bf{0}\} \]</span></p>
+<p>Moreover, it is in fact a subspace.</p>
+</div>
+</section>
+<section id="image-of-the-domain-range-of-linear-functions" class="level2">
+<h2 class="anchored" data-anchor-id="image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</h2>
+<div id="def-range" class="theorem definition" style="color:gray">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the range of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^m\)</span>:</p>
+<p><span class="math display">\[ f(\mathbb{R}^n) = \{f(\mathbf{u})\in\mathbb{R}^m\,\,|\,\,\mathbf{u}\in\mathbb{R}^n\} \]</span></p>
+<p>Moreover, it is also a subspace.</p>
+</div>
+</section>
+<section id="example-1-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-1">Example 1</h2>
+<p>Lets follow the three steps again.</p>
+<p>We intend to define a function <span class="math inline">\(f:\mathbb{R}^3\overset{\sim}{\longrightarrow} \mathbb{R}\)</span>. To do that we new first a basis for <span class="math inline">\(\mathbb{R}^3\)</span> and another for <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span id="eq-bases_of_ex1"><span class="math display">\[
+\mathbf{e}_1=\begin{pmatrix}1\\0\\0 \end{pmatrix}\qquad \mathbf{e}_2=\begin{pmatrix}0\\1\\0 \end{pmatrix} \qquad \mathbf{e}_3=\begin{pmatrix}0\\0\\1 \end{pmatrix}\qquad
+\mathbf{b}_1=1
+\tag{11}\]</span></span></p>
+<p>To write a formula for <span class="math inline">\(f\)</span> given these bases we at step two decide how <span class="math inline">\(f\)</span> acts on the chosencanonical bases:</p>
+<p><span class="math display">\[
+f(\mathbf{e}_1)=f(\mathbf{e}_3)=2\mathbf{b}_1\qquad f(\mathbf{e}_2)=0\mathbf{b}_1
+\]</span></p>
+<p>At step three we now write the action of <span class="math inline">\(f\)</span> on an arbitrary vector <span class="math inline">\(\mathbf{x}\in\mathbb{R}^3\)</span> is:</p>
+<p><span id="eq-eq1"><span class="math display">\[
+\begin{align}
+f(x_1\mathbf{e}_1+x_2\mathbf{e}_2+x_3\mathbf{e}_3)&amp;=x_1f(\mathbf{e}_1)+x_2f(\mathbf{e}_2)+x_3f(\mathbf{e}_3)\\
+&amp;=(2x_1+2x_3)\mathbf{b}_1
+\end{align}
+\tag{12}\]</span></span></p>
+<p>and then decompose <span class="math inline">\(f(x_1\mathbf{e}_1+x_2\mathbf{e}_2+x_3\mathbf{e}_3)\)</span> on the basis of <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span id="eq-eq2"><span class="math display">\[
+f(x_1\mathbf{e}_1+x_2\mathbf{e}_2+x_3\mathbf{e}_3)=d_1\mathbf{b}_1
+\tag{13}\]</span></span></p>
+<p>What is <span class="math inline">\(d_1\)</span> in terms of the <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span>? Comparing <a href="#eq-eq1" class="quarto-xref">Equation&nbsp;12</a> and <a href="#eq-eq2" class="quarto-xref">Equation&nbsp;13</a> we arrive at:</p>
+<p><span class="math display">\[
+d_1=2x_1+2x_3
+\]</span></p>
+<p>This equation is analogous to <a href="#eq-matrix_mult_in_comp" class="quarto-xref">Equation&nbsp;7</a>, from this we identify the matrix <span class="math inline">\(A=(2,0,2)\)</span>:</p>
+<p><span class="math display">\[
+d_1=(2,0,2)\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+\]</span></p>
+<p>This formula is exactly <a href="#eq-matrix_form" class="quarto-xref">Equation&nbsp;8</a>!</p>
+<p>With the information above, the function</p>
+<p><span class="math display">\[
+\begin{align} f:\mathbb{R}^3&amp;\longrightarrow \mathbb{R}\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=2(x_1+x_3)\mathbf{b}_1 \end{align}
+\]</span></p>
+<p>Substituting <span class="math inline">\(\mathbf{b}_1=1\)</span> and the above can be rewritten as:</p>
+<p><span class="math display">\[
+\begin{align} f:\mathbb{R}^3&amp;\longrightarrow \mathbb{R}\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=A\mathbf{x} =2(x+z)  \end{align}
+\]</span></p>
+<section id="the-4-spaces-of-example-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-4-spaces-of-example-1">The 4 spaces of example 1:</h3>
+<p>What is the kernel? It is the nullspace of <span class="math inline">\(2(1,0,1)\)</span> which is the set of vectors perpendicular to it:</p>
+<p><span class="math display">\[
+2(2,0,2)\begin{pmatrix}x_{1N}\\x_{2N}\\x_{3N}\end{pmatrix}=0
+\]</span></p>
+<p>Since we have one pivot on the first column and two dependent columns, we expect two dimensions.</p>
+<p>Isolating <span class="math inline">\(Col_2\)</span> by setting <span class="math inline">\(y_N=1\)</span> and <span class="math inline">\(z_N=0\)</span>, the only answer is <span class="math inline">\(x_N=0\)</span>, thus <span class="math inline">\((0,1,0)\)</span> is in the nullspace.</p>
+<p>Isolating <span class="math inline">\(Col_3\)</span> by setting <span class="math inline">\(y_N=0\)</span> and <span class="math inline">\(z_N=1\)</span>, we find <span class="math inline">\(x_N=-1\)</span>, the second basis vector is <span class="math inline">\((-1,0,1)\)</span>.</p>
+<p>Any l.c. of these solutions is also mapped to <span class="math inline">\(0\)</span>, thus:</p>
+<p><span class="math display">\[
+\ker f = span \{(0,1,0)^\intercal,(-1,0,1)^\intercal\}
+\]</span></p>
+<p>The image is one dimensional since there is only one pivot:</p>
+<p><span class="math display">\[
+f(\mathbb{R}^3)=\mathbb{R}
+\]</span></p>
+<p>From the matrix <span class="math inline">\(A\)</span> we can define the row-space as</p>
+<p><span class="math display">\[
+C(A^\intercal)=span\{(1,0,1)^\intercal\}
+\]</span></p>
+<p>While the left-nullspace is just <span class="math inline">\(N(A^\intercal)=\{0\}\)</span>.</p>
+<p>The rowspace and null space break the domain <span class="math inline">\(\mathbb{R}^3\)</span> into two subspaces, while the column space and codomain are equal:</p>
+<p><span class="math display">\[
+\mathbb{R}^3 = span\{(1,0,1)^\intercal\}\oplus span \{(0,1,0)^\intercal,(-1,0,1)^\intercal\}\qquad \mathbb{R} = \mathbb{R}\oplus\{0\}
+\]</span></p>
+<p>which can be rewritten using <a href="#eq-bases_of_ex1" class="quarto-xref">Equation&nbsp;11</a> as:</p>
+<p><span class="math display">\[
+\mathbb{R}^3 = span\{\mathbf{e}_1+\mathbf{e}_2\}\oplus span \{\mathbf{e}_2,-\mathbf{e}_1+\mathbf{e}_2\}\qquad \mathbb{R} = span\{\mathbf{b}_1\}\oplus\{\mathbf{0}\}
+\]</span></p>
+<p>From this, the following picture tells us how one vector <span class="math inline">\(\mathbf{u}\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span> is mapped into <span class="math inline">\(f(\mathbf{u})\in\mathbb{R}\)</span></p>
+<p><img src="figs/maps_yellow_vector.png" class="img-fluid"></p>
+<p>Given these subspaces of the domain and codomain we can now focus on describing the kind of mapping that <span class="math inline">\(f\)</span> does. On the picture we see a vector <span class="math inline">\(\mathbf{x}\)</span> being decomposed into its parts, one in the nullspace and another in the row space:</p>
+<p><span class="math display">\[
+\mathbf{x}=\mathbf{x}_{R}+\mathbf{x}_{N}
+\]</span></p>
+<p>The <span class="math inline">\(\mathbf{x}_N\)</span> is mapped by this <span class="math inline">\(f\)</span> into <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mathbf{x}_R\)</span> is mapped into <span class="math inline">\(f(\mathbf{x})\)</span>, thus we can write <span class="math inline">\(f(\mathbf{x})=f(\mathbf{x}_R)\)</span> for all <span class="math inline">\(\mathbf{x}\in \mathbb{R}^3\)</span>.</p>
+<p>For each <span class="math inline">\(\mathbf{x}_R\)</span> in the rowspace we can any add any vector of the null space, the image is always <span class="math inline">\(f(\mathbf{x}_R)\)</span>. Therefore this is not a 1-1 function.</p>
+<p>But is it onto? For any element <span class="math inline">\(d_1\)</span> of <span class="math inline">\(\mathbb{R}\)</span> we can find a <span class="math inline">\(\mathbf{x}\)</span>, such that <span class="math inline">\(f(\mathbf{x})=d_1\)</span> i.e.</p>
+<p><span class="math display">\[
+d_1=2x+2z
+\]</span></p>
+<p>is always solvable. This <span class="math inline">\(f\)</span> is onto.</p>
+<p>As a consequence we conclude that any equation</p>
+<p><span class="math display">\[
+f(\mathbf{x})=b
+\]</span></p>
+<p>(given a <span class="math inline">\(b\)</span>) always has solution, in fact has an infinite number of solutions, thanks to the fact that the nullspace is not just <span class="math inline">\(\mathbf{0}\)</span>.</p>
+<p>Another way to put this, this <span class="math inline">\(f\)</span> has no inverse, but a fibre can be defined:</p>
+<p><span class="math display">\[
+f^{-1}(b)=\{\mathbf{x}\in\mathbb{R}^3\,\,|\,\,f(\mathbf{x})=b\}
+\]</span></p>
+<p>This set is the solution of <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>!</p>
+</section>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<p>Consider two vector spaces <span class="math inline">\(\mathbb{R}^4\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span> and theys canonical basis <span class="math inline">\(\mathbf{e}_i\)</span> and <span class="math inline">\(\mathbf{b}_j\)</span> and a map <span class="math inline">\(f\)</span> such that:</p>
+<p><span id="eq-f_on_basis"><span class="math display">\[
+\begin{align}
+f(\mathbf{e}_1)&amp;=\mathbf{b}_1+2\mathbf{b}_2+3\mathbf{b}_3\\
+f(\mathbf{e}_2)&amp;=2\mathbf{b}_1+4\mathbf{b}_2+6\mathbf{b}_3\\
+f(\mathbf{e}_3)&amp;=2\mathbf{b}_1+6\mathbf{b}_2+8\mathbf{b}_3\\
+f(\mathbf{e}_4)&amp;=2\mathbf{b}_1+8\mathbf{b}_2+10\mathbf{b}_3
+\end{align}
+\tag{14}\]</span></span></p>
+<p>The action of <span class="math inline">\(f\)</span> on some generic:</p>
+<p><span class="math display">\[
+\mathbf{x}=x\mathbf{e}_1+y\mathbf{e}_2+z\mathbf{e}_3+w\mathbf{e}_w=\begin{pmatrix}x\\y\\z\\w\end{pmatrix}
+\]</span></p>
+<p>gives us:</p>
+<p><span class="math display">\[
+f(\mathbf{x})=xf(\mathbf{e}_1)+yf(\mathbf{e}_2)+zf(\mathbf{e}_3)+wf(\mathbf{e}_w)=A\mathbf{x}
+\]</span></p>
+<p>where we inserted <a href="#eq-f_on_basis" class="quarto-xref">Equation&nbsp;14</a> at the second step, here <span class="math inline">\(A\)</span> is an already familiar matrix:</p>
+<p><span class="math display">\[ A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix} \]</span></p>
+<p>Note: the three entries of <span class="math inline">\(f(\mathbf{x})\)</span> is <span class="math inline">\(d_1\mathbf{b}_1+d_2\mathbf{b}_2+d_2\mathbf{b}_2\)</span>, thus</p>
+<p><span class="math display">\[
+f(\mathbf{x})=\begin{pmatrix}d_1\\d_2\\d_3\end{pmatrix}
+\]</span></p>
+<p>With the three steps done, we define this function as:</p>
+<p><span class="math display">\[ \begin{align} f:\mathbb{R}^4&amp;\longrightarrow \mathbb{R}^3\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=A\mathbf{x}  \end{align} \]</span></p>
+<p>Its shape tell us all, <span class="math inline">\(4\)</span> columns ready to multiply the <span class="math inline">\(4\)</span> coefficients in <span class="math inline">\((x,y,z,w)\)</span> returning a <span class="math inline">\(3\)</span> entry vector <span class="math inline">\(A\mathbf{x}\)</span>.</p>
+<p>From the matrix multiplying rules we know<span class="math inline">\(A(\alpha \mathbf{x} +\beta \mathbf{y})=\alpha A\mathbf{x} +\beta A \mathbf{y}\)</span>, which in another notation mean <span class="math inline">\(f(\alpha \mathbb{x} +\beta \mathbf{y})=\alpha f(\mathbf{x}) +\beta f (\mathbf{y})\)</span>. Thus the procedure on which <span class="math inline">\(f\)</span> was defined is said to be linear and thus we call this function a linear function.</p>
+<p>The kernel of <span class="math inline">\(f\)</span> is:</p>
+<p><span class="math display">\[
+\ker f = \{\mathbf{u}\in\mathbb{R}^4\,\,|\,\,A\mathbf{u}=\mathbf{0}\}=span\{\begin{pmatrix}-2\\1\\0\\0 \end{pmatrix},\begin{pmatrix}2\\0\\-2\\1 \end{pmatrix}\}
+\]</span></p>
+<p>which is the familiar <span class="math inline">\(N(A)\)</span> we computed before.</p>
+<p>The image of <span class="math inline">\(f\)</span> is:</p>
+<p><span class="math display">\[
+f(\mathbb{R}^4) = \{A\mathbf{u}\in\mathbb{R}^3\,\,|\,\,\mathbf{u}\in\mathbb{R}^4\} =span\{\begin{pmatrix}1\\2\\3\end{pmatrix},\begin{pmatrix}2\\6\\8\end{pmatrix}\}
+\]</span></p>
+<p>But this is just what we called the column space of <span class="math inline">\(A\)</span>.</p>
+<p>Recall the rowspace and left nullspace are orthogonal to these and have the following dimensions:</p>
+<p><span class="math display">\[
+C(A^\intercal)=span\{(1,2,2,2),(2,4,6,8)\} \qquad N(A^\intercal)=span\{(-1,-1,1)\}
+\]</span></p>
+<p><img src="figs/maps_fav_matrix.png" class="img-fluid"></p>
+<p>Looking at the diagram any <span class="math inline">\(\mathbf{x}\)</span>, it can broken into two parts:</p>
+<p><span class="math display">\[
+\mathbf{x}=\mathbf{x}_R+\mathbf{x}_N
+\]</span></p>
+<p>Any <span class="math inline">\(\mathbf{b}\)</span> can also be broken into:</p>
+<p><span class="math display">\[
+\mathbf{b}=\mathbf{b}_C+\mathbf{b}_{LN}
+\]</span></p>
+<p>The function <span class="math inline">\(f\)</span> maps any <span class="math inline">\(\mathbf{x}\)</span> into the <span class="math inline">\(C(A)\)</span>, the <span class="math inline">\(N(A^\intercal)\)</span> is never reached. This means that for any <span class="math inline">\(\mathbf{b}\)</span> with components in the left null space the equation:</p>
+<p><span class="math display">\[
+f(\mathbf{x})=\mathbf{b} \iff A\mathbf{x}=\mathbf{b}
+\]</span></p>
+<p>has no solution.</p>
+<p>Any <span class="math inline">\(\mathbf{b}\)</span> living exclusively in the column space has a fiber of elements of the form <span class="math inline">\(\mathbf{x}_R+\mathbf{x}_N\)</span>, for a fixed <span class="math inline">\(\mathbf{x}_R\)</span> and <span class="math inline">\(\mathbf{x}_N\)</span> ranging over the entire two dimensional <span class="math inline">\(N(A)\)</span>.</p>
+<p>Evidently, this function is neither 1-1, nor onto, and no inverse (except in the sense of fiber) exists.</p>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
+<p>The map:</p>
+<p><span class="math display">\[
+\begin{align} f:\mathbb{R}^3&amp;\longrightarrow \mathbb{R}^3\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=A\mathbf{x}  \end{align}
+\]</span></p>
+<p>with:</p>
+<p><span class="math display">\[ A=\begin{pmatrix}1 &amp; 1 &amp; -1 \\2 &amp; -1&amp; 2 \\1 &amp; 2 &amp; -1\end{pmatrix} \]</span></p>
+<p>Here, the vector <span class="math inline">\(\mathbf{x}\)</span> is understood wrt the canonical basis of <span class="math inline">\(\mathbb{R}^3\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{x}=x\mathbf{e}_1+y\mathbf{e}_2+z\mathbf{e}_3 =\begin{pmatrix}x\\y\\z\end{pmatrix}
+\]</span></p>
+<p>While its image:</p>
+<p><span class="math display">\[
+f(\mathbf{x})=d_1\mathbf{b}_1+d_2\mathbf{b}_2+d_3\mathbf{b}_3=\begin{pmatrix}d_1\\d_2\\d_3\end{pmatrix}=A\mathbf{x}
+\]</span></p>
+<p>This matrix has full rank and it maps as follows:</p>
+<p><img src="figs/map_fc_full_rank.png" class="img-fluid" width="435"></p>
+<p>There is only one solution. It is 1-1 and surjective. There is inverse.</p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example 4:</h2>
+<p><span class="math display">\[
+\begin{align} f:\mathbb{R}^3&amp;\longrightarrow \mathbb{R}^3\\ \mathbf{x}&amp;\longmapsto f(\mathbf{x}):=A\mathbf{x}  \end{align}
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}2 &amp; -1 \\2 &amp; 1 \\2 &amp; 1\end{pmatrix}
+\]</span></p>
+<p><img src="figs/map_no_sol.png" class="img-fluid" width="411"></p>
+<p>If <span class="math inline">\(b\)</span> vector is outside colspace them there is no solution! Not surjective.</p>
+</section>
+<section id="mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-motivation-linear-maps-are-structure-preserving-maps.-whaaaat">(Mathematical) Motivation: Linear Maps are Structure preserving maps. Whaaaat?</h2>
+<p>Why are these linear functions important?</p>
+<p>We will answer this question in two ways: a zoom in version and a zoom out version (later)</p>
+<p><strong>Zoom in version:</strong> The rule says something important about the map <span class="math inline">\(f\)</span>, on the lhs we see an l.c. of elements of <span class="math inline">\(\mathbb{R}^n\)</span>, i.e., <span class="math inline">\(\nu\bf{u}\)</span> and <span class="math inline">\(\lambda \bf{v}\)</span> are mapped into <span class="math inline">\(\nu\bf{u}+\lambda\bf{v}\in \mathbb{R}^n\)</span>. This vector in turn is mapped, now under <span class="math inline">\(f\)</span>, into the element <span class="math inline">\(f(\nu\bf{u}+\lambda\bf{v})\in\mathbb{R}^m\)</span>. On the rhs we see a l.c. of elements of <span class="math inline">\(\mathbb{R}^m\)</span>: <span class="math inline">\(f (\bf{u})\)</span> is being combined with <span class="math inline">\(f (\bf{v})\)</span> with the coefficients <span class="math inline">\(\nu\)</span> and <span class="math inline">\(\lambda\)</span>.</p>
+<p><img src="figs/linear_func.png" class="img-fluid"></p>
+<p>On the picture we see a l.c. diagram-<span class="math inline">\((\nu,\lambda)\)</span> on the left and another on the right whose coefficients are the same. These diagrams and all the other are what we can the connectivity structure of the vector space. Notice, the elements being combined are different - on the left we have <span class="math inline">\(\bf{u}\)</span> with <span class="math inline">\(n\)</span> dimensions while <span class="math inline">\(\bf{u}'\)</span> has <span class="math inline">\(m\)</span> dimensions.</p>
+<p>The equality <span class="math inline">\(f(\nu \bf{u}+\lambda \bf{v}) = \nu f (\bf{u}) + \lambda f(\bf{v})\)</span> says the three points of diagram on the left are “connected” to a diagram on the right involving the same coefficients. As a result, the connection on the left is preserved because it is reproduced on the right. Its image under <span class="math inline">\(f\)</span> does not change.</p>
+</section>
+<section id="commentary-2" class="level2">
+<h2 class="anchored" data-anchor-id="commentary-2">Commentary</h2>
+<p>An example of a non-preserving function was the <span class="math inline">\(\square\)</span> function whose behavior is diagrammatically akin to this:</p>
+<p><img src="figs/not_linear.png" class="img-fluid"></p>
+<p>The image of the l.c. diagram on the left does not have a corresponding l.c. diagram (with the same coefficients) on the right. Thus we say <span class="math inline">\(\square\)</span> does not preserve the diagram during is mapping action.</p>
+<p>If we linearly combine two vectors the following map is observed:</p>
+<p><img src="figs/map_of_lc.png" class="img-fluid" width="378"></p>
+<p>However if we add the nullspace to each one of these we have the same map</p>
+<p><img src="figs/planes_map.png" class="img-fluid"></p>
+<p>In other words the structure on the domain is replicated in the codomain. The structure is preserved.</p>
+<p>Essentially, what we want with the introduction of this <span class="math inline">\(f\)</span> is to name an idea already present in <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>, the idea that the <span class="math inline">\(A\mathbf{x}\)</span> part of the equation is a function that maps <span class="math inline">\(\mathbf{x}\)</span> into the vector <span class="math inline">\(A\mathbf{x}\)</span>. With this idea in mind, the system of equations encoded <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span> is like asking what <span class="math inline">\(\mathbf{x}\)</span> in the domain of <span class="math inline">\(f\)</span> is mapped into the fixed <span class="math inline">\(\mathbf{b}\)</span> in the codomain.</p>
+<p><span class="math display">\[ A\mathbf{x}=\mathbf{b} \iff f(\mathbf{x})=\mathbf{b} \]</span></p>
+</section>
+</section>
+<section id="def-f-through-action-on-the-basis" class="level1">
+<h1>Def f through action on the basis</h1>
+</section>
+<section id="composition" class="level1">
+<h1>Composition</h1>
+</section>
+<section id="inverse." class="level1">
+<h1>Inverse.</h1>
+</section>
+<section id="change-of-basis" class="level1">
+<h1>Change of Basis</h1>
 <section id="is-it-linear-or-not" class="level2">
 <h2 class="anchored" data-anchor-id="is-it-linear-or-not">Is it linear or not?</h2>
-<section id="example-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-1">Example 1:</h3>
+<section id="example-1-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-2">Example 1:</h3>
 <p>Consider the function:</p>
 <p><span class="math display">\[
-\begin{align}f:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\ x&amp;\longmapsto f(x):=ax\end{align}
+\begin{align}f:\mathbb{R}&amp;\longrightarrow \mathbb{R}\\ x&amp;\longmapsto f(x):=10x\end{align}
 \]</span></p>
-<p>where <span class="math inline">\(a\)</span> is some real constant. This is a typical high-school function also known as proportionality function aka polynomial of degree one.</p>
-<p>The domain and codomain are both <span class="math inline">\(\mathbb{R}\)</span>.</p>
-<p>To check its linear we choose two generic elements of the domain <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and l.c. them using a generic coefficients <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> :</p>
+<p>In this definition we specified clearly how <span class="math inline">\(f\)</span> maps elements of <span class="math inline">\(\mathbb{R}\)</span> into <span class="math inline">\(\mathbb{R}\)</span> - when <span class="math inline">\(f\)</span> acts on the element <span class="math inline">\(x\)</span> it assigns <span class="math inline">\(f(x)\)</span> which specifically is the element <span class="math inline">\(10x\)</span> in <span class="math inline">\(\mathbb{R}\)</span>. This <span class="math inline">\(f\)</span> in this case is the ten-x function. But does ithe procedure <span class="math inline">\(10x\)</span> have the so called linearity property?</p>
+<p>To check, we choose two generic elements of the domain <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and l.c. them using a generic coefficients <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>:</p>
 <p><span class="math display">\[
-f(c_1 x_1+ c_2 x_2) = a ( c_1 x_1+ c_2 x_2) = ac_1 x_1+ ac_2 x_2 = c_1f(x_1)+c_2f(x_2)
+f(c_1 x_1+ c_2 x_2) = 10 ( c_1 x_1+ c_2 x_2) = c_1 10x_1+ c_2 10x_2 = c_1f(x_1)+c_2f(x_2)
 \]</span></p>
 <p>Indeed it is.</p>
 </section>
-<section id="example-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-2">Example 2:</h3>
-<p>Now a function from <span class="math inline">\(\mathbb{R}\)</span> into <span class="math inline">\(\mathbb{R}^2\)</span></p>
+<section id="example-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-1">Example 2:</h3>
+<p>Now a function from <span class="math inline">\(\mathbb{R}\)</span> into <span class="math inline">\(\mathbb{R}^2\)</span>, which maps as follows:</p>
 <p><span class="math display">\[
 \begin{align}g:\mathbb{R}&amp;\longrightarrow \mathbb{R}^2\\ x&amp;\longmapsto g(x):=(2x,x)\end{align}
 \]</span></p>
-<p>Is this function linear?</p>
+<p>The procedure on which the map is based is to each <span class="math inline">\(x\)</span> compute <span class="math inline">\(2x\)</span> and construct which these numbers the vector <span class="math inline">\((2x,x)\)</span>. Is this procedure linear?</p>
 <p><span class="math display">\[
 g(c_1 x_1+ c_2 x_2)=(2(c_1 x_1+ c_2 x_2),c_1 x_1+ c_2 x_2) = c_1(2x_1+,x_1)+c_2(2x_2,x_2)=c_1g(x_1)+c_2g(x_2)
 \]</span></p>
-<p>Because our choices where arbitrary, yes, this <span class="math inline">\(g\)</span> is linear.</p>
+<p>Because our choices where arbitrary, yes, this it is linear.</p>
 </section>
-<section id="example-3" class="level3">
-<h3 class="anchored" data-anchor-id="example-3">Example 3:</h3>
-<p>The projection function, picks out the <span class="math inline">\(x\)</span> component of the vector <span class="math inline">\((x,y)\)</span>:</p>
+<section id="example-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-1">Example 3:</h3>
+<p>The projection function procedure consists in picks out the <span class="math inline">\(x\)</span> component of the vector <span class="math inline">\((x,y)\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}\pi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}\\ (x,y)&amp;\longmapsto \pi(x,y):=x\end{align}
 \]</span></p>
@@ -647,8 +1069,8 @@ g(c_1 x_1+ c_2 x_2)=(2(c_1 x_1+ c_2 x_2),c_1 x_1+ c_2 x_2) = c_1(2x_1+,x_1)+c_2(
 \]</span></p>
 <p>A l.c. of inputs - <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span> - yields the same l.c. of outputs - <span class="math inline">\(\pi(x_1,y_1)\)</span> and <span class="math inline">\(\pi(x_2,y_2)\)</span>.</p>
 </section>
-<section id="example-4" class="level3">
-<h3 class="anchored" data-anchor-id="example-4">Example 4:</h3>
+<section id="example-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-4-1">Example 4:</h3>
 <p>From <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}\Phi:\mathbb{R}^2&amp;\longrightarrow \mathbb{R}^2\\ (x,y)&amp;\longmapsto \Phi(x,y):=(2x-y,x+y)\end{align}
@@ -711,15 +1133,15 @@ Commentary
 <li><p><span class="math inline">\(f(\bf{u}+\bf{v})=f(\bf{u})+f(\bf{v})\)</span></p></li>
 <li><p><span class="math inline">\(f(\lambda \bf{u})=\lambda f(\bf{u})\)</span></p></li>
 </ul>
-<p>Rather than checking one more complex rule we can check two simpler rules.</p></li>
+<p>Because, if you know these then <span class="math inline">\(f(\nu \bf{u}+\lambda \bf{v}) = \nu f (\bf{u}) + \lambda f(\bf{v})\)</span> comes as natural consequence. So just checking for these two suffices.</p></li>
 <li><p>Notice the summation and multiplication are defined in distinct vector spaces.</p></li>
 </ul>
 </div>
 </div>
 </section>
 </section>
-<section id="example-7-matrices-are-procedures-that-define-linear-functions" class="level2">
-<h2 class="anchored" data-anchor-id="example-7-matrices-are-procedures-that-define-linear-functions">Example 7: Matrices are procedures that define linear functions</h2>
+<section id="example-7-matrices-define-procedures-that-define-linear-functions" class="level2">
+<h2 class="anchored" data-anchor-id="example-7-matrices-define-procedures-that-define-linear-functions">Example 7: Matrices define procedures that define linear functions</h2>
 <p><strong>Idea:</strong> Consider two vector spaces <span class="math inline">\(\mathbb{R}^4\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span>. The vectors that live in <span class="math inline">\(\mathbb{R}^4\)</span> have the form <span class="math inline">\(\mathbf{x}=(x,y,z,w)\)</span> while those in <span class="math inline">\(\mathbb{R}^2\)</span> are <span class="math inline">\(\mathbf{u}=(u,v,t)\)</span>.</p>
 <p>A function <span class="math inline">\(f\)</span> that maps vectors from <span class="math inline">\(\mathbb{R}^4\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span> can be constructed from the procedure <span class="math inline">\(A\mathbf{x}\)</span>.</p>
 <p>We define this function as:</p>
@@ -727,7 +1149,7 @@ Commentary
 <p>where <span class="math inline">\(A\)</span> is for example (an already familiar matrix):</p>
 <p><span class="math display">\[ A=\begin{pmatrix}1 &amp; 2 &amp; 2 &amp; 2 \\2 &amp; 4 &amp; 6 &amp; 8 \\3 &amp; 6 &amp; 8 &amp; 10 \end{pmatrix} \]</span></p>
 <p>Its shape tell us all, <span class="math inline">\(4\)</span> columns ready to multiply the <span class="math inline">\(4\)</span> coefficients in <span class="math inline">\((x,y,z,w)\)</span> returning a <span class="math inline">\(3\)</span> entry vector <span class="math inline">\(A\mathbf{x}\)</span>.</p>
-<p>Notice how the property <span class="math inline">\(A(\alpha \mathbb{x} +\beta \mathbf{y})=\alpha A\mathbf{x} +\beta A \mathbf{y}\)</span> leads to <span class="math inline">\(f\)</span> being linear as well<span class="math inline">\(f(\alpha \mathbb{x} +\beta \mathbf{y})=\alpha f(\mathbf{x}) +\beta f (\mathbf{y})\)</span>.</p>
+<p>From the rules we seen about matrix multiplying vectors we know<span class="math inline">\(A(\alpha \mathbb{x} +\beta \mathbf{y})=\alpha A\mathbf{x} +\beta A \mathbf{y}\)</span>, which in another notation mean <span class="math inline">\(f(\alpha \mathbb{x} +\beta \mathbf{y})=\alpha f(\mathbf{x}) +\beta f (\mathbf{y})\)</span>. Thus the procedure on which <span class="math inline">\(f\)</span> was defined is said to be linear and thus we call this function a linear function.</p>
 <p>Essentially, what we want with the introduction of this <span class="math inline">\(f\)</span> is to name an idea already present in <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>, the idea that the <span class="math inline">\(A\mathbf{x}\)</span> part of the equation is a function that maps <span class="math inline">\(\mathbf{x}\)</span> into the vector <span class="math inline">\(A\mathbf{x}\)</span>. With this idea in mind, the system of equations encoded <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span> is like asking what <span class="math inline">\(\mathbf{x}\)</span> in the domain of <span class="math inline">\(f\)</span> is mapped into the fixed <span class="math inline">\(\mathbf{b}\)</span> in the codomain.</p>
 <p><span class="math display">\[ A\mathbf{x}=\mathbf{b} \iff f(\mathbf{x})=\mathbf{b} \]</span></p>
 </section>
@@ -754,16 +1176,23 @@ Commentary
 <p>The image of the l.c. diagram on the left does not have a corresponding l.c. diagram (with the same coefficients) on the right. Thus we say <span class="math inline">\(\square\)</span> does not preserve the diagram during is mapping action.</p>
 </div>
 </div>
+<p>If we linearly combine two vectors the following map is observed:</p>
+<p><img src="figs/map_of_lc.png" class="img-fluid" width="378"></p>
+<p>However if we add the nullspace to each one of these we have the same map</p>
+<p><img src="figs/planes_map.png" class="img-fluid"></p>
+<p>In other words the structure on the domain is replicated in the codomain. The structure is preserved.</p>
+<p>Essentially, what we want with the introduction of this <span class="math inline">\(f\)</span> is to name an idea already present in <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span>, the idea that the <span class="math inline">\(A\mathbf{x}\)</span> part of the equation is a function that maps <span class="math inline">\(\mathbf{x}\)</span> into the vector <span class="math inline">\(A\mathbf{x}\)</span>. With this idea in mind, the system of equations encoded <span class="math inline">\(A\mathbf{x}=\mathbf{b}\)</span> is like asking what <span class="math inline">\(\mathbf{x}\)</span> in the domain of <span class="math inline">\(f\)</span> is mapped into the fixed <span class="math inline">\(\mathbf{b}\)</span> in the codomain.</p>
+<p><span class="math display">\[ A\mathbf{x}=\mathbf{b} \iff f(\mathbf{x})=\mathbf{b} \]</span></p>
 </section>
 </section>
 <section id="two-important-subspaces" class="level1">
 <h1>Two important subspaces</h1>
 <p>The domain and codomain of a map <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow}\mathbb{R}^m\)</span> are defined by us when we introduce <span class="math inline">\(f\)</span> to the world. But within <span class="math inline">\(\mathbb{R}^n\)</span> and <span class="math inline">\(\mathbb{R}^m\)</span> there are subspaces of great importance and which are determined not by us diretly, but indirectly by the operation <span class="math inline">\(f\)</span> we choose.</p>
 <p>These two spaces are the range of <span class="math inline">\(f\)</span> also known as the image of the domain under <span class="math inline">\(f\)</span> and the kernel or subspace of <span class="math inline">\(f\)</span>, also known as the zeros of the function - from high-school.</p>
-<section id="kernel-of-a-linear-function" class="level2">
-<h2 class="anchored" data-anchor-id="kernel-of-a-linear-function">Kernel of a linear function</h2>
-<div id="def-kernel" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the kernel or nullspace of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^n\)</span>:</p>
+<section id="kernel-of-a-linear-function-1" class="level2">
+<h2 class="anchored" data-anchor-id="kernel-of-a-linear-function-1">Kernel of a linear function</h2>
+<div style="color:gray">
+<p>Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the kernel or nullspace of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^n\)</span>:</p>
 <p><span class="math display">\[
 \ker f = \{\bf{u}\in\mathbb{R}^n\,\,|\,\,f(\bf{u})=\bf{0}\}
 \]</span></p>
@@ -833,10 +1262,10 @@ x\\y
 <p>whose solution is <span class="math inline">\(c(1,1)\)</span>. The kernel is the whole line along <span class="math inline">\((1,1)\)</span>.</p>
 </section>
 </section>
-<section id="image-of-the-domain-range-of-linear-functions" class="level2">
-<h2 class="anchored" data-anchor-id="image-of-the-domain-range-of-linear-functions">Image of the domain (range of linear functions)</h2>
-<div id="def-range" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the range of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^m\)</span>:</p>
+<section id="image-of-the-domain-range-of-linear-functions-1" class="level2">
+<h2 class="anchored" data-anchor-id="image-of-the-domain-range-of-linear-functions-1">Image of the domain (range of linear functions)</h2>
+<div style="color:gray">
+<p>Let <span class="math inline">\(f:\mathbb{R}^n\overset{\sim}{\longrightarrow} \mathbb{R}^m\)</span>, then the range of <span class="math inline">\(f\)</span> is the subset of the domain <span class="math inline">\(\mathbb{R}^m\)</span>:</p>
 <p><span class="math display">\[
 f(\mathbb{R}^n) = \{f(\bf{u})\in\mathbb{R}^m\,\,|\,\,\bf{u}\in\mathbb{R}^n\}
 \]</span></p>
