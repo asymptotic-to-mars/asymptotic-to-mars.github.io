@@ -1,0 +1,360 @@
+---
+title: "Eigenvalues and eigenvectors"
+---
+
+In the following section we will, again, focus our attention on linear functions that map vectors of $\mathbb{V}$ into vectors of $\mathbb{V}$:
+
+$$
+\begin{align}f:\mathbb{V}&\overset{\sim}{\longrightarrow}    \mathbb{V}\\ v&\longmapsto f(v)\end{align}
+$$
+
+To each element $v$ of $\mathbb{V}$ the function $f$ assigns a new vector of $\mathbb{V}$.
+
+It may happen, as we shall see, that within $\mathbb{V}$ we find special subspaces, special because, any of its elements under $f$ is assigned to some vector within that subspace. If $\mathbb{G}$ is such a subspace we can write in mathematical language that the image of $\mathbb{G}$ is a subset, and thus a subspace of $\mathbb{G}$:
+
+$$
+f(\mathbb{G})\subseteq_{\text{vec}} \mathbb{G}
+$$
+
+Because $\mathbb{G}\subseteq_\text{vec} \mathbb{V}$, the dimension $k$ of $\mathbb{G}$ is less or equal to the dimension $n$ of $\mathbb{V}$. This observation provides us with a good idea for the choice of the $n$ basis vectors required to span $\mathbb{V}$. We may choose the $k$ basis vectors of $\mathbb{G}$ as the first $k$ basis vectors of $\mathbb{V}$ and pick the remaining $n-k$ vectors from the complementary space. Thus:
+
+$$
+\mathbf{B}=\begin{pmatrix}g_1 & \cdots & g_k &; & w_{k+1} & \cdots & w_n\end{pmatrix}
+$$
+
+Hence $\mathbb{V}=\mathbb{G}\oplus\mathbb{W}$ where $\mathbb{W}$ is the complementary (not necessarily orthogonal) space of $\mathbb{G}$.
+
+If a choice such as this is made, then the matrix representation of $f$ becomes like this:
+
+$$
+f(\mathbf{B}) = \mathbf{B}A\qquad A=\begin{pmatrix}\alpha & \beta\\0 &\delta \end{pmatrix} 
+$$
+
+Here the $\alpha$ is a matrix blocks of shape $k\times k$ whose columns tell us the components of $f(g_1)$ through $f(g_k)$ wrt the basis $\begin{pmatrix}g_1 &\cdots & g_k\end{pmatrix}$. If the second part of the chosen basis, $\begin{pmatrix}w_{k+1} &\cdots & w_n\end{pmatrix}$ does *not* span another invariant subspace, the images of $f(w_{k+1})$ through $f(w_n)$ have a part that belongs to $\mathbb{W}$, hence the non-zero block $\beta$, and another part lives on the complementary space of $\mathbb{G}$, requiring the components found in the $\delta$ matrix block. The shapes of $\beta$ and $\delta$ are $k\times(n-k)$ and $(n-k)\times (n-k)$, respectively. The block $\begin{pmatrix}\beta\\ \delta \end{pmatrix}$ has shape $n\times (n-k)$ and describes the components of $f(w_{k+1})$ through $f(w_n)$, again, wrt whole $\mathbf{B}$.
+
+*Observe:* If we imagine that the complementary space $\mathbb{W}$ is another invariant subspace of $f$, then the representation of $f(w_{k+1})$ through $f(w_n)$ only requires the basis vectors $\begin{pmatrix}w_{k+1} &\cdots & w_n\end{pmatrix}$, as a result only the $\delta$ is needed and thus $\beta$ is a block of zeros. The matrix $A$ becomes in this case:
+
+$$
+\begin{pmatrix}\alpha & 0\\0 &\delta \end{pmatrix} 
+$$
+
+Decomposing a vector space into two invariant subspaces introduces many zeros into $A$ and thus easier calculation can be performed with this representation.
+
+How do we find these invariant subspaces?
+
+*Answer:* A simple example is to compute the eigenvectors of $f$ for example $s_1$, $s_2$ and $s_3$. Then $\text{span}\{s_1\}$, $\text{span}\{s_2\}$ and $\text{span}\{s_3\}$ each constitute invariant subspaces each dimension $1$.
+
+# How to compute the eigenvalues and eigenvectors of $f$?
+
+::: {#def-vaps_veps}
+Let $f:\mathbb{V}\overset{\sim}{\longrightarrow} \mathbb{V}$ then a vector $v$ different from zero is an eigenvector of $f$ with eigenvalue $\lambda$ if
+
+$$
+f(v)=\lambda v
+$$
+
+The number $\lambda$ can be a complex number. But in these notes we'll only consider examples where $\lambda\in\mathbb{R}$.
+:::
+
+How to we solve this problem? To solve it we need to do calculation, and to do calculation we need to choose a basis for $\mathbb{V}$, any basis!
+
+If we have chosen:
+
+$$
+\mathbf{B}=\begin{pmatrix}v_1 & v_2 & \cdots & v_n\end{pmatrix}
+$$
+
+then our problem becomes:
+
+$$
+\mathbf{B}A X =\lambda\mathbf{B}  X\implies AX=\lambda X\qquad v=\mathbf{B}X\qquad X=\begin{pmatrix}x_1\\ \vdots\\ x_n\end{pmatrix}
+$$
+
+In practice, what we have to compute are the solutions of:\
+
+$$
+AX=\lambda X
+$$
+
+How do we compute these?
+
+1.  Rearrange into $(A-\lambda)X=0$.
+2.  We have $n$ equations and $n+1$ unknowns (the $\lambda$ being the $+1$ unknown). For this system to be solvable we need to provide a new equation which involves the unknown $\lambda$.
+3.  The extra equation to add could be for example something as simples as $\lambda=1$, however, noticing that we really want solutions $X\not = 0$, that extra equation (involving $\lambda$) better be: $|A-\lambda|=0$. Why? The pool of $\lambda$'s provided by solving $|A-\lambda|=0$ guarantees that $A-\lambda$ matrix has dependent columns and in return this guarantees that $X\not = 0$. Something which is not safe guarded if we simply choose $\lambda=1$ or make any other choice, for that matter.
+4.  Compute the $\lambda$'s that satisfy $|A-\lambda|=0$.
+5.  Substitute these into $(A-\lambda)X=0$, and since we have now dependent columns we can compute the corresponding eigenvector(s) $X$, these constitute the $N(A-\lambda)$ and are the eigenvectors of the matrix $A$.
+6.  The eigenvectors of $f$ are obtained by dotting these $X$'s with the hypervector $\mathbf{B}$.
+
+## Example 1
+
+We start with the endomorphism:
+
+$$
+\begin{align}f:\mathbb{R}^2&\overset{\sim}{\longrightarrow}    \mathbb{R}^2\\ (x,y)&\longmapsto f(x,y):=(2x-y,2y-x)\end{align}
+$$
+
+We want to solve the problem:
+
+$$
+f(v)=\lambda v \qquad v=(x,y)
+$$
+
+To do that we introduce a basis in $\mathbb{R}^2$, any basis works, but we opt for the simplest one:
+
+$$
+\mathbf{B}=\begin{pmatrix}v_1 & v_2\end{pmatrix}\qquad v_1=(1,0) \qquad v_2=(0,1)
+$$
+
+Therefore, any element $v$ of $\mathbb{R}^2$ can be written as dotting $\mathbf{B}$ with the column vector $X$ of coefficients:
+
+$$
+\mathbb{R}^2\ni v= \mathbf{B} X \qquad X=\begin{pmatrix}x_1\\x_2 \end{pmatrix}
+$$
+
+while the column vectors $X$ belong to the vector space of column vectors denote, also, by $\mathbf{R}^2$. (Not to be confused the $\mathbb{R}^2$ whose elements are of the form $(x,y)$.
+
+The action of $f$ on the basis is:
+
+$$
+f(\mathbf{B})=\mathbf{B} A \qquad A=\begin{pmatrix}2 & -1\\-1 & 2\end{pmatrix}
+$$
+
+Substituting into $f(v)=\lambda v$ yields:
+
+$$
+AX=\lambda X \leftrightsquigarrow \begin{pmatrix}2 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\lambda \begin{pmatrix}x_1\\x_2 \end{pmatrix}
+$$
+
+To find nonzero solutions of this equation is to solve the following problem:
+
+$$
+(A-\lambda) X=0 \leftrightsquigarrow \begin{pmatrix}2-\lambda & -1\\-1 & 2-\lambda\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix}
+$$
+
+provided we choose $\lambda$'s that make the matrix have dependent columns, i.e., we must choose the $\lambda$'s that obey:
+
+$$
+|A-\lambda|=0
+$$
+
+Lets solve this equation first, to get our pool of eigenvalues, the $\lambda$'s that ensure $A-\lambda$ have dependent columns:
+
+$$
+\begin{vmatrix} 2-\lambda & -1\\-1 & 2-\lambda\end{vmatrix}=0 \implies (\lambda-2)^2-1=0 \implies \lambda = 2\pm1
+$$
+
+We found two eigenvalues, lets now substitute one at a time and compute the corresponding eigenvector:
+
+$$
+\begin{align}
+&\lambda=2+1 \implies \begin{pmatrix}-1 & -1\\-1 & -1\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix} \implies \begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}-1\\1 \end{pmatrix}\\
+&\lambda=2-1 \implies \begin{pmatrix}1 & -1\\-1 & 1\end{pmatrix}\begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}0\\0 \end{pmatrix} \implies \begin{pmatrix}x_1\\x_2 \end{pmatrix}=\begin{pmatrix}1\\1 \end{pmatrix}
+\end{align}
+$$
+
+\[*Commentary:* above we just compute the nullspaces of two matrices, which are so simple, we did it by guess work. Of course the elimination method can be employed as usual.\]
+
+The solution set $V_{3}$ of eigenvectors of $A$ with eigenvalue $3$ is:
+
+$$
+V_{3}=N(A-3)=span\{\begin{pmatrix}-1\\1 \end{pmatrix}\}
+$$
+
+while the solution set $V_1$ is:
+
+$$
+V_{1}=N(A-1)=span\{\begin{pmatrix}1\\1 \end{pmatrix}\}
+$$
+
+Both constitute subspaces of the vector space of column vectors $\mathbf{R}^2$.
+
+Since the basis are independent we can also say that:
+
+$$
+\mathbf{R}^2=V_3\oplus V_1
+$$
+
+## Example 2
+
+This time our linear function is:
+
+$$
+\begin{align}f:\mathbb{R}^3&\overset{\sim}{\longrightarrow}    \mathbb{R}^3\\ (x,y)&\longmapsto f(x,y,z):=(3x-y,y,3z-y)\end{align}
+$$
+
+In the canonical basis:
+
+$$
+\mathbf{B}=\begin{pmatrix}e_1 & e_2 & e_3\end{pmatrix}\qquad e_1=(1,0,0)\qquad e_2=(0,1,0)\qquad e_3=(0,0,1)
+$$
+
+Our function is represented as:
+
+$$
+f(v) = \mathbf{B} A X \qquad A=\begin{pmatrix} 3 & -1 & 0\\0 & 1 & 0 \\ 0 & -1 & 3\end{pmatrix} \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+$$
+
+To compute its eigenvalues and eigenvectors we solve first:
+
+$$
+\begin{vmatrix} 3-\lambda & -1 & 0\\0 & 1-\lambda & 0 \\ 0 & -1 & 3-\lambda\end{vmatrix}=0
+$$
+
+Which gives us:
+
+$$
+(3-\lambda)(3-\lambda)(1-\lambda)=0
+$$The eigenvalues are $3$, again $3$ and $1$.
+
+The corresponding eigenvectors are:
+
+$$
+\begin{align}
+&V_3=span\{\begin{pmatrix}1& 0&0\end{pmatrix}^\intercal,\begin{pmatrix}2 & 0 & 1\end{pmatrix}^\intercal\}\\
+&V_1=span\{\begin{pmatrix}1&2&1\end{pmatrix}^\intercal\}
+\end{align}
+$$
+
+Thus the eigenvectors of $f$ are:
+
+$$
+\begin{align}
+&\mathbb{V}_3=span\{\mathbf{B}\begin{pmatrix}1& 0&0\end{pmatrix}^\intercal,\mathbf{B}\begin{pmatrix}2 & 0 & 1\end{pmatrix}^\intercal\}\\
+&\mathbb{V}_1=span\{\mathbf{B}\begin{pmatrix}1&2&1\end{pmatrix}^\intercal\}
+\end{align}
+$$
+
+## Example 3
+
+The function:
+
+$$
+\begin{align}f:\mathbb{R}^3&\overset{\sim}{\longrightarrow}    \mathbb{R}^3\\ (x,y)&\longmapsto f(x,y,z):=(3x+y,3y,2z)\end{align}
+$$
+
+acting on vectors represented wrt canonical basis as:
+
+$$
+f(v) = \mathbf{B} A X \qquad A=\begin{pmatrix} 3 & 1 & 0\\0 & 3 & 0 \\ 0 & 0 & 2\end{pmatrix} \qquad X=\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+$$
+
+Computing the eigenvalues as usual
+
+$$
+\begin{vmatrix} 3-\lambda & 1 & 0\\0 & 3-\lambda & 0 \\ 0 & 0 & 2-\lambda\end{vmatrix}=0
+$$
+
+Solving $(3-\lambda)^2(2-\lambda)=0$ gives us: $\lambda=3,2$.
+
+For $\lambda=3$, the eigenvector of $A$ and $f$ are respectively:
+
+$$
+c\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad c\mathbf{B}\begin{pmatrix}1\\0\\0\end{pmatrix}
+$$
+
+Just one! Despite the fact that the eigenvalue $3$ appear twice in that determinant equation.
+
+For $\lambda=2$:
+
+$$
+c\begin{pmatrix}0\\0\\1\end{pmatrix},\qquad c\mathbf{B}\begin{pmatrix}0\\0\\1\end{pmatrix}
+$$
+
+In this example we have a shortage on eigenvectors, not enough to span the $\mathbf{R}^3$ they are embedded in.
+
+# Representing $f$ wrt basis of its eigenvectors (Diagonalization)
+
+In the previous three examples seen how to compute the eigenvalues and eigenvectors of a linear function represented wrt the canonical basis.
+
+What is the matrix representing those $f$'s wrt to the eigenvector basis? Is this always possible?
+
+To get the $A'$ representation of $f$ we can follow either one of two paths that we seen before:
+
+1.  Act with $f$ on the eigenvectors we computed at express the output wrt those as well.
+2.  Compute $A$ wrt the canonical basis, compute the change of basis $P$, that related $\mathbf{B}'=\mathbf{B}P$, and compute $P^{-1} A P =: A'$. We will call the matrix $P$ as $S$ when dealing with eigenvectors.
+
+We will only focus on the 2. approach.
+
+## Example 1 (cont.)
+
+Since the eigenvectors:
+
+$$
+v_1=\mathbf{B}\begin{pmatrix}-1\\1\end{pmatrix} \qquad v_2=\mathbf{B}\begin{pmatrix}1\\1\end{pmatrix}\qquad \mathbf{B}=\begin{pmatrix}e_1 & e_2\end{pmatrix}
+$$ {#eq-1}
+
+are independent and they span the vector space $\mathbb{V}$. Lets promote them to a basis:
+
+$$
+\mathbf{B}':=\begin{pmatrix}v_1 & v_2\end{pmatrix}
+$$ {#eq-2}
+
+There is a connection $s$ (or $S$) between both bases, substituting @eq-1 into @eq-2 we obtain:
+
+$$
+\mathbf{B}'=\mathbf{B} S=: s(\mathbf{B}) \qquad S=\begin{pmatrix}-1 & 1\\1 & 1\end{pmatrix}
+$$
+
+where the matrix we call $S$ (before we called it $P$) is a special matrix, whose columns are the eigenvectors of $A$. And the function $s$ (previously called $p$) is a linear function that transforms the canonical basis into the eigenvector basis. This means that the components $X$ of $v$ wrt the canonical basis are transformed into the components $X'$ of $v$ wrt the eigenvector basis as:
+
+$$
+X=SX'
+$$
+
+Since $\mathbf{B} Y =:f(v)=\mathbf{B}AX$ then:
+
+$$
+\mathbf{B}'Y' =:f(v)=\mathbf{B}'S^{-1} A SX'
+$$
+
+Thus: $Y'=S^{-1}AS$ and $A'=S^{-1}AS$. Substituting the matrices above we find:
+
+$$
+A'=\begin{pmatrix}-1 & 1\\1 & 1\end{pmatrix}^{-1}\begin{pmatrix}2 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix}-1 & 1\\1 & 1\end{pmatrix}=\begin{pmatrix}3 & 0\\0 & 1\end{pmatrix}
+$$ {#eq-Aprime}
+
+Computing these matrix product gave us a diagonal matrix whose entries are the eigenvalues.
+
+Why a diagonal matrix?
+
+*Answer:* Equation @eq-Aprime is closely related to the equation $AS=\Lambda S$:
+
+$$
+\begin{pmatrix}2 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix}-1 & 1\\1 & 1\end{pmatrix}=\begin{pmatrix}3 & 0\\0 & 1\end{pmatrix}\begin{pmatrix}-1 & 1\\1 & 1\end{pmatrix}
+$$
+
+Since $S$ is invertible (the eigenvectors are independent) multiplying both sides from the left by $S^{-1}$ tell us $\Lambda=S^{-1}AS$. Thus the $A'$ in @eq-Aprime above is in fact the $\Lambda$.
+
+Thus, $f$ act on vectors represented wrt to the eigenvector basis as:
+
+$$
+f(v)=\mathbf{B}'\Lambda X'\qquad v=\mathbf{B}'X' \qquad \Lambda = \begin{pmatrix}3 & 0\\0 & 1\end{pmatrix}
+$$
+
+much easier and simple to compute maps from now on, the eigenvectors are indeed special.
+
+## Example 2 (cont.)
+
+Calculations are similar to example 1. Putting the eigenvectors of $A$ as columns of matrix we get our special matrix:
+
+$$
+S=\begin{pmatrix}1 & 2 & 1\\0 & 1 & 2\\0 & 2 & 1\end{pmatrix}
+$$ {#eq-Smatrix_eg_2}
+
+Notice in this case that col 1 and col 2 of $S$ could be any other l.c. of $\begin{pmatrix}1 & 0 & 0\end{pmatrix}^\intercal$ and $\begin{pmatrix}2 & 1 & 2\end{pmatrix}^\intercal$ since $V_3$ is two dimensional and thus many other basis could be used, similarly, any multiple of col 3 could also have been used when defining $S$ above, since $V_1$ is one dimensional and any multiple of $\begin{pmatrix}1 & 2 & 1\end{pmatrix}^\intercal$ constitutes a basis.
+
+Sticking with our @eq-Smatrix_eg_2, we know that:
+
+$$
+AS=\Lambda S \leftrightsquigarrow \begin{pmatrix} 3 & -1 & 0\\0 & 1 & 0 \\ 0 & -1 & 3\end{pmatrix}\begin{pmatrix}1 & 2 & 1\\0 & 1 & 2\\0 & 2 & 1\end{pmatrix}=\begin{pmatrix}3 & 0 & 0\\0 & 3 & 0\\0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 2 & 1\\0 & 1 & 2\\0 & 2 & 1\end{pmatrix}
+$$
+
+And therefore:
+
+$$
+f(v)=\mathbf{B}'\Lambda X'\qquad v=\mathbf{B}'X' \qquad \Lambda = \begin{pmatrix}3 & 0 & 0\\0 & 3 & 0\\0 & 0 & 1\end{pmatrix}
+$$
+
+## Example 3 (cont)
+
+In this case, we only have two eigenvectors. We needed three to write our $S$. In this case it is not possible to represent our $f$ wrt to its eigenvector basis, simply because the eigenvectors for this specific $f$ do now constitute a basis, one vector is missing.

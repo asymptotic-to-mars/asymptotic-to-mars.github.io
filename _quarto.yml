@@ -91,6 +91,18 @@ website:
         
           - href: inverse_matrix.qmd
             text: "Inverse Matrix"
+            
+          - href: linear_functions_v4.qmd
+            text: "Linear functions"
+            
+          - href: four_spaces_of_linear_functions.qmd
+            text: "Kernel and Image"
+            
+          - href: change_of_basis.qmd
+            text: "Change of basis"  
+            
+          - href: eigen.qmd
+            text: "Eigenvalues and eigenvectors"
         
   
   page-navigation: true
