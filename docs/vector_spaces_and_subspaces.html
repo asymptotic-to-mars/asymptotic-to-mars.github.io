@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,15 +32,16 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./linear_dependence_and_independence.html" rel="next">
 <link href="./linear_combinations.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-826d279fbbe3f1b566100021af094f15.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +108,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -407,10 +408,10 @@ window.Quarto = {
   <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
   <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
   <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5</a></li>
   <li><a href="#is-it-a-vector-space" id="toc-is-it-a-vector-space" class="nav-link" data-scroll-target="#is-it-a-vector-space">Is it a vector space?</a>
   <ul class="collapse">
   <li><a href="#example-3-cont" id="toc-example-3-cont" class="nav-link" data-scroll-target="#example-3-cont">Example 3 (cont)</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -437,7 +438,7 @@ window.Quarto = {
 </header>
 
 
-<p>The operation of linear combination allow us to construct vector spaces and vector subspaces. In this section we want to look at some figures and from them deduce how to construct spaces. In later sections we will adopt a new approach: to describe the space by an equation or system of equations <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span>.</p>
+<p>The operation of linear combination (l.c.) allow us to construct vector spaces and vector subspaces. In this section we want to look at pictorial examples of vectors vector spaces. In later sections we will adopt a new approach: to describe the space by an equation or system of equations <span class="math inline">\(A\mathbf{x}=\mathbf{0}\)</span>.</p>
 <p>Key concepts: <em>vectors space, subspace, span, form of the elements, direct sum.</em></p>
 <section id="example-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
@@ -454,29 +455,84 @@ Video
 <p><a href="https://youtu.be/7tD1vvoqGtc" target="_blank">R2 plane as a vector space</a></p>
 </div>
 </div>
-<p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span>. Now multiply both by every possible scalar and then add them; the end result is a set of vectors. All these vectors constitute a two dimensional plane, which we call <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
+<p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span>. Now multiply both by every possible scalar and then add them; the end result is a set of vectors.</p>
+<p>We write this in mathematical language as:</p>
+<p><span class="math display">\[
+\left[\text{all l.c. of $\begin{pmatrix} 1\\2\end{pmatrix}$ and $\begin{pmatrix} 3\\0\end{pmatrix}$ }\right] = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
+\]</span></p>
+<p>All these vectors constitute a two dimensional plane, which we call <span class="math inline">\(\mathbb{R}^2\)</span>:</p>
 <p><img src="figs/R2_plane.png" class="img-fluid" width="318"></p>
 <p>From the picture, it is easy to convince yourself that any linear combination of two vectors of the plane <span class="math inline">\(\mathbb{R}^2\)</span> is another vector in <span class="math inline">\(\mathbb{R}^2\)</span>, in particular from the l.c. <span class="math inline">\(0\begin{pmatrix} 1\\2\end{pmatrix}+0\begin{pmatrix} 3\\0\end{pmatrix}\)</span> we get the origin. Hence we write:</p>
 <p><span id="eq-span1"><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
+\mathbb{R}^2 = \text{span}\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
 \tag{1}\]</span></span> Another important way to write this set is to identify the form of its elements, the form of its elements is:</p>
 <p><span class="math display">\[
-a(1,2)+b(3,0)
+a\begin{pmatrix} 1\\2\end{pmatrix}+b\begin{pmatrix} 3\\0\end{pmatrix}
 \]</span></p>
-<p>or written more compactly <span class="math inline">\((a+3b,2a)\)</span>; the set of this elements is</p>
+<p>or written more compactly <span class="math inline">\(\begin{pmatrix} a+3b\\2a\end{pmatrix}\)</span>. The set of this elements is</p>
 <p><span class="math display">\[
-\{(a+3b,2a)\,\,|\,\,a,b\in\mathbb{R}\}=\mathbb{R}^2
+\overbrace{\left[\text{all l.c. of $\begin{pmatrix} 1\\2\end{pmatrix}$ and $\begin{pmatrix} 3\\0\end{pmatrix}$ }\right]}^\text{in english} = \overbrace{\text{span}\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}=\{\begin{pmatrix} a+3b\\2a\end{pmatrix}\,\,|\,\,a,b\in\mathbb{R}\}}^\text{in math, two ways of saying the same thing}=:\overbrace{\mathbb{R}^2}^\text{nick name}
 \]</span></p>
-<p>The idea of a set of things (in this case column vectors) where any l.c. of its elements gives us again an element of the set (we say the set is closed under l.c.) is very important and will appear countless times in this course. Hence we give it a special name: vector space.</p>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Consider the vector spaces <span class="math inline">\(\text{span}\{\begin{pmatrix} -3\\2\end{pmatrix},\begin{pmatrix} 4\\-1\end{pmatrix}\}\)</span> and <span class="math inline">\(\text{span}\{2\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 2\\1\end{pmatrix}\}\)</span>. Fill the blank space <span class="math inline">\(\{\_\_\_\_\_ \,\,|\,\, a,b\in\mathbb{R}\}\)</span>.</li>
+<li>Now lets do the other way around and from the two forms of the elements <span class="math inline">\(\begin{pmatrix} a-b\\a+b\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 3b\\-a+3b\end{pmatrix}\)</span> write the corresponding vector spaces as <span class="math inline">\(\text{span}\{\_\_\_, \_\_\_\}\)</span>.</li>
+</ol>
+</div>
+</div>
+<p>The idea of a set of things (in this case column vectors) where any l.c. of its elements gives us again an element of the set (we say the set is closed under l.c.) is very important and will appear countless times in this course (note that there are sets where this does not happen, see ….). Hence we give it a special name: <em>vector space</em>.</p>
 <div id="def-vector_space" class="theorem definition" style="color:gray">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> [Vector space] := a set of vectors with the property of being closed under linear combinations</p>
 </div>
 <p><span class="math inline">\(\mathbb{R}^2\)</span> is a vector space.</p>
-<p>Notice the same space comes about if we consider <span class="math inline">\(\begin{pmatrix} 1\\0\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 0\\1\end{pmatrix}\)</span> as our starting vectors. More, any other pair of vectors of <span class="math inline">\(\mathbb{R}^2\)</span> that point in distinct directions, do the job. Hence we write</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are sets which are not closed under linear combinations, see example below</p>
+</div>
+</div>
+<p>Notice the space <span class="math inline">\(\mathbb{R}^2\)</span> comes about if we consider <span class="math inline">\(\begin{pmatrix} 1\\0\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 0\\1\end{pmatrix}\)</span> as our starting vectors. More, any other pair of vectors of <span class="math inline">\(\mathbb{R}^2\)</span> that point in distinct directions do the job. Hence we write</p>
 <p><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\} = span\{\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 0\\1\end{pmatrix}\}=\dots
+\mathbb{R}^2 = \text{span}\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\} = \text{span}\{\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 0\\1\end{pmatrix}\}=\cdots
 \]</span></p>
-<p>The form of elements of <span class="math inline">\(\mathbb{R}^2\)</span> appears in many way, either <span class="math inline">\((a+3b,2a)\)</span> or <span class="math inline">\((a,b)\)</span>, etc, depending on our choice of vectors to span.</p>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Provide another example of vectors <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> such that:</p>
+<p><span class="math display">\[
+\mathbb{R}^2=\text{span}\{\mathbf{u},\mathbf{v}\}
+\]</span></p>
+<ol type="1">
+<li>Draw this pair of vectors.</li>
+<li>Write the form of the elements of <span class="math inline">\(\mathbb{R}^2\)</span>.</li>
+<li>Why are there so many forms for the elements of <span class="math inline">\(\mathbb{R}^2\)</span>.</li>
+<li>Use the picture above and check <span class="math inline">\(\begin{pmatrix} 1\\1\end{pmatrix}\in \mathbb{R}^2\)</span> is true.</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="example-2" class="level2">
 <h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
@@ -497,10 +553,10 @@ Video
 <p><img src="figs/subspace_is_a_line.png" class="img-fluid" width="243"></p>
 <p>From the picture, it is easy to convince yourself that any linear combination of two (or more) vectors of the line gives us another vector in the line.</p>
 <p><span id="eq-line_subspace"><span class="math display">\[
-\textbf{line} = span\{\begin{pmatrix}1\\2 \end{pmatrix}\}=\{(a,2a)\,\,|\,\, a\in\mathbb{R}\}
+\overbrace{\textbf{line}}^\text{nick name} = \overbrace{\text{span}\{\begin{pmatrix}1\\2 \end{pmatrix}\}=\{(a,2a)\,\,|\,\, a\in\mathbb{R}\}}^\text{in math, two ways of saying the same thing}
 \tag{2}\]</span></span></p>
 <p>In particular if you multiply any of its vectors by <span class="math inline">\(0\)</span>, we get the origin <span class="math inline">\(\begin{pmatrix} 0\\0\end{pmatrix}\)</span>. Thus the line we are referring passes through the origin and we can say <span class="math inline">\(\mathbf{0} \in \textbf{line}\)</span>.</p>
-<p>Once again, the line is a set closed under l.c., which means it is a vector space.</p>
+<p>Once again, since the line is a set closed under l.c., it is a vector space.</p>
 <p>Additionally, notice that the line lives inside the plane <span class="math inline">\(\mathbb{R}^2\)</span>, because of that we say it is a subspace of <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
 <div id="def-subspace" class="theorem definition" style="color:gray">
 <p><span class="theorem-title"><strong>Definition 2</strong></span> [subspace (of a vector space <span class="math inline">\(A\)</span>)] := a vector space which is a subset of <span class="math inline">\(A\)</span>.</p>
@@ -508,8 +564,31 @@ Video
 </div>
 <p><em>Note that:</em> the same line we see in the picture also results if you consider as your starting vector, the vector <span class="math inline">\(\begin{pmatrix} 2\\4\end{pmatrix}\)</span>, and then multiply it by all possible numbers (i.e.&nbsp;all l.c. of this vector). Thus this line can be created in many ways:</p>
 <p><span class="math display">\[
-\textbf{line} = span\{\begin{pmatrix}1\\2 \end{pmatrix}\} = span\{\begin{pmatrix}2\\4 \end{pmatrix}\}=\dots
+\textbf{line} = \text{span}\{\begin{pmatrix}1\\2 \end{pmatrix}\} = \text{span}\{\begin{pmatrix}2\\4 \end{pmatrix}\}=\cdots
 \]</span></p>
+<p>And the form of its elements are many, such as: <span class="math inline">\(\begin{pmatrix}a\\2a \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix}2a\\4a \end{pmatrix}\)</span>, <span class="math inline">\(\dots\)</span></p>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Fill the blank spaces using your own example <span class="math inline">\(\mathbf{line}=\text{span}\{\_\_\_\_ \}=\{\_\_\_\,\,|\,\,a\in \mathbb{R}\}\)</span>.</p></li>
+<li><p>Use the picture above to decide which the following statements</p>
+<ul>
+<li><p><span class="math inline">\(\begin{pmatrix}-1\\-2 \end{pmatrix}\in \mathbf{line}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{pmatrix}5\\9 \end{pmatrix}\in \mathbf{line}\)</span></p></li>
+<li><p><span class="math inline">\(-\begin{pmatrix}2\\4 \end{pmatrix}+\begin{pmatrix}-1\\-2 \end{pmatrix}\in \mathbf{line}\)</span></p></li>
+</ul>
+<p>are True or False.</p></li>
+</ol>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -521,17 +600,39 @@ Commentary
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Multiplying a vector by a scalar is just a particular example of a linear combination:</li>
+<li>Multiplying a vector by a scalar like we see in the <strong>line</strong> example is just the linear combination:</li>
 </ul>
 <p><span class="math display">\[ a\begin{pmatrix}1\\2\end{pmatrix}+b\begin{pmatrix}0\\0\end{pmatrix} \]</span></p>
 <ul>
-<li>Any two vectors on the line are parallel, i.e., <span class="math inline">\(u||v\)</span> if they are proportional.</li>
+<li>Any two vectors on the <strong>line</strong> are parallel, i.e., they are proportional. When two vectors <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> are proportional we write <span class="math inline">\(u||v\)</span>. For example <span class="math inline">\(\begin{pmatrix}1\\2 \end{pmatrix}||\begin{pmatrix}2\\4 \end{pmatrix}\)</span>, because <span class="math inline">\(\begin{pmatrix}2\\4 \end{pmatrix}=2\begin{pmatrix}1\\2 \end{pmatrix}\)</span>, that is they are proportional with constant <span class="math inline">\(2\)</span>.</li>
+<li><strong><em>Exercise</em>:</strong> <em>Check pictorially whether</em> <span class="math inline">\(\begin{pmatrix}-1\\2 \end{pmatrix}||\begin{pmatrix}5\\-10 \end{pmatrix}\)</span> <em>and</em> <span class="math inline">\(\begin{pmatrix}1\\1 \end{pmatrix}||\begin{pmatrix}1\\2 \end{pmatrix}\)</span> <em>are true or false statements.</em></li>
 </ul>
 </div>
 </div>
 </section>
 <section id="example-3" class="level2">
 <h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
+<p><img src="figs/another_vector_space.png" class="img-fluid" width="307"></p>
+<p>In this example we have show to subspaces of <span class="math inline">\(\mathbb{R}^2\)</span>, the one seen in example 2:</p>
+<p><span class="math display">\[
+\textbf{line 1} = \text{span}\{\begin{pmatrix}1\\2 \end{pmatrix}\}
+\]</span></p>
+<p>and now another subspace:</p>
+<p><span class="math display">\[
+\textbf{line 2} = \text{span}\{\begin{pmatrix}-1/2\\2 \end{pmatrix}\}
+\]</span></p>
+<p>The origin <span class="math inline">\(\begin{pmatrix}0\\0 \end{pmatrix}\)</span> belong to both spaces and is the only vector which is common!</p>
+<p>An important observation is that by picking one vector of line 1 and another from line 2 we can reach any vector of <span class="math inline">\(\mathbb{R}^2\)</span>, for example the yellow vector is a result of combining the white and pick vectors</p>
+<p><img src="figs/ex_direct_sum.png" class="img-fluid" width="272"></p>
+<p>Thus:</p>
+<p><span class="math display">\[
+\textbf{yellow} = \textbf{white} + \textbf{pink}
+\]</span></p>
+<p>There not another combination of vectors living in <strong>line 1</strong> and <strong>line 2</strong> that yield the <strong>yellow</strong> vector, the combination is unique!</p>
+<p>We can now see that any vector in <span class="math inline">\(\mathbb{R}^2\)</span> can be written, uniquely, as a linear combination of a vector picked from <strong>line 1</strong> and another from <strong>line 2</strong>.</p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -547,22 +648,23 @@ Video
 </div>
 <p>Consider the vectors <span class="math inline">\((1,2,0)^\intercal\)</span> and <span class="math inline">\((1,0,1)^\intercal\)</span> and <span class="math inline">\((0,0,1)^\intercal\)</span>. Linear combine them with every scalar and you obtain a set of vectors. All these vectors fill the three dimensional space <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
 <p><img src="figs/R3_space.png" class="img-fluid" width="468"></p>
-<p>In special notation we have:</p>
+<p>In math notation we write:</p>
 <p><span class="math display">\[
-\mathbb{R}^3 = span\{(1,2,0)^\intercal,(1,0,1)^\intercal,(0,0,1)^\intercal\}
-\]</span>From the picture here can identify some subspaces of <span class="math inline">\(\mathbb{R}^3\)</span>, we also write the equation that describes them, take them as facts for now, later, when we introduce matrices we justify them.</p>
-<p><span class="math display">\[
-[\textbf{pink-blue plane}] = span\{(1,2,0), (0,0,1)\}=\{(a,2a,b)\,\,|\,\,a,b\in\mathbb{R}\}
-\]</span></p>
-<p><span class="math display">\[
-[\textbf{xy plane}] = span \{(1,0,0),(0,1,0\}=\{(a,b,0)\,\,|\,\,a,b\in\mathbb{R}\}
-\]</span></p>
-<p><span class="math display">\[
-[\textbf{yellow line}] = span \{(1,0,1)\}=\{(a,0,a)\,\,|\,\, a\in\mathbb{R}\}
-\]</span></p>
+\mathbb{R}^3 = \text{span}\{(1,2,0)^\intercal,(1,0,1)^\intercal,(0,0,1)^\intercal\}
+\]</span>From the picture we can identify some subspaces of <span class="math inline">\(\mathbb{R}^3\)</span>:</p>
+<p><span id="eq-1"><span class="math display">\[
+[\textbf{pink-blue plane}] = \text{span}\{(1,2,0)^\intercal, (0,0,1)^\intercal\}=\{(a,2a,b)^\intercal\,\,|\,\,a,b\in\mathbb{R}\}
+\tag{3}\]</span></span></p>
+<p><span id="eq-2"><span class="math display">\[
+[\textbf{xy plane}] = \text{span} \{(1,0,0)^\intercal,(0,1,0)^\intercal\}=\{(a,b,0)^\intercal\,\,|\,\,a,b\in\mathbb{R}\}
+\tag{4}\]</span></span></p>
+<p><span id="eq-3"><span class="math display">\[
+[\textbf{yellow line}] = \text{span} \{(1,0,1)^\intercal\}=\{(a,0,a)^\intercal\,\,|\,\, a\in\mathbb{R}\}
+\tag{5}\]</span></span></p>
+<p>Two important observation regarding these subspaces:</p>
 <p><em>Observation 1:</em> The vector space <span class="math inline">\(\mathbb{R}^3\)</span> results from summing vectors from the <strong>x0y plane</strong> and <strong>z axis</strong> subspaces. Thus any vector in <span class="math inline">\(\mathbb{R}^3\)</span> can be written as a sum of a vector from the first plus one of the second. We have special notation for this:</p>
 <div id="def-oplus" class="theorem definition" style="color:gray">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> Assume we have two subspaces <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> of <span class="math inline">\(\mathbb{R}^3\)</span> (eg. the xoy plane and z axis) where the only common element is the origin <span class="math inline">\(\mathbf{0}\)</span>. Then any vector <span class="math inline">\(\mathbf{r}\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span> can be written by some appropriate sum of <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{w}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Assume we have two subspaces <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> of <span class="math inline">\(\mathbb{R}^3\)</span> (eg. the x0y plane and z axis) where the only common element is the origin <span class="math inline">\(\mathbf{0}\)</span>. Then any vector <span class="math inline">\(\mathbf{r}\)</span> in <span class="math inline">\(\mathbb{R}^3\)</span> can be written by some appropriate sum of <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{w}\)</span>:</p>
 <p><span class="math display">\[
 \mathbf{r} = \mathbf{u}+\mathbf{w}
 \]</span></p>
@@ -572,22 +674,55 @@ Video
 \]</span></p>
 <p>The nick-name of this set is: <span class="math inline">\(U\oplus V\)</span>. The direct sum. Reading <span class="math inline">\(\mathbb{R}^3=U\oplus V\)</span> from right to left we see what we said above; reading from left to right we see the space being decomposed in subspaces, clearly this can be done in many ways:</p>
 <p><span class="math display">\[
-\mathbb{R}^3 = [\textbf{xy plane}] \oplus [\textbf{0z line}] = [\textbf{yellow line}]\oplus [\textbf{plane perpendicular to yellow line}]=\dots
+\mathbb{R}^3 = [\textbf{xy plane}] \oplus [\textbf{0z line}] = [\textbf{yellow line}]\oplus [\textbf{plane perpendicular to yellow line}]=\cdots
+\]</span></p>
+<p>In particular the example 3 we could have written:</p>
+<p><span class="math display">\[
+\mathbb{R}^2= \textbf{line 1} \oplus \textbf{line 2}
 \]</span></p>
 </div>
 <p><em>Observation 2:</em> Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two (non parallel) planes containing the yellow-line, then the intersection of both yields the yellow line:</p>
 <p><span class="math display">\[
-[\textbf{yellow-line}] = A \cap B
+[\textbf{yellow line}] = A \cap B
 \]</span></p>
 <p>This is important because it tells us that interception of vectors spaces yields new vector spaces.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Commentary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As we’ll see later, the interception of two planes is the geometric view of a system with two equations.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Observe the vector <span class="math inline">\(\begin{pmatrix} 0\\0\\1\end{pmatrix}\)</span> in the picture above.</p>
+<p>Does the <strong>z-axis</strong> constitute a vector space?</p>
+<p>Does the positive <strong>z-axis</strong> constitute a vector space?</p>
+<p>Fill the blank: <span class="math inline">\(\mathbb{R}^3 = \_\_\_ \oplus \textbf{z-axis}\)</span>.</p>
+</div>
+</div>
 </section>
-<section id="example-4" class="level2">
-<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example 5</h2>
 <p>Consider the vectors <span class="math inline">\(\begin{pmatrix} 1\\2\end{pmatrix}\)</span> , <span class="math inline">\(\begin{pmatrix} 3\\0\end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} 0\\1\end{pmatrix}\)</span>. All linear combinations of these three vectors always yield a vector in <span class="math inline">\(\mathbb{R}^2\)</span>, a two-dimensional vector space and not three-dimensional!</p>
 <p><img src="figs/three_vectors_R2.png" class="img-fluid" width="201"></p>
 <p>Notice one of the three vectors is redundant.</p>
 <p><span class="math display">\[
-\mathbb{R}^2 = span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix},\begin{pmatrix} 0\\3\end{pmatrix}\}=span\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
+\mathbb{R}^2 = \text{span}\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix},\begin{pmatrix} 0\\3\end{pmatrix}\}=\text{span}\{\begin{pmatrix} 1\\2\end{pmatrix},\begin{pmatrix} 3\\0\end{pmatrix}\}
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -600,6 +735,24 @@ Commentary
 </div>
 <div class="callout-body-container callout-body">
 <p>In general a vector space <span class="math inline">\(\mathbb{V}\)</span> is a set of things with which remains invariant under linear combinations. Those things are what we call vectors. A vector is simply a member of this set. An array of numbers, like a column vector, is such an example; matrices, functions are other examples as we’ll see later.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The vector space <span class="math inline">\(\mathbb{R}^3\)</span> is equal to?</p>
+<ul>
+<li><p><span class="math inline">\(A=\text{span}\{\begin{pmatrix}2\\0\\0\end{pmatrix},\begin{pmatrix}1\\2\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\end{pmatrix}\}\)</span></p></li>
+<li><p><span class="math inline">\(B=\text{span}\{\begin{pmatrix}2\\0\\0\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}1\\2\\0\end{pmatrix},\begin{pmatrix}-3\\1\\0\end{pmatrix}\}\)</span></p></li>
+<li><p><span class="math inline">\(C=\text{span}\{\begin{pmatrix}1\\0\\0\end{pmatrix},\begin{pmatrix}0\\1\\0\end{pmatrix},\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}0\\0\\2\end{pmatrix},\begin{pmatrix}1\\0\\1\end{pmatrix}\}\)</span></p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -620,26 +773,35 @@ Video
 </div>
 <section id="example-3-cont" class="level2">
 <h2 class="anchored" data-anchor-id="example-3-cont">Example 3 (cont)</h2>
-<p>From the pictures above we deduced what vectors we need to span to generate that space and from this choice we identified the form of the elements. Now lets assume we are given some form of the vectors, how do we know they constitute a vector space?</p>
-<p>Whether they do or do not form one is a matter of checking the definition of space, recall that a space is a collection of things which remain invariant under l.c.</p>
-<p>To see this concretely, consider <strong>pink-blue plane</strong>:</p>
-<p><span class="math display">\[
+<p><a href="#eq-1" class="quarto-xref">Equation&nbsp;3</a>, <a href="#eq-2" class="quarto-xref">Equation&nbsp;4</a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;5</a> constitute vector spaces because the picture says so. These three equations just express the vector spaces we observed. Imagine, now, we did not have the picture, and our starting point are <a href="#eq-1" class="quarto-xref">Equation&nbsp;3</a>, <a href="#eq-2" class="quarto-xref">Equation&nbsp;4</a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;5</a>; how would we know they constitute vector spaces?</p>
+<p>Whether they do or do not form vector spaces is a matter of checking the definition of space and apply it to the three equations. Recall the definition: a space is a collection of things which remain invariant under l.c. Lets apply this to <a href="#eq-1" class="quarto-xref">Equation&nbsp;3</a>, the <strong>pink-blue plane</strong>. Starting from</p>
+<p><span id="eq-5"><span class="math display">\[
 \{(a,2a,b)^\intercal\,\,|\,\, a,b\in\mathbb{R}\}
-\]</span></p>
-<p>Is it a vector space?</p>
-<p>Let <span class="math inline">\((a_1,2a_1,b_1)\)</span> and <span class="math inline">\((a_2,2a_2,b_2)\)</span> be two generic vectors of the set, now take a generic l.c. <span class="math inline">\(\alpha(a_1,2a_1,b_1)+\beta(a_2,2a_2,b_2)\)</span>. Is this again an element of that set? If it is, it must have the form <span class="math inline">\((a,2a,b)\)</span>. Lets check if this is true:</p>
+\tag{6}\]</span></span></p>
+<p>and without the picture, how would we know this set of <span class="math inline">\((a,2a,b)^\intercal\)</span> constitute a vector space?</p>
+<p>Lets check whether a l.c. of two arbitrary elements of this set is also an element of the set. Hence pick the elements <span class="math inline">\((a_1,2a_1,b_1)\)</span> and <span class="math inline">\((a_2,2a_2,b_2)\)</span>, these two elements are arbitrary because the numbers <span class="math inline">\(a_1\)</span> and <span class="math inline">\(a_2\)</span> are arbitrary. Now take a generic l.c.</p>
+<p><span id="eq-4"><span class="math display">\[
+\alpha(a_1,2a_1,b_1)+\beta(a_2,2a_2,b_2)
+\tag{7}\]</span></span></p>
+<p>It is arbitrary, because the numbers <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are also arbitrary, just like the <span class="math inline">\(a_1\)</span> and <span class="math inline">\(a_2\)</span> are.</p>
+<p>Is <a href="#eq-4" class="quarto-xref">Equation&nbsp;7</a> an element of that set <a href="#eq-5" class="quarto-xref">Equation&nbsp;6</a>? If it is, <a href="#eq-4" class="quarto-xref">Equation&nbsp;7</a> must have the form <span class="math inline">\((a,2a,b)\)</span>. Lets check this:</p>
 <p><span class="math display">\[
 \alpha(a_1,2a_1,b_1)+\beta(a_2,2a_2,b_2) = (\alpha a_1+\beta a_2,2(\alpha a_1 +\beta a_2),\alpha b_1+\beta b_2) = (\spadesuit,2\spadesuit,\clubsuit)
 \]</span></p>
-<p>It has.</p>
+<p>It has!</p>
 <p>Because, the chosen elements and the l.c. were arbitrary we can conclude that this set is closed under l.c. and therefore constitute a vector space.</p>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exr-test_yourself" class="theorem exercise" style="color:gray">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> <em>Solve 1.1 &gt; 3:</em> If a span of <span class="math inline">\(3v\)</span>, <span class="math inline">\((2,-1)\)</span> and <span class="math inline">\(1/2(-2,4)\)</span> what can you say?</p>
-<p><em>Solve 1.1 &gt; 4 &gt; (e)</em> Same question.</p>
-<p>Solve 1.4 &gt; 1</p>
+<div class="callout callout-style-simple callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the same strategy as above to check that <a href="#eq-2" class="quarto-xref">Equation&nbsp;4</a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;5</a> are indeed vector spaces.</p>
+</div>
 </div>
 
 
@@ -648,239 +810,242 @@ Video
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -888,185 +1053,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./linear_combinations.html" class="pagination-link" aria-label="Linear Combinations">
