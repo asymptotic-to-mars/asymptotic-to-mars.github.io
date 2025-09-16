@@ -1,0 +1,109 @@
+---
+title: "Sec 14.1"
+---
+
+# Functions of two variables
+
+## **(792)1st and 2nd paragraphs: Examples and motivation:**
+
+-   \[Volume of a cylinder\]= $V=f(h,r)=\pi r^2h$
+
+-   \[Distance between the origin and $(x,y)$\] = $d(x,y)=\sqrt{x^2+y^2}$
+
+-   \[Area of a rectangle\]=$A(x,y)=xy$
+
+-   \[Perimeter\]=$P(x,y)=2(x+y)$
+
+-   \[Temperature of ig\]=$k\frac{T}{V}$
+
+-   \[Surface temperature\]=$T=f(x,y)$ collected in a table
+
+-   \[Gravitational force\]=$F(x,y,z)=\frac{GmM}{x^2+y^2+z^2}$
+
+All these formulas model (mathematical approximation of the actually measured relation) relations of $2$ or $3$ inputs and $1$ output and are thus called functions. The formulas allow us to make predictions.
+
+## **Definition and 3rd paragraph:** What is a function?
+
+A single variable function has a single input usually called $x$, it is a special set of ordered pair:
+
+$$ \{(x,y)\in X \times Y\,\,|\,\,y=f(x)\}=:F $$
+
+where $f(x)$ abbreviates some procedure (sequence of steps) that acts on the variable $x$ and returns a single number. To see this concretely, consider for example $f(x):=x^2$ versus $f(x):=[\text{solution $z$ of $x=z^2$}]$. Using the procedure notation we have:
+
+$$ \begin{align} f:X &\to Y\\ x &\mapsto f(x) \end{align} $$
+
+which allow us to construct the set $F$. Schematically we have:
+
+This schemes are equivalent to tables.
+
+The domain is $X$ the codomain is $Y$.
+
+A function of two variables, has two or more inputs:
+
+$$ G:=\{(x,y,z)\in X\times Y\times Z\,\,|\,\, z=f(x,y)\}\qquad H:=\{(x_1,x_2,..,x_n,x_{n+1})\in X_1\times..\times X_{n+1}\,\,|\,\, x_{n+1}=f(x_1,x_2,..,x_n)\} $$
+
+On the first, the order pair $(x,y,z)$ connects the chosen $x,y$ with a $z$. On the second we see the $(n+1)-tuple$ $(x_1,x_2,..,x_n,x_{n+1})$ connecting the $n$ inputs $x_1,x_2,..,x_n$ with the output $x_{n+1}$. Using the procedure representations we have:
+
+$$ \begin{align} g:X\times Y &\to Z\\(x,y) &\mapsto g(x,y)\end{align} $$
+
+and
+
+$$ \begin{align} h:X\times..\times X_n &\to X_{n+1}\\(x_1,..,x_n) &\mapsto h(x_1,..,x_n)\end{align} $$
+
+Schematically we have these two diagrams:
+
+Once again, these schemes are equivalent to tables.
+
+**Skip:** example 3
+
+From the pictures we see that:
+
+$$ D_g=X\times Y \qquad D_h=X_1\times X_2 \times ..\times X_n $$
+
+It is good to understand the different perspectives on how a function can be state.
+
+There are other ways in which functions can be introduced, namely, implicit in equations (eg. $y-f(x)=0$ just has seen above) or differential equation.
+
+## **4th to 7th paragraph: Domain and codomain of a function**
+
+Domain and codomains are defined when we introduce functions, but many times, our starting point is the procedure. What domains $X$ and codomains $Y$ can be defined for a given procedure? What is the largest sets it supports? Amid this concepts, what is the so called range of a function?
+
+### Example 1:
+
+Given the procedure $xy$ which we denote by $f(x,y)$, what sets serve as inputs? The multiplication does not offer any resistance to the choice of numbers $x$ and $y$ thus, they can be any real. The largest domain this procedure supports is $\mathbb{R}^2$; any subset serves as the domain aswell.
+
+![](figs/xy_graph.png){width="368"}
+
+From the picture, the range range is $\mathbb{R}$.
+
+### Example 2:
+
+The procedure $P(T,V):=k\frac{T}{V}$ can not be realized when we pick $V=0$, thus we must the largest domain for this $P$ is $\mathbb{R}\times (\mathbb{R}\backslash \{0\})$, this is the mathematical domain. However, physical observations, impose further constraints, for example the temperature is always above zero and so is the volume. Thus the set $\mathbb{R}^+\times\mathbb{R}^+$ is the physical domain.
+
+![](figs/ig_law_graph.png){width="369"}
+
+The range is $\mathbb{R}^+$.
+
+### Example 3:
+
+The distance formula $d(x,y):=\sqrt{x^2+y^2}$ accepts any real! Its domain is $\mathbb{R}^2$.
+
+![](figs/distance_graph.png){width="387"}
+
+The range is $[0,\infty)$.
+
+A slight modification, changes possibles domains: $\sqrt{x^2+y^2-1}$; we require $(x,y)'s$ that guarantee $x^2+y^2\geq 1$.
+
+![](figs/almost_distance_formula_graph.png){width="381"}
+
+The range is, again, $[0,\infty)$.
+
+Exercise: What about $\sqrt{r^2-x^2+y^2}$?
+
+::: callout-important
+## Hint
+
+The range of a function is usually one of the hardest information to gather from a function, because we need to have a pretty good picture of how it behaves. Hence we push to last.
+
+A good trick to follow, is to know, before hand, the graph of some basic 1D functions, and use that as an inspiration for our graph of our two and more input functions.
+:::

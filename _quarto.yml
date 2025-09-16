@@ -4,7 +4,7 @@ project:
 
 website:
   title: "asymptotic to MARS"
-  navbar:
+  navbar: 
 
     left:
       - href: index.qmd
@@ -103,8 +103,9 @@ website:
             
           - href: eigen.qmd
             text: "Eigenvalues and eigenvectors"
-        
-  
+
+
+
   page-navigation: true
 
 format:
@@ -123,4 +124,8 @@ editor: visual
 
 comments: 
   hypothesis: true
+  
+preview:
+  browser: chrome   # or "firefox"
+  
 

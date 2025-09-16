@@ -16,7 +16,145 @@ Up to now, we learned a more practical part of the course:
 
 It always *how to compute*. Now we enter a more conceptual part of the course and organize ideas.
 
-# Structure of a vector space
+# The concept of a vector space
+
+*Suspend what you know:* We have been speaking about a vector space as being closed under linear combinations. However if we stop to think about it, we can only compute a linear combination provided we know how to multiply vectors by numbers and how to add vectors, see below:
+
+$$
+\overbrace{\alpha u}^\text{number times a vector} + \overbrace{\beta v}^\text{number times a vector}=\underbrace{u'+v'}_\text{sum of vectors}
+$$
+
+For the moment we will consider these two operations in separate and also for the moment suspend how they are done in practice, thus, when we think about:
+
+$$
+(1,3)+(4,7)=?\qquad 10(2,5)=?
+$$
+
+We do not know how to do these operations.
+
+Now lets return to the idea of a vector space.
+
+*Today:* A set of things is just a list. Let us label those things as
+
+$$
+\mathbb{V}=\{v_1,v_2,\dots,v_n\}
+$$
+
+What can we do with the things in this set?
+
+We can define a map, a map is a rule or sequence of operations that tell me how to assigns to each pair of elements in $\mathbb{V}$ a new element in $\mathbb{V}$. Right now, we are not thinking about a specific map, you can even imagine (if it helps you) that aliens choose the map, but did not told us what it is (except for that fact that they chose one.)
+
+Another kind of map they decide to introduce, for which we do not know yet how it operates consists in assigning to each pairing of a real number and an element of $\mathbb{V}$, another element of $\mathbb{V}$.
+
+The notion of map as we just described in words is described in mathematical notation as:
+
+$$
+\begin{align}
++ : \mathbb{V}\times\mathbb{V} &\longrightarrow\mathbb{V}\\
+(u,v)&\longmapsto u\tilde{+}v
+\end{align}
+$$
+
+and
+
+$$
+\begin{align}\cdot : \mathbb{R}\times\mathbb{V} &\longrightarrow\mathbb{V}\\(\alpha,v)&\longmapsto \alpha\cdot v\end{align}
+$$
+
+The $u+v$ is the symbol for the element in $\mathbb{V}$ that corresponds to the pair $(u,v)$. And $\alpha\cdot v$ is the symbol for the element assigned to $(\alpha,v)$.
+
+Now they disclose to us a few properties that their maps have:
+
+-   Commutative: $u+v=v+u$. \[*You can flip the order*\]
+
+-   Associative: $(u+v)+w=u+(v+w)$. \[*You can shift the brackets*\]
+
+-   Neutral element: There is a neutral element wrt to $+$: There is an element in $\mathbf{V}$, call it $o$ so that for all $u\in \mathbb{V}$ we find $u+o=u$. \[*This is not* $0$ *from the real numbers, it is the zero of* $\mathbb{V}$*. To avoid confusion you can call* $o$ *as circle rather than zero.*\]
+
+-   Inverse element: For every element $u$ there an element, which we denote by $-u$, that guarantees $u+(-u)=o$. \[ $u-v$ is just a short notation for $u+(-v)$\]
+
+The next list of rules describe how the operations $+$ and $\cdot$ interact when both present in a calculation, two of this rules are distributive rules:
+
+-   Associative: $\alpha(\beta u)=(\alpha\beta)v$
+
+-   Distributive I: $(\alpha+\beta)u = \alpha u +\beta u$
+
+-   Distributive II: $\alpha (u +v) = \alpha u + \alpha v$
+
+-   Unitary: $1 u = u$
+
+We do not know specifically how the assignments are made, the only thing we know is: whatever they are, they obey the rules above.
+
+A vector space is a triplet $(\mathbb{V},+,\cdot)$
+
+Its like describing someone: you can list all its characteristics, or just list the essential one. Here essential depends for what the description is useful for.
+
+::: callout-note
+## Commentary
+
+Why is maps and these rules? Because on them fit many useful maps in practice.
+
+These rules all boil down to $\mathbb{V}$ is closed under l.c. where the l.c. is realized in practice the natural and expected way. The rules above are the rules of common sense for l.c.
+:::
+
+What specific sets and $+$ and $\cdot$ operations fit the profile above? Here are some examples:
+
+## Example 1 of a vector space
+
+The set of all polynomials:
+
+$$
+\mathbb{P}=\{\dots+a_n x^n+a_{n-1} x^{n-1} +\dots +a_1 x +a_0\,\,|\,\, a_i \text{'s are real}\}
+$$
+
+Together with:
+
+$$
+\begin{align}+ : \mathbb{P}\times\mathbb{P} &\longrightarrow\mathbb{V}\\(p,q)&\longmapsto (p+q)(x)=p(x)+q(x)\end{align}
+$$
+
+Here, the $+$ sign between functions $p$ and $q$ manifests in practice as the summation $+$ of real numbers $p(x)$ and $q(x)$.
+
+$$
+\begin{align}\cdot : \mathbb{R}\times\mathbb{P} &\longrightarrow\mathbb{V}\\(\alpha,p)&\longmapsto (\alpha\cdot p)(x):=\alpha\cdot p(x)\end{align}
+$$
+
+The multiplication between a real number and the function $p$ is understood in therms of the multiplication between the real number $\alpha$ and $p(x)$.
+
+All the rules above can be checked for this example.
+
+The natural basis for this vector space is: $\{1,x,x^2,\dots\}$
+
+## Example 2 of a vector space
+
+Consider the set:
+
+$\mathbb{V} = \{(x,y)\,\,|\,\, x,y\in \mathbb{R}\}$
+
+And the maps:
+
+$$
+\begin{align}
++ : \mathbb{V}\times\mathbb{V} &\longrightarrow\mathbb{V}\\
+(\mathbf{u},\mathbf{v})&\longmapsto \mathbf{u}+\mathbf{v} := (u_x,u_y)+(v_x,v_y)=(u_x+v_x,u_y+v_y)
+\end{align}
+$$
+
+and
+
+$$
+\begin{align}\cdot : \mathbb{R}\times\mathbb{V} &\longrightarrow\mathbb{V}\\(\alpha,\mathbf{u})&\longmapsto \alpha\cdot \mathbf{u}:=(\alpha u_x,\alpha u_y)\end{align}
+$$
+
+Once again the summation of vectors is in practice the summation of numbers and the multiplication of a vector by a real number means the multiplication of its entries (real numbers) by the real number $\alpha$.
+
+Notice that when I write $(u_x,u_y)+(v_x,v_y)$ one may wonder what it means, we know it is another element of $\mathbf{V}$, but which one? To answer that we have to tell how the operation $+$ between two elements of $\mathbb{V}$ actually maps. Whatever the way it maps, it must be consistent with the rules defined above. It turn out that to define this $+$ as doing $(u_x+v_x,u_y+v_y)$ (a plus between reals) is a good and useful choice.
+
+The natural choice of basis for this vector space is: $\{(1,0),(0,1)\}$
+
+# Intuitive idea of structure of a vs (Retirar?)
+
+For example let us define the summation and multiplication by a number.
 
 For example take $\mathbb{R}^2$, we know that:
 
@@ -477,3 +615,5 @@ This picture helps us also understand the following better:
 ## Maps involved in matrix multiplication (composition)
 
 ![](figs/matrix%20_product_maps.png)
+
+WHEN IS THER INERVES; EXPLAIN

@@ -1,0 +1,42 @@
+---
+title: "exercises"
+execute:
+  echo: false
+---
+
+Secções:
+
+-   1.1 Espaço vectorial $\mathbb{R}^n$
+
+-   1.2 Dependência linear
+
+-   1.4 Subespaços vectoriais
+
+1.  Sejam os vectores $u=(1,2,3)$, $v=(-2,0,3)$ e $w=(4,4,3)$. Como e que sabemos que $u$, $v$ e $w$ estão no mesmo plano?
+
+2.  \(a\) Qual a forma de todas as combinações lineares de $u=(1,3,5)$ e $v=(-1,2,-1)$? (b) Constituem um subespaço?
+
+    \(c\) Encontra $a$ e $b$ tal que $au+bv=(0,10,8)$. (d) Caso seja $(1,3,9)$, explica porque é que tal é impossível.
+
+3.  O que é que tem de acontecer para que as combinações lineares de $u=(x,y)$ e $w=(a,b)$ preencham um plano?
+
+4.  Que subconjuntos de $\mathbb{R}^3$ são subespaços? (a) Todos os vectores $(x,y,z,t)$ tais que $x=y$ e $z=t$; (b) Todos os vectores com $x=1$; (c) O conjunto de vectores com $xyz=0$; (d) Todos os que satisfazem $(x+1)+y+z=1$; (e) Finalmente, todos com $x\leq y \leq z$.
+
+5.  \(a\) Explica por que é que $\mathbf{B}=((1,2,0)^\intercal, (2,1,2)^\intercal,(3,1,1)^\intercal)$ é uma base de $\mathbb{R}^3$. (b) Encontra as coordenadas de $v=(1,2,3)^\intercal$ relativamente a esta base.
+
+Secções 1.3 Sistemas de equações
+
+1.  \(a\) Classifica o sistema como tendo uma, nenhum ou infinitas soluções em função do número real $k$:
+
+    $$
+    \begin{cases}&x&+ &k y&+&2 z &= 1\\&x&+&y&+&(k+1)z &= k\\&-x&-&y&-&z &=k+1\end{cases}
+    $$
+
+    \(b\) Qual conjunto solução quando $k=1$?
+
+2.  Encontra o ponto com $z=2$ na intercepção dos planos $x+y+3z=6$ e $x-y+z=4$. Depois o ponto com $z=0$. Finalmente encontra o ponto que está entre estes dois.
+
+Secção 2.1 Operações com matrizes
+
+1.  Sejam $A$ e $B$ matrizes quadradas. (a) Quando é que $(A+B)(A-B)=A^2-B^2$?
+2.  

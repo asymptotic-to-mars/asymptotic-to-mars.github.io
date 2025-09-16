@@ -44,10 +44,24 @@ $$
 This l.c. is a new vector of $\mathbb{R}^n$, call it $\mathbf{v}$.
 :::
 
+::: {.callout-caution appearance="simple"}
+## Exercise
+
+Let $\mathbf{a}=\begin{pmatrix} 3\\1\end{pmatrix}$, $\mathbf{b}=\begin{pmatrix} 1\\2\end{pmatrix}$, $\mathbf{c}=\begin{pmatrix} -3\\2\end{pmatrix}$. Compute the vector $\mathbf{v}$ for each case below:
+
+-   $\mathbf{v}=-\begin{pmatrix} 3\\4\end{pmatrix}+2\begin{pmatrix} 1\\1\end{pmatrix}$
+
+-   $\mathbf{v}=\mathbf{a}-2\mathbf{b}+\mathbf{c}$.
+
+-   $-\mathbf{a}+3\mathbf{b}+\mathbf{v}=\mathbf{c}+\mathbf{a}$
+:::
+
 **Geometrical l.c.** : A l.c. is performed geometrically using the parallelogram rule:
 
 ![](figs/adding_vectors_geo.png){width="360"}
 
-::: {#exr-test_yourself style="color: gray"}
-*Solve 1.1.2.c*
+::: {.callout-caution appearance="simple"}
+## Exercise
+
+Draw the vectors $\begin{pmatrix} 3\\4\end{pmatrix}$ and $\begin{pmatrix} 1\\1\end{pmatrix}$. Then compute the vector $-\begin{pmatrix} 3\\4\end{pmatrix}+2\begin{pmatrix} 1\\1\end{pmatrix}$ using the parallelogram rule.
 :::

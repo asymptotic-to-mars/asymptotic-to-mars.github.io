@@ -1,0 +1,496 @@
+---
+title: "Functions of several variables: Domain and Range"
+---
+
+# 1. Representations of functions of several variables
+
+**Examples:**
+
+-   \[Volume of a cylinder\]= $V=f(h,r)=\pi r^2h$
+
+-   \[Distance between the origin and $(x,y)$\] = $d(x,y)=\sqrt{x^2+y^2}$
+
+-   \[Area of a rectangle\]=$A(x,y)=xy$
+
+-   \[Perimeter\]=$P(x,y)=2(x+y)$
+
+-   \[Temperature of ig\]=$k\frac{T}{V}$
+
+-   \[Surface temperature\]=$T=f(x,y)$ collected in a table
+
+-   \[Gravitational force\]=$F(x,y,z)=\frac{GmM}{x^2+y^2+z^2}$
+
+All these formulas model (mathematical approximation of the actually measured relation) relations of $2$ or $3$ inputs and $1$ output and are thus called functions. The formulas allow us to make predictions.
+
+**Recall:** A single variable function has a single input usually called $x$, it is a special set of ordered pair:
+
+$$
+\{(x,y)\in X \times Y\,\,|\,\,y=f(x)\}=:F
+$$
+
+where $f(x)$ abbreviates some procedure (sequence of steps) that acts on the variable $x$ and returns a single number. To see this concretely, consider for example $f(x):=x^2$ versus $f(x):=[\text{solution $z$ of $x=z^2$}]$. Using the procedure notation we have:
+
+$$
+\begin{align}
+f:X &\to Y\\
+x &\mapsto f(x)
+\end{align}
+$$
+
+which allow us to construct the set $F$. Schematically we have:
+
+This schemes are equivalent to tables.
+
+The domain is $X$ the codomain is $Y$.
+
+A function of two variables, has two or more inputs:
+
+$$
+G:=\{(x,y,z)\in X\times Y\times Z\,\,|\,\, z=f(x,y)\}\qquad H:=\{(x_1,x_2,..,x_n,x_{n+1})\in X_1\times..\times X_{n+1}\,\,|\,\, x_{n+1}=f(x_1,x_2,..,x_n)\}
+$$
+
+On the first, the order pair $(x,y,z)$ connects the chosen $x,y$ with a $z$. On the second we see the $(n+1)-tuple$ $(x_1,x_2,..,x_n,x_{n+1})$ connecting the $n$ inputs $x_1,x_2,..,x_n$ with the output $x_{n+1}$. Using the procedure representations we have:
+
+$$
+\begin{align} g:X\times Y &\to Z\\(x,y) &\mapsto g(x,y)\end{align}
+$$
+
+and
+
+$$
+\begin{align} h:X\times..\times X_n &\to X_{n+1}\\(x_1,..,x_n) &\mapsto h(x_1,..,x_n)\end{align}
+$$
+
+Schematically we have these two diagrams:
+
+Once again, these schemes are equivalent to tables.
+
+From the pictures we see that:
+
+$$
+D_g=X\times Y \qquad D_h=X_1\times X_2 \times ..\times X_n
+$$
+
+It is good to understand the different perspectives on how a function can be state.
+
+There are other ways in which functions can be introduced, namely, implicit in equations (eg. $y-f(x)=0$ just has seen above) or differential equation.
+
+## 1.1 Domain, codomain and range of a function
+
+Domain and codomains are defined when we introduce functions, but many times, our starting point is the procedure. What domains $X$ and codomains $Y$ can be defined for a given procedure? What is the largest sets it supports? Amid this concepts, what is the so called range of a function?
+
+### Example 1:
+
+Given the procedure $xy$ which we denote by $f(x,y)$, what sets serve as inputs? The multiplication does not offer any resistance to the choice of numbers $x$ and $y$ thus, they can be any real. The largest domain this procedure supports is $\mathbb{R}^2$; any subset serves as the domain as well.
+
+![](figs/xy_graph.png){width="368"}
+
+From the picture, the range range is $\mathbb{R}$.
+
+### Example 2:
+
+The procedure $P(T,V):=k\frac{T}{V}$ can not be realized when we pick $V=0$, thus we must the largest domain for this $P$ is $\mathbb{R}\times (\mathbb{R}\backslash \{0\})$, this is the mathematical domain. However, physical observations, impose further constraints, for example the temperature is always above zero and so is the volume. Thus the set $\mathbb{R}^+\times\mathbb{R}^+$ is the physical domain.
+
+![](figs/ig_law_graph.png){width="369"}
+
+The range is $\mathbb{R}^+$.
+
+### Example 3:
+
+The distance formula $d(x,y):=\sqrt{x^2+y^2}$ accepts any real! Its domain is $\mathbb{R}^2$.
+
+![](figs/distance_graph.png){width="387"}
+
+The range is $[0,\infty)$.
+
+A slight modification, changes possibles domains: $\sqrt{x^2+y^2-1}$; we require $(x,y)'s$ that guarantee $x^2+y^2\geq 1$.
+
+![](figs/almost_distance_formula_graph.png){width="381"}
+
+The range is, again, $[0,\infty)$.
+
+**Exercises:** What about $\sqrt{r^2-x^2+y^2}$? 10, 15\*, 19\*, 20
+
+::: callout-important
+## Hint
+
+The range of a function is usually one of the hardest information to gather from a function, because we need to have a pretty good picture of how it behaves. Hence we push to last.
+
+A good trick to follow, is to know, before hand, the graph of some basic 1D functions, and use that as an inspiration for our graph of our two and more input functions.
+:::
+
+## 1.2 Zeros of a function (and level curves)
+
+Function vs equation. If we fix the output of a function, there is a relation between the inputs. A very important value to fix is $0$.
+
+The zeros of a function are the set of points in the domain of the function that satisfy the following equation:
+
+$$
+0=f(x,y)
+$$
+
+*In general* we may look for all the points of height $c$, by solving:
+
+$$
+c=f(x,y)
+$$
+
+These statements may or not define functions.
+
+### Example 1:
+
+Given a value $c$ of our choice, the set of points $(x,y)$ that satisfy the equation:
+
+$$
+c=f(x,y) \iff c = x y
+$$
+
+Is a level curve. Each white curve is graphical representation of these sets, for different positive values of $c$. Can you draw the curves for negative values?
+
+![](figs/xy_graph_lvl_curves.png){width="359"}
+
+Given $c>0$, the equation $c=xy$ can be used to define a function, if we think of $x$ as an input and and $y$ as an output then, a curve can be constructed from the procedure $y=\frac{c}{x}$. Remember from high-school the graph of these functions; for $c=1,\frac{3}{2},2,\frac{5}{2},3$:
+
+![](figs/myplot8.svg)
+
+In particular when $c=0$, there are two solution: the vertical line $x=0$ and the horizontal line $y=0$.
+
+### Example 2:
+
+The level curves are the points satisfying $P_0=k\frac{T}{V}$ for a given $P_0$ ($k$ is a constant)
+
+![](figs/ig_law_graph_lvl_curves.png){width="448"}
+
+The function describing these lines is $T=\frac{P_0}{k} V$, where the assumption $V>0$ we made before, carry to our level line.
+
+### Example 3:
+
+![](figs/distance_graph_lvl_curves.png){width="426"}
+
+The level curves of the distance formula obey $\sqrt{x^2+y^2}=r$, since $r$ is positive we can rearrange this equation into:
+
+$$
+x^2+y^2=r^2
+$$
+
+Which is clearly the equation of a circle with radius $r$.
+
+### Example 4:
+
+![](figs/saddle_lvl_curves.png){width="426"}
+
+The level curves obey $z_0=x^2-y^2$, which has two implicit functions, renaming $z_0$ has $c^2$ we have:
+
+$$
++\sqrt{x^2-c^2} \qquad\qquad -\sqrt{x^2-c^2} 
+$$
+
+To draw them graphically we can draw first in terms of $x^2$ and then use that to arrive at:
+
+![](figs/myplot9.svg)
+
+for the positive square-root and $c^2=0,1,2,3$.
+
+## 1.3 Limits and continuity
+
+The limit of a function of several variables hinges on the concept of limit of sequence (train rails!). Consider three examples:
+
+$$
+\begin{equation}
+(x_0,y_0)+\varepsilon(1,m), \qquad (x_0,y_0)+(\varepsilon,\varepsilon^2)
+\end{equation}
+$$
+
+shown is the following picture:
+
+![](figs/sequences_example.png){width="464"}
+
+As $\varepsilon$ gets closer to zero from positive values, our sequence get closer to $(x_0,y_0)$ along the trajectories shown. In particular we may consider $\varepsilon := \frac{1}{n}$.
+
+Notice that the train rails can be expressed in different manners:
+
+$$
+\begin{align}
+&\{(x_0,y_0)+\varepsilon(1,m)\,\,|\,\, \varepsilon \in \mathbb{R}\} = \{(x,y)\in \mathbb{R}^2\,\,|\,\, y = mx\}\\
+&\{(x_0,y_0)+(\varepsilon,\varepsilon^2)\,\,|\,\, \varepsilon \in \mathbb{R}\} = \{(x,y)\in \mathbb{R}^2\,\,|\,\, y = x^2\}
+\end{align}
+$$
+
+Now we can use these sequences as rail tracks for our functions of two variables by writing:
+
+$$
+\begin{cases}
+f(x,y):= \frac{x^2y}{x^4+y^2}\\
+(x,y):= (0,0)+\varepsilon(1,m)
+\end{cases}
+\implies
+g(\varepsilon):=f(\varepsilon,m\varepsilon)=\frac{m\varepsilon}{\varepsilon^2+m^2}
+$$
+
+Equivalently we can write:
+
+$$
+\begin{cases}f(x,y):= \frac{x^2y}{x^4+y^2}\\ y=mx\end{cases}\implies g(x):=f(x,mx)=\frac{mx}{x^2+m^2}
+$$
+
+The points on the line depend on the values of the parameter $\varepsilon$ (or $x$) and in turn their image under the function $f$. The "knob" $\varepsilon$ (or $x$) regulates how close to $(0,0)$ we are evaluating the function $f$.
+
+Given this we can compute the limit of $f$ as it gets closer to $(0,0)$ along the $y=mx$ line:
+
+$$
+\lim_{\varepsilon\to 0^+}\frac{m\varepsilon}{\varepsilon^2+m^2}=0 \qquad \lim_{\varepsilon\to 0^-}\frac{m\varepsilon}{\varepsilon^2+m^2}=0
+$$
+
+or equivalently:
+
+$$
+\lim_{x\to 0^+}\frac{mx}{x^2+m^2}=0 \qquad \lim_{x\to 0^-}\frac{mx}{x^2+m^2}=0
+$$
+
+**Conclusion:** Along any line with slope $m$ the limit exists, with value $0$.
+
+Consider now the quadratic trajectory.
+
+$$
+\begin{cases}
+f(x,y):= \frac{x^2y}{x^4+y^2}\\
+(x,y):= (0,0)+(\varepsilon,\varepsilon^2)
+\end{cases}
+\implies
+g(\varepsilon):=f(\varepsilon,m\varepsilon)=\frac{1}{2}
+$$
+
+Therefore, the limits are $\frac{1}{2}$ regardless whether we approach $(0,0)$ from the positive or negative $\varepsilon$.
+
+**Conclusion:** Along the quadratic curve $y=x^2$ the limit exist and takes the value $\frac{1}{2}$. Notice this value is different from the value $0$ obtain along the lines with slope $m$. This is important! It may happen, as is the case, the distinct ways to approach a point result in different limits.
+
+With this example understood we have a mental picture of the different pieces involved in the the definition of limit of a function, which we will introduce next. But first a preliminary: Assume $f$ is defined at least on some neighborhood of $\mathbf{x}_0$, then:
+
+$$
+\left[\lim_{\mathbf{x}\to\mathbf{x}_0}f(\mathbf{x})=L\right]:=
+\begin{cases}
+\text{whatever path we approach}\\
+\text{the point $\mathbf{x}_0$, the function $f$}\\
+\text{approaches the value $L$.}
+\end{cases}
+$$
+
+The existence of a neighborhood is important because we want to define a sequence that approaches $\mathbf{x}_0$ and can simultaneously serve as input for $f$. The word whatever means, any function we can conceive which approaches $\mathbf{x}_0$ (and living in that neighborhood) must yield the same $L$. Since there is an unlimited supply of function, there is hope to check them all. The definition is useful because it explain the meaning of limit, for example:
+
+$$
+\lim_{(x,y)\to (1,2)}xy=2
+$$
+
+should we understood as the process explained above "*whatever way we approach the point* $(1,2)$*, the function* $xy$ *approaches the value* $2$". Nothing is said about how to evaluate the limit, that is not the point, the point is we understand its meaning.
+
+Despite the previous definition being worthless to compute limits (since we can never test every sequence) it is useful to show, when a limit does not exist! Namely the previous example of the function $\frac{x^2y}{x^4+y^2}$. If we approach the origin by lines we get $0$, if we approach by quadratics we get $\frac{1}{2}$. There is not a unique $L$ whatever the approach, and thus the limit as defined above does not exist (the unique $L$ does not exist).
+
+There is however an equivalent definition of limit which is actually useful to compute limits:
+
+$$
+\left[\lim_{\mathbf{x}\to\mathbf{x}_0}f(\mathbf{x})=L\right]:= \forall\varepsilon>0:\exists \delta>0:\forall \mathbf{x}\in D_f:\left(0<|\mathbf{x}-\mathbf{x}_0|<\delta\implies |f(\mathbf{x})-L|<\varepsilon|\right)
+$$
+
+In other words, this says that for every interval of length $\varepsilon$ (containing $L$), which we want to make as small as we wish, there is an interval (containing $\mathbf{x}_0$) of size $\delta$, (which need not be small, what usually will be)
+
+Here is an example of how to use this idea justify the statement: $\lim_{(x,y)\to(0,0)}x^2-y^2=0$.
+
+An interval of size $\varepsilon$ of our function around $L=0$ is denoted by $|x^2-y^2|<\varepsilon$.
+
+An interval around $(0,0)$ of size $\delta$ is denoted by $0<\sqrt{x^2+y^2}<\delta$.
+
+Goal: For each $|x^2-y^2|<\varepsilon$ we need to explain why is guaranteed that we can find a interval $0<\sqrt{x^2+y^2}<\delta$.
+
+We try to relate both, by making appear in $|x^2-y^2|$ the quantity $\sqrt{x^2+y^2}$.
+
+Notice: $|x^2-y^2|\leq x^2+y^2$.
+
+Reading this inequality we notice that the rhs is at most $\delta^2$.
+
+Given these facts, we explain the limit as follows: if an interval $|x^2-y^2|<\varepsilon$ is fixed by you, then all I have to do is to choose $0<\sqrt{x^2+y^2}<\delta$ that ensures $\delta^2<\varepsilon$. In other words, given any $\varepsilon$ of your choose, all I have to do, is to choose $0<\sqrt{x^2+y^2}<\sqrt{\varepsilon}$.
+
+Alternatively we can use the pinching theorem:
+
+Suppose $f(x,y)$ is defined in some domain containing $(x_0,y_0)$, except, possibly at $(x_0,y_0)$ itself. If there is a function $g(x,y)$ also defined in that domain and such that:
+
+$$
+|f(x,y)|\leq g(x,y)
+$$
+
+and
+
+$$
+\lim_{(x,y)\to (x_0,y_0)}g(x,y)=0
+$$
+
+Then
+
+$$
+\lim_{(x,y)\to(x_0,y_0)}f(x,y)=0
+$$
+
+In the example above, after we establish $|x^2-y^2|\leq \underbrace{x^2+y^2}_{g(x,y)}$. If we can prove $g(x,y)\to 0$ as $(x,y)\to (0,0)$, then we can conclude that $x^2-y^2\to 0$. But since $g(x,y)$ has two variables, we still have to use the limit definition to establish that it goes to zero. If $g(x,y)$ is in fact a function of just one variable, like example 4 p. 807 Stewart 7E, then, we use the high-school strategies to get that limit.
+
+## Continuity
+
+One more definition:
+
+$$
+[\text{$f$ is continuous at $\mathbf{x}_0$}]
+=: \left[\lim_{\mathbf{x}\to\mathbf{x}_0}f(\mathbf{x})=f(\mathbf{x}_0)\right]
+$$ In this course we will not need to check whether a function is or not continuous by evaluating this equality because we cannot compute the limit by testing all sequences, instead we will resort to the the following facts:
+
+-   polynomials are continuous at every point of $\mathbb{R}^n$.
+
+-   rational functions are continuous at their domain (i.e. they are not continuous whenever the denominator is zero, exactly the point outside the domain)
+
+-   Square root function is continuous in its domain $\mathbb{R}^+_0$
+
+-   Trigonometric functions are continuous in $\mathbb{R}$.
+
+-   Logarithmic function are also continuous in their domain $\mathbb{R}^+$.
+
+-   If $g$ is continuous at $\mathbf{x}_0$ and $f$ is continuous at the number $g(\mathbf{x}_0)$, then the composition $f\circ g$ is continuous at $\mathbf{x}_0$.
+
+These fact allow us to argue why a function is continuous at certain points and not on other without ever actually computing the limit above! And, if a function is justified to be continuous (by its functional form) then to compute its limit can be done just by substitution! This is what we expect in the tests and exams, not the proof we seen previously.
+
+# Partial derivatives
+
+Recall: derivatives for single variable
+
+Tabela, procedimento, conjunto
+
+Funções vs equações (conjunto)
+
+Ideia principal: fc \<---\> grafico, para tal requer recolher pistas:
+
+1.  Dom e cd;
+
+2.  Zeros e curvas nível;
+
+3.  Limites e continuidade
+
+4.  Derivadas parciais;
+
+5.  Max e min;
+
+6.  Derivada derigida (não intro o grad de chapa, mas sim como uma abreviatura para calculos bem motivados. Usar a def de diferencial df=Dxf dx + Dyf dy e depois reformular)
+
+# 2. How to compute the domain and range of a function
+
+Passar da def geral de dom para o caso particular e resolver a equação aí metida (daí falar de Funções vs equações acima)
+
+Range requer conhecer melhor a função
+
+# How to compute line equation tangent to a function?
+
+**Perquisites:** Recall that the general equation of a line containing the point $(x_0,y_0)$ is:
+
+$$
+a(x-x_0)+b(y-y_0)=0
+$$
+
+Depending on the parameters $a,b$ we have different lines, for example, if $b=0$ then:
+
+$$
+a(x-x_0)+0(y-y_0)=0 \implies x-x_0=0\implies x=x_0
+$$
+
+this is the equation of a vertical line. If $a=0$ we obtain $y=y_0$, the equation of a horizontal line, if neither parameter is zero, we have an oblique line. As long as $b\not = 0$, rearrange the equation above into:
+
+$$
+y=y_0+m(x-x_0) \qquad m:=-\frac{a}{b}
+$$
+
+**Examples:**
+
+![](figs/myplot10.svg)
+
+-   Blue: which contains the point $(0,0)$ and has slope $m=2$, the equation is $y=2x$,
+
+-   Yellow: same slope as the blue one, but it contains the point $(4,0)$ instead; the equation is $y=2(x-4)$.
+
+-   Green: the equation is $y=1-\frac{1}{2}(x-1)$, thus it contains the point $(1,1)$ and has negative slope $-\frac{1}{2}$. Note this line is perpendicular to the other two.
+
+**Tangent line equation:** As seen, to write the equation of a line, we need to provide concrete values for $(x_0,y_0)$ and $m$. In the examples above, I furnished you those values, wrote the line equation and plotted the result.
+
+Now, if we want instead a line tangent to a the graph of a specific function, the choice of parameters is $(x_0,f(x_0))$ and slope $f'(x_0)$. Thus the equations becomes:
+
+$$
+y=f(x_0)+f'(x_0)(x-x_0)
+$$
+
+**Example:** Consider the function $f(x)=x^2$ and the point $x_0=1$. What is the equation of the tangent line?
+
+1.  Compute the point coordinates $(x_0,f(x_0))$ on this function. The result is $(1,f(1))=(1,1)$. This tells us the $(x_0,y_0)$ in the equation.
+
+2.  Compute the derivative of the function. In this case we find $f'(x)=2x$
+
+3.  Compute the slope of the tangent line. That is $m=f'(1)=2\cdot 1=2$.
+
+4.  Substitute
+
+    $$
+    y=1+2(x-1)
+    $$
+
+5.  Done.
+
+**At what points on the horizontal axis can be used to construct a tangent line?**
+
+Any point of the domain of the function $f$, as long as the derivative $f'$ can be evaluated. For example, in the following picture we have:
+
+![](figs/no_tangent.png)
+
+the functions:
+
+$$
+f(x)=\sqrt{x},\qquad
+g(x)=\begin{cases}1+x^2, &x\geq0\\x^2, &x<0\end{cases},
+\qquad
+h(x)=\frac{1}{x}
+$$
+
+The $f$ function has no tangent line at $(0,f(0))=(0,0)$ because the derivative $\frac{1}{2\sqrt{x}}$ is not defined there (it tends to $\infty$).
+
+For $g$ and $(0,g(0))=(0,1)$, the tangent line is for the upper branch, not the lower one; the point $(x_0,y_0)=(0,0)$ cannot be used since it does not belong to the function.
+
+A singularity of $h$ at $x_0=0$ makes this point outside the domain, hence no tangent line cannot be computed.
+
+# Linear approximation
+
+Consider a function $f(x)=x^2$, the point on that function with $x_0=1$ and the line tangent to this point, whose equation is $y=1+2(x-1)$. Geometrically we have:
+
+![](figs/tangent_line.png){width="500"}
+
+It should be clear to the reader that the quantity $x^2$ and $1+2(x-1)$ live on the vertical axis; for example, when $x=2$, the quantity $2^2$ measures the height between the horizontal axis and the blue parabola, while the quantity $1+2(2-1)$ measures the distance between the horizontal axis and the yellow line.
+
+Observing the graph, we note that these height are similar, as long as our choice of $x$ is nearby $1$. In mathematical language, we write this observation as:
+
+$$
+x^2\approx 1+2(x-1) \qquad (x \approx 1)
+$$
+
+How to use this formula? Imagine we want to compute $1.3^2$. Since $1.3\approx 1$ we can use the formula above, substituting:
+
+$$
+1.3^2\approx 1+ 2(1.3-1) = 1.6
+$$
+
+We conclude that the value of $1.3^2$ is approximately $1.6$. The exact value is in fact $1.3^2=1.69$. It was close!
+
+# Differentials and Increments
+
+Consider, again, the function $f(x)=x^2$, the same point $(x_0,f(x_0))=(1,1)$, the tangent line $y=1+2(x-1)$ and this time an additional point on the horizontal axis which is $h$ units further, i.e., $x=1+h$. Given these ingredients, we shift our focus to computing differences with respect to the chosen points. Geometrically we have the two differences $\Delta f$ and $df$:
+
+![](figs/df_deltaf.png){width="544"}
+
+How do we compute these differences?
+
+-   The *increment of* *the function* $f$ *from* $x_0=1$ *to* $x_0+h$ is $\Delta f = f(1+h)-f(1)=(1+h)^2-1^2$. This is the difference along the function itself.
+
+-   The *differential of the function* $f$ *at* $x_0=1$ *with increment* $h$ is $df = f'(1)h=2\cdot 1^2 h=2h$. This is a difference along the tangent line. Note the $f'(1)h$ also appears on the right hand side of the line equation, $y=f(1)+f'(1)(x-1)$, when we set $x=1+h$.
+
+If $h$ is small, then $\Delta f \approx df$, see the picture above.
+
+We should also say that the real number $h$ is sometimes called the $dx$ the differential of an independent variable.

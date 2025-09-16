@@ -10,10 +10,6 @@ execute:
 [Testing linear independence](https://youtu.be/Lu1zby_EykI){target="_blank"}
 :::
 
-::: {#exr-motivation style="color: gray"}
-*(Motivation exercise) Solve 1.2 \> 1 \> c* with $w=(1,10,3,4)$ instead, then compute $2u-3v+u$. The later gives the zero vector, what can you conclude?
-:::
-
 First lets see what is linear (in)dependence, then how to check it. As we will see throughout the course there are many ways of doing it.
 
 Linear (in)dependence is seen best with examples.
@@ -25,6 +21,16 @@ Linear (in)dependence is seen best with examples.
     One is just twice the other (i.e. proportional). They are dependent because you can create one from the other:
 
     $$ \begin{pmatrix} 2\\4\end{pmatrix} = 2 \begin{pmatrix} 1\\2\end{pmatrix} \qquad\text{or}\qquad \begin{pmatrix} 1\\2\end{pmatrix} = \frac{1}{2} \begin{pmatrix} 2\\4\end{pmatrix} $$
+
+    ::: {.callout-caution appearance="simple"}
+    ## Exercise
+
+    Are the following vectors dependent or independent?
+
+    -   $\begin{pmatrix} 1\\3\end{pmatrix}$ and $\begin{pmatrix} -1\\-3\end{pmatrix}$
+
+    -   $\begin{pmatrix} 2\\3\end{pmatrix}$ and $\begin{pmatrix} 1\\3\end{pmatrix}$
+    :::
 
 -   **Example 2:** More difficult. Consider again the vectors $\begin{pmatrix} 1\\2\end{pmatrix}$, $\begin{pmatrix} 1\\0\end{pmatrix}$ and $\begin{pmatrix} 0\\1\end{pmatrix}$. If you discard the first vector, nothing is lost because through the linear combination of the second and third vectors we can recover it. Here is how:
 
@@ -50,7 +56,7 @@ There two statements in English translates to Mathematical language:
 
 \[$\mathbf{u},\mathbf{v},\mathbf{w}$ are dependent\] := \[there are solutions of $\alpha \mathbf{u} +\beta \mathbf{v} + \gamma \mathbf{w} = \mathbf{0}$ where $\alpha,\beta,\gamma$ need not be $0$\]
 
-\[$\mathbf{w}$ is dependent on $\mathbf{u}$ and $\mathbf{v}$\] := \[$\mathbf{w} = \alpha \mathbf{u} + \beta\mathbf{w}$ for some $\alpha,\beta$\] = \[$\mathbf{w} \in span\{\mathbf{u},\mathbf{v}\}$\]
+\[$\mathbf{w}$ is dependent on $\mathbf{u}$ and $\mathbf{v}$\] := \[$\mathbf{w} = \alpha \mathbf{u} + \beta\mathbf{w}$ for some $\alpha,\beta$\] = \[$\mathbf{w} \in \text{span}\{\mathbf{u},\mathbf{v}\}$\]
 :::
 
 ::: callout-note
@@ -82,46 +88,61 @@ $$
 \end{cases}
 \implies
 \begin{cases}
-\alpha = \beta =0\\
-\alpha =\gamma/2 =0
+\alpha = -\beta\\
+\alpha =-\gamma/2
 \end{cases}
 $$
 
-There are solutions for this system, for example $\gamma=2$, $\alpha=1$ and $\beta= -1$. This shows some of the three vectors can be constructed from the remaining.
+Observing the systems of equations we note that there are solutions for this system, for example $\gamma=2$, $\beta= -1$ and $\alpha=1$. This result shows there are non-zero numbers $\alpha$, $\beta$ and $\gamma$ that combine the three vectors to give the zero vector, that is to say at least one of the three vectors can be constructed from the remaining.
 
 ::: callout-note
 ## Commentary
 
-When the number of vectors in $\mathbb{R}^n$ being spanned is larger than the dimension $n$ of the space, then some are dependent vectors. In the example above, $n=2$ and there are $3$ vectors being spanned.
-:::
-
-::: {#exr-dep_or_indep_list style="color:gray"}
-Solve 1.2 \> 5 \> (d)
+Later we will introduce the concept of *nullspace* of a matrix and we will learn about a more systematic way of checking the (in)dependence of a list of vectors called *the elimination method*. In this section what is important is the concept.
 :::
 
 ## How to check whether a vector depends on two other vectors?
 
-Is $\begin{pmatrix} 1\\2\end{pmatrix}$ dependent on $\begin{pmatrix} 1\\0\end{pmatrix}$ and $\begin{pmatrix} 0\\1\end{pmatrix}$ ? In other words, is it true or false that $\begin{pmatrix} 1\\2\end{pmatrix} \in span \{\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 0\\1\end{pmatrix}\}$
+Is $\begin{pmatrix} 1\\2\end{pmatrix}$ dependent on $\begin{pmatrix} 1\\0\end{pmatrix}$ and $\begin{pmatrix} 0\\1\end{pmatrix}$ ? In other words, is it true or false that $\begin{pmatrix} 1\\2\end{pmatrix} \in \text{span} \{\begin{pmatrix} 1\\0\end{pmatrix},\begin{pmatrix} 0\\1\end{pmatrix}\}$
 
 Using the definition above we seek for solutions of
 
-$$
-\begin{pmatrix} 1\\2\end{pmatrix}=\beta\begin{pmatrix} 1\\0\end{pmatrix}+\gamma\begin{pmatrix} 0\\1\end{pmatrix}
-$$
+$$ \begin{pmatrix} 1\\2\end{pmatrix}=\beta\begin{pmatrix} 1\\0\end{pmatrix}+\gamma\begin{pmatrix} 0\\1\end{pmatrix} $$
 
 (we set $\alpha=-1$)
 
 The solutions are obtained by solving the system:
 
-$$
-\begin{cases}
-1=\beta\\
-2=\gamma
-\end{cases}
-$$
+$$ \begin{cases} 1=\beta\\ 2=\gamma \end{cases} $$
 
 which is immediate! So yes, the vector is dependent.
 
-::: {#exr-test_yourself style="color: gray"}
-*Solve 1.2 \> 3 \> (b), (c);*
+::: {.callout-caution appearance="simple"}
+## Exercise
+
+Find the numbers $\alpha_1$, $\beta_1$, $\alpha_2$, $\beta_2$, $\alpha_3$, $\beta_3$ that satisfy:
+
+-   $\begin{pmatrix} 1\\2\end{pmatrix} =\alpha_1 \begin{pmatrix} 1\\0\end{pmatrix}+\beta_2\begin{pmatrix} 0\\1\end{pmatrix}$
+
+-   $\begin{pmatrix} 1\\0\end{pmatrix}= \alpha_1 \begin{pmatrix} 1\\2\end{pmatrix}+\beta_2\begin{pmatrix} 0\\1\end{pmatrix}$
+
+-   $\begin{pmatrix} 0\\1\end{pmatrix}= \alpha_3 \begin{pmatrix} 1\\2\end{pmatrix}+\beta_3\begin{pmatrix} 1\\0\end{pmatrix}$
+
+Thus confirming that any one of the three vectors can be built from the others. The vectors are thus dependent.
+:::
+
+::: {.callout-caution appearance="simple"}
+## Exercise
+
+Check whether $\begin{pmatrix} 1\\2\end{pmatrix}$, $\begin{pmatrix} 1\\0\end{pmatrix}$ and $\begin{pmatrix} 2\\4\end{pmatrix}$ are dependent and independent.
+
+Try to express each in terms of the remaining.
+
+Draw a picture of the three vectors. What can you conclude?
+:::
+
+::: callout-note
+## Commentary
+
+When the number of vectors in $\mathbb{R}^n$ being spanned is larger than the dimension $n$ of the space, then some are dependent vectors. In the example above, $n=2$ and there are $3$ vectors being spanned.
 :::
