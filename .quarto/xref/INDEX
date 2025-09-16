@@ -77,5 +77,152 @@
   },
   "docs/example_of_pol_division_5.qmd": {
     "example_of_pol_division_5.html": "6a9b6c16"
+  },
+  "functions-introduction.qmd": {
+    "functions-introduction.html": "547efd33"
+  },
+  "examples_of_pol_part_1.qmd": {
+    "examples_of_pol_part_1.html": "a9b801f8"
+  },
+  "examples_of_pol_part_2.qmd": {
+    "examples_of_pol_part_2.html": "107f7489"
+  },
+  "examples_of_pol_part_3.qmd": {
+    "examples_of_pol_part_3.html": "d605176f"
+  },
+  "examples_of_pol_part_4.qmd": {
+    "examples_of_pol_part_4.html": "dea8d729"
+  },
+  "examples_of_pol_part_5.qmd": {
+    "examples_of_pol_part_5.html": "4e690495"
+  },
+  "examples_of_pol_part_2.5.qmd": {
+    "examples_of_pol_part_2.5.html": "ad8f7e9e"
+  },
+  "sol_to_exer_withperequisites.qmd": {
+    "sol_to_exer_withperequisites.html": "4cae2b26"
+  },
+  "docs/sol_to_exer_withperequisites.qmd": {
+    "sol_to_exer_withperequisites.html": "e858572f"
+  },
+  "exer_withperequisites.qmd": {
+    "exer_withperequisites.html": "ce25c591"
+  },
+  "docs/exer_withperequisites.qmd": {
+    "exer_withperequisites.html": "d44d34e1"
+  },
+  "functions_as_relations.qmd": {
+    "functions_as_relations.html": "c0a624a1"
+  },
+  "vector_spaces.qmd": {
+    "vector_spaces.html": "b3e3f19a"
+  },
+  "implicit_derivative.qmd": {
+    "implicit_derivative.html": "5197bee9"
+  },
+  "examples_of_functions.qmd": {
+    "examples_of_functions.html": "56022509"
+  },
+  "qu_131.qmd": {
+    "qu_131.html": "195fafbb"
+  },
+  "docs/question_q_13.qmd": {
+    "question_q_13.html": "1ceff46d"
+  },
+  "docs/qu_131.qmd": {
+    "qu_131.html": "36d9adf1"
+  },
+  "question_q_13.qmd": {
+    "question_q_13.html": "813b8a77"
+  },
+  "change_of_variables.qmd": {
+    "change_of_variables.html": "0f668a1c"
+  },
+  "linear_approximation.qmd": {
+    "linear_approximation.html": "40d66e0f"
+  },
+  "vector_spaces_and_subspaces.qmd": {
+    "vector_spaces_and_subspaces.html": "ddb5e05b"
+  },
+  "linear_combinations.qmd": {
+    "linear_combinations.html": "ffe5d7c6"
+  },
+  "linear_dependence_and_independence.qmd": {
+    "linear_dependence_and_independence.html": "0b71cfb1"
+  },
+  "systems_of_equations.qmd": {
+    "systems_of_equations.html": "02e21627",
+    "systems_of_equations.tex": "e7dd35cd",
+    "systems_of_equations.docx": "2469ff01"
+  },
+  "analysis_of_system.qmd": {
+    "analysis_of_system.html": "a3dd1b3d"
+  },
+  "how_many_solutions.qmd": {
+    "how_many_solutions.html": "0e2126c8"
+  },
+  "inverse_matrix.qmd": {
+    "inverse_matrix.html": "c6d7327a"
+  },
+  "matrix_multiplication.qmd": {
+    "matrix_multiplication.html": "fdcc0617"
+  },
+  "systems_from_a_new_view.qmd": {
+    "systems_from_a_new_view.html": "4c66a96c"
+  },
+  "two_special_subspaces.qmd": {
+    "two_special_subspaces.html": "45861ebb"
+  },
+  "limits_of_sequences.qmd": {
+    "limits_of_sequences.html": "8bccbf71"
+  },
+  "limits_of_functions.qmd": {
+    "limits_of_functions.html": "2fa5e60d"
+  },
+  "basis_of_vector_spaces.qmd": {
+    "basis_of_vector_spaces.html": "fd51925d"
+  },
+  "linear_functions.qmd": {
+    "linear_functions.html": "e9e90b25"
+  },
+  "inner_product.qmd": {
+    "inner_product.html": "09cbfe8c",
+    "inner_product.tex": "50a0201d"
+  },
+  "matrices.qmd": {
+    "matrices.html": "13fca576"
+  },
+  "determinants.qmd": {
+    "determinants.html": "d3d115d8"
+  },
+  "linear_functions_v2.qmd": {
+    "linear_functions_v2.html": "a522affb"
+  },
+  "linear_functions_v3.qmd": {
+    "linear_functions_v3.html": "fb0b8f55"
+  },
+  "linear_functions_v4.qmd": {
+    "linear_functions_v4.html": "57aefc67"
+  },
+  "change_of_basis.qmd": {
+    "change_of_basis.html": "b5568092"
+  },
+  "four_spaces_of_linear_functions.qmd": {
+    "four_spaces_of_linear_functions.html": "079ea82c"
+  },
+  "exercises.qmd": {
+    "exercises.html": "e0c42fca"
+  },
+  "eigen.qmd": {
+    "eigen.html": "23523df6"
+  },
+  "sequences.qmd": {
+    "sequences.html": "e13f8f92"
+  },
+  "functions_of_several_variables_domain_range.qmd": {
+    "functions_of_several_variables_domain_range.html": "6b7ce2a2"
+  },
+  "sec14.1.qmd": {
+    "sec14.1.html": "6b4857af"
   }
 }
